@@ -14,7 +14,7 @@ export class addingRix1620390311551 implements MigrationInterface {
             .execute();
         const cardSetId: number = insertResult.identifiers[0].id;
 
-        await queryRunner.manager.createQueryBuilder().insert().into('card').values([
+        await queryRunner.manager.createQueryBuilder().insert().into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`]).values([
             { cardNumber: 1, cardSet: cardSetId, name: 'Baffling End', rarity: 'U', layout: 'normal' },
             { cardNumber: 2, cardSet: cardSetId, name: 'Bishop of Binding', rarity: 'R', layout: 'normal' },
             { cardNumber: 3, cardSet: cardSetId, name: 'Blazing Hope', rarity: 'U', layout: 'normal' },

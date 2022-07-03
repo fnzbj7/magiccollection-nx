@@ -16,7 +16,7 @@ export class addingMid1631469344595 implements MigrationInterface {
         await queryRunner.manager
             .createQueryBuilder()
             .insert()
-            .into('card')
+            .into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`])
             .values([
                 {
                     cardNumber: 1,

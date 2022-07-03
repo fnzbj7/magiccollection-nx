@@ -14,7 +14,7 @@ const insertResult: InsertResult = await queryRunner.manager
 .execute();
 const cardSetId: number = insertResult.identifiers[0].id;
 
-await queryRunner.manager.createQueryBuilder().insert().into('card').values([
+await queryRunner.manager.createQueryBuilder().insert().into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`]).values([
 { cardNumber: 1, cardSet: cardSetId, name: 'Blade Instructor', rarity: 'C', layout: 'normal'},
 { cardNumber: 2, cardSet: cardSetId, name: 'Bounty Agent', rarity: 'R', layout: 'normal'},
 { cardNumber: 3, cardSet: cardSetId, name: 'Candlelight Vigil', rarity: 'C', layout: 'normal'},

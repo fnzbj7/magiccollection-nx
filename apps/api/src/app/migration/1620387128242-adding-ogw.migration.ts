@@ -14,7 +14,7 @@ export class addingOgw1620387128242 implements MigrationInterface {
             .execute();
         const cardSetId: number = insertResult.identifiers[0].id;
 
-        await queryRunner.manager.createQueryBuilder().insert().into('card').values([
+        await queryRunner.manager.createQueryBuilder().insert().into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`]).values([
             { cardNumber: 1, cardSet: cardSetId, name: 'Deceiver of Form', rarity: 'R', layout: 'normal' },
             { cardNumber: 2, cardSet: cardSetId, name: 'Eldrazi Mimic', rarity: 'R', layout: 'normal' },
             { cardNumber: 3, cardSet: cardSetId, name: 'Endbringer', rarity: 'R', layout: 'normal' },
