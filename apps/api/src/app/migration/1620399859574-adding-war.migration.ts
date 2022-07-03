@@ -14,7 +14,7 @@ export class addingWar1620399859574 implements MigrationInterface {
             .execute();
         const cardSetId: number = insertResult.identifiers[0].id;
 
-        await queryRunner.manager.createQueryBuilder().insert().into('card').values([
+        await queryRunner.manager.createQueryBuilder().insert().into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`]).values([
             { cardNumber: 1, cardSet: cardSetId, name: 'Karn, the Great Creator', rarity: 'R', layout: 'normal' },
             { cardNumber: 2, cardSet: cardSetId, name: 'Ugin, the Ineffable', rarity: 'R', layout: 'normal' },
             { cardNumber: 3, cardSet: cardSetId, name: 'Ugin\'s Conjurant', rarity: 'U', layout: 'normal' },

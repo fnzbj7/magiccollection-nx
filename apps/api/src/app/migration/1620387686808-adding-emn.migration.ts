@@ -14,7 +14,7 @@ export class addingEmn1620387686808 implements MigrationInterface {
             .execute();
         const cardSetId: number = insertResult.identifiers[0].id;
 
-        await queryRunner.manager.createQueryBuilder().insert().into('card').values([
+        await queryRunner.manager.createQueryBuilder().insert().into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`]).values([
             { cardNumber: 1, cardSet: cardSetId, name: 'Abundant Maw', rarity: 'U', layout: 'normal' },
             { cardNumber: 2, cardSet: cardSetId, name: 'Decimator of the Provinces', rarity: 'M', layout: 'normal' },
             { cardNumber: 3, cardSet: cardSetId, name: 'Distended Mindbender', rarity: 'R', layout: 'normal' },

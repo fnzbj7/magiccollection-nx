@@ -14,7 +14,7 @@ export class addingThb1620400825744 implements MigrationInterface {
             .execute();
         const cardSetId: number = insertResult.identifiers[0].id;
 
-        await queryRunner.manager.createQueryBuilder().insert().into('card').values([
+        await queryRunner.manager.createQueryBuilder().insert().into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`]).values([
             { cardNumber: 1, cardSet: cardSetId, name: 'Alseid of Life\'s Bounty', rarity: 'U', layout: 'normal' },
             { cardNumber: 2, cardSet: cardSetId, name: 'Archon of Falling Stars', rarity: 'U', layout: 'normal' },
             { cardNumber: 3, cardSet: cardSetId, name: 'Archon of Sun\'s Grace', rarity: 'R', layout: 'normal' },

@@ -17,7 +17,7 @@ export class addingVow1636386139861 implements MigrationInterface {
         await queryRunner.manager
             .createQueryBuilder()
             .insert()
-            .into('card')
+            .into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`])
             .values([
                 {
                     cardNumber: 1,

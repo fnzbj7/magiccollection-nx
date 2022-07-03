@@ -14,7 +14,7 @@ export class addingKld1620387962198 implements MigrationInterface {
             .execute();
         const cardSetId: number = insertResult.identifiers[0].id;
 
-        await queryRunner.manager.createQueryBuilder().insert().into('card').values([
+        await queryRunner.manager.createQueryBuilder().insert().into('card', [`cardNumber`, `name`, `rarity`, `layout`, `cardSet`]).values([
             { cardNumber: 1, cardSet: cardSetId, name: 'Acrobatic Maneuver', rarity: 'C', layout: 'normal' },
             { cardNumber: 2, cardSet: cardSetId, name: 'Aerial Responder', rarity: 'U', layout: 'normal' },
             { cardNumber: 3, cardSet: cardSetId, name: 'Aetherstorm Roc', rarity: 'R', layout: 'normal' },
