@@ -8,6 +8,7 @@
     "start": "nx serve",
     "start:api": "node ./dist/apps/api/main",
     "build:api": "nx build api",
+    "build:api:prod": "nx run api:build:production",
     "build:frontend": "nx build magiccollection",
     "build": "nx build",
     "test": "nx test"
