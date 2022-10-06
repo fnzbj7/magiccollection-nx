@@ -12,7 +12,7 @@ export const environment = {
     port: 3306,
     username: 'root',
     password: 'admin',
-    database: 'testmagic',
+    database: 'nx-testmagic',
     synchronize: true,
   }
 };
