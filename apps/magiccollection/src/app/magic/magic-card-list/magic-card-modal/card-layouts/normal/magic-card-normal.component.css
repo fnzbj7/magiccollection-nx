@@ -1,0 +1,5 @@
+.magiccard {
+    transform: rotate(var(--rot, 0deg));
+    transform-origin: bottom left;
+    transition: 0.07s ease-out;
+}

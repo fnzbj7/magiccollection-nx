@@ -1,0 +1,25 @@
+:host {
+    width: 100%;
+}
+
+.navigate-arrow-calendar.ng-fa-icon {
+    cursor: pointer;
+    z-index: 1;
+    font-size: 24px;
+}
+
+.card-body {
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.calendar-container {
+    will-change: transform;
+}
+
+@media (max-width: 767px) {
+    .card-body {
+        font-size: 0.9rem;
+    }
+}

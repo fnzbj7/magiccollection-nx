@@ -1,9 +1,13 @@
 // This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+    production: false,
+    facebookAppId: '732644653890540',
+    cardImgUrlBase: 'assets/img/static-img/cards/',
+    // If you dint have the pictures in local
+    // cardImgUrlBase: 'https://d2hg85g2c927kp.cloudfront.net/',
 };
 
 /*

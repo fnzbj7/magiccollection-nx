@@ -1,9 +1,18 @@
-<div style="text-align: center">
-  <h1>Welcome to magiccollection!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Fast and Extensible Build System"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+
+<mat-sidenav-container class="example-container" style="min-height: 100vh; background-color: unset;">
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+      <app-side-menu></app-side-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <app-header></app-header>
+      <div id="container" class="px-0 mt-4 w-100 d-flex">
+          <router-outlet></router-outlet>
+      </div>
+
+      <!-- Custom modal setup -->
+      <div id="modal-container" class="hidden"></div>
+      <div id="overlay" (click)="removeModal()" class="hidden"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

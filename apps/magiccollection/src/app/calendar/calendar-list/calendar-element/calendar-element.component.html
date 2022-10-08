@@ -1,0 +1,6 @@
+<div
+  class="badge pointer elipsis calendar-event"
+  (click)="onSelectCalendarEvent()"
+  [ngClass]="{ 'badge-info' : !isSelected, 'badge-danger' : isSelected } ">
+  <span>{{hourPad}}:{{minutePad}}</span> <span class="d-none d-sm-inline"> {{calendarEvent.title}}</span>
+</div>
