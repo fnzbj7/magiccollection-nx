@@ -1,0 +1,6 @@
+<svg height="512pt" viewBox="-13 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
+	<path fill="white" stroke="black" stroke-width="15" d="m10 20 v400 h271 v-400 zm0 0"/>
+	<path stroke="white" stroke-width="15" d="m183 85 v341 v85 h301 v-426 h-183 zm0 0"/>
+	<rect x="233" y="135" width="200" height="200" fill="white"/>
+	<script xmlns="" type="text/javascript" id="useragent-switcher">navigator.__defineGetter__("userAgent", function() {return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0"})</script>
+</svg>
