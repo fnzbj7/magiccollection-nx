@@ -1,1 +1,207 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+}
+
+pagination-controls ul {
+    padding: 0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+@media (min-width: 576px) {
+    .border-sm-0 {
+        border: 0 !important;
+    }
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.no-select {
+    user-select: none;
+}
+
+.tooltip-w3 {
+    position: relative;
+    display: inline-block;
+
+    .tooltiptext-w3 {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555555;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltiptext-w3::after {
+        content: "";
+        position: absolute;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #555555 transparent;
+    }
+
+    .tooltiptext-w3,
+    .left.tooltiptext-w3 {
+    margin-left: -60px;
+    }
+
+    .tooltiptext-w3::after,
+    .left.tooltiptext-w3::after {
+    right: 17px;
+    left: unset;
+    }
+
+    .right.tooltiptext-w3 {
+        margin-left: 30px;
+    }
+
+    .right.tooltiptext-w3::after {
+        left: 17px;
+        right: unset;
+    }
+
+
+    .tooltiptext-w3,
+        .bottom.tooltiptext-w3 {
+        top: calc(100% + 10px);
+        bottom: initial;
+        left: -30px;
+    }
+
+    .tooltiptext-w3::after,
+    .bottom.tooltiptext-w3::after {
+        bottom: 100%;
+        top: initial;
+    }
+
+    .top.tooltiptext-w3 {
+        top: initial;
+        bottom: calc(100% + 10px);
+    }
+
+    .top.tooltiptext-w3::after {
+        top: 100%;
+        bottom: initial;
+        border-color: #555555 transparent transparent transparent;
+    }
+}
+
+/* TODO (min-width: 992px)  */
+@media (max-width: 991.98px) {
+    .tooltip-w3 .left-md.tooltiptext-w3 {
+        margin-left: -60px;
+    }
+
+    .tooltip-w3 .left-md.tooltiptext-w3::after {
+        right: 17px;
+        left: unset;
+    }
+
+    .tooltip-w3 .right-md.tooltiptext-w3 {
+        margin-left: 30px;
+    }
+
+    .tooltip-w3 .right-md.tooltiptext-w3::after {
+        left: 17px;
+        right: unset;
+    }
+
+    .tooltip-w3 .bottom-md.tooltiptext-w3 {
+        top: calc(100% + 10px);
+        bottom: initial;
+        left: -30px;
+    }
+
+    .tooltip-w3 .bottom-md.tooltiptext-w3::after {
+        bottom: 100%;
+        top: initial;
+        right: 17px;
+    }
+
+    .tooltip-w3 .top-md.tooltiptext-w3 {
+        top: initial;
+        bottom: calc(100% + 10px);
+    }
+
+    .tooltip-w3 .top-md.tooltiptext-w3::after {
+        top: 100%;
+        bottom: initial;
+        right: 96px;
+        border-color: #555555 transparent transparent transparent;
+    }
+}
+
+.tooltip-w3:hover .tooltiptext-w3 {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* -------- FAKE CARDS ------- */
+.fake-card {
+    width: 108px;
+    margin: 5px 3px;
+}
+
+@media (min-width: 827px) {
+    .fake-card {
+      width: 217px;
+    }
+}
+
+/* ----- FAKE CARDS END ------ */
+
+.btnt {
+    @apply font-bold py-2 px-4 rounded;
+}
+
+.btnt-blue {
+    @apply bg-blue-500 text-white;
+}
+
+.btnt-blue:hover {
+    @apply bg-blue-700;
+}
+
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+
+.badge-info {
+    color: #ffffff;
+    background-color: #17a2b8;
+}
+
+.badge-danger {
+    color: #ffffff;
+    background-color: #dc3545;
+}
