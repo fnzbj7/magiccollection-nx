@@ -21,11 +21,20 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     username: process.env.DB_USERNAME || dbConfig.username,
     password: process.env.DB_PASSWORD || dbConfig.password,
     database: process.env.DB_DATABASE || dbConfig.database,
-    entities: [Card, CardSet, UniqueCard, CardAmount, User, Privilege, CalendarEvent, CardVariation, PossibleCardVariation],
-    synchronize: dbConfig.synchronize,
+    entities: [
+        Card,
+        CardSet,
+        UniqueCard,
+        CardAmount,
+        User,
+        Privilege,
+        CalendarEvent,
+        CardVariation,
+        PossibleCardVariation,
+    ],
+    synchronize: !dbConfig.synchronize,
     migrations: migrationsList,
-    
-    migrationsRun: !dbConfig.synchronize,
-    logging: dbConfig.synchronize
+    migrationsRun: dbConfig.synchronize,
+    logging: dbConfig.synchronize,
     // autoLoadEntities: true,
 };
