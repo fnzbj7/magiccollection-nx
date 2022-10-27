@@ -1,4 +1,4 @@
-import { Repository, EntityRepository, Brackets, DataSource } from 'typeorm';
+import { Brackets, DataSource } from 'typeorm';
 import { Card } from './entity/card.entity';
 import { User } from '../auth/entity/user.entity';
 import { ModifyCardDto } from './dto/add-card.dto';
@@ -13,10 +13,11 @@ import { CardVariation } from './entity/card-variation.entity';
 export class CardRepository {
     private logger = new Logger('CardRepository');
 
-    constructor(private dataSource: DataSource) { }
+    constructor(private dataSource: DataSource) {}
 
     async getCardSet(cardSet: string): Promise<Card[]> {
-        return this.dataSource.getRepository(Card)
+        return this.dataSource
+            .getRepository(Card)
             .createQueryBuilder('card')
             .innerJoinAndSelect('card.cardSet', 'cardSet', 'cardSet.short_name = :name', {
                 name: cardSet,
@@ -25,7 +26,9 @@ export class CardRepository {
     }
 
     async getCardSetUser(cardSet: string, userId: number): Promise<Card[]> {
-        return this.dataSource.getRepository(Card).createQueryBuilder('t_card')
+        return this.dataSource
+            .getRepository(Card)
+            .createQueryBuilder('t_card')
             .innerJoinAndSelect('t_card.cardSet', 't_cardSet', 't_cardSet.short_name = :name', {
                 name: cardSet,
             })
@@ -76,6 +79,26 @@ export class CardRepository {
                         `CardNumber: ${cardQuantity.cardNumber}, CardVariantType: ${cardQuantity.type}`,
                 );
             }
+
+            if (
+                !pCardVariation.hasFoil &&
+                (cardQuantity.cardQuantityFoil || cardQuantity.cardQuantityFoil > 0)
+            ) {
+                throw new Error(
+                    `Can't add Foil card for this card with this variation ` +
+                        `[CardSet: ${setShortName}, cardNum: ${cardQuantity.cardNumber}, cardVariation: ${pCardVariation.cardVariantType}]`,
+                );
+            }
+
+            if (
+                !pCardVariation.hasNormal &&
+                (cardQuantity.cardQuantity || cardQuantity.cardQuantity > 0)
+            ) {
+                throw new Error(
+                    `Can't add Normal card for this card with this variation ` +
+                        `[CardSet: ${setShortName}, cardNum: ${cardQuantity.cardNumber}, cardVariation: ${pCardVariation.cardVariantType}]`,
+                );
+            }
         }
     }
 
@@ -83,7 +106,8 @@ export class CardRepository {
         setShortName: string,
         userId: number,
     ): Promise<PossibleCardVariation[]> {
-        return await this.dataSource.getRepository(PossibleCardVariation)
+        return await this.dataSource
+            .getRepository(PossibleCardVariation)
             .createQueryBuilder('pcv')
             .innerJoinAndSelect('pcv.card', 'c')
             .innerJoin('c.cardSet', 'cs')
@@ -96,8 +120,23 @@ export class CardRepository {
             .getMany();
     }
 
+    async getAllPossibleVariation(setShortName: string, cardNumber: number): Promise<Card> {
+        return await this.dataSource
+            .getRepository(Card)
+            .createQueryBuilder('c')
+            .innerJoinAndSelect('c.possibleCardVariation', 'pcv')
+            .innerJoin('c.cardSet', 'cs')
+            .where('cs.short_name = :setShortName and c.card_number = :cardNumber', {
+                setShortName,
+                cardNumber,
+            })
+            .getOne();
+    }
+
     async getAllVersionForCardWithUser(uniqueCardId: number, userId: number): Promise<Card[]> {
-        return this.dataSource.getRepository(Card).createQueryBuilder('t_card')
+        return this.dataSource
+            .getRepository(Card)
+            .createQueryBuilder('t_card')
             .innerJoinAndSelect('t_card.cardSet', 't_cardSet')
             .leftJoinAndSelect(
                 't_card.cardAmount',
@@ -110,7 +149,9 @@ export class CardRepository {
     }
 
     async getAllVersionForCard(uniqueCardId: number): Promise<Card[]> {
-        return this.dataSource.getRepository(Card).createQueryBuilder('t_card')
+        return this.dataSource
+            .getRepository(Card)
+            .createQueryBuilder('t_card')
             .innerJoinAndSelect('t_card.cardSet', 't_cardSet')
             .where('t_card.unique_card_1 = :uniqueCardId', { uniqueCardId })
             .getMany();
@@ -138,7 +179,9 @@ export class CardRepository {
      * @throws `BadRequestException` - If the `setShortName` not exist in the t_cardset.short_name column table
      */
     private async getLastCardFromSet(setShortName: string): Promise<Card> {
-        const lastCard = await this.dataSource.getRepository(Card).createQueryBuilder('t_card')
+        const lastCard = await this.dataSource
+            .getRepository(Card)
+            .createQueryBuilder('t_card')
             .select('t_card.cardNumber')
             .innerJoin('t_card.cardSet', 't_cardSet', 't_cardSet.short_name = :name', {
                 name: setShortName,
@@ -178,7 +221,9 @@ export class CardRepository {
         modifyCard: ModifyCardDto,
         userId: number,
     ): Promise<DbAddCard[]> {
-        const userCards: DbAddCard[] = await this.dataSource.getRepository(Card).createQueryBuilder('t_card')
+        const userCards: DbAddCard[] = await this.dataSource
+            .getRepository(Card)
+            .createQueryBuilder('t_card')
             .select([
                 't_card.id as cardId',
                 't_card_amount.id as cardAmountId',
@@ -269,10 +314,9 @@ export class CardRepository {
         updateCardVariantAmount['f' + cardQuantitys.language] =
             cardVariation['f' + cardQuantitys.language] + cardQuantitys.cardQuantityFoil;
 
-        await this.dataSource.getRepository(CardVariation).update(
-            { id: cardVariation.id },
-            updateCardVariantAmount,
-        );
+        await this.dataSource
+            .getRepository(CardVariation)
+            .update({ id: cardVariation.id }, updateCardVariantAmount);
     }
 
     private async insertCardVariation(
@@ -280,8 +324,10 @@ export class CardRepository {
         pCardVariation: PossibleCardVariation,
         cardQuantitys: CardQuantity,
     ) {
-        const insertCardVariation = this.dataSource.getRepository(CardVariation).create(CardVariation);
-        const cardAmount =  this.dataSource.getRepository(CardAmount).create(CardAmount);
+        const insertCardVariation = this.dataSource
+            .getRepository(CardVariation)
+            .create(CardVariation);
+        const cardAmount = this.dataSource.getRepository(CardAmount).create(CardAmount);
         cardAmount.id = cardAmountId;
         insertCardVariation.cardAmount = cardAmount;
         insertCardVariation.possibleCardVariation = pCardVariation;

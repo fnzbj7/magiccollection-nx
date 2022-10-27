@@ -37,6 +37,16 @@ import { addingNeo1644416596464 } from '../app/migration/1644416596464-adding-ne
 import { defaultPossibleCardInsert1643458833698 } from '../app/migration/1644416596500-default-possible-card-insert.migration';
 import { createSnc1650101408910 } from '../app/migration/1650101408910-create-snc.migration';
 import { addingNormalSnc1651003866790 } from '../app/migration/1651003866790-adding-normal-snc.migration';
+import { addDmu1661856164149 } from '../app/migration/1661856164149-add-dmu.migration';
+import { typeAndColor1663941595622 } from '../app/migration/1663941595622-type-and-color.migration';
+import { dmuColor1663974517549 } from '../app/migration/1663974517549-dmu-color.migration';
+import { colorTypeSnc1664012013553 } from '../app/migration/1664012013553-color-type-snc.migration';
+import { colorTypeNeo1664012362882 } from '../app/migration/1664012362882-color-type-neo.migration';
+import { colorTypeVow1664012716322 } from '../app/migration/1664012716322-color-type-vow.migration';
+import { colorTypeMid1664013706149 } from '../app/migration/1664013706149-color-type-mid.migration';
+import { updateColorType1664462619430 } from '../app/migration/1664462619430-update-color-type.migration';
+import { updateColorTypeVol21664495521380 } from '../app/migration/1664495521380-update-color-type-vol-2.migration';
+import { addUnfinity1665124947984 } from '../app/migration/1665124947984-add-unfinity.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -78,6 +88,15 @@ const migrationsList = [
     defaultPossibleCardInsert1643458833698,
     createSnc1650101408910,
     addingNormalSnc1651003866790,
+    addDmu1661856164149,
+    typeAndColor1663941595622,
+    dmuColor1663974517549,
+    colorTypeSnc1664012013553,
+    colorTypeNeo1664012362882,
+    colorTypeVow1664012716322,
+    colorTypeMid1664013706149,
+    updateColorType1664462619430,
+    updateColorTypeVol21664495521380,
 ];
 
 export default migrationsList;

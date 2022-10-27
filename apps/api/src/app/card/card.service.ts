@@ -1,19 +1,20 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import { Card } from './entity/card.entity';
 import { User } from '../auth/entity/user.entity';
 import { CardRepository } from './card.repository';
 import { CardAmountDto } from './dto/card-amount.dto';
 import { ModifyCardDto } from './dto/add-card.dto';
 import { AllVersionCardDto } from './dto/all-version-card.dto';
+import { AddPosibleCardVariationDto } from './card.controller';
+import { PossibleCardVariation } from './entity/possible-card-variation.entity';
+import { AllVersionCardForUserDto } from './dto/all-version-card-for-user.dto';
+import { DataSource } from 'typeorm';
 
 @Injectable()
 export class CardService {
     private logger: Logger = new Logger(CardService.name);
 
-    constructor(
-        private cardRepository: CardRepository,
-    ) {}
+    constructor(private cardRepository: CardRepository, private dataSource: DataSource) {}
 
     async getCardSet(cardSet: string): Promise<CardAmountDto[]> {
         const cardList = await this.cardRepository.getCardSet(cardSet);
@@ -38,7 +39,9 @@ export class CardService {
         await this.cardRepository.modifySetCard(removeCard, user);
     }
 
-    async getAllVersionForCard(allVersionCardDto: AllVersionCardDto): Promise<CardAmountDto[]> {
+    async getAllVersionForUser(
+        allVersionCardDto: AllVersionCardForUserDto,
+    ): Promise<CardAmountDto[]> {
         const { uniqueCardId, userId } = allVersionCardDto;
         let cardList: Card[];
         if (userId) {
@@ -50,9 +53,55 @@ export class CardService {
         return this.convertToCardAmountDto(cardList);
     }
 
+    async getAllVersion(allVersionCardDto: AllVersionCardDto): Promise<Card> {
+        const { cardSet, cardNum } = allVersionCardDto;
+
+        return await this.cardRepository.getAllPossibleVariation(cardSet, cardNum);
+    }
+
     async getAllVersionForCardWithUser(uniqueCardId: number): Promise<CardAmountDto[]> {
         const cardList = await this.cardRepository.getAllVersionForCard(uniqueCardId);
         return this.convertToCardAmountDto(cardList);
+    }
+
+    async addPosibleCardVariation(
+        addPosibleCardVariationDto: AddPosibleCardVariationDto,
+    ): Promise<void> {
+        const foundCard = await this.dataSource.getRepository(Card).findOne({
+            where: { id: addPosibleCardVariationDto.cardId },
+            relations: ['possibleCardVariation'],
+        });
+        if (!foundCard) {
+            this.logger.error(
+                `We coud not found card with id [${addPosibleCardVariationDto.cardId}]`,
+            );
+            throw new InternalServerErrorException();
+        }
+
+        const foundType = foundCard.possibleCardVariation.find(
+            p => p.cardVariantType === addPosibleCardVariationDto.cardVariantType,
+        );
+        if (foundType) {
+            this.logger.error(
+                `Card with id [${addPosibleCardVariationDto.cardId}] already has possible card variation [id: ${foundType.id}, cardVariantType: ${foundType.cardVariantType}]`,
+            );
+            throw new InternalServerErrorException();
+        }
+
+        const possCardVar = this.dataSource
+            .getRepository<PossibleCardVariation>(PossibleCardVariation)
+            .create();
+        possCardVar.card = foundCard;
+        possCardVar.cardVariantType = addPosibleCardVariationDto.cardVariantType;
+        possCardVar.hasNormal = addPosibleCardVariationDto.hasNormal;
+        possCardVar.hasFoil = addPosibleCardVariationDto.hasFoil;
+
+        await possCardVar.save();
+        this.logger.log(
+            `Created new possible card [id: ${possCardVar.id}, possibleType: ${possCardVar.cardVariantType}, ` +
+                `hasNormal: ${possCardVar.hasNormal}, hasFoil: ${possCardVar.hasFoil}, ` +
+                `card:[id: ${possCardVar.card.id}, cardName: ${possCardVar.card.name}, cardNum: ${possCardVar.card.cardNumber}] cardId: ${possCardVar.card.id}]`,
+        );
     }
 
     private convertToCardAmountDto(cardList: Card[]): CardAmountDto[] {
@@ -66,6 +115,8 @@ export class CardService {
                 cardNumber,
                 uniqueCardId,
                 cardSet: { shortName: cardExpansion },
+                types,
+                colors,
             } = card;
             const { cardAmount, cardAmountFoil } = this.getCardAmount(card);
 
@@ -78,6 +129,8 @@ export class CardService {
                 name,
                 uniqueCardId,
                 cardNumber: ('' + cardNumber).padStart(3, '0'),
+                types,
+                colors,
             });
         }
 
@@ -90,11 +143,5 @@ export class CardService {
             cardAmountFoil:
                 card.cardAmount && card.cardAmount[0] ? card.cardAmount[0].foilAmount : 0,
         };
-    }
-
-    private pad(text: string | number, width: number, z?: string) {
-        z = z || '0';
-        text = text + '';
-        return text.length >= width ? text : new Array(width - text.length + 1).join(z) + text;
     }
 }
