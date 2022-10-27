@@ -10,6 +10,7 @@ export class MigrationHelper {
         name: string,
         shortName: string,
         values: any[],
+        cardColumns: string[] = [`id`, `cardNumber`, `name`, `rarity`, `layout`, `cardSet`],
     ) {
         const insertResult: InsertResult = await queryRunner.manager
             .createQueryBuilder()
@@ -22,10 +23,10 @@ export class MigrationHelper {
         await queryRunner.manager
             .createQueryBuilder()
             .insert()
-            .into('card')
+            .into<Card>('card', cardColumns)
             .values(
                 values.map(card => {
-                    card.cardSet = cardSetId;
+                    card.cardSet = { id: cardSetId };
                     return card;
                 }),
             )
@@ -33,7 +34,7 @@ export class MigrationHelper {
 
         const cardName = await queryRunner.manager
             .createQueryBuilder<Card>('Card', 'a')
-            .select()
+            .select(['name'])
             .leftJoin(UniqueCard, 'b', 'a.name = b.card_name')
             .where('b.id is null')
             .groupBy('a.name')
@@ -82,6 +83,39 @@ export class MigrationHelper {
             .delete()
             .from('card_set')
             .where('short_name = :shortName', { shortName })
+            .execute();
+    }
+
+    static async colorAndTypeUp(queryRunner: QueryRunner, shortName: string, cardValues: any[]) {
+        // Select all the card,
+        const cards = await queryRunner.manager
+            .createQueryBuilder<Card>(Card, 'c')
+            .innerJoin(CardSet, 'cs', 'cs.id = c.card_set_1')
+            .where('cs.short_name = :shortName', { shortName })
+            .getMany();
+
+        const newList = cardValues.map(s => {
+            const card = cards.find(c => c.cardNumber === s.cardNumber);
+            return { ...card, ...s };
+        });
+
+        await queryRunner.manager.upsert<Card>(Card, newList, ['id']);
+    }
+
+    static async colorAndTypeDown(queryRunner: QueryRunner, shortName: string) {
+        const cardSet = await queryRunner.manager
+            .createQueryBuilder<CardSet>(CardSet, 'cs')
+            .where('cs.short_name = :shortName', { shortName })
+            .getOneOrFail();
+
+        await queryRunner.manager
+            .createQueryBuilder<Card>(Card, 'c')
+            .update()
+            .set({
+                colors: '',
+                types: '',
+            })
+            .where('card_set_1 = :id', { id: cardSet.id })
             .execute();
     }
 }

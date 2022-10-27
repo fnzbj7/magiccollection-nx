@@ -16,6 +16,9 @@ import { User } from '../auth/entity/user.entity';
 import { ModifyCardDto } from './dto/add-card.dto';
 import { CardAmountDto } from './dto/card-amount.dto';
 import { AllVersionCardDto } from './dto/all-version-card.dto';
+import { CardVariantType } from './entity/card-variant-type.enum';
+import { AllVersionCardForUserDto } from './dto/all-version-card-for-user.dto';
+import { Card } from './entity/card.entity';
 
 @Controller('card')
 export class CardController {
@@ -60,11 +63,31 @@ export class CardController {
         await this.cardService.removeCard(removeCard, user);
     }
 
-    @Get('/all-version')
+    @Get('/all-version-for-user')
     async getAllVersionForCard(
-        @Query(new ValidationPipe()) allVersionCardDto: AllVersionCardDto,
+        @Query(new ValidationPipe()) allVersionCardDto: AllVersionCardForUserDto,
     ): Promise<CardAmountDto[]> {
         this.logger.log({ allVersionCardDto, a: '' + allVersionCardDto.uniqueCardId == '' });
-        return await this.cardService.getAllVersionForCard(allVersionCardDto);
+        return await this.cardService.getAllVersionForUser(allVersionCardDto);
     }
+
+    @Get('/all-version')
+    async getAllVersionForCard2(@Query() allVersionCardDto: AllVersionCardDto): Promise<Card> {
+        return await this.cardService.getAllVersion(allVersionCardDto);
+    }
+
+    @Post('/add-posible-card-variation')
+    @UseGuards(AuthGuard())
+    async addPosibleCardVariation(
+        @Body() addPosibleCardVariationDto: AddPosibleCardVariationDto,
+    ): Promise<void> {
+        await this.cardService.addPosibleCardVariation(addPosibleCardVariationDto);
+    }
+}
+
+export interface AddPosibleCardVariationDto {
+    cardVariantType: CardVariantType;
+    cardId: number;
+    hasNormal: boolean;
+    hasFoil: boolean;
 }
