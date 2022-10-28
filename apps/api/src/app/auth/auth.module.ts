@@ -21,7 +21,7 @@ import { MailService } from '../shared/mail.service';
             },
         }),
     ],
-    providers: [MailService, AuthService, JwtStrategy],
+    providers: [UserRepository, MailService, AuthService, JwtStrategy],
     exports: [JwtStrategy, PassportModule],
 })
 export class AuthModule {}

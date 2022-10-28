@@ -1,13 +1,20 @@
-import { Repository, EntityRepository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import * as bcrypt from 'bcrypt';
 import { User, UserSource } from './entity/user.entity';
-import { ConflictException, InternalServerErrorException, Logger } from '@nestjs/common';
+import {
+    ConflictException,
+    Injectable,
+    InternalServerErrorException,
+    Logger,
+} from '@nestjs/common';
 import { Profile } from 'passport-facebook-token';
 
-@EntityRepository(User)
-export class UserRepository extends Repository<User> {
+@Injectable()
+export class UserRepository {
     private logger = new Logger(UserRepository.name);
+
+    constructor(private dataSource: DataSource) {}
 
     async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
         const { email, password, username, dci } = authCredentialsDto;
@@ -33,9 +40,9 @@ export class UserRepository extends Repository<User> {
 
     async validateUserPassword(authCredentialsDto: AuthCredentialsDto): Promise<User> {
         const { password, email } = authCredentialsDto;
-        const user = await this.findOne(
-            {where:{ email, source: UserSource.SITE }, relations: ['privileges'] },
-        );
+        const user = await this.dataSource
+            .getRepository(User)
+            .findOne({ where: { email, source: UserSource.SITE }, relations: ['privileges'] });
         if (user && (await user.validatePassword(password))) {
             return user;
         } else {
@@ -44,12 +51,13 @@ export class UserRepository extends Repository<User> {
     }
 
     async findOrCreate(profile: Profile): Promise<User> {
-        const userFind = await this.findOne(
-            { where:{
+        const userFind = await this.dataSource.getRepository(User).findOne({
+            where: {
                 email: profile.emails[0].value,
                 source: UserSource.FB,
-            }, relations: ['privileges'] },
-        );
+            },
+            relations: ['privileges'],
+        });
 
         if (userFind) {
             return userFind;
