@@ -2760,7 +2760,7 @@ export class addingMid1631469344595 implements MigrationInterface {
 
         const cardName = await queryRunner.manager
             .createQueryBuilder<Card>('Card', 'a')
-            .select()
+            .select(['name'])
             .leftJoin(UniqueCard, 'b', 'a.name = b.card_name')
             .where('b.id is null')
             .groupBy('a.name')

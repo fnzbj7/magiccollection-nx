@@ -12,7 +12,7 @@ export class defaultPossibleCardInsert1643458833698 implements MigrationInterfac
         const cards: Card[] = await queryRunner.manager
             .getRepository<Card>(Card)
             .createQueryBuilder('card')
-            .select()
+            .select(['card.id'])
             .leftJoinAndSelect('card.cardAmount', 'cardAmount')
             .getMany();
 

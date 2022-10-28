@@ -30,10 +30,10 @@ export class Card extends BaseEntity {
     @Column()
     layout: string;
 
-    @Column()
+    @Column({ length: 100 })
     types: string;
 
-    @Column()
+    @Column({ length: 20 })
     colors: string;
 
     @ManyToOne(

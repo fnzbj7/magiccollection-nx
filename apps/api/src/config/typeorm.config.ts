@@ -32,9 +32,9 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
         CardVariation,
         PossibleCardVariation,
     ],
-    synchronize: !dbConfig.synchronize,
+    synchronize: dbConfig.synchronize,
     migrations: migrationsList,
-    migrationsRun: dbConfig.synchronize,
-    logging: dbConfig.synchronize,
+    migrationsRun: !dbConfig.synchronize,
+    logging: true,
     // autoLoadEntities: true,
 };

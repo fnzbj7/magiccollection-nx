@@ -16,7 +16,7 @@ export class CreatingUniqueCardTable implements MigrationInterface {
 
         const cardName = await queryRunner.manager
             .createQueryBuilder<Card>('Card', 'a')
-            .select()
+            .select(['name'])
             .leftJoin('unique_card', 'b', 'a.name = b.card_name')
             .where({ uniqueCard: IsNull() })
             .groupBy('a.name')
