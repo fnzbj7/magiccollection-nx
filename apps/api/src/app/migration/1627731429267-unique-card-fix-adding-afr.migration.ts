@@ -6,7 +6,7 @@ export class uniqueCardFixAddingAfr1627731429267 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         const cardName = await queryRunner.manager
             .createQueryBuilder<Card>('Card', 'a')
-            .select()
+            .select(['name'])
             .leftJoin(UniqueCard, 'b', 'a.name = b.card_name')
             .where('b.id is null')
             .groupBy('a.name')

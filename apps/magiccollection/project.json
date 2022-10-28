@@ -7,7 +7,7 @@
             "executor": "@angular-devkit/build-angular:browser",
             "outputs": ["{options.outputPath}"],
             "options": {
-                "outputPath": "dist/apps/api/magiccollection",
+                "outputPath": "dist/apps/magiccollection",
                 "index": "apps/magiccollection/src/index.html",
                 "main": "apps/magiccollection/src/main.ts",
                 "polyfills": "apps/magiccollection/src/polyfills.ts",
