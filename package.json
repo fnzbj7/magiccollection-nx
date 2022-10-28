@@ -7,7 +7,7 @@
         "postinstall": "node version.js && node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
         "start": "nx serve",
         "start:api": "nx serve api",
-        "start:build:api": "node ./dist/apps/api/main",
+        "start:build:api": "cd dist/apps/api && node ./main",
         "build:api": "nx build api",
         "build:api:prod": "nx run api:build:production",
         "build:frontend": "nx build magiccollection",
