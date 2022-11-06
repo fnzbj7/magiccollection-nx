@@ -34,7 +34,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     ],
     synchronize: dbConfig.synchronize,
     migrations: migrationsList,
-    migrationsRun: !dbConfig.synchronize,
+    migrationsRun: dbConfig.migrations,
     logging: true,
     // autoLoadEntities: true,
 };
