@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, AfterViewInit, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthenticationService } from '../../../auth/authentication.service';
 import { Card } from '../../../model/card.model';

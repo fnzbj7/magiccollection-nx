@@ -5,7 +5,11 @@ import { Component, OnInit, Input } from '@angular/core';
     templateUrl: './magic-set-icon.component.html',
     styleUrls: ['./magic-set-icon.component.scss'],
 })
-export class MagicSetIconComponent {
+export class MagicSetIconComponent implements OnInit {
     @Input() expansionName!: string;
     @Input() userId: string | undefined;
+
+    constructor() {}
+
+    ngOnInit() {}
 }

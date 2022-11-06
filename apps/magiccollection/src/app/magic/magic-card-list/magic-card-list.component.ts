@@ -19,7 +19,6 @@ import { User } from '../../model/user.model';
 import { SwipeModel } from '../../shared/swipe/swipe.model';
 import { MagicCardModalService } from '../../shared/magic-card-modal.service';
 
-
 @Component({
     selector: 'app-magic-card-list',
     templateUrl: './magic-card-list.component.html',
@@ -40,6 +39,7 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
     quantityFilterSub!: Subscription;
     rarityFilterSub!: Subscription;
     colorFilterSub!: Subscription;
+    typeFilterSub!: Subscription;
     lastPageNum!: number;
     userId: string | undefined;
     user: User | null | undefined = undefined;
@@ -121,6 +121,10 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
                 this.filterCards();
             },
         );
+
+        this.typeFilterSub = this.magicCardsListService.typeFilterChange.subscribe(_typeFilter => {
+            this.filterCards();
+        });
     }
 
     ngAfterViewInit(): void {
@@ -179,6 +183,12 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
         if (this.rarityFilterSub) {
             this.rarityFilterSub.unsubscribe();
         }
+        if (this.colorFilterSub) {
+            this.colorFilterSub.unsubscribe();
+        }
+        if (this.typeFilterSub) {
+            this.typeFilterSub.unsubscribe();
+        }
         if (this.quantityFilterSub) {
             this.quantityFilterSub.unsubscribe();
         }
@@ -191,10 +201,12 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
             return;
         }
 
+        // RARITY
         this.filteredCardsArray = this.cardsArray.filter(card =>
             this.magicCardsListService.getRarityFilterArray().includes(card.rarity),
         );
 
+        // COLOR
         this.filteredCardsArray = this.filteredCardsArray.filter(card => {
             let colorArr = [];
             if (card.colors === '') {
@@ -213,6 +225,21 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
             return false;
         });
 
+        // TYPE
+        this.filteredCardsArray = this.filteredCardsArray.filter(card => {
+            const typeArr = card.types.split(',');
+
+            for (const type of typeArr) {
+                const include = this.magicCardsListService.getTypeFilterArray().includes(type);
+                if (include) {
+                    return true;
+                }
+            }
+
+            return false;
+        });
+
+        // QUANTITY
         switch (this.magicCardsListService.quantityFilterSub.value) {
             case QuantityFilterEnum.ALL:
                 break;
