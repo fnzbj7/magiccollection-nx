@@ -46,7 +46,7 @@ import { colorTypeVow1664012716322 } from '../app/migration/1664012716322-color-
 import { colorTypeMid1664013706149 } from '../app/migration/1664013706149-color-type-mid.migration';
 import { updateColorType1664462619430 } from '../app/migration/1664462619430-update-color-type.migration';
 import { updateColorTypeVol21664495521380 } from '../app/migration/1664495521380-update-color-type-vol-2.migration';
-import { addUnfinity1665124947984 } from '../app/migration/1665124947984-add-unfinity.migration';
+import { addBro1667774382000 } from '../app/migration/1667774382000-add-bro-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -97,6 +97,7 @@ const migrationsList = [
     colorTypeMid1664013706149,
     updateColorType1664462619430,
     updateColorTypeVol21664495521380,
+    addBro1667774382000,
 ];
 
 export default migrationsList;
