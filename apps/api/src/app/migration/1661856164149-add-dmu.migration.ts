@@ -1,4 +1,4 @@
-import { InsertResult, MigrationInterface, QueryRunner } from 'typeorm';
+import { MigrationInterface, QueryRunner } from 'typeorm';
 import { CardSet } from '../card/entity/card-set.entity';
 import { CardVariantType } from '../card/entity/card-variant-type.enum';
 import { Card } from '../card/entity/card.entity';
@@ -472,8 +472,6 @@ export class addDmu1661856164149 implements MigrationInterface {
             .leftJoin(CardSet, 'cs', 'c.card_set_1 = cs.id')
             .where('cs.short_name = :shortName', { shortName: this.shortName })
             .getMany();
-
-        console.log({ cards });
 
         const insertDefaultPossibleCards: PossibleCardVariation[] = [];
         cards.forEach(card => {
