@@ -1,0 +1,18 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "admin",
+    "database": "nx-testmagic",
+    "logging": false,
+    "connectTimeout": 1000000,
+
+    "entities": ["src/**/**.entity{.ts,.js}"],
+    "migrations": ["src/migration/*migration.ts"],
+    "cli": {
+        "entitiesDir": "src/**/entity",
+        "migrationsDir": "src/migration",
+        "subscribersDir": "src/subscriber"
+    }
+}

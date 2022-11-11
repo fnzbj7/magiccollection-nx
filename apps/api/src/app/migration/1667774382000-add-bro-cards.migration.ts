@@ -3116,6 +3116,21 @@ export class addBro1667774382000 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        const deletablePossibleCardVariations = await queryRunner.manager
+            .createQueryBuilder<PossibleCardVariation>(PossibleCardVariation, 'pcv')
+            .select(['pcv.id'])
+            .innerJoin(Card, 'c', 'pcv.card_1 = c.id')
+            .innerJoin(CardSet, 'cs', 'cs.id = c.card_set_1')
+            .where(`cs.short_name = 'BRO'`)
+            .getMany();
+
+        if (deletablePossibleCardVariations.length > 0) {
+            await queryRunner.manager.delete<PossibleCardVariation>(
+                PossibleCardVariation,
+                deletablePossibleCardVariations,
+            );
+        }
+
         await MigrationHelper.cardSetDown(queryRunner, this.shortName);
     }
 }
