@@ -34,7 +34,7 @@ export class MigrationHelper {
 
         const cardName = await queryRunner.manager
             .createQueryBuilder<Card>('Card', 'a')
-            .select(['name'])
+            .select(['a.name'])
             .leftJoin(UniqueCard, 'b', 'a.name = b.card_name')
             .where('b.id is null')
             .groupBy('a.name')
