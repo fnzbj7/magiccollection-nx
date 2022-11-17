@@ -8,6 +8,6 @@ import { AuthModule } from '../auth/auth.module';
 @Module({
     imports: [TypeOrmModule.forFeature([CalendarEventRepository]), AuthModule],
     controllers: [CalendarController],
-    providers: [CalendarService],
+    providers: [CalendarService, CalendarEventRepository],
 })
 export class CalendarModule {}

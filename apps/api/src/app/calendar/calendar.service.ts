@@ -7,10 +7,7 @@ import { CalendarParticipantUserDto } from './dto/calendar-participant-user.dto'
 
 @Injectable()
 export class CalendarService {
-    constructor(
-        @InjectRepository(CalendarEventRepository)
-        private calendarEventRepository: CalendarEventRepository,
-    ) {}
+    constructor(private calendarEventRepository: CalendarEventRepository) {}
 
     async getAllCalendarEvent(): Promise<CalendarEvent[]> {
         return this.calendarEventRepository.getAllCalendarEvent();
@@ -33,9 +30,10 @@ export class CalendarService {
     }
 
     async allCalendarEventParticipant(calendarId: number): Promise<string[]> {
-        const calendarEvent: CalendarEvent = await this.calendarEventRepository.findOne(
-            { where: { id: calendarId},  relations: ['users'] },
-        );//calendarId,
+        const calendarEvent: CalendarEvent = await this.calendarEventRepository.findOne({
+            where: { id: calendarId },
+            relations: ['users'],
+        }); //calendarId,
         return calendarEvent.users.map(user => user.name);
     }
 
@@ -43,10 +41,12 @@ export class CalendarService {
         calendarId: number,
         user: User,
     ): Promise<CalendarParticipantUserDto> {
-        const calendarEvent: CalendarEvent = await this.calendarEventRepository.findOne(
-            { where: { id: calendarId}, relations: ['users'] },
-        );
-        const calendarParticipantUserDto: CalendarParticipantUserDto = new CalendarParticipantUserDto();
+        const calendarEvent: CalendarEvent = await this.calendarEventRepository.findOne({
+            where: { id: calendarId },
+            relations: ['users'],
+        });
+        const calendarParticipantUserDto: CalendarParticipantUserDto =
+            new CalendarParticipantUserDto();
         calendarParticipantUserDto.participants = calendarEvent.users.map(u => u.name);
         calendarParticipantUserDto.isUser = calendarEvent.users.some(u => u.id === user.id);
         return calendarParticipantUserDto;
