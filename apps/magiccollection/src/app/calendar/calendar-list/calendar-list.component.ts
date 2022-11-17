@@ -145,7 +145,6 @@ export class CalendarListComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.calendarService.inited) {
             this.createCalendar(this.currentDate);
         } else {
-            console.log('Get All');
             this.calendarService.getAllCalendarEvent().subscribe(a => {
                 this.createCalendar(this.currentDate);
             });

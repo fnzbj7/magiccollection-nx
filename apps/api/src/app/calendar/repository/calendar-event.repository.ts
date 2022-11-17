@@ -1,17 +1,24 @@
-import { EntityRepository, Repository, getConnection } from 'typeorm';
+import { DataSource, FindOneOptions, FindOptionsWhere, ObjectID, Repository } from 'typeorm';
 import { CalendarEvent } from '../entity/calendar-event.entity';
 import { User } from '../../auth/entity/user.entity';
-import { ConflictException, InternalServerErrorException } from '@nestjs/common';
+import { ConflictException, Injectable, InternalServerErrorException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 
-@EntityRepository(CalendarEvent)
-export class CalendarEventRepository extends Repository<CalendarEvent> {
+@Injectable()
+export class CalendarEventRepository {
+    private calendarEventRepository: Repository<CalendarEvent>;
+
+    constructor(private dataSource: DataSource) {
+        this.calendarEventRepository = this.dataSource.getRepository(CalendarEvent);
+    }
+
     async getAllCalendarEvent(): Promise<CalendarEvent[]> {
-        return this.find();
+        return this.calendarEventRepository.find();
     }
 
     async joinCalendarEvent(calendarEvent: CalendarEvent, user: User) {
         try {
-            await getConnection()
+            await this.calendarEventRepository
                 .createQueryBuilder()
                 .relation(CalendarEvent, 'users')
                 .of(calendarEvent.id)
@@ -31,7 +38,7 @@ export class CalendarEventRepository extends Repository<CalendarEvent> {
 
     async leaveCalendarEvent(calendarId: number, user: User) {
         try {
-            await getConnection()
+            await this.calendarEventRepository
                 .createQueryBuilder()
                 .relation(CalendarEvent, 'users')
                 .of(calendarId)
@@ -45,5 +52,28 @@ export class CalendarEventRepository extends Repository<CalendarEvent> {
                 throw new InternalServerErrorException();
             }
         }
+    }
+
+    async save(calendarEvent: CalendarEvent): Promise<CalendarEvent> {
+        return this.calendarEventRepository.save(calendarEvent);
+    }
+
+    async delete(
+        criteria:
+            | string
+            | string[]
+            | number
+            | number[]
+            | Date
+            | Date[]
+            | ObjectID
+            | ObjectID[]
+            | FindOptionsWhere<CalendarEvent>,
+    ) {
+        this.calendarEventRepository.delete(criteria);
+    }
+
+    async findOne(options: FindOneOptions<CalendarEvent>): Promise<CalendarEvent> {
+        return this.calendarEventRepository.findOne(options);
     }
 }
