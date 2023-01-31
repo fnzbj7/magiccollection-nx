@@ -49,6 +49,7 @@ export class MagicCardsListService {
     cardImgUrlBase: string;
 
     magicSetArray: MagicSet[] = [
+        new MagicSet('ONE', 479, 2023),
         new MagicSet('BRO', 384, 2022),
         new MagicSet('BRR', 126, 2022),
         new MagicSet('DMU', 434, 2022),
