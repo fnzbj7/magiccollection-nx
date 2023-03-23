@@ -15,11 +15,15 @@ export class MagicCardComponent implements OnChanges {
     @Input() forceShowAmount = false;
     @Input() magicCard!: Card;
     @Input() onlyShow = false;
+    @Input() onlyCardBack = false;
     card!: Card;
 
     imageSrcPng!: string;
     imageSrcWebp!: string;
     magicCardAmount!: MagicCardAmount;
+
+    defaultWebp = 'assets/img/magic_card_back.webp';
+    defaultPng = 'assets/img/magic_card_back.png';
 
     constructor(private magicCardModalService: MagicCardModalService) {}
 
@@ -41,9 +45,9 @@ export class MagicCardComponent implements OnChanges {
     }
 
     private setImgUrls(cardExpansion: string, cardNumber: string) {
-        this.imageSrcPng = this.createImgUrl(cardExpansion, cardNumber, 'png');
+        this.imageSrcPng = !this.onlyCardBack ? this.createImgUrl(cardExpansion, cardNumber, 'png') : this.defaultPng;
 
-        this.imageSrcWebp = this.createImgUrl(cardExpansion, cardNumber, 'webp');
+        this.imageSrcWebp = !this.onlyCardBack ? this.createImgUrl(cardExpansion, cardNumber, 'webp') : this.defaultWebp;
     }
 
     private createImgUrl(cardExpansion: string, cardNumber: string, imgType: string): string {

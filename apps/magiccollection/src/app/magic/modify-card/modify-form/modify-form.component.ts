@@ -15,6 +15,7 @@ import { AfterFinishForm } from './model/after-finish-form.model';
 @Component({
     selector: 'app-modify-form',
     templateUrl: './modify-form.component.html',
+    styleUrls: ['./modify-form.component.scss']
 })
 export class ModifyFormComponent implements OnInit, OnDestroy {
     @Output() afterFinish = new EventEmitter<AfterFinishForm>();

@@ -33,7 +33,7 @@ export class CardCariationComponent implements OnInit {
 
     ngOnInit(): void {
         this.magicSets = magicSetArray;
-        this.cardSet = ''; // this.magicSets[0].name
+        this.cardSet = '';
 
         for (const item in CardVariantType) {
             if (isNaN(Number(item))) {

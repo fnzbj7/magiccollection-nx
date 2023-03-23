@@ -23,6 +23,7 @@ import { ModifyFormComponent } from './modify-card/modify-form/modify-form.compo
 import { MagicCardListContainerComponent } from './magic-card-list/magic-card-list-container/magic-card-list-container.component';
 import { CardCariationComponent } from './card-variation/card-variation.component';
 import { MagicCardTypeFilterComponent } from './magic-card-list/filters/magic-card-type-filter/magic-card-type-filter.component';
+import { EmptyMagicCardComponent } from './magic-card-list/magic-card/empty-card/empty-magic-card.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { MagicCardTypeFilterComponent } from './magic-card-list/filters/magic-ca
         MagicSetListComponent,
         MagicSetIconComponent,
         MagicCardComponent,
+        EmptyMagicCardComponent,
         MagicCardAmountDirective,
         MagicCardListComponent,
         MagicCardRarityFilterComponent,

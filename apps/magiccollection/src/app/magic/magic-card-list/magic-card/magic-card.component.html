@@ -3,20 +3,20 @@
     <picture class="magiccard" [appMagicCardAmount]="magicCardAmount" [onlyShow]="onlyShow" (click)="openCardModal()">
         <source
             [attr.lazyLoad]="imageSrcWebp"
-            [attr.defaultImage]="'assets/img/magic_card_back.webp'"
+            [attr.defaultImage]="defaultWebp"
             [offset]="100"
             type="image/webp"
         />
         <source
             [attr.lazyLoad]="imageSrcPng"
-            [attr.defaultImage]="'assets/img/magic_card_back.png'"
+            [attr.defaultImage]="defaultPng"
             [offset]="100"
             type="image/png"
         />
         <img
             class="magiccard"
             [lazyLoad]="imageSrcPng"
-            [defaultImage]="'assets/img/magic_card_back.png'"
+            [defaultImage]="defaultPng"
             [offset]="100"
             alt=""
             [title]="card.cardNumber"
