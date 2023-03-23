@@ -3,6 +3,7 @@ import { Card } from '../../model/card.model';
 import {
     CardVariantType,
     MagicCardsListService,
+    magicSetArray,
     PossibleCardVariationDto,
 } from '../magic-card-list/magic-cards-list.service';
 import { MagicSet } from '../magic-card-list/model/magic-set.model';
@@ -31,7 +32,7 @@ export class CardCariationComponent implements OnInit {
     constructor(private magicCardsListService: MagicCardsListService) {}
 
     ngOnInit(): void {
-        this.magicSets = this.magicCardsListService.magicSetArray;
+        this.magicSets = magicSetArray;
         this.cardSet = ''; // this.magicSets[0].name
 
         for (const item in CardVariantType) {

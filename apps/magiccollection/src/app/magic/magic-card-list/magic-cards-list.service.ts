@@ -11,6 +11,42 @@ import { CardUrls } from '../../model/card-urls.model';
 import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
+export const magicSetArray: MagicSet[] = [
+    new MagicSet('ONE', 479, 2023),
+    new MagicSet('BRO', 384, 2022),
+    new MagicSet('BRR', 126, 2022),
+    new MagicSet('DMU', 434, 2022),
+    new MagicSet('SNC', 467, 2022),
+    new MagicSet('NEO', 512, 2022),
+    new MagicSet('VOW', 407, 2021),
+    new MagicSet('MID', 391, 2021),
+    new MagicSet('AFR', 403, 2021),
+    new MagicSet('STX', 382, 2021),
+    new MagicSet('STA', 126, 2021),
+    new MagicSet('KHM', 405, 2021),
+    new MagicSet('ZNR', 391, 2020),
+    new MagicSet('M21', 397, 2020),
+    new MagicSet('IKO', 387, 2020),
+    new MagicSet('THB', 357, 2020),
+    new MagicSet('ELD', 392, 2019),
+    new MagicSet('M20', 344, 2019),
+    new MagicSet('WAR', 275, 2019),
+    new MagicSet('RNA', 273, 2019),
+    new MagicSet('GRN', 273, 2018),
+    new MagicSet('M19', 314, 2018),
+    new MagicSet('DOM', 280, 2018),
+    new MagicSet('RIX', 205, 2018),
+    new MagicSet('XLN', 289, 2017),
+    new MagicSet('HOU', 209, 2017),
+    new MagicSet('AKH', 287, 2017),
+    new MagicSet('AER', 194, 2017),
+    new MagicSet('KLD', 274, 2016),
+    new MagicSet('EMN', 205, 2016),
+    new MagicSet('SOI', 297, 2016),
+    new MagicSet('OGW', 184, 2016),
+    new MagicSet('BFZ', 274, 2015),
+];
+
 @Injectable({ providedIn: 'root' })
 export class MagicCardsListService {
     // RARITY
@@ -48,43 +84,7 @@ export class MagicCardsListService {
     quantityFilterSub = new BehaviorSubject<QuantityFilterEnum>(QuantityFilterEnum.ALL);
     cardImgUrlBase: string;
 
-    magicSetArray: MagicSet[] = [
-        new MagicSet('ONE', 479, 2023),
-        new MagicSet('BRO', 384, 2022),
-        new MagicSet('BRR', 126, 2022),
-        new MagicSet('DMU', 434, 2022),
-        new MagicSet('SNC', 467, 2022),
-        new MagicSet('NEO', 512, 2022),
-        new MagicSet('VOW', 407, 2021),
-        new MagicSet('MID', 391, 2021),
-        new MagicSet('AFR', 403, 2021),
-        new MagicSet('STX', 382, 2021),
-        new MagicSet('STA', 126, 2021),
-        new MagicSet('KHM', 405, 2021),
-        new MagicSet('ZNR', 391, 2020),
-        new MagicSet('M21', 397, 2020),
-        new MagicSet('IKO', 387, 2020),
-        new MagicSet('THB', 357, 2020),
-        new MagicSet('ELD', 392, 2019),
-        new MagicSet('M20', 344, 2019),
-        new MagicSet('WAR', 275, 2019),
-        new MagicSet('RNA', 273, 2019),
-        new MagicSet('GRN', 273, 2018),
-        new MagicSet('M19', 314, 2018),
-        new MagicSet('DOM', 280, 2018),
-        new MagicSet('RIX', 205, 2018),
-        new MagicSet('XLN', 289, 2017),
-        new MagicSet('HOU', 209, 2017),
-        new MagicSet('AKH', 287, 2017),
-        new MagicSet('AER', 194, 2017),
-        new MagicSet('KLD', 274, 2016),
-        new MagicSet('EMN', 205, 2016),
-        new MagicSet('SOI', 297, 2016),
-        new MagicSet('OGW', 184, 2016),
-        new MagicSet('BFZ', 274, 2015),
-    ];
-
-    cardSetsArray: string[] = this.magicSetArray.map(magicSet => magicSet.name);
+    cardSetsArray: string[] = magicSetArray.map(magicSet => magicSet.name);
 
     cardVariantTypes = ['normal', 'etched', 'prerelease', 'stamped', 'list'];
 
@@ -94,14 +94,14 @@ export class MagicCardsListService {
         // TODO kiegészíteni a listát
     ];
 
-    yearBlocks: MagicSetYearBlock[] = this.getMagicSetYearBlocks(this.magicSetArray);
+    yearBlocks: MagicSetYearBlock[] = this.getMagicSetYearBlocks(magicSetArray);
 
     constructor(private http: HttpClient, private authService: AuthenticationService) {
         this.cardImgUrlBase = environment.cardImgUrlBase;
     }
 
     getMagicSetMaxNumber(magicSetName: string): number {
-        const foundedMagicSet = this.magicSetArray.find(magicSet => magicSet.name === magicSetName);
+        const foundedMagicSet = magicSetArray.find(magicSet => magicSet.name === magicSetName);
         if (foundedMagicSet === undefined) {
             throw new Error('Magic Set not found!');
         }

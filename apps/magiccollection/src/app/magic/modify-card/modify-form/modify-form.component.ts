@@ -1,8 +1,11 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Card } from '../../../model/card.model';
 import { ModifyQtyEnum } from '../../../model/modify-qty.enum';
+import { selectCollectionState } from '../../../state/app.selector';
+import { ModifyCardActions } from '../../../state/modify-card.actions';
 import { MagicCardsListService } from '../../magic-card-list/magic-cards-list.service';
 import { ModifyCardService } from '../../modify-card.service';
 import { CardWithFoil } from '../dto/foil.dto';
@@ -36,6 +39,7 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
         private modifyCardService: ModifyCardService,
         private magicCardsListService: MagicCardsListService,
         private route: ActivatedRoute,
+        private store: Store,
     ) {}
 
     ngOnInit(): void {
@@ -43,7 +47,6 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
         this.cardVariantTypes = this.magicCardsListService.cardVariantTypes;
         this.cardLanguages = this.magicCardsListService.cardLanguages;
 
-        this.cardSet = this.cardSetsArray[0];
         this.cardVariantType = this.cardVariantTypes[0];
         this.cardLanguage = this.cardLanguages[0];
 
@@ -51,6 +54,9 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
             this.modifyQty = +this.route.snapshot.data['modifyQty'];
             this.cardNumbersStr = this.modifyCardService.getSavedModifyCard(this.modifyQty);
         });
+        this.store.select(selectCollectionState).subscribe(x => {
+            this.cardSet = x.setName;
+        })
     }
 
     addCard() {
@@ -83,8 +89,8 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
     }
 
     onSetChange(value: string) {
-        this.cardSet = value;
         this.onCardTyping();
+        this.store.dispatch(ModifyCardActions.changeSet({setName: value}));
     }
 
     ngOnDestroy() {

@@ -16,6 +16,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SideMenuComponent } from './header/side-menu/side-menu.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SharedModule } from './shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { modifyCardReducer } from './state/modify-card.reducer';
 
 @NgModule({
     declarations: [AppComponent, HeaderComponent, LandingComponent, SideMenuComponent],
@@ -32,6 +34,7 @@ import { SharedModule } from './shared/shared.module';
         MatSnackBarModule,
         MatSidenavModule,
         SharedModule,
+        StoreModule.forRoot({modifyCard: modifyCardReducer }),
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
