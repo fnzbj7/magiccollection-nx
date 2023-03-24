@@ -1,7 +1,7 @@
-<div class="flip-container" [ngClass]="flipClass ? 'hover' : ''">
+<div class="flip-container mt-5 mb-3" style="height: 414px;" [ngClass]="flipClass ? 'hover' : ''">
     <div class="flipper cursor-pointer">
         <div class="front">
-            <picture class="magiccard pointer-events-none">
+            <picture class="magiccard">
                 <source [srcset]="cardUrls.mainCardWebpUrl" type="image/webp" />
                 <source [srcset]="cardUrls.mainCardPngUrl" type="image/png" />
                 <img
@@ -13,7 +13,7 @@
             </picture>
         </div>
         <div class="back">
-            <picture class="magiccard pointer-events-none">
+            <picture class="magiccard">
                 <source [srcset]="cardUrls.flipCardWebpUrl" type="image/webp" />
                 <source [srcset]="cardUrls.flipCardPngUrl" type="image/png" />
                 <img
@@ -25,6 +25,6 @@
             </picture>
         </div>
     </div>
+    <fa-icon [icon]="faSyncAlt" (click)="flipClass = !flipClass" class="pointer"></fa-icon>
 </div>
-<div class="clearfix"></div>
-<fa-icon [icon]="faSyncAlt" (click)="flipClass = !flipClass" class="pointer"></fa-icon>
+

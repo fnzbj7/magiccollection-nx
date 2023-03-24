@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
-import { CardUrls } from 'apps/magiccollection/src/app/model/card-urls.model';
+import { CardUrls } from '../../../../../model/card-urls.model';
 import { Card } from '../../../../../model/card.model';
 import { MagicCardsListService } from '../../../magic-cards-list.service';
 

@@ -24,7 +24,9 @@ export class SwipeModel {
         return e as MouseEvent;
     }
 
-    lock(e: MouseEvent | TouchEventInit) {
+    lock(e: MouseEvent | TouchEvent) {
+        e.preventDefault();
+        
         if(this.swipeOption.dragStart) {
             this.swipeOption.dragStart();
         }
