@@ -12,7 +12,7 @@ export class SwipeModel {
         if (this.h) {
             this.h.addEventListener('mouseup', this.action.bind(this), false);
             this.h.addEventListener('touchend', this.action.bind(this), false);
-            // this.h.addEventListener('mousemove', this.drag.bind(this), false);
+            this.h.addEventListener('mousemove', this.drag.bind(this), false);
             this.h.addEventListener('touchmove', this.drag.bind(this), false);
         }
     }
@@ -25,6 +25,9 @@ export class SwipeModel {
     }
 
     lock(e: MouseEvent | TouchEventInit) {
+        if(this.swipeOption.dragStart) {
+            this.swipeOption.dragStart();
+        }
         this.x0 = this.unify(e).clientX;
     }
 

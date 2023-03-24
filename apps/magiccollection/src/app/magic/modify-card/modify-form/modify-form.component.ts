@@ -78,6 +78,12 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
     }
 
     onCardTyping() {
+
+        if(!this.cardNumbersStr && this.lastCardPreview) {
+            this.lastCardPreview = undefined;
+            return;
+        }
+
         if (!this.isSpaceLastBtnPress(this.cardNumbersStr)) {
             return;
         }

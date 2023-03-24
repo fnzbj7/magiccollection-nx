@@ -45,6 +45,9 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
             new SwipeModel(c, {
                 callbackLeft: this.onNextCard.bind(this),
                 callbackRight: this.getPreviousCard.bind(this),
+                dragStart: ((cardContainer: HTMLElement) => {
+                    cardContainer.style.transition = 'none';
+                }).bind(null, this.cardContainer.nativeElement),
                 dragEvent: this.dragEvent.bind(this),
                 dragStop: this.dragStop.bind(this),
             });
@@ -73,19 +76,18 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
         if (x0 === null) {
             return;
         }
-        const minLimit = 30;
-        const maxLimit = 150;
+        const minLimit = 4;
+        const maxLimit = 350;
         const actual = clientX - x0;
         if (actual > minLimit || actual < -minLimit) {
             const num = Math.min(Math.max(actual, -maxLimit), maxLimit); // Math.min(Math.max(actual / 1, -maxLimit), maxLimit);
-            this.cardContainer.nativeElement.style.position = 'relative';
-            this.cardContainer.nativeElement.style.left = `${num}px`;
+            this.cardContainer.nativeElement.style.transform = `translate3d(${num}px,0,0)`;
         }
     }
 
     dragStop() {
-        this.cardContainer.nativeElement.style.position = '';
-        this.cardContainer.nativeElement.style.left = '';
+        this.cardContainer.nativeElement.style.transition = '0.2s'
+        this.cardContainer.nativeElement.style.transform = `translate3d(0,0,0)`;
     }
 
     onShowAllVersion() {
