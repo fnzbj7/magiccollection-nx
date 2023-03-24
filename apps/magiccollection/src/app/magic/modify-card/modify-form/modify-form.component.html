@@ -49,14 +49,14 @@
     <div style="grid-area: 4 / 1 / 5 / last">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="card-set">Card numbers:</label>
         <textarea
-        class="block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        style="min-width: 350px;"
-        name="card-numbers"
-        id="card-numbers"
-        [(ngModel)]="cardNumbersStr"
-        (input)="onCardTyping()"
-        rows="5"
-        ></textarea>
+            class="block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            style="max-width: 420px;"
+            name="card-numbers"
+            id="card-numbers"
+            [(ngModel)]="cardNumbersStr"
+            (input)="onCardTyping()"
+            rows="5"
+            ></textarea>
         <p class="text-danger" *ngIf="isError">
             Valami hiba történt, nézzed át a beírt számokat
             <ng-container *ngIf="wrongNums?.length !== 0"
@@ -74,10 +74,14 @@
         </p>
     </div>
     <div class="pt-3" style="grid-area: 5 / 1 / 6 / last">
-        <button class="btn btn-primary">Elküld</button>
+        <button class="btn btn-primary" 
+        [ngClass]="{'btn-primary': ModifyMode.ADD === mode, 'btn-danger': ModifyMode.REMOVE === mode}">
+            {{ModifyMode.ADD === mode ? 'Elküld' : 'Töröl' }}
+        </button>
         <button type="button" class="ml-3 btn btn-secondary bg-gray-500">Törlés</button>
     </div>
-    <div style="grid-area: 1 / 4 / 5 / last">
+    <div class="self-end" style="grid-area: 1 / 4 / 4 / last">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="card-set">Preview Card:</label>
         <ng-container *ngIf="lastCardPreview">
             <ul class="mx-2" >
                 <app-magic-card [magicCard]="lastCardPreview" [onlyShow]="true"></app-magic-card>

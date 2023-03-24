@@ -17,6 +17,11 @@ enum PageStep {
     UPLOADED = 'uploaded',
 }
 
+export enum ModifyMode {
+    ADD,
+    REMOVE
+}
+
 @Component({
     selector: 'app-modify-card',
     templateUrl: './modify-card.component.html',
@@ -39,6 +44,8 @@ export class ModifyCardComponent implements OnInit, OnDestroy {
     reducedArr!: ModifyCardDto;
     rawCardNumbers!: CardWithFoil[];
 
+    mode!: ModifyMode;
+
     constructor(
         private modifyCardService: ModifyCardService,
         private magicCardsListService: MagicCardsListService,
@@ -49,6 +56,7 @@ export class ModifyCardComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.param$ = this.route.params.subscribe(() => {
             this.modifyQty = +this.route.snapshot.data['modifyQty'];
+            this.mode = this.modifyQty > 0 ? ModifyMode.ADD : ModifyMode.REMOVE;
             this.resetPage();
         });
     }

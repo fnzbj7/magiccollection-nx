@@ -1,7 +1,7 @@
 <div class="container bg-light p-3">
     <h1 class="text-2xl mb-2" [ngClass]="{'text-red-400': modifyQty < 0}" >{{modifyQty > 0 ? 'Kártya hozzáadó rendszer': 'Kártya törlő rendszer' }}</h1>
     <ng-container *ngIf="actualPageStep === pageStep.FORM">
-        <app-modify-form (afterFinish)="onFormFinish($event)"></app-modify-form>
+        <app-modify-form [mode]="mode" (afterFinish)="onFormFinish($event)"></app-modify-form>
     </ng-container>
 
     <ng-container *ngIf="actualPageStep === pageStep.PREVIEW">

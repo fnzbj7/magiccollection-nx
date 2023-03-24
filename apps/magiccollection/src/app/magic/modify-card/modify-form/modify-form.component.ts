@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -10,6 +10,7 @@ import { MagicCardsListService } from '../../magic-card-list/magic-cards-list.se
 import { ModifyCardService } from '../../modify-card.service';
 import { CardWithFoil } from '../dto/foil.dto';
 import { ModifyCardDto } from '../dto/modify-card.dto';
+import { ModifyMode } from '../modify-card.component';
 import { AfterFinishForm } from './model/after-finish-form.model';
 
 @Component({
@@ -18,7 +19,10 @@ import { AfterFinishForm } from './model/after-finish-form.model';
     styleUrls: ['./modify-form.component.scss']
 })
 export class ModifyFormComponent implements OnInit, OnDestroy {
+    @Input() mode!: ModifyMode;
     @Output() afterFinish = new EventEmitter<AfterFinishForm>();
+
+    ModifyMode = ModifyMode;
 
     modifyQty: ModifyQtyEnum = ModifyQtyEnum.ADD;
     wrongNums: number[] = [];
