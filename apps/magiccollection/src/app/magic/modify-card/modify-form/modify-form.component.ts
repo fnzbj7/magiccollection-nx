@@ -95,6 +95,9 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
 
     onSetChange(value: string) {
         this.onCardTyping();
+        if(this.lastCardPreview) {
+            this.lastCardPreview = {...this.lastCardPreview, cardExpansion: value};
+        }
         this.store.dispatch(ModifyCardActions.changeSet({setName: value}));
     }
 

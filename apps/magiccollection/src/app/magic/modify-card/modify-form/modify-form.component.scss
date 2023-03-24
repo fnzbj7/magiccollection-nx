@@ -1,4 +1,4 @@
 .modify-grid {
     grid-template-columns: [first] 112px [line2] 45px [line3] 30px auto [end];
-    grid-template-rows: 100px 100px 140px 180px 80px;
+    grid-template-rows: 100px 100px auto auto 80px;
 }
