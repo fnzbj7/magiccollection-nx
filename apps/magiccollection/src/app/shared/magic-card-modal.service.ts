@@ -28,7 +28,7 @@ export class MagicCardModalService {
         this.actualMagicCard = undefined;
     }
 
-    getNextCard(): Card | null {
+    getNextCard(needStep: boolean = true): Card | null {
         const index = this.checkErrorOrGetIndex();
         if (index === null || !this.magicCardList) {
             return null;
@@ -39,12 +39,17 @@ export class MagicCardModalService {
             return null;
         }
 
-        this.actualMagicCard = this.magicCardList[index + 1];
+        const nextCard = this.magicCardList[index + 1];
 
-        return this.actualMagicCard;
+        if(needStep) {
+            this.actualMagicCard = nextCard;
+        }
+
+        return nextCard;
     }
+    
 
-    getPreviousCard() {
+    getPreviousCard(needStep: boolean = true) {
         const index = this.checkErrorOrGetIndex();
         if (index === null || !this.magicCardList) {
             return null;
@@ -55,9 +60,13 @@ export class MagicCardModalService {
             return null;
         }
 
-        this.actualMagicCard = this.magicCardList[index - 1];
+        const previousCard = this.magicCardList[index - 1];
 
-        return this.actualMagicCard;
+        if(needStep) {
+            this.actualMagicCard = previousCard;
+        }
+
+        return previousCard;
     }
 
     getAllVersionForCard(uniqueCardId: number, userId: number | undefined): Observable<Card[]> {

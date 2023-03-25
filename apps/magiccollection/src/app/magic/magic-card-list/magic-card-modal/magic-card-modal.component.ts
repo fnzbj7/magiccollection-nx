@@ -15,9 +15,15 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     @ViewChild('swipable') swipable!: ElementRef<HTMLDivElement>;
     @ViewChild('cardContainer') cardContainer!: ElementRef<HTMLDivElement>;
 
+    nextMagicCard!: Card | null;
+    previousMagicCard!: Card | null;
+
     isLoggedIn!: boolean;
     otherVersionCards?: Card[];
     allVerions?: Card[];
+
+    defaultPos = -280;
+    actualPos = 0;
 
     constructor(
         private authenticationService: AuthenticationService,
@@ -26,6 +32,8 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
 
     ngOnInit(): void {
         this.isLoggedIn = this.authenticationService.isLoggedIn();
+        this.nextMagicCard = this.magicCardModalService.getNextCard(false);
+        this.previousMagicCard = this.magicCardModalService.getPreviousCard(false);
     }
 
     ngAfterViewInit() {
@@ -55,6 +63,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     }
 
     onNextCard() {
+        this.actualPos -= 340; 
         const nextMagicCard = this.magicCardModalService.getNextCard();
         if (nextMagicCard) {
             this.magicCard = nextMagicCard;
@@ -64,6 +73,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     }
 
     getPreviousCard() {
+        this.actualPos += 340; 
         const nextMagicCard = this.magicCardModalService.getPreviousCard();
         if (nextMagicCard) {
             this.magicCard = nextMagicCard;
@@ -81,13 +91,13 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
         const actual = clientX - x0;
         if (actual > minLimit || actual < -minLimit) {
             const num = Math.min(Math.max(actual, -maxLimit), maxLimit); // Math.min(Math.max(actual / 1, -maxLimit), maxLimit);
-            this.cardContainer.nativeElement.style.transform = `translate3d(${num}px,0,0)`;
+            this.cardContainer.nativeElement.style.transform = `translate3d(${this.defaultPos + this.actualPos + num}px,0,0)`;
         }
     }
 
     dragStop() {
         this.cardContainer.nativeElement.style.transition = '0.2s'
-        this.cardContainer.nativeElement.style.transform = `translate3d(0,0,0)`;
+        this.cardContainer.nativeElement.style.transform = `translate3d(${this.defaultPos + this.actualPos}px,0,0)`;
     }
 
     onShowAllVersion() {
