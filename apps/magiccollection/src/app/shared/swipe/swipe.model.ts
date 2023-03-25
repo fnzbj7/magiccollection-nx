@@ -5,8 +5,8 @@ export class SwipeModel {
     private h!: HTMLBodyElement | null;
     // TODO this is a mess, need to refactor
     constructor(private c: HTMLElement, private swipeOption: SwipeOption) {
-        this.c.addEventListener('mousedown', this.lock.bind(this), false);
-        this.c.addEventListener('touchstart', this.lock.bind(this), false);
+        this.c.addEventListener('mousedown', this.lock.bind(this, false), false);
+        this.c.addEventListener('touchstart', this.lock.bind(this, true), false);
 
         this.h = document.querySelector('body');
         if (this.h) {
@@ -24,9 +24,12 @@ export class SwipeModel {
         return e as MouseEvent;
     }
 
-    lock(e: MouseEvent | TouchEvent) {
-        e.preventDefault();
-        
+    lock(isMobile: boolean, e: MouseEvent | TouchEvent) {
+
+        if(!isMobile) {
+            e.preventDefault();
+        }
+
         if(this.swipeOption.dragStart) {
             this.swipeOption.dragStart();
         }
