@@ -66,7 +66,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
         this.actualPos -= 340; 
         const nextMagicCard = this.magicCardModalService.getNextCard();
         if (nextMagicCard) {
-            this.magicCard = nextMagicCard;
+            //this.magicCard = nextMagicCard;
             this.allVerions = undefined;
             this.otherVersionCards = undefined;
         }
@@ -76,7 +76,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
         this.actualPos += 340; 
         const nextMagicCard = this.magicCardModalService.getPreviousCard();
         if (nextMagicCard) {
-            this.magicCard = nextMagicCard;
+            //this.magicCard = nextMagicCard;
             this.allVerions = undefined;
             this.otherVersionCards = undefined;
         }
