@@ -24,6 +24,7 @@ import { MagicCardListContainerComponent } from './magic-card-list/magic-card-li
 import { CardCariationComponent } from './card-variation/card-variation.component';
 import { MagicCardTypeFilterComponent } from './magic-card-list/filters/magic-card-type-filter/magic-card-type-filter.component';
 import { EmptyMagicCardComponent } from './magic-card-list/magic-card/empty-card/empty-magic-card.component';
+import { CardLayoutWrapperComponent } from './magic-card-list/magic-card-modal/card-layout-wrapper/card-layout-wrapper.component';
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { EmptyMagicCardComponent } from './magic-card-list/magic-card/empty-card
         MagicCardNormalComponent,
         CardCariationComponent,
         MagicCardTypeFilterComponent,
+        CardLayoutWrapperComponent,
     ],
     entryComponents: [MagicCardModalComponent],
     imports: [

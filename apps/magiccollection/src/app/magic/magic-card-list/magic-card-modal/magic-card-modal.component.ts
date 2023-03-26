@@ -5,6 +5,11 @@ import { Card } from '../../../model/card.model';
 import { MagicCardModalService } from '../../../shared/magic-card-modal.service';
 import { SwipeModel } from '../../../shared/swipe/swipe.model';
 
+interface CardPos {
+    comp: Card | null;
+    pos: number;
+}
+
 @Component({
     selector: 'app-magic-card-modal',
     templateUrl: './magic-card-modal.component.html',
@@ -15,14 +20,14 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     @ViewChild('swipable') swipable!: ElementRef<HTMLDivElement>;
     @ViewChild('cardContainer') cardContainer!: ElementRef<HTMLDivElement>;
 
-    nextMagicCard!: Card | null;
-    previousMagicCard!: Card | null;
+    positionArr: CardPos[] = [];
 
     isLoggedIn!: boolean;
     otherVersionCards?: Card[];
     allVerions?: Card[];
 
     defaultPos = -280;
+    baseStep = 340;
     actualPos = 0;
 
     constructor(
@@ -32,8 +37,10 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
 
     ngOnInit(): void {
         this.isLoggedIn = this.authenticationService.isLoggedIn();
-        this.nextMagicCard = this.magicCardModalService.getNextCard(false);
-        this.previousMagicCard = this.magicCardModalService.getPreviousCard(false);
+        const basePosition = -5;
+        this.positionArr.push({comp: this.magicCardModalService.getPreviousCard(false), pos: basePosition});
+        this.positionArr.push({comp: this.magicCard, pos: basePosition + this.baseStep});
+        this.positionArr.push({comp: this.magicCardModalService.getNextCard(false), pos: basePosition + (2 * this.baseStep)});
     }
 
     ngAfterViewInit() {
@@ -63,22 +70,24 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     }
 
     onNextCard() {
-        this.actualPos -= 340; 
         const nextMagicCard = this.magicCardModalService.getNextCard();
         if (nextMagicCard) {
+            this.actualPos -= this.baseStep; 
             //this.magicCard = nextMagicCard;
             this.allVerions = undefined;
             this.otherVersionCards = undefined;
+            this.cycleNext(this.magicCardModalService.getNextCard(false));
         }
     }
 
     getPreviousCard() {
-        this.actualPos += 340; 
         const nextMagicCard = this.magicCardModalService.getPreviousCard();
         if (nextMagicCard) {
+            this.actualPos += this.baseStep; 
             //this.magicCard = nextMagicCard;
             this.allVerions = undefined;
             this.otherVersionCards = undefined;
+            this.cyclePrev(this.magicCardModalService.getPreviousCard(false));
         }
     }
 
@@ -123,12 +132,24 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
 
     onChangeVersion(changeVersion: Card) {
         this.magicCard = changeVersion;
-        // this.otherVersionCards = this.allVerions.filter(
-        //     card =>
-        //         !(
-        //             card.cardExpansion === this.magicCard.cardExpansion &&
-        //             card.cardNumber === this.magicCard.cardNumber
-        //         ),
-        // );
+    }
+
+    private cycleNext(nextCard: Card |null) {
+        const a = this.positionArr.shift();
+        if(a !== undefined) {
+            a.pos = this.positionArr[this.positionArr.length - 1].pos + 340;
+            a.comp = nextCard;
+            this.positionArr.push(a);
+        }
+    }
+
+    private cyclePrev(prevCard: Card |null) {
+        const a = this.positionArr.pop();
+        
+        if(a !== undefined) {
+            a.pos = this.positionArr[0].pos - 340;
+            a.comp = prevCard;
+            this.positionArr.unshift(a);
+        }
     }
 }
