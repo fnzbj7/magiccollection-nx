@@ -110,10 +110,10 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     }
 
     onShowAllVersion() {
-        if (this.magicCard.uniqueCardId) {
+        if (this.positionArr[1].comp?.uniqueCardId) {
             this.magicCardModalService
                 .getAllVersionForCard(
-                    this.magicCard.uniqueCardId,
+                    this.positionArr[1].comp.uniqueCardId,
                     this.authenticationService.currentUserValue?.id,
                 )
                 .subscribe(cards => {
