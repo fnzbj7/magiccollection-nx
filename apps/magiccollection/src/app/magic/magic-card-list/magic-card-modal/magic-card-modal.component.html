@@ -9,11 +9,11 @@
     
     <div class="flex justify-center" *ngIf="isLoggedIn && !otherVersionCards">
         <div class="inline mx-3 tooltip-w3 text-center">
-            <img class="w-10" src="/assets/img/filter/card-single.svg"> {{magicCard.cardAmount}}
+            <img class="w-10" src="/assets/img/filter/card-single.svg"> {{positionArr[1].comp?.cardAmount}}
             <span class="top right tooltiptext-w3">Normál kártya</span>
         </div>
         <div class="inline mx-3 tooltip-w3 text-center">
-            <img class="w-10" src="/assets/img/filter/card-single-foil.svg"> {{magicCard.cardAmountFoil}}
+            <img class="w-10" src="/assets/img/filter/card-single-foil.svg"> {{positionArr[1].comp?.cardAmountFoil}}
             <span class="top left tooltiptext-w3">Foil kártya</span>
         </div>
     </div>
