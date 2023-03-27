@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CardType } from 'apps/magiccollection/src/app/model/card.model';
-import { FilterChange } from 'apps/magiccollection/src/app/model/filter-change.model';
+import { CardType } from '../../../../model/card.model';
+import { FilterChange } from '../../../../model/filter-change.model';
 import { Subscription } from 'rxjs';
 import { MagicCardsListService } from '../../magic-cards-list.service';
 
 @Component({
-    selector: 'app-magic-card-type-filter',
+    selector: 'div[app-magic-card-type-filter]',
     templateUrl: './magic-card-type-filter.component.html',
     styleUrls: [
         './magic-card-type-filter.component.scss',

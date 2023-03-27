@@ -1,128 +1,94 @@
-<ul class="rarity-filter d-inline-block">
-    <li
-        class="filter-element"
-        (click)="onChangeRarityFilter('C', !isCommon)"
-        [ngClass]="{ active: isCommon }"
-    >
-        C
-    </li>
-    <li
-        class="filter-element"
-        (click)="onChangeRarityFilter('U', !isUncommon)"
-        [ngClass]="{ active: isUncommon }"
-    >
-        U
-    </li>
-    <li
-        class="filter-element"
-        (click)="onChangeRarityFilter('R', !isRare)"
-        [ngClass]="{ active: isRare }"
-    >
-        R
-    </li>
-    <li
-        class="filter-element"
-        (click)="onChangeRarityFilter('M', !isMythic)"
-        [ngClass]="{ active: isMythic }"
-    >
-        M
-    </li>
-</ul>
-<div class="tooltip-w3 mr-4">
-    <fa-icon [icon]="faInfoCircle"></fa-icon>
-    <span class="right left-md tooltiptext-w3" style="width: 130px; text-align: left; z-index: 25">
-        <ng-container *ngIf="isCommon || isUncommon || isRare || isMythic">
-            &nbsp;<span>Megjelenő:<br /></span>
-            <ng-container *ngIf="isCommon">&nbsp;&nbsp;&#183;&nbsp;Common<br /></ng-container>
-            <ng-container *ngIf="isUncommon">&nbsp;&nbsp;&#183;&nbsp;Uncommon<br /></ng-container>
-            <ng-container *ngIf="isRare">&nbsp;&nbsp;&#183;&nbsp;Rare<br /></ng-container>
-            <ng-container *ngIf="isMythic"
-                >&nbsp;&nbsp;&#183;&nbsp;Mythic&nbsp;Rare<br
-            /></ng-container>
-        </ng-container>
-        <ng-container *ngIf="!isCommon || !isUncommon || !isRare || !isMythic">
-            &nbsp;<span>Elrejtett:<br /></span>
-            <ng-container *ngIf="!isCommon">&nbsp;&nbsp;&#183;&nbsp;Common<br /></ng-container>
-            <ng-container *ngIf="!isUncommon">&nbsp;&nbsp;&#183;&nbsp;Uncommon<br /></ng-container>
-            <ng-container *ngIf="!isRare">&nbsp;&nbsp;&#183;&nbsp;Rare<br /></ng-container>
-            <ng-container *ngIf="!isMythic"
-                >&nbsp;&nbsp;&#183;&nbsp;Mythic&nbsp;Rare<br
-            /></ng-container>
-        </ng-container>
-    </span>
-</div>
+<details class="style2" appDetails>
+    <summary>Filters</summary>
+    <div class="content flex gap-5 flex-wrap">
+        <div class="flex flex-col gap-1">
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isCommon" (change)="onChangeRarityFilter('C', isCommon)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Common</span>
+            </label>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isUncommon" (change)="onChangeRarityFilter('U', isUncommon)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Uncommon</span>
+            </label>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isRare" (change)="onChangeRarityFilter('R', isRare)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Rare</span>
+            </label>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isMythic" (change)="onChangeRarityFilter('M', isMythic)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Mythic</span>
+            </label>
+        </div>
+        <div class="flex flex-col gap-1">
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isWhite" (change)="onChangeColorFilter('W', isWhite)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">White</span>
+            </label>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isBlue" (change)="onChangeColorFilter('U', isBlue)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Blue</span>
+            </label>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isBlack" (change)="onChangeColorFilter('B', isBlack)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Black</span>
+            </label>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isRed" (change)="onChangeColorFilter('R', isRed)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Red</span>
+            </label>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isGreen" (change)="onChangeColorFilter('R', isGreen)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Green</span>
+            </label>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" [(ngModel)]="isColorless" (change)="onChangeColorFilter('C', isColorless)" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Colorless</span>
+            </label>
+        </div>
+        <div app-magic-card-type-filter class="flex flex-col gap-1">
 
-<ul class="rarity-filter d-inline-block mr-4">
-    <li
-        class="filter-element"
-        (click)="onChangeColorFilter('W', !isWhite)"
-        [ngClass]="{ active: isWhite }"
-    >
-        W
-    </li>
-    <li
-        class="filter-element"
-        (click)="onChangeColorFilter('U', !isBlue)"
-        [ngClass]="{ active: isBlue }"
-    >
-        U
-    </li>
-    <li
-        class="filter-element"
-        (click)="onChangeColorFilter('B', !isBlack)"
-        [ngClass]="{ active: isBlack }"
-    >
-        B
-    </li>
-    <li
-        class="filter-element"
-        (click)="onChangeColorFilter('R', !isRed)"
-        [ngClass]="{ active: isRed }"
-    >
-        R
-    </li>
-    <li
-        class="filter-element"
-        (click)="onChangeColorFilter('G', !isGreen)"
-        [ngClass]="{ active: isGreen }"
-    >
-        G
-    </li>
-    <li
-        class="filter-element"
-        (click)="onChangeColorFilter('C', !isColorless)"
-        [ngClass]="{ active: isColorless }"
-    >
-        C
-    </li>
-</ul>
-<div class="quantity-block mr-4 d-flex" *ngIf="isAuth">
-    <div class="d-inline-block tooltip-w3 pointer">
-        <img
-            src="/assets/img/filter/card-all.svg"
-            (click)="onChangeRadio(quantityEnum.ALL)"
-            [ngClass]="{ selected: quantityFilter === quantityEnum.ALL }"
-            class="quantity-img"
-        />
-        <span class="right left-md tooltiptext-w3">Összes</span>
+        </div>
+
+    <div class="quantity-block mr-4 d-flex" *ngIf="isAuth">
+        <div class="d-inline-block tooltip-w3 pointer">
+            <img
+                src="/assets/img/filter/card-all.svg"
+                (click)="onChangeRadio(quantityEnum.ALL)"
+                [ngClass]="{ selected: quantityFilter === quantityEnum.ALL }"
+                class="quantity-img"
+            />
+            <span class="right left-md tooltiptext-w3">Összes</span>
+        </div>
+        <div class="d-inline-block tooltip-w3 pointer">
+            <img
+                src="/assets/img/filter/card-have.svg"
+                (click)="onChangeRadio(quantityEnum.HAVE)"
+                [ngClass]="{ selected: quantityFilter === quantityEnum.HAVE }"
+                class="quantity-img"
+            />
+            <span class="right left-md tooltiptext-w3">Meglévő</span>
+        </div>
+        <div class="d-inline-block tooltip-w3 pointer">
+            <img
+                src="/assets/img/filter/card-miss.svg"
+                (click)="onChangeRadio(quantityEnum.NOTHAVE)"
+                [ngClass]="{ selected: quantityFilter === quantityEnum.NOTHAVE }"
+                class="quantity-img"
+            />
+            <span class="right left-md tooltiptext-w3">Hiányzó</span>
+        </div>
     </div>
-    <div class="d-inline-block tooltip-w3 pointer">
-        <img
-            src="/assets/img/filter/card-have.svg"
-            (click)="onChangeRadio(quantityEnum.HAVE)"
-            [ngClass]="{ selected: quantityFilter === quantityEnum.HAVE }"
-            class="quantity-img"
-        />
-        <span class="right left-md tooltiptext-w3">Meglévő</span>
+    
     </div>
-    <div class="d-inline-block tooltip-w3 pointer">
-        <img
-            src="/assets/img/filter/card-miss.svg"
-            (click)="onChangeRadio(quantityEnum.NOTHAVE)"
-            [ngClass]="{ selected: quantityFilter === quantityEnum.NOTHAVE }"
-            class="quantity-img"
-        />
-        <span class="right left-md tooltiptext-w3">Hiányzó</span>
-    </div>
-</div>
-<app-magic-card-type-filter></app-magic-card-type-filter>
+</details>
+

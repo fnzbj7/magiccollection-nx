@@ -106,47 +106,47 @@ export class MagicCardRarityFilterComponent implements OnInit {
     }
 
     setRarityFilter(filterChange: FilterChange) {
-        switch (filterChange.changeName) {
-            case CardRarity.Common:
-                this.isCommon = filterChange.changedTo;
-                break;
-            case CardRarity.Uncommon:
-                this.isUncommon = filterChange.changedTo;
-                break;
-            case CardRarity.Rare:
-                this.isRare = filterChange.changedTo;
-                break;
-            case CardRarity.Mythic:
-                this.isMythic = filterChange.changedTo;
-                break;
-            default:
-                break;
-        }
+        // switch (filterChange.changeName) {
+        //     case CardRarity.Common:
+        //         this.isCommon = filterChange.changedTo;
+        //         break;
+        //     case CardRarity.Uncommon:
+        //         this.isUncommon = filterChange.changedTo;
+        //         break;
+        //     case CardRarity.Rare:
+        //         this.isRare = filterChange.changedTo;
+        //         break;
+        //     case CardRarity.Mythic:
+        //         this.isMythic = filterChange.changedTo;
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 
     setColorFilter(filterChange: FilterChange) {
-        switch (filterChange.changeName) {
-            case CardColor.WHITE:
-                this.isWhite = filterChange.changedTo;
-                break;
-            case CardColor.BLUE:
-                this.isBlue = filterChange.changedTo;
-                break;
-            case CardColor.BLACK:
-                this.isBlack = filterChange.changedTo;
-                break;
-            case CardColor.RED:
-                this.isRed = filterChange.changedTo;
-                break;
-            case CardColor.GREEN:
-                this.isGreen = filterChange.changedTo;
-                break;
-            case CardColor.COLORLESS:
-                this.isColorless = filterChange.changedTo;
-                break;
-            default:
-                break;
-        }
+        // switch (filterChange.changeName) {
+        //     case CardColor.WHITE:
+        //         this.isWhite = filterChange.changedTo;
+        //         break;
+        //     case CardColor.BLUE:
+        //         this.isBlue = filterChange.changedTo;
+        //         break;
+        //     case CardColor.BLACK:
+        //         this.isBlack = filterChange.changedTo;
+        //         break;
+        //     case CardColor.RED:
+        //         this.isRed = filterChange.changedTo;
+        //         break;
+        //     case CardColor.GREEN:
+        //         this.isGreen = filterChange.changedTo;
+        //         break;
+        //     case CardColor.COLORLESS:
+        //         this.isColorless = filterChange.changedTo;
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 
     onChangeRadio(newQuantity: QuantityFilterEnum) {

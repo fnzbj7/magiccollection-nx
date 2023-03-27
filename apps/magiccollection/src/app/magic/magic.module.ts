@@ -48,6 +48,7 @@ import { CardLayoutWrapperComponent } from './magic-card-list/magic-card-modal/c
         CardCariationComponent,
         MagicCardTypeFilterComponent,
         CardLayoutWrapperComponent,
+        
     ],
     entryComponents: [MagicCardModalComponent],
     imports: [
