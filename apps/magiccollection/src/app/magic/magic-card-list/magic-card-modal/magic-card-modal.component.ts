@@ -20,6 +20,8 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     @ViewChild('swipable') swipable!: ElementRef<HTMLDivElement>;
     @ViewChild('cardContainer') cardContainer!: ElementRef<HTMLDivElement>;
 
+    changedCard?: Card;
+    order = 0;
     positionArr: CardPos[] = [];
 
     isLoggedIn!: boolean;
@@ -61,8 +63,13 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
                 callbackLeft: this.onNextCard.bind(this),
                 callbackRight: this.getPreviousCard.bind(this),
                 dragStart: ((cardContainer: HTMLElement) => {
+                    if(this.changedCard && this.order != 0) {
+                        this.positionArr[1 - this.order].comp = this.changedCard;
+                        this.order = 0;
+                        this.changedCard = undefined;
+                    }
                     cardContainer.style.transition = 'none';
-                }).bind(null, this.cardContainer.nativeElement),
+                }).bind(this, this.cardContainer.nativeElement),
                 dragEvent: this.dragEvent.bind(this),
                 dragStop: this.dragStop.bind(this),
             });
@@ -73,7 +80,9 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
         const nextMagicCard = this.magicCardModalService.getNextCard();
         if (nextMagicCard) {
             this.actualPos -= this.baseStep; 
-            //this.magicCard = nextMagicCard;
+            if(this.otherVersionCards) {
+                this.order = 1;
+            }
             this.allVerions = undefined;
             this.otherVersionCards = undefined;
             this.cycleNext(this.magicCardModalService.getNextCard(false));
@@ -84,7 +93,9 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
         const nextMagicCard = this.magicCardModalService.getPreviousCard();
         if (nextMagicCard) {
             this.actualPos += this.baseStep; 
-            //this.magicCard = nextMagicCard;
+            if(this.otherVersionCards) {
+                this.order = -1;
+            }
             this.allVerions = undefined;
             this.otherVersionCards = undefined;
             this.cyclePrev(this.magicCardModalService.getPreviousCard(false));
@@ -131,7 +142,16 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     }
 
     onChangeVersion(changeVersion: Card) {
-        this.magicCard = changeVersion;
+        if(this.changedCard && this.order != 0) {
+            this.positionArr[1 - this.order].comp = this.changedCard;
+        }
+        
+        if(this.positionArr[1].comp) {
+            this.changedCard = this.positionArr[1].comp;
+            this.order = 0;
+        }
+        this.positionArr[1].comp = changeVersion;
+
     }
 
     private cycleNext(nextCard: Card |null) {

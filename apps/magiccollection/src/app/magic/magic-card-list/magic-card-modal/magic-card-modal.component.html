@@ -22,7 +22,7 @@
     </div>
     <ng-container *ngIf="otherVersionCards">
         <!-- <div *ngIf="otherVersionCards.length === 0">Nincs másik nyomtatás ebből a kártyából</div> -->
-        <div class="flex justify-center card-version" *ngFor="let otherVersion of allVerions" [ngClass]="{'selected-version': otherVersion.cardExpansion === magicCard.cardExpansion && otherVersion.cardNumber === magicCard.cardNumber}">
+        <div class="flex justify-center card-version" *ngFor="let otherVersion of allVerions" [ngClass]="{'selected-version': otherVersion.cardExpansion === this.positionArr[1].comp?.cardExpansion && otherVersion.cardNumber === this.positionArr[1].comp?.cardNumber}">
             <div class="mr-5 w-16 flex flex-col" (click)="onChangeVersion(otherVersion)">
                 <img class="setIcon h-54px max-w-none" src="assets/img/set-icons/{{otherVersion.cardExpansion.toLowerCase()}}.svg" alt="">
                 <span>{{otherVersion.cardNumber}}</span>

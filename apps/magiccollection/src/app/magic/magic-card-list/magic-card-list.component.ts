@@ -5,7 +5,6 @@ import {
     OnDestroy,
     ChangeDetectorRef,
     AfterViewInit,
-    TemplateRef,
     ElementRef,
 } from '@angular/core';
 import { MagicCardsListService } from './magic-cards-list.service';
