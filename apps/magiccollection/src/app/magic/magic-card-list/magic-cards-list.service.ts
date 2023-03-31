@@ -149,6 +149,30 @@ export class MagicCardsListService {
         });
     }
 
+    changeRarityFilterBulk(filterChangeTo: boolean) {
+        if (filterChangeTo) {
+            this.rarityFilterArr.push(...['C', 'U', 'R', 'M']);  
+        } else {
+            this.rarityFilterArr = [];
+        }
+        this.rarityFilterChange.next({
+            changedTo: filterChangeTo,
+            changeName: 'TODO',
+        });
+    }
+
+    changeColorFilterBulk(filterChangeTo: boolean) {
+        if (filterChangeTo) {
+            this.colorFilterArr.push(...['W', 'U', 'B', 'R', 'G', 'C']);  
+        } else {
+            this.colorFilterArr = [];
+        }
+        this.colorFilterChange.next({
+            changedTo: filterChangeTo,
+            changeName: 'TODO',
+        });
+    }
+
     changeColorFilter(filterChangeName: string, filterChangeTo: boolean) {
         const isInFilterArray = this.colorFilterArr.includes(filterChangeName);
         if (isInFilterArray !== filterChangeTo) {
@@ -161,6 +185,18 @@ export class MagicCardsListService {
         this.colorFilterChange.next({
             changedTo: filterChangeTo,
             changeName: filterChangeName,
+        });
+    }
+
+    changeTypeFilterBulk(filterChangeTo: boolean) {
+        if (filterChangeTo) {
+            this.typeFilterArr.push(...['Creature', 'Sorcery', 'Instant', 'Enchantment', 'Artifact', 'Planeswalker', 'Land']);  
+        } else {
+            this.typeFilterArr = [];
+        }
+        this.typeFilterChange.next({
+            changedTo: filterChangeTo,
+            changeName: 'TODO',
         });
     }
 

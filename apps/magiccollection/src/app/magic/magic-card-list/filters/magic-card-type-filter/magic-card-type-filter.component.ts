@@ -13,6 +13,7 @@ import { MagicCardsListService } from '../../magic-cards-list.service';
     ],
 })
 export class MagicCardTypeFilterComponent implements OnInit, OnDestroy {
+    isAllTypeOn = true;
     isCreature = true;
     isSorcery = true;
     isInstant = true;
@@ -32,8 +33,23 @@ export class MagicCardTypeFilterComponent implements OnInit, OnDestroy {
         });
     }
 
+    onChangeAllType() {
+        this.magicCardsListService.changeTypeFilterBulk(this.isAllTypeOn)
+        this.isCreature = this.isSorcery = this.isInstant = this.isEnchantment = this.isArtifact = this.isPlaneswalker = this.isLand = this.isAllTypeOn;   
+    }
+
     onChangeTypeFilter(filterChangeName: string, filterChangeTo: boolean) {
         this.magicCardsListService.changeTypeFilter(filterChangeName, filterChangeTo);
+        if( this.isCreature === this.isSorcery &&
+            this.isSorcery === this.isInstant &&
+            this.isInstant === this.isEnchantment &&
+            this.isEnchantment === this.isArtifact && 
+            this.isArtifact === this.isPlaneswalker &&
+            this.isPlaneswalker === this.isLand) {
+            this.isAllTypeOn = this.isCreature;
+        } else if(this.isCreature || this.isSorcery || this.isInstant || this.isEnchantment || this.isArtifact || this.isPlaneswalker || this.isLand) {
+            this.isAllTypeOn = true;
+        }
     }
 
     ngOnDestroy(): void {
@@ -64,30 +80,30 @@ export class MagicCardTypeFilterComponent implements OnInit, OnDestroy {
     }
 
     private setTypeFilter(filterChange: FilterChange) {
-        switch (filterChange.changeName) {
-            case CardType.ARTIFACT:
-                this.isArtifact = filterChange.changedTo;
-                break;
-            case CardType.CREATURE:
-                this.isCreature = filterChange.changedTo;
-                break;
-            case CardType.ENCHANTMENT:
-                this.isEnchantment = filterChange.changedTo;
-                break;
-            case CardType.INSTANT:
-                this.isInstant = filterChange.changedTo;
-                break;
-            case CardType.LAND:
-                this.isLand = filterChange.changedTo;
-                break;
-            case CardType.PLANESWALKER:
-                this.isPlaneswalker = filterChange.changedTo;
-                break;
-            case CardType.SORCERY:
-                this.isSorcery = filterChange.changedTo;
-                break;
-            default:
-                break;
-        }
+        // switch (filterChange.changeName) {
+        //     case CardType.ARTIFACT:
+        //         this.isArtifact = filterChange.changedTo;
+        //         break;
+        //     case CardType.CREATURE:
+        //         this.isCreature = filterChange.changedTo;
+        //         break;
+        //     case CardType.ENCHANTMENT:
+        //         this.isEnchantment = filterChange.changedTo;
+        //         break;
+        //     case CardType.INSTANT:
+        //         this.isInstant = filterChange.changedTo;
+        //         break;
+        //     case CardType.LAND:
+        //         this.isLand = filterChange.changedTo;
+        //         break;
+        //     case CardType.PLANESWALKER:
+        //         this.isPlaneswalker = filterChange.changedTo;
+        //         break;
+        //     case CardType.SORCERY:
+        //         this.isSorcery = filterChange.changedTo;
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 }

@@ -14,6 +14,7 @@ import { CardColor } from '../../../model/card.model';
 })
 export class MagicCardRarityFilterComponent implements OnInit {
     // Rarity
+    isAllRarityOn = true;
     isCommon = true;
     isUncommon = true;
     isRare = true;
@@ -22,6 +23,7 @@ export class MagicCardRarityFilterComponent implements OnInit {
     quantityEnum = QuantityFilterEnum;
     isAuth = false;
     // Color
+    isAllColorOn = true;
     isWhite = true;
     isBlue = true;
     isBlack = true;
@@ -59,12 +61,38 @@ export class MagicCardRarityFilterComponent implements OnInit {
         });
     }
 
+    changeAllRarityOn() {
+        this.magicCardsListService.changeRarityFilterBulk(this.isAllRarityOn)
+        this.isCommon = this.isUncommon = this.isRare = this.isMythic = this.isAllRarityOn;
+    }
+
+    changeAllColorOn() {
+        this.magicCardsListService.changeColorFilterBulk(this.isAllColorOn)
+        this.isWhite = this.isBlue = this.isBlack = this.isRed = this.isGreen = this.isColorless = this.isAllColorOn;
+    }
+
     onChangeRarityFilter(filterChangeName: string, filterChangeTo: boolean) {
         this.magicCardsListService.changeRarityFilter(filterChangeName, filterChangeTo);
+        if( this.isCommon === this.isUncommon &&
+            this.isUncommon === this.isRare &&
+            this.isRare === this.isMythic ) {
+            this.isAllRarityOn = this.isCommon;
+        } else if(this.isCommon || this.isUncommon || this.isRare || this.isMythic) {
+            this.isAllRarityOn = true;
+        }
     }
 
     onChangeColorFilter(filterChangeName: string, filterChangeTo: boolean) {
         this.magicCardsListService.changeColorFilter(filterChangeName, filterChangeTo);
+        if( this.isWhite === this.isBlue &&
+            this.isBlue === this.isBlack &&
+            this.isBlack === this.isRed &&
+            this.isRed === this.isGreen &&
+            this.isGreen === this.isColorless ) {
+            this.isAllColorOn = this.isWhite;
+        } else if(this.isWhite || this.isBlue || this.isBlack || this.isRed || this.isGreen || this.isColorless) {
+            this.isAllColorOn = true;
+        }
     }
 
     initFilterValues(filterArray: string[]) {
