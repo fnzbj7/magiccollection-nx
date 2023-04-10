@@ -1,12 +1,25 @@
-import { Controller, Post, Body, ValidationPipe, Get, UseGuards } from '@nestjs/common';
+import {
+    Controller,
+    Post,
+    Body,
+    ValidationPipe,
+    Get,
+    UseGuards,
+    Req,
+    HttpStatus,
+    Logger,
+} from '@nestjs/common';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from './get-user.decorator';
 import { User } from './entity/user.entity';
+import { Request } from 'express';
 
 @Controller('auth')
 export class AuthController {
+    private logger: Logger = new Logger(AuthController.name);
+
     constructor(private authService: AuthService) {}
 
     @Post('/signup')
@@ -25,10 +38,21 @@ export class AuthController {
         return this.authService.singIn(authCredentialsDto);
     }
 
-    // @UseGuards(AuthGuard('facebook-token'))
+    @UseGuards(AuthGuard('facebook-token'))
     @Get('facebook')
     async getTokenAfterFacebookSignIn(@GetUser() user: User) {
+        this.logger.log('Itt járt 1');
         return this.authService.singInWithUser(user);
+    }
+
+    @Get('/facebook/redirect')
+    @UseGuards(AuthGuard('facebook-token'))
+    async facebookLoginRedirect(@Req() req: Request): Promise<any> {
+        this.logger.log('Itt járt 2');
+        return {
+            statusCode: HttpStatus.OK,
+            data: req.user,
+        };
     }
 
     @Get('/refreshtoken')

@@ -15,7 +15,12 @@
                 "inlineStyleLanguage": "scss",
                 "assets": [
                     "apps/magiccollection/src/favicon.ico",
-                    "apps/magiccollection/src/assets",
+                    {
+                        "glob": "**/*",
+                        "input": "apps/magiccollection/src/assets",
+                        "ignore": ["**/static-img/*"],
+                        "output": "/assets"
+                    },
                     "apps/magiccollection/src/manifest.webmanifest"
                 ],
                 "styles": [
@@ -74,6 +79,7 @@
             },
             "defaultConfiguration": "development",
             "options": {
+                "ssl": true,
                 "proxyConfig": "apps/magiccollection/proxy.conf.json"
             }
         },

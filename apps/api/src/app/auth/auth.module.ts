@@ -8,6 +8,7 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './jwt.strategy';
 import { PrivilegeRepository } from './repository/privilege.repository';
 import { MailService } from '../shared/mail.service';
+import { FacebookStrategy } from './facebook.strategy';
 
 @Module({
     controllers: [AuthController],
@@ -21,7 +22,7 @@ import { MailService } from '../shared/mail.service';
             },
         }),
     ],
-    providers: [UserRepository, MailService, AuthService, JwtStrategy],
+    providers: [UserRepository, MailService, AuthService, JwtStrategy, FacebookStrategy],
     exports: [JwtStrategy, PassportModule],
 })
 export class AuthModule {}
