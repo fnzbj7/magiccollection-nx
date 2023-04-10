@@ -36,30 +36,6 @@
     list-style-type: none;
 }
 
-.quantity-img {
-    width: 20px;
-    box-sizing: content-box;
-}
-
-.quantity-img:not(.selected) {
-    padding: 7px;
-}
-
-.quantity-img.selected {
-    border: 2px solid black;
-    padding: 5px;
-    border-radius: 3px;
-}
-
 .rarity-filter {
     padding-left: 20px;
-}
-
-.quantity-block {
-}
-
-@media (min-width: 768px) {
-}
-
-@media (min-width: 827px) {
 }

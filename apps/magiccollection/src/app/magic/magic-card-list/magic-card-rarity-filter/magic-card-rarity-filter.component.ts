@@ -6,6 +6,8 @@ import { FilterChange } from '../../../model/filter-change.model';
 import { AuthenticationService } from '../../../auth/authentication.service';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { CardColor } from '../../../model/card.model';
+import { Store } from '@ngrx/store';
+import { CardFilterActions } from '../../../state/card-filter/card-filter.actions';
 
 @Component({
     selector: 'app-magic-card-rarity-filter',
@@ -13,14 +15,6 @@ import { CardColor } from '../../../model/card.model';
     styleUrls: ['./magic-card-rarity-filter.component.scss'],
 })
 export class MagicCardRarityFilterComponent implements OnInit {
-    // Rarity
-    isAllRarityOn = true;
-    isCommon = true;
-    isUncommon = true;
-    isRare = true;
-    isMythic = true;
-    quantityFilter!: QuantityFilterEnum;
-    quantityEnum = QuantityFilterEnum;
     isAuth = false;
     // Color
     isAllColorOn = true;
@@ -37,16 +31,11 @@ export class MagicCardRarityFilterComponent implements OnInit {
     constructor(
         private magicCardsListService: MagicCardsListService,
         private authenticationService: AuthenticationService,
+        private store: Store,
     ) {}
 
     ngOnInit() {
-        this.quantityFilter = this.magicCardsListService.quantityFilterSub.value;
-        this.initFilterValues(this.magicCardsListService.getRarityFilterArray());
         this.initColorFilterValues(this.magicCardsListService.getColorFilterArray());
-
-        this.magicCardsListService.rarityFilterChange.subscribe(change => {
-            this.setRarityFilter(change);
-        });
 
         this.magicCardsListService.colorFilterChange.subscribe(change => {
             this.setColorFilter(change);
@@ -54,63 +43,42 @@ export class MagicCardRarityFilterComponent implements OnInit {
 
         this.authenticationService.currentUserSubject.subscribe(newStatus => {
             this.isAuth = newStatus !== null;
-            if (!this.isAuth && QuantityFilterEnum.ALL !== this.quantityFilter) {
-                this.quantityFilter = QuantityFilterEnum.ALL;
-                this.magicCardsListService.changeQuantityFilter(QuantityFilterEnum.ALL);
-            }
         });
-    }
-
-    changeAllRarityOn() {
-        this.magicCardsListService.changeRarityFilterBulk(this.isAllRarityOn)
-        this.isCommon = this.isUncommon = this.isRare = this.isMythic = this.isAllRarityOn;
     }
 
     changeAllColorOn() {
-        this.magicCardsListService.changeColorFilterBulk(this.isAllColorOn)
-        this.isWhite = this.isBlue = this.isBlack = this.isRed = this.isGreen = this.isColorless = this.isAllColorOn;
-    }
-
-    onChangeRarityFilter(filterChangeName: string, filterChangeTo: boolean) {
-        this.magicCardsListService.changeRarityFilter(filterChangeName, filterChangeTo);
-        if( this.isCommon === this.isUncommon &&
-            this.isUncommon === this.isRare &&
-            this.isRare === this.isMythic ) {
-            this.isAllRarityOn = this.isCommon;
-        } else if(this.isCommon || this.isUncommon || this.isRare || this.isMythic) {
-            this.isAllRarityOn = true;
-        }
+        this.magicCardsListService.changeColorFilterBulk(this.isAllColorOn);
+        this.isWhite =
+            this.isBlue =
+            this.isBlack =
+            this.isRed =
+            this.isGreen =
+            this.isColorless =
+                this.isAllColorOn;
     }
 
     onChangeColorFilter(filterChangeName: string, filterChangeTo: boolean) {
-        this.magicCardsListService.changeColorFilter(filterChangeName, filterChangeTo);
-        if( this.isWhite === this.isBlue &&
+        this.store.dispatch(
+            CardFilterActions.changeColorFilter({ filterChangeName, filterChangeTo }),
+        );
+        if (
+            this.isWhite === this.isBlue &&
             this.isBlue === this.isBlack &&
             this.isBlack === this.isRed &&
             this.isRed === this.isGreen &&
-            this.isGreen === this.isColorless ) {
+            this.isGreen === this.isColorless
+        ) {
             this.isAllColorOn = this.isWhite;
-        } else if(this.isWhite || this.isBlue || this.isBlack || this.isRed || this.isGreen || this.isColorless) {
+        } else if (
+            this.isWhite ||
+            this.isBlue ||
+            this.isBlack ||
+            this.isRed ||
+            this.isGreen ||
+            this.isColorless
+        ) {
             this.isAllColorOn = true;
         }
-    }
-
-    initFilterValues(filterArray: string[]) {
-        let differenceArray: string[] = [
-            CardRarity.Common,
-            CardRarity.Uncommon,
-            CardRarity.Rare,
-            CardRarity.Mythic,
-        ];
-
-        filterArray.forEach(rarity => {
-            this.setRarityFilter(new FilterChange(rarity, true));
-        });
-
-        differenceArray = differenceArray.filter(rarity => filterArray.indexOf(rarity) < 0);
-        differenceArray.forEach(rarity => {
-            this.setRarityFilter(new FilterChange(rarity, false));
-        });
     }
 
     initColorFilterValues(filterArray: string[]) {
@@ -131,25 +99,6 @@ export class MagicCardRarityFilterComponent implements OnInit {
         differenceArray.forEach(color => {
             this.setColorFilter(new FilterChange(color, false));
         });
-    }
-
-    setRarityFilter(filterChange: FilterChange) {
-        // switch (filterChange.changeName) {
-        //     case CardRarity.Common:
-        //         this.isCommon = filterChange.changedTo;
-        //         break;
-        //     case CardRarity.Uncommon:
-        //         this.isUncommon = filterChange.changedTo;
-        //         break;
-        //     case CardRarity.Rare:
-        //         this.isRare = filterChange.changedTo;
-        //         break;
-        //     case CardRarity.Mythic:
-        //         this.isMythic = filterChange.changedTo;
-        //         break;
-        //     default:
-        //         break;
-        // }
     }
 
     setColorFilter(filterChange: FilterChange) {
@@ -175,10 +124,5 @@ export class MagicCardRarityFilterComponent implements OnInit {
         //     default:
         //         break;
         // }
-    }
-
-    onChangeRadio(newQuantity: QuantityFilterEnum) {
-        this.quantityFilter = newQuantity;
-        this.magicCardsListService.changeQuantityFilter(this.quantityFilter);
     }
 }

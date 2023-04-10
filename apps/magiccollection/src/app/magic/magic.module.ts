@@ -22,9 +22,11 @@ import { PaginationModule } from '../shared/pagination/pagination.module';
 import { ModifyFormComponent } from './modify-card/modify-form/modify-form.component';
 import { MagicCardListContainerComponent } from './magic-card-list/magic-card-list-container/magic-card-list-container.component';
 import { CardCariationComponent } from './card-variation/card-variation.component';
-import { MagicCardTypeFilterComponent } from './magic-card-list/filters/magic-card-type-filter/magic-card-type-filter.component';
+import { CardTypeFilterComponent } from './magic-card-list/filters/card-type-filter/card-type-filter.component';
 import { EmptyMagicCardComponent } from './magic-card-list/magic-card/empty-card/empty-magic-card.component';
 import { CardLayoutWrapperComponent } from './magic-card-list/magic-card-modal/card-layout-wrapper/card-layout-wrapper.component';
+import { CardRarityFilterComponent } from './magic-card-list/filters/card-rarity-filter/card-rarity-filter.component';
+import { CardQuantityFilterComponent } from './magic-card-list/filters/card-quantity-filter/card-quantity-filter.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +41,7 @@ import { CardLayoutWrapperComponent } from './magic-card-list/magic-card-modal/c
         MagicCardAmountDirective,
         MagicCardListComponent,
         MagicCardRarityFilterComponent,
+        CardRarityFilterComponent,
         MagicCardModalComponent,
         MagicCardMeldComponent,
         MagicCardTransformComponent,
@@ -46,9 +49,9 @@ import { CardLayoutWrapperComponent } from './magic-card-list/magic-card-modal/c
         MagicCardAftermathComponent,
         MagicCardNormalComponent,
         CardCariationComponent,
-        MagicCardTypeFilterComponent,
+        CardTypeFilterComponent,
+        CardQuantityFilterComponent,
         CardLayoutWrapperComponent,
-        
     ],
     entryComponents: [MagicCardModalComponent],
     imports: [

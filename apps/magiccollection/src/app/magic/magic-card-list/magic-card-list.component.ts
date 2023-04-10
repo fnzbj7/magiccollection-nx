@@ -17,6 +17,9 @@ import { AuthenticationService } from '../../auth/authentication.service';
 import { User } from '../../model/user.model';
 import { SwipeModel } from '../../shared/swipe/swipe.model';
 import { MagicCardModalService } from '../../shared/magic-card-modal.service';
+import { Store } from '@ngrx/store';
+import { selectCardFilter } from '../../state/app.selector';
+import { CardFilterState } from '../../state/card-filter/card-filter.reducer';
 
 @Component({
     selector: 'app-magic-card-list',
@@ -44,6 +47,7 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
     user: User | null | undefined = undefined;
     Arr = Array;
     swipeModel!: SwipeModel;
+    cardFilterState!: CardFilterState;
 
     _currentPage = 1;
 
@@ -74,9 +78,14 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
         private authenticationService: AuthenticationService,
         private ref: ChangeDetectorRef,
         private magicCardModalService: MagicCardModalService,
+        private store: Store,
     ) {}
 
     ngOnInit() {
+        this.store.select(selectCardFilter).subscribe(cardFilterState => {
+            this.cardFilterState = cardFilterState;
+            this.filterCards(cardFilterState);
+        });
         this.userId = this.route.snapshot.params['userId'];
         if (!this.userId) {
             const tmpUserId = this.authenticationService.currentUserValue?.id;
@@ -104,26 +113,6 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
                     this.getCardsFromExpansion(this.userId, this.expansion);
                 }
             });
-
-        this.rarityFilterSub = this.magicCardsListService.rarityFilterChange.subscribe(
-            _rarityFilter => {
-                this.filterCards();
-            },
-        );
-
-        this.quantityFilterSub = this.magicCardsListService.quantityFilterSub.subscribe(_x => {
-            this.filterCards();
-        });
-
-        this.colorFilterSub = this.magicCardsListService.colorFilterChange.subscribe(
-            _colorFilter => {
-                this.filterCards();
-            },
-        );
-
-        this.typeFilterSub = this.magicCardsListService.typeFilterChange.subscribe(_typeFilter => {
-            this.filterCards();
-        });
     }
 
     ngAfterViewInit(): void {
@@ -150,7 +139,7 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
             .getCardsForExpansion(userId, expansionArg)
             .subscribe((cards: Card[]) => {
                 this.cardsArray = cards;
-                this.filterCards();
+                this.filterCards(this.cardFilterState);
                 if (this.route.snapshot.queryParams['page']) {
                     this.currentPage = +this.route.snapshot.queryParams['page'];
                 } else {
@@ -195,14 +184,14 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
         this.swipeModel.removeEvent();
     }
 
-    private filterCards() {
+    private filterCards(cardFilterState: CardFilterState) {
         if (!this.cardsArray) {
             return;
         }
 
         // RARITY
         this.filteredCardsArray = this.cardsArray.filter(card =>
-            this.magicCardsListService.getRarityFilterArray().includes(card.rarity),
+            cardFilterState.rarityFilterArr.includes(card.rarity),
         );
 
         // COLOR
@@ -215,7 +204,7 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
             }
 
             for (const color of colorArr) {
-                const include = this.magicCardsListService.getColorFilterArray().includes(color);
+                const include = cardFilterState.colorFilterArr.includes(color);
                 if (include) {
                     return true;
                 }
@@ -229,7 +218,7 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
             const typeArr = card.types.split(',');
 
             for (const type of typeArr) {
-                const include = this.magicCardsListService.getTypeFilterArray().includes(type);
+                const include = cardFilterState.typeFilterArr.includes(type);
                 if (include) {
                     return true;
                 }
@@ -239,7 +228,7 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
         });
 
         // QUANTITY
-        switch (this.magicCardsListService.quantityFilterSub.value) {
+        switch (cardFilterState.quantityFilter) {
             case QuantityFilterEnum.ALL:
                 break;
             case QuantityFilterEnum.HAVE:

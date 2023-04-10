@@ -1,0 +1,27 @@
+<div class="d-inline-block tooltip-w3 pointer">
+    <img
+        src="/assets/img/filter/card-all.svg"
+        (click)="onQuantityChange(quantityEnum.ALL)"
+        [ngClass]="{ selected: quantityFilter === quantityEnum.ALL }"
+        class="quantity-img"
+    />
+    <span class="right left-md tooltiptext-w3">Összes</span>
+</div>
+<div class="d-inline-block tooltip-w3 pointer">
+    <img
+        src="/assets/img/filter/card-have.svg"
+        (click)="onQuantityChange(quantityEnum.HAVE)"
+        [ngClass]="{ selected: quantityFilter === quantityEnum.HAVE }"
+        class="quantity-img"
+    />
+    <span class="right left-md tooltiptext-w3">Meglévő</span>
+</div>
+<div class="d-inline-block tooltip-w3 pointer">
+    <img
+        src="/assets/img/filter/card-miss.svg"
+        (click)="onQuantityChange(quantityEnum.NOTHAVE)"
+        [ngClass]="{ selected: quantityFilter === quantityEnum.NOTHAVE }"
+        class="quantity-img"
+    />
+    <span class="right left-md tooltiptext-w3">Hiányzó</span>
+</div>
