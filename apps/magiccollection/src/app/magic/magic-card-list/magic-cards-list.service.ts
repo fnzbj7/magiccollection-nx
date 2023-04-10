@@ -12,39 +12,39 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
-    new MagicSet('ONE', 479, 2023),
-    new MagicSet('BRO', 384, 2022),
-    new MagicSet('BRR', 126, 2022),
-    new MagicSet('DMU', 434, 2022),
-    new MagicSet('SNC', 467, 2022),
-    new MagicSet('NEO', 512, 2022),
-    new MagicSet('VOW', 407, 2021),
-    new MagicSet('MID', 391, 2021),
-    new MagicSet('AFR', 403, 2021),
-    new MagicSet('STX', 382, 2021),
-    new MagicSet('STA', 126, 2021),
-    new MagicSet('KHM', 405, 2021),
-    new MagicSet('ZNR', 391, 2020),
-    new MagicSet('M21', 397, 2020),
-    new MagicSet('IKO', 387, 2020),
-    new MagicSet('THB', 357, 2020),
-    new MagicSet('ELD', 392, 2019),
-    new MagicSet('M20', 344, 2019),
-    new MagicSet('WAR', 275, 2019),
-    new MagicSet('RNA', 273, 2019),
-    new MagicSet('GRN', 273, 2018),
-    new MagicSet('M19', 314, 2018),
-    new MagicSet('DOM', 280, 2018),
-    new MagicSet('RIX', 205, 2018),
-    new MagicSet('XLN', 289, 2017),
-    new MagicSet('HOU', 209, 2017),
-    new MagicSet('AKH', 287, 2017),
-    new MagicSet('AER', 194, 2017),
-    new MagicSet('KLD', 274, 2016),
-    new MagicSet('EMN', 205, 2016),
-    new MagicSet('SOI', 297, 2016),
-    new MagicSet('OGW', 184, 2016),
-    new MagicSet('BFZ', 274, 2015),
+    new MagicSet('ONE', 'Phyrexia: All Will Be One', 479, 2023),
+    new MagicSet('BRO', "The Brothers' War Retro Artifacts", 384, 2022),
+    new MagicSet('BRR', "The Brothers' War", 126, 2022),
+    new MagicSet('DMU', 'Dominaria United', 434, 2022),
+    new MagicSet('SNC', 'Streets of New Capenna', 467, 2022),
+    new MagicSet('NEO', 'Kamigawa: Neon Dynasty', 512, 2022),
+    new MagicSet('VOW', 'Innistrad: Crimson Vow', 407, 2021),
+    new MagicSet('MID', 'Innistrad: Midnight Hunt', 391, 2021),
+    new MagicSet('AFR', 'Adventures in the Forgotten Realms', 403, 2021),
+    new MagicSet('STX', 'Strixhaven: School of Mages', 382, 2021),
+    new MagicSet('STA', 'Mystical Archive', 126, 2021),
+    new MagicSet('KHM', 'Kaldheim', 405, 2021),
+    new MagicSet('ZNR', 'Zendikar Rising', 391, 2020),
+    new MagicSet('M21', 'Core Set 2021', 397, 2020),
+    new MagicSet('IKO', 'Ikoria: Lair of Behemoths', 387, 2020),
+    new MagicSet('THB', 'Theros Beyond Death', 357, 2020),
+    new MagicSet('ELD', 'Throne of Eldraine', 392, 2019),
+    new MagicSet('M20', 'Core Set 2020', 344, 2019),
+    new MagicSet('WAR', 'War of The Spark', 275, 2019),
+    new MagicSet('RNA', 'Ravnica Allegiance', 273, 2019),
+    new MagicSet('GRN', 'Guilds of Ravnica', 273, 2018),
+    new MagicSet('M19', 'Core Set 2019', 314, 2018),
+    new MagicSet('DOM', 'Dominaria', 280, 2018),
+    new MagicSet('RIX', 'Rival of Ixalan', 205, 2018),
+    new MagicSet('XLN', 'Ixalan', 289, 2017),
+    new MagicSet('HOU', 'Hour of Devestation', 209, 2017),
+    new MagicSet('AKH', 'Amonkhet', 287, 2017),
+    new MagicSet('AER', 'Aether Revolt', 194, 2017),
+    new MagicSet('KLD', 'Kaladesh', 274, 2016),
+    new MagicSet('EMN', 'Eldritch Moon', 205, 2016),
+    new MagicSet('SOI', 'Shadows over Innistrad', 297, 2016),
+    new MagicSet('OGW', 'Oath of the Gatewatch', 184, 2016),
+    new MagicSet('BFZ', 'Battle For Zendikar', 274, 2015),
 ];
 
 @Injectable({ providedIn: 'root' })
@@ -151,7 +151,7 @@ export class MagicCardsListService {
 
     changeRarityFilterBulk(filterChangeTo: boolean) {
         if (filterChangeTo) {
-            this.rarityFilterArr.push(...['C', 'U', 'R', 'M']);  
+            this.rarityFilterArr.push(...['C', 'U', 'R', 'M']);
         } else {
             this.rarityFilterArr = [];
         }
@@ -163,7 +163,7 @@ export class MagicCardsListService {
 
     changeColorFilterBulk(filterChangeTo: boolean) {
         if (filterChangeTo) {
-            this.colorFilterArr.push(...['W', 'U', 'B', 'R', 'G', 'C']);  
+            this.colorFilterArr.push(...['W', 'U', 'B', 'R', 'G', 'C']);
         } else {
             this.colorFilterArr = [];
         }
@@ -190,7 +190,17 @@ export class MagicCardsListService {
 
     changeTypeFilterBulk(filterChangeTo: boolean) {
         if (filterChangeTo) {
-            this.typeFilterArr.push(...['Creature', 'Sorcery', 'Instant', 'Enchantment', 'Artifact', 'Planeswalker', 'Land']);  
+            this.typeFilterArr.push(
+                ...[
+                    'Creature',
+                    'Sorcery',
+                    'Instant',
+                    'Enchantment',
+                    'Artifact',
+                    'Planeswalker',
+                    'Land',
+                ],
+            );
         } else {
             this.typeFilterArr = [];
         }

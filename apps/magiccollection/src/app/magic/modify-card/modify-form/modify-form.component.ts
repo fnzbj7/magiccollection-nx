@@ -6,7 +6,11 @@ import { Card } from '../../../model/card.model';
 import { ModifyQtyEnum } from '../../../model/modify-qty.enum';
 import { selectCollectionState } from '../../../state/app.selector';
 import { ModifyCardActions } from '../../../state/modify-card.actions';
-import { MagicCardsListService } from '../../magic-card-list/magic-cards-list.service';
+import {
+    MagicCardsListService,
+    magicSetArray,
+} from '../../magic-card-list/magic-cards-list.service';
+import { MagicSet } from '../../magic-card-list/model/magic-set.model';
 import { ModifyCardService } from '../../modify-card.service';
 import { CardWithFoil } from '../dto/foil.dto';
 import { ModifyCardDto } from '../dto/modify-card.dto';
@@ -16,7 +20,7 @@ import { AfterFinishForm } from './model/after-finish-form.model';
 @Component({
     selector: 'app-modify-form',
     templateUrl: './modify-form.component.html',
-    styleUrls: ['./modify-form.component.scss']
+    styleUrls: ['./modify-form.component.scss'],
 })
 export class ModifyFormComponent implements OnInit, OnDestroy {
     @Input() mode!: ModifyMode;
@@ -35,6 +39,7 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
     lastCardPreview?: Card;
     param$!: Subscription;
     cardSetsArray!: string[];
+    magicSetArray!: MagicSet[];
     cardVariantTypes!: string[];
     cardVariantType!: string;
     cardLanguages!: string[];
@@ -49,6 +54,7 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.cardSetsArray = this.magicCardsListService.cardSetsArray;
+        this.magicSetArray = magicSetArray;
         this.cardVariantTypes = this.magicCardsListService.cardVariantTypes;
         this.cardLanguages = this.magicCardsListService.cardLanguages;
 
@@ -61,7 +67,7 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
         });
         this.store.select(selectCollectionState).subscribe(x => {
             this.cardSet = x.setName;
-        })
+        });
     }
 
     addCard() {
@@ -78,8 +84,7 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
     }
 
     onCardTyping() {
-
-        if(!this.cardNumbersStr && this.lastCardPreview) {
+        if (!this.cardNumbersStr && this.lastCardPreview) {
             this.lastCardPreview = undefined;
             return;
         }
@@ -101,10 +106,10 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
 
     onSetChange(value: string) {
         this.onCardTyping();
-        if(this.lastCardPreview) {
-            this.lastCardPreview = {...this.lastCardPreview, cardExpansion: value};
+        if (this.lastCardPreview) {
+            this.lastCardPreview = { ...this.lastCardPreview, cardExpansion: value };
         }
-        this.store.dispatch(ModifyCardActions.changeSet({setName: value}));
+        this.store.dispatch(ModifyCardActions.changeSet({ setName: value }));
     }
 
     ngOnDestroy() {

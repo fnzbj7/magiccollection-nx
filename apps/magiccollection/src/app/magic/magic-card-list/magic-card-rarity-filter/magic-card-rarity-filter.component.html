@@ -1,108 +1,201 @@
+<div class="quantity-block mr-4 d-flex w-fit float-right" *ngIf="isAuth">
+    <div class="d-inline-block tooltip-w3 pointer">
+        <img
+            src="/assets/img/filter/card-all.svg"
+            (click)="onChangeRadio(quantityEnum.ALL)"
+            [ngClass]="{ selected: quantityFilter === quantityEnum.ALL }"
+            class="quantity-img"
+        />
+        <span class="right left-md tooltiptext-w3">Összes</span>
+    </div>
+    <div class="d-inline-block tooltip-w3 pointer">
+        <img
+            src="/assets/img/filter/card-have.svg"
+            (click)="onChangeRadio(quantityEnum.HAVE)"
+            [ngClass]="{ selected: quantityFilter === quantityEnum.HAVE }"
+            class="quantity-img"
+        />
+        <span class="right left-md tooltiptext-w3">Meglévő</span>
+    </div>
+    <div class="d-inline-block tooltip-w3 pointer">
+        <img
+            src="/assets/img/filter/card-miss.svg"
+            (click)="onChangeRadio(quantityEnum.NOTHAVE)"
+            [ngClass]="{ selected: quantityFilter === quantityEnum.NOTHAVE }"
+            class="quantity-img"
+        />
+        <span class="right left-md tooltiptext-w3">Hiányzó</span>
+    </div>
+</div>
 <details class="style2" appDetails>
-    <summary>Filters</summary>
+    <summary class="w-fit pt-2">Filters</summary>
     <div class="content flex gap-5 flex-wrap">
         <div class="flex flex-col gap-1">
             <span>
                 <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" [(ngModel)]="isAllRarityOn" (change)="changeAllRarityOn()" class="sr-only peer">
-                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    <input
+                        type="checkbox"
+                        [(ngModel)]="isAllRarityOn"
+                        (change)="changeAllRarityOn()"
+                        class="sr-only peer"
+                    />
+                    <div
+                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                    ></div>
                 </label>
-                <span class="ml-3 text-lg font-medium text-gray-900 dark:text-gray-300">Rarity filter</span>
-             </span>
+                <span class="ml-3 text-lg font-medium text-gray-900 dark:text-gray-300"
+                    >Rarity filter</span
+                >
+            </span>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isCommon" (change)="onChangeRarityFilter('C', isCommon)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Common</span>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isCommon"
+                    (change)="onChangeRarityFilter('C', isCommon)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >Common</span
+                >
             </label>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isUncommon" (change)="onChangeRarityFilter('U', isUncommon)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Uncommon</span>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isUncommon"
+                    (change)="onChangeRarityFilter('U', isUncommon)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >Uncommon</span
+                >
             </label>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isRare" (change)="onChangeRarityFilter('R', isRare)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isRare"
+                    (change)="onChangeRarityFilter('R', isRare)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Rare</span>
             </label>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isMythic" (change)="onChangeRarityFilter('M', isMythic)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Mythic</span>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isMythic"
+                    (change)="onChangeRarityFilter('M', isMythic)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >Mythic</span
+                >
             </label>
         </div>
         <div class="flex flex-col gap-1">
             <span>
                 <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" [(ngModel)]="isAllColorOn" (change)="changeAllColorOn()" class="sr-only peer">
-                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    <input
+                        type="checkbox"
+                        [(ngModel)]="isAllColorOn"
+                        (change)="changeAllColorOn()"
+                        class="sr-only peer"
+                    />
+                    <div
+                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                    ></div>
                 </label>
-                <span class="ml-3 text-lg font-medium text-gray-900 dark:text-gray-300">Color filter</span>
-             </span>
+                <span class="ml-3 text-lg font-medium text-gray-900 dark:text-gray-300"
+                    >Color filter</span
+                >
+            </span>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isWhite" (change)="onChangeColorFilter('W', isWhite)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isWhite"
+                    (change)="onChangeColorFilter('W', isWhite)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">White</span>
             </label>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isBlue" (change)="onChangeColorFilter('U', isBlue)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isBlue"
+                    (change)="onChangeColorFilter('U', isBlue)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Blue</span>
             </label>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isBlack" (change)="onChangeColorFilter('B', isBlack)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isBlack"
+                    (change)="onChangeColorFilter('B', isBlack)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Black</span>
             </label>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isRed" (change)="onChangeColorFilter('R', isRed)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isRed"
+                    (change)="onChangeColorFilter('R', isRed)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Red</span>
             </label>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isGreen" (change)="onChangeColorFilter('G', isGreen)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isGreen"
+                    (change)="onChangeColorFilter('G', isGreen)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
                 <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Green</span>
             </label>
             <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" [(ngModel)]="isColorless" (change)="onChangeColorFilter('C', isColorless)" class="sr-only peer">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Colorless</span>
+                <input
+                    type="checkbox"
+                    [(ngModel)]="isColorless"
+                    (change)="onChangeColorFilter('C', isColorless)"
+                    class="sr-only peer"
+                />
+                <div
+                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+                ></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >Colorless</span
+                >
             </label>
         </div>
-        <div app-magic-card-type-filter class="flex flex-col gap-1">
-
-        </div>
-
-    <div class="quantity-block mr-4 d-flex" *ngIf="isAuth">
-        <div class="d-inline-block tooltip-w3 pointer">
-            <img
-                src="/assets/img/filter/card-all.svg"
-                (click)="onChangeRadio(quantityEnum.ALL)"
-                [ngClass]="{ selected: quantityFilter === quantityEnum.ALL }"
-                class="quantity-img"
-            />
-            <span class="right left-md tooltiptext-w3">Összes</span>
-        </div>
-        <div class="d-inline-block tooltip-w3 pointer">
-            <img
-                src="/assets/img/filter/card-have.svg"
-                (click)="onChangeRadio(quantityEnum.HAVE)"
-                [ngClass]="{ selected: quantityFilter === quantityEnum.HAVE }"
-                class="quantity-img"
-            />
-            <span class="right left-md tooltiptext-w3">Meglévő</span>
-        </div>
-        <div class="d-inline-block tooltip-w3 pointer">
-            <img
-                src="/assets/img/filter/card-miss.svg"
-                (click)="onChangeRadio(quantityEnum.NOTHAVE)"
-                [ngClass]="{ selected: quantityFilter === quantityEnum.NOTHAVE }"
-                class="quantity-img"
-            />
-            <span class="right left-md tooltiptext-w3">Hiányzó</span>
-        </div>
-    </div>
-    
+        <div app-magic-card-type-filter class="flex flex-col gap-1"></div>
     </div>
 </details>
 
+<hr class="w-full mt-1" />

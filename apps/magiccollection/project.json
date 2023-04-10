@@ -74,7 +74,9 @@
             },
             "defaultConfiguration": "development",
             "options": {
-                "proxyConfig": "apps/magiccollection/proxy.conf.json"
+                "proxyConfig": "apps/magiccollection/proxy.conf.json",
+                "host": "localhost",
+                "disableHostCheck": true
             }
         },
         "extract-i18n": {
