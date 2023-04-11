@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AuthenticationService } from 'apps/magiccollection/src/app/auth/authentication.service';
-import { QuantityFilterEnum } from 'apps/magiccollection/src/app/model/quantity-filter.enum';
-import { selectCardFilter } from 'apps/magiccollection/src/app/state/app.selector';
-import { CardFilterActions } from 'apps/magiccollection/src/app/state/card-filter/card-filter.actions';
+import { AuthenticationService } from '../../../../auth/authentication.service';
+import { QuantityFilterEnum } from '../../../../model/quantity-filter.enum';
+import { selectCardFilter } from '../../../../state/app.selector';
+import { CardFilterActions } from '../../../../state/card-filter/card-filter.actions';
 import { take } from 'rxjs';
 
 @Component({

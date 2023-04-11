@@ -27,6 +27,7 @@ import { EmptyMagicCardComponent } from './magic-card-list/magic-card/empty-card
 import { CardLayoutWrapperComponent } from './magic-card-list/magic-card-modal/card-layout-wrapper/card-layout-wrapper.component';
 import { CardRarityFilterComponent } from './magic-card-list/filters/card-rarity-filter/card-rarity-filter.component';
 import { CardQuantityFilterComponent } from './magic-card-list/filters/card-quantity-filter/card-quantity-filter.component';
+import { CardColorFilterComponent } from './magic-card-list/filters/card-color-filter/card-color-filter.component';
 
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import { CardQuantityFilterComponent } from './magic-card-list/filters/card-quan
         MagicCardNormalComponent,
         CardCariationComponent,
         CardTypeFilterComponent,
+        CardColorFilterComponent,
         CardQuantityFilterComponent,
         CardLayoutWrapperComponent,
     ],
