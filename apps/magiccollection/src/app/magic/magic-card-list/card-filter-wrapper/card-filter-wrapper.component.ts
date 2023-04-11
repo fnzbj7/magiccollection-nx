@@ -3,8 +3,8 @@ import { AuthenticationService } from '../../../auth/authentication.service';
 
 @Component({
     selector: 'app-magic-card-rarity-filter',
-    templateUrl: './magic-card-rarity-filter.component.html',
-    styleUrls: ['./magic-card-rarity-filter.component.scss'],
+    templateUrl: './card-filter-wrapper.component.html',
+    styleUrls: ['./card-filter-wrapper.component.scss'],
 })
 export class MagicCardRarityFilterComponent implements OnInit {
     isAuth = false;

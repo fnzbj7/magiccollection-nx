@@ -10,7 +10,7 @@ import { MagicCardComponent } from './magic-card-list/magic-card/magic-card.comp
 import { MagicCardAmountDirective } from './magic-card-list/magic-card/magic-card-amount.directive';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { MagicCardListComponent } from './magic-card-list/magic-card-list.component';
-import { MagicCardRarityFilterComponent } from './magic-card-list/magic-card-rarity-filter/magic-card-rarity-filter.component';
+import { MagicCardRarityFilterComponent } from './magic-card-list/card-filter-wrapper/card-filter-wrapper.component';
 import { MagicCardModalComponent } from './magic-card-list/magic-card-modal/magic-card-modal.component';
 import { MagicCardAftermathComponent } from './magic-card-list/magic-card-modal/card-layouts/aftermath/magic-card-aftermath.component';
 import { MagicCardMeldComponent } from './magic-card-list/magic-card-modal/card-layouts/meld/magic-card-meld.component';
