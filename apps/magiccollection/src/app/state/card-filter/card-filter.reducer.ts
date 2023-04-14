@@ -30,6 +30,7 @@ export const initialState: CardFilterState = {
         CardType.LAND,
         CardType.PLANESWALKER,
         CardType.SORCERY,
+        CardType.BATTLE,
     ],
 };
 
@@ -118,6 +119,7 @@ export const cardFilterReducer = createReducer(
                       CardType.LAND,
                       CardType.PLANESWALKER,
                       CardType.SORCERY,
+                      CardType.BATTLE,
                   ]
                 : [],
         };

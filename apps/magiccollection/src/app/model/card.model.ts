@@ -31,6 +31,7 @@ export enum CardType {
     SORCERY = 'Sorcery',
     ARTIFACT = 'Artifact',
     LAND = 'Land',
+    BATTLE = 'Battle',
 }
 
 export enum CardColor {
