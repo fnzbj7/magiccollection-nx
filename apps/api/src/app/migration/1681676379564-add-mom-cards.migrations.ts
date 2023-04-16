@@ -12,7 +12,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 1,
                 name: 'Invasion of Ravnica // Guildpact Paragon',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Battle',
                 colors: '',
@@ -20,7 +20,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 1,
                 name: 'Invasion of Ravnica // Guildpact Paragon',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Artifact,Creature',
                 colors: '',
@@ -28,7 +28,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 2,
                 name: 'Aerial Boost',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'W',
@@ -36,7 +36,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 3,
                 name: 'Alabaster Host Intercessor',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -44,7 +44,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 4,
                 name: 'Alabaster Host Sanctifier',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -52,7 +52,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 5,
                 name: 'Angelic Intervention',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'W',
@@ -60,7 +60,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 6,
                 name: 'Archangel Elspeth',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Planeswalker',
                 colors: 'W',
@@ -68,7 +68,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 7,
                 name: 'Attentive Skywarden',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -76,7 +76,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 8,
                 name: 'Bola Slinger',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -84,7 +84,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 9,
                 name: 'Boon-Bringer Valkyrie',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -92,7 +92,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 10,
                 name: 'Cut Short',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'W',
@@ -100,7 +100,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 11,
                 name: 'Dusk Legion Duelist',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -108,7 +108,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 12,
                 name: 'Elesh Norn // The Argent Etchings',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'W',
@@ -116,7 +116,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 12,
                 name: 'Elesh Norn // The Argent Etchings',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'W',
@@ -124,7 +124,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 13,
                 name: "Elspeth\\'s Smite",
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'W',
@@ -132,7 +132,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 14,
                 name: 'Enduring Bondwarden',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -140,7 +140,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 15,
                 name: 'Golden-Scale Aeronaut',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -148,7 +148,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 16,
                 name: 'Guardian of Ghirapur',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -156,7 +156,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 17,
                 name: 'Heliod, the Radiant Dawn // Heliod, the Warped Eclipse',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment,Creature',
                 colors: 'W',
@@ -164,7 +164,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 17,
                 name: 'Heliod, the Radiant Dawn // Heliod, the Warped Eclipse',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment,Creature',
                 colors: 'U,W',
@@ -172,7 +172,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 18,
                 name: 'Infected Defector',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -180,7 +180,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 19,
                 name: 'Inspired Charge',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'W',
@@ -188,7 +188,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 20,
                 name: 'Invasion of Belenon // Belenon War Anthem',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'W',
@@ -196,7 +196,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 20,
                 name: 'Invasion of Belenon // Belenon War Anthem',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'W',
@@ -204,7 +204,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 21,
                 name: 'Invasion of Dominaria // Serra Faithkeeper',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'W',
@@ -212,7 +212,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 21,
                 name: 'Invasion of Dominaria // Serra Faithkeeper',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'W',
@@ -220,7 +220,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 22,
                 name: 'Invasion of Gobakhan // Lightshield Array',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'W',
@@ -228,7 +228,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 22,
                 name: 'Invasion of Gobakhan // Lightshield Array',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'W',
@@ -236,7 +236,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 23,
                 name: 'Invasion of Theros // Ephara, Ever-Sheltering',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'W',
@@ -244,7 +244,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 23,
                 name: 'Invasion of Theros // Ephara, Ever-Sheltering',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment,Creature',
                 colors: 'U,W',
@@ -252,7 +252,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 24,
                 name: 'Kithkin Billyrider',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -260,7 +260,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 25,
                 name: 'Knight of the New Coalition',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -268,7 +268,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 26,
                 name: 'Knight-Errant of Eos',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -276,7 +276,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 27,
                 name: 'Kor Halberd',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: 'W',
@@ -284,7 +284,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 28,
                 name: 'Monastery Mentor',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -292,7 +292,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 29,
                 name: "Norn\\'s Inquisitor",
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -300,7 +300,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 30,
                 name: 'Phyrexian Awakening',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'W',
@@ -308,7 +308,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 31,
                 name: 'Phyrexian Censor',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -316,7 +316,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 32,
                 name: 'Progenitor Exarch',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -324,7 +324,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 33,
                 name: "Realmbreaker\\'s Grasp",
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'W',
@@ -332,7 +332,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 34,
                 name: 'Scrollshift',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'W',
@@ -340,7 +340,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 35,
                 name: 'Seal from Existence',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'W',
@@ -348,7 +348,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 36,
                 name: 'Seraph of New Capenna // Seraph of New Phyrexia',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'W',
@@ -356,7 +356,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 36,
                 name: 'Seraph of New Capenna // Seraph of New Phyrexia',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,W',
@@ -364,7 +364,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 37,
                 name: 'Sigiled Sentinel',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -372,7 +372,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 38,
                 name: 'Sun-Blessed Guardian // Furnace-Blessed Conqueror',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'W',
@@ -380,7 +380,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 38,
                 name: 'Sun-Blessed Guardian // Furnace-Blessed Conqueror',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R,W',
@@ -388,7 +388,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 39,
                 name: 'Sunder the Gateway',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'W',
@@ -396,7 +396,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 40,
                 name: 'Sunfall',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'W',
@@ -404,7 +404,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 41,
                 name: 'Surge of Salvation',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'W',
@@ -412,7 +412,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 42,
                 name: 'Swordsworn Cavalier',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -420,7 +420,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 43,
                 name: 'Tarkir Duneshaper // Burnished Dunestomper',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'W',
@@ -428,7 +428,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 43,
                 name: 'Tarkir Duneshaper // Burnished Dunestomper',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,W',
@@ -436,7 +436,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 44,
                 name: 'Tiller of Flesh',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -444,7 +444,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 45,
                 name: 'Zhalfirin Lancer',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -452,7 +452,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 46,
                 name: 'Artistic Refusal',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -460,7 +460,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 47,
                 name: 'Assimilate Essence',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -468,7 +468,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 48,
                 name: 'Astral Wingspan',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'U',
@@ -476,7 +476,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 49,
                 name: 'Captive Weird // Compleated Conjurer',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -484,7 +484,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 49,
                 name: 'Captive Weird // Compleated Conjurer',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R,U',
@@ -492,7 +492,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 50,
                 name: 'Change the Equation',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -500,7 +500,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 51,
                 name: 'Chrome Host Seedshark',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -508,7 +508,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 52,
                 name: 'Complete the Circuit',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -516,7 +516,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 53,
                 name: 'Corruption of Towashi',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'U',
@@ -524,7 +524,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 54,
                 name: 'Disturbing Conversion',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'U',
@@ -532,7 +532,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 55,
                 name: "Ephara\\'s Dispersal",
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -540,7 +540,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 56,
                 name: 'Expedition Lookout',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -548,7 +548,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 57,
                 name: 'Eyes of Gitaxias',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'U',
@@ -556,7 +556,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 58,
                 name: 'Faerie Mastermind',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -564,7 +564,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 59,
                 name: 'Furtive Analyst',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -572,7 +572,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 60,
                 name: 'Halo-Charged Skaab',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -580,7 +580,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 61,
                 name: 'Invasion of Arcavios // Invocation of the Founders',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'U',
@@ -588,7 +588,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 61,
                 name: 'Invasion of Arcavios // Invocation of the Founders',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'U',
@@ -596,7 +596,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 62,
                 name: 'Invasion of Kamigawa // Rooftop Saboteurs',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'U',
@@ -604,7 +604,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 62,
                 name: 'Invasion of Kamigawa // Rooftop Saboteurs',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -612,7 +612,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 63,
                 name: 'Invasion of Segovia // Caetus, Sea Tyrant of Segovia',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'U',
@@ -620,7 +620,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 63,
                 name: 'Invasion of Segovia // Caetus, Sea Tyrant of Segovia',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -628,7 +628,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 64,
                 name: 'Invasion of Vryn // Overloaded Mage-Ring',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'U',
@@ -636,7 +636,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 64,
                 name: 'Invasion of Vryn // Overloaded Mage-Ring',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Artifact',
                 colors: 'U',
@@ -644,7 +644,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 65,
                 name: 'Jin-Gitaxias // The Great Synthesis',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -652,7 +652,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 65,
                 name: 'Jin-Gitaxias // The Great Synthesis',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'U',
@@ -660,7 +660,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 66,
                 name: 'Meeting of Minds',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -668,7 +668,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 67,
                 name: 'Moment of Truth',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -676,7 +676,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 68,
                 name: 'Negate',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -684,7 +684,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 69,
                 name: 'Oculus Whelp',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -692,7 +692,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 70,
                 name: 'Omen Hawker',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -700,7 +700,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 71,
                 name: 'Oracle of Tragedy',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -708,7 +708,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 72,
                 name: 'Order of the Mirror // Order of the Alabaster Host',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -716,7 +716,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 72,
                 name: 'Order of the Mirror // Order of the Alabaster Host',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U,W',
@@ -724,7 +724,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 73,
                 name: 'Preening Champion',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -732,7 +732,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 74,
                 name: 'Protocol Knight',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -740,7 +740,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 75,
                 name: 'Rona, Herald of Invasion // Rona, Tolarian Obliterator',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -748,7 +748,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 75,
                 name: 'Rona, Herald of Invasion // Rona, Tolarian Obliterator',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,U',
@@ -756,7 +756,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 76,
                 name: 'Saiba Cryptomancer',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -764,7 +764,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 77,
                 name: 'See Double',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -772,7 +772,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 78,
                 name: 'Skyclave Aerialist // Skyclave Invader',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -780,7 +780,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 78,
                 name: 'Skyclave Aerialist // Skyclave Invader',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,U',
@@ -788,7 +788,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 79,
                 name: 'Stasis Field',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'U',
@@ -796,7 +796,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 80,
                 name: 'Temporal Cleansing',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'U',
@@ -804,7 +804,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 81,
                 name: 'Thunderhead Squadron',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -812,7 +812,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 82,
                 name: 'Tidal Terror',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -820,7 +820,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 83,
                 name: 'Transcendent Message',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -828,7 +828,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 84,
                 name: 'Wicked Slumber',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -836,7 +836,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 85,
                 name: 'Xerex Strobe-Knight',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -844,7 +844,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 86,
                 name: 'Zephyr Singer',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -852,7 +852,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 87,
                 name: 'Zhalfirin Shapecraft',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -860,7 +860,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 88,
                 name: 'Aetherblade Agent // Gitaxian Mindstinger',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -868,7 +868,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 88,
                 name: 'Aetherblade Agent // Gitaxian Mindstinger',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,U',
@@ -876,7 +876,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 89,
                 name: 'Archpriest of Shadows',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -884,7 +884,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 90,
                 name: 'Ayara, Widow of the Realm // Ayara, Furnace Queen',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -892,7 +892,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 90,
                 name: 'Ayara, Widow of the Realm // Ayara, Furnace Queen',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,R',
@@ -900,7 +900,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 91,
                 name: 'Bladed Battle-Fan',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: 'B',
@@ -908,7 +908,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 92,
                 name: 'Blightreaper Thallid // Blightsower Thallid',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -916,7 +916,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 92,
                 name: 'Blightreaper Thallid // Blightsower Thallid',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,G',
@@ -924,7 +924,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 93,
                 name: 'Bloated Processor',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -932,7 +932,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 94,
                 name: 'Breach the Multiverse',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'B',
@@ -940,7 +940,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 95,
                 name: 'Collective Nightmare',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -948,7 +948,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 96,
                 name: 'Compleated Huntmaster',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -956,7 +956,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 97,
                 name: 'Consuming Aetherborn',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -964,7 +964,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 98,
                 name: 'Corrupted Conviction',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -972,7 +972,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 99,
                 name: 'Deadly Derision',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -980,7 +980,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 100,
                 name: 'Dreg Recycler',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -988,7 +988,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 101,
                 name: 'Etched Familiar',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact,Creature',
                 colors: 'B',
@@ -996,7 +996,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 102,
                 name: 'Etched Host Doombringer',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1004,7 +1004,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 103,
                 name: 'Failed Conversion',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'B',
@@ -1012,7 +1012,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 104,
                 name: 'Final Flourish',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -1020,7 +1020,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 105,
                 name: 'Flitting Guerrilla',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1028,7 +1028,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 106,
                 name: 'Gift of Compleation',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'B',
@@ -1036,7 +1036,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 107,
                 name: 'Glistening Deluge',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'B',
@@ -1044,7 +1044,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 108,
                 name: 'Gloomfang Mauler',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1052,7 +1052,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 109,
                 name: 'Grafted Butcher',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1060,7 +1060,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 110,
                 name: 'Hoarding Broodlord',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1068,7 +1068,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 111,
                 name: 'Ichor Drinker',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1076,7 +1076,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 112,
                 name: 'Ichor Shade',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1084,7 +1084,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 113,
                 name: 'Invasion of Eldraine // Prickle Faeries',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B',
@@ -1092,7 +1092,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 113,
                 name: 'Invasion of Eldraine // Prickle Faeries',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -1100,7 +1100,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 114,
                 name: 'Invasion of Fiora // Marchesa, Resolute Monarch',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B',
@@ -1108,7 +1108,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 114,
                 name: 'Invasion of Fiora // Marchesa, Resolute Monarch',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -1116,7 +1116,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 115,
                 name: 'Invasion of Innistrad // Deluge of the Dead',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B',
@@ -1124,7 +1124,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 115,
                 name: 'Invasion of Innistrad // Deluge of the Dead',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'B',
@@ -1132,7 +1132,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 116,
                 name: 'Invasion of Ulgrotha // Grandmother Ravi Sengir',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B',
@@ -1140,7 +1140,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 116,
                 name: 'Invasion of Ulgrotha // Grandmother Ravi Sengir',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -1148,7 +1148,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 117,
                 name: 'Merciless Repurposing',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -1156,7 +1156,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 118,
                 name: 'Mirrodin Avenged',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -1164,7 +1164,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 119,
                 name: 'Nezumi Freewheeler // Hideous Fleshwheeler',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -1172,7 +1172,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 119,
                 name: 'Nezumi Freewheeler // Hideous Fleshwheeler',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,W',
@@ -1180,7 +1180,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 120,
                 name: 'Nezumi Informant',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1188,7 +1188,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 121,
                 name: 'Phyrexian Gargantua',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1196,7 +1196,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 122,
                 name: 'Pile On',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -1204,7 +1204,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 123,
                 name: 'Render Inert',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'B',
@@ -1212,7 +1212,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 124,
                 name: 'Scorn-Blade Berserker',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1220,7 +1220,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 125,
                 name: 'Sheoldred // The True Scriptures',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -1228,7 +1228,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 125,
                 name: 'Sheoldred // The True Scriptures',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'B',
@@ -1236,7 +1236,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 126,
                 name: 'Tenured Oilcaster',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -1244,7 +1244,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 127,
                 name: 'Traumatic Revelation',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'B',
@@ -1252,7 +1252,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 128,
                 name: 'Unseal the Necropolis',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -1260,7 +1260,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 129,
                 name: 'Vanquish the Weak',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -1268,7 +1268,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 130,
                 name: 'Akki Scrapchomper',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1276,7 +1276,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 131,
                 name: 'Beamtown Beatstick',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: 'R',
@@ -1284,7 +1284,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 132,
                 name: 'Bloodfeather Phoenix',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1292,7 +1292,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 133,
                 name: "Burning Sun\\'s Fury",
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'R',
@@ -1300,7 +1300,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 134,
                 name: "Chandra, Hope\\'s Beacon",
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Planeswalker',
                 colors: 'R',
@@ -1308,7 +1308,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 135,
                 name: 'City on Fire',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'R',
@@ -1316,7 +1316,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 136,
                 name: 'Coming In Hot',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'R',
@@ -1324,7 +1324,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 137,
                 name: 'Etali, Primal Conqueror // Etali, Primal Sickness',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1332,7 +1332,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 137,
                 name: 'Etali, Primal Conqueror // Etali, Primal Sickness',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,R',
@@ -1340,7 +1340,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 138,
                 name: 'Fearless Skald',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1348,7 +1348,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 139,
                 name: 'Furnace Gremlin',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1356,7 +1356,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 140,
                 name: 'Furnace Host Charger',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1364,7 +1364,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 141,
                 name: 'Furnace Reins',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -1372,7 +1372,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 142,
                 name: 'Hangar Scrounger',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1380,7 +1380,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 143,
                 name: 'Harried Artisan // Phyrexian Skyflayer',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1388,7 +1388,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 143,
                 name: 'Harried Artisan // Phyrexian Skyflayer',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R,W',
@@ -1396,7 +1396,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 144,
                 name: 'Into the Fire',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -1404,7 +1404,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 145,
                 name: 'Invasion of Kaldheim // Pyre of the World Tree',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'R',
@@ -1412,7 +1412,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 145,
                 name: 'Invasion of Kaldheim // Pyre of the World Tree',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'R',
@@ -1420,7 +1420,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 146,
                 name: 'Invasion of Karsus // Refraction Elemental',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'R',
@@ -1428,7 +1428,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 146,
                 name: 'Invasion of Karsus // Refraction Elemental',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1436,7 +1436,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 147,
                 name: 'Invasion of Mercadia // Kyren Flamewright',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'R',
@@ -1444,7 +1444,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 147,
                 name: 'Invasion of Mercadia // Kyren Flamewright',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1452,7 +1452,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 148,
                 name: 'Invasion of Regatha // Disciples of the Inferno',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'R',
@@ -1460,7 +1460,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 148,
                 name: 'Invasion of Regatha // Disciples of the Inferno',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1468,7 +1468,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 149,
                 name: 'Invasion of Tarkir // Defiant Thundermaw',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'R',
@@ -1476,7 +1476,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 149,
                 name: 'Invasion of Tarkir // Defiant Thundermaw',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1484,7 +1484,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 150,
                 name: 'Karsus Depthguard',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1492,7 +1492,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 151,
                 name: 'Khenra Spellspear // Gitaxian Spellstalker',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1500,7 +1500,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 151,
                 name: 'Khenra Spellspear // Gitaxian Spellstalker',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R,U',
@@ -1508,7 +1508,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 152,
                 name: 'Lithomantic Barrage',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -1516,7 +1516,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 153,
                 name: 'Marauding Dreadship',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: 'R',
@@ -1524,7 +1524,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 154,
                 name: 'Mirran Banesplitter',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: 'R',
@@ -1532,7 +1532,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 155,
                 name: "Nahiri\\'s Warcrafting",
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -1540,7 +1540,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 156,
                 name: 'Onakke Javelineer',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1548,7 +1548,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 157,
                 name: 'Pyretic Prankster // Glistening Goremonger',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1556,7 +1556,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 157,
                 name: 'Pyretic Prankster // Glistening Goremonger',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,R',
@@ -1564,7 +1564,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 158,
                 name: "Ral\\'s Reinforcements",
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -1572,7 +1572,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 159,
                 name: 'Ramosian Greatsword',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: 'R',
@@ -1580,7 +1580,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 160,
                 name: 'Rampaging Raptor',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1588,7 +1588,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 161,
                 name: 'Redcap Heelslasher',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1596,7 +1596,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 162,
                 name: 'Scrappy Bruiser',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1604,7 +1604,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 163,
                 name: 'Searing Barb',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -1612,7 +1612,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 164,
                 name: 'Shatter the Source',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'R',
@@ -1620,7 +1620,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 165,
                 name: 'Shivan Branch-Burner',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1628,7 +1628,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 166,
                 name: 'Stoke the Flames',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'R',
@@ -1636,7 +1636,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 167,
                 name: 'Thrashing Frontliner',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1644,7 +1644,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 168,
                 name: 'Trailblazing Historian',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1652,7 +1652,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 169,
                 name: 'Urabrask // The Great Work',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -1660,7 +1660,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 169,
                 name: 'Urabrask // The Great Work',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'R',
@@ -1668,7 +1668,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 170,
                 name: 'Volcanic Spite',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'R',
@@ -1676,7 +1676,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 171,
                 name: 'Voldaren Thrillseeker',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1684,7 +1684,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 172,
                 name: 'War-Trained Slasher',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -1692,7 +1692,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 173,
                 name: "Wrenn\\'s Resolve",
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -1700,7 +1700,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 174,
                 name: 'Ancient Imperiosaur',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1708,7 +1708,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 175,
                 name: 'Arachnoid Adaptation',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'G',
@@ -1716,7 +1716,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 176,
                 name: "Atraxa\\'s Fall",
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'G',
@@ -1724,7 +1724,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 177,
                 name: 'Blighted Burgeoning',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'G',
@@ -1732,7 +1732,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 178,
                 name: 'Bonded Herdbeast // Plated Kilnbeast',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -1740,7 +1740,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 178,
                 name: 'Bonded Herdbeast // Plated Kilnbeast',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,R',
@@ -1748,7 +1748,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 179,
                 name: 'Chomping Kavu',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1756,7 +1756,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 180,
                 name: 'Converter Beast',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1764,7 +1764,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 181,
                 name: 'Copper Host Crusher',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1772,7 +1772,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 182,
                 name: 'Cosmic Hunger',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'G',
@@ -1780,7 +1780,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 183,
                 name: 'Crystal Carapace',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'G',
@@ -1788,7 +1788,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 184,
                 name: 'Deeproot Wayfinder',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1796,7 +1796,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 185,
                 name: 'Doomskar Warrior',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1804,7 +1804,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 186,
                 name: "Fertilid\\'s Favor",
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'G',
@@ -1812,7 +1812,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 187,
                 name: 'Glistening Dawn',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'G',
@@ -1820,7 +1820,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 188,
                 name: 'Gnottvold Hermit // Chrome Host Hulk',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -1828,7 +1828,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 188,
                 name: 'Gnottvold Hermit // Chrome Host Hulk',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,U',
@@ -1836,7 +1836,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 189,
                 name: 'Herbology Instructor // Malady Invoker',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -1844,7 +1844,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 189,
                 name: 'Herbology Instructor // Malady Invoker',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,G',
@@ -1852,7 +1852,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 190,
                 name: 'Invasion of Ikoria // Zilortha, Apex of Ikoria',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'G',
@@ -1860,7 +1860,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 190,
                 name: 'Invasion of Ikoria // Zilortha, Apex of Ikoria',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -1868,7 +1868,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 191,
                 name: 'Invasion of Ixalan // Belligerent Regisaur',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'G',
@@ -1876,7 +1876,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 191,
                 name: 'Invasion of Ixalan // Belligerent Regisaur',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -1884,7 +1884,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 192,
                 name: 'Invasion of Muraganda // Primordial Plasm',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'G',
@@ -1892,7 +1892,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 192,
                 name: 'Invasion of Muraganda // Primordial Plasm',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -1900,7 +1900,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 193,
                 name: 'Invasion of Shandalar // Leyline Surge',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'G',
@@ -1908,7 +1908,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 193,
                 name: 'Invasion of Shandalar // Leyline Surge',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'G',
@@ -1916,7 +1916,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 194,
                 name: 'Invasion of Zendikar // Awakened Skyclave',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'G',
@@ -1924,7 +1924,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 194,
                 name: 'Invasion of Zendikar // Awakened Skyclave',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -1932,7 +1932,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 195,
                 name: 'Iridescent Blademaster',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1940,7 +1940,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 196,
                 name: 'Kami of Whispered Hopes',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1948,7 +1948,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 197,
                 name: 'Overgrown Pest',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1956,7 +1956,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 198,
                 name: 'Ozolith, the Shattered Spire',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: 'G',
@@ -1964,7 +1964,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 199,
                 name: 'Placid Rottentail',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1972,7 +1972,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 200,
                 name: 'Polukranos Reborn // Polukranos, Engine of Ruin',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -1980,7 +1980,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 200,
                 name: 'Polukranos Reborn // Polukranos, Engine of Ruin',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,W',
@@ -1988,7 +1988,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 201,
                 name: 'Portent Tracker',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -1996,7 +1996,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 202,
                 name: 'Ravenous Sailback',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -2004,7 +2004,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 203,
                 name: 'Sandstalker Moloch',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -2012,7 +2012,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 204,
                 name: 'Seed of Hope',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'G',
@@ -2020,7 +2020,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 205,
                 name: 'Serpent-Blade Assailant',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -2028,7 +2028,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 206,
                 name: 'Storm the Seedcore',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'G',
@@ -2036,7 +2036,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 207,
                 name: 'Streetwise Negotiator',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -2044,7 +2044,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 208,
                 name: 'Tandem Takedown',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'G',
@@ -2052,7 +2052,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 209,
                 name: 'Tangled Skyline',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'G',
@@ -2060,7 +2060,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 210,
                 name: 'Timberland Ancient',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -2068,7 +2068,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 211,
                 name: 'Tribute to the World Tree',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'G',
@@ -2076,7 +2076,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 212,
                 name: 'Vengeant Earth',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'G',
@@ -2084,7 +2084,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 213,
                 name: 'Vorinclex // The Grand Evolution',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -2092,7 +2092,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 213,
                 name: 'Vorinclex // The Grand Evolution',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'G',
@@ -2100,7 +2100,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 214,
                 name: 'War Historian',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -2108,7 +2108,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 215,
                 name: 'Wary Thespian',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -2116,7 +2116,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 216,
                 name: 'Wildwood Escort',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -2124,7 +2124,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 217,
                 name: 'Wrenn and Realmbreaker',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Planeswalker',
                 colors: 'G',
@@ -2132,7 +2132,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 218,
                 name: 'Baral and Kari Zev',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,U',
@@ -2140,7 +2140,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 219,
                 name: 'Borborygmos and Fblthp',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,R,U',
@@ -2148,7 +2148,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 220,
                 name: 'Botanical Brawler',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,W',
@@ -2156,7 +2156,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 221,
                 name: 'Djeru and Hazoret',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,W',
@@ -2164,7 +2164,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 222,
                 name: 'Drana and Linvala',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,W',
@@ -2172,7 +2172,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 223,
                 name: 'Elvish Vatkeeper',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G',
@@ -2180,7 +2180,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 224,
                 name: 'Errant and Giada',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U,W',
@@ -2188,7 +2188,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 225,
                 name: 'Ghalta and Mavren',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,W',
@@ -2196,7 +2196,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 226,
                 name: 'Glissa, Herald of Predation',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G',
@@ -2204,7 +2204,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 227,
                 name: 'Halo Forager',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,U',
@@ -2212,7 +2212,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 228,
                 name: 'Hidetsugu and Kairi',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,U',
@@ -2220,7 +2220,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 229,
                 name: 'Inga and Esika',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,U',
@@ -2228,7 +2228,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 230,
                 name: 'Invasion of Alara // Awaken the Maelstrom',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B,G,R,U,W',
@@ -2236,7 +2236,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 230,
                 name: 'Invasion of Alara // Awaken the Maelstrom',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Sorcery',
                 colors: 'B,G,R,U,W',
@@ -2244,7 +2244,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 231,
                 name: 'Invasion of Amonkhet // Lazotep Convert',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B,U',
@@ -2252,7 +2252,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 231,
                 name: 'Invasion of Amonkhet // Lazotep Convert',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,U',
@@ -2260,7 +2260,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 232,
                 name: 'Invasion of Azgol // Ashen Reaper',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B,R',
@@ -2268,7 +2268,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 232,
                 name: 'Invasion of Azgol // Ashen Reaper',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,R',
@@ -2276,7 +2276,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 233,
                 name: 'Invasion of Ergamon // Truga Cliffcharger',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'G,R',
@@ -2284,7 +2284,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 233,
                 name: 'Invasion of Ergamon // Truga Cliffcharger',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,R',
@@ -2292,7 +2292,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 234,
                 name: 'Invasion of Kaladesh // Aetherwing, Golden-Scale Flagship',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'R,U',
@@ -2300,7 +2300,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 234,
                 name: 'Invasion of Kaladesh // Aetherwing, Golden-Scale Flagship',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Artifact',
                 colors: 'R,U',
@@ -2308,7 +2308,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 235,
                 name: "Invasion of Kylem // Valor\\'s Reach Tag Team",
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'R,W',
@@ -2316,7 +2316,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 235,
                 name: "Invasion of Kylem // Valor\\'s Reach Tag Team",
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Sorcery',
                 colors: 'R,W',
@@ -2324,7 +2324,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 236,
                 name: 'Invasion of Lorwyn // Winnowing Forces',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B,G',
@@ -2332,7 +2332,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 236,
                 name: 'Invasion of Lorwyn // Winnowing Forces',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,G',
@@ -2340,7 +2340,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 237,
                 name: 'Invasion of Moag // Bloomwielder Dryads',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'G,W',
@@ -2348,7 +2348,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 237,
                 name: 'Invasion of Moag // Bloomwielder Dryads',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,W',
@@ -2356,7 +2356,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 238,
                 name: 'Invasion of New Capenna // Holy Frazzle-Cannon',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B,W',
@@ -2364,7 +2364,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 238,
                 name: 'Invasion of New Capenna // Holy Frazzle-Cannon',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Artifact',
                 colors: 'B,W',
@@ -2372,7 +2372,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 239,
                 name: 'Invasion of New Phyrexia // Teferi Akosa of Zhalfir',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'U,W',
@@ -2380,7 +2380,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 239,
                 name: 'Invasion of New Phyrexia // Teferi Akosa of Zhalfir',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Planeswalker',
                 colors: 'U,W',
@@ -2388,7 +2388,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 240,
                 name: 'Invasion of Pyrulea // Gargantuan Slabhorn',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'G,U',
@@ -2396,7 +2396,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 240,
                 name: 'Invasion of Pyrulea // Gargantuan Slabhorn',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,U',
@@ -2404,7 +2404,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 241,
                 name: 'Invasion of Tolvada // The Broken Sky',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'B,W',
@@ -2412,7 +2412,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 241,
                 name: 'Invasion of Tolvada // The Broken Sky',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'B,W',
@@ -2420,7 +2420,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 242,
                 name: 'Invasion of Xerex // Vertex Paladin',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Battle',
                 colors: 'U,W',
@@ -2428,7 +2428,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 242,
                 name: 'Invasion of Xerex // Vertex Paladin',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U,W',
@@ -2436,7 +2436,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 243,
                 name: 'Joyful Stormsculptor',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,U',
@@ -2444,7 +2444,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 244,
                 name: 'Kogla and Yidaro',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,R',
@@ -2452,7 +2452,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 245,
                 name: 'Kroxa and Kunoros',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,R,W',
@@ -2460,7 +2460,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 246,
                 name: 'Marshal of Zhalfir',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U,W',
@@ -2468,7 +2468,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 247,
                 name: 'Mirror-Shield Hoplite',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,W',
@@ -2476,7 +2476,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 248,
                 name: 'Mutagen Connoisseur',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,U',
@@ -2484,7 +2484,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 249,
                 name: 'Omnath, Locus of All',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G,R,U,W',
@@ -2492,7 +2492,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 250,
                 name: 'Quintorius, Loremaster',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,W',
@@ -2500,7 +2500,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 251,
                 name: 'Rampaging Geoderm',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,R',
@@ -2508,7 +2508,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 252,
                 name: 'Rankle and Torbran',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,R',
@@ -2516,7 +2516,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 253,
                 name: 'Sculpted Perfection',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'B,W',
@@ -2524,7 +2524,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 254,
                 name: 'Stormclaw Rager',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,R',
@@ -2532,7 +2532,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 255,
                 name: 'Thalia and The Gitrog Monster',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G,W',
@@ -2540,7 +2540,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 256,
                 name: 'Yargle and Multani',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G',
@@ -2548,7 +2548,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 257,
                 name: 'Zimone and Dina',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G,U',
@@ -2556,7 +2556,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 258,
                 name: 'Zurgo and Ojutai',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,U,W',
@@ -2564,7 +2564,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 259,
                 name: 'Flywheel Racer',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: '',
@@ -2572,7 +2572,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 260,
                 name: 'Halo Hopper',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact,Creature',
                 colors: '',
@@ -2580,7 +2580,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 261,
                 name: 'Kitesail',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: '',
@@ -2588,7 +2588,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 262,
                 name: 'Phyrexian Archivist',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact,Creature',
                 colors: '',
@@ -2596,7 +2596,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 263,
                 name: 'Realmbreaker, the Invasion Tree',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: '',
@@ -2604,7 +2604,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 264,
                 name: 'Skittering Surveyor',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact,Creature',
                 colors: '',
@@ -2612,7 +2612,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 265,
                 name: 'Sword of Once and Future',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: '',
@@ -2620,7 +2620,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 266,
                 name: 'Urn of Godfire',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: '',
@@ -2628,7 +2628,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 267,
                 name: 'Bloodfell Caves',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2636,7 +2636,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 268,
                 name: 'Blossoming Sands',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2644,7 +2644,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 269,
                 name: 'Dismal Backwater',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2652,7 +2652,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 270,
                 name: 'Jungle Hollow',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2660,7 +2660,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 271,
                 name: 'Rugged Highlands',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2668,7 +2668,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 272,
                 name: 'Scoured Barrens',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2676,7 +2676,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 273,
                 name: 'Swiftwater Cliffs',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2684,7 +2684,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 274,
                 name: 'Thornwood Falls',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2692,7 +2692,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 275,
                 name: 'Tranquil Cove',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2700,7 +2700,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 276,
                 name: 'Wind-Scarred Crag',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2708,7 +2708,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 277,
                 name: 'Plains',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2716,7 +2716,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 278,
                 name: 'Island',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2724,7 +2724,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 279,
                 name: 'Swamp',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2732,7 +2732,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 280,
                 name: 'Mountain',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2740,7 +2740,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 281,
                 name: 'Forest',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2748,7 +2748,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 282,
                 name: 'Plains',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2756,7 +2756,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 283,
                 name: 'Plains',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2764,7 +2764,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 284,
                 name: 'Island',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2772,7 +2772,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 285,
                 name: 'Island',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2780,7 +2780,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 286,
                 name: 'Swamp',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2788,7 +2788,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 287,
                 name: 'Swamp',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2796,7 +2796,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 288,
                 name: 'Mountain',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2804,7 +2804,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 289,
                 name: 'Mountain',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2812,7 +2812,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 290,
                 name: 'Forest',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2820,7 +2820,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 291,
                 name: 'Forest',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Land',
                 colors: '',
@@ -2828,7 +2828,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 292,
                 name: 'Elesh Norn // The Argent Etchings',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'W',
@@ -2836,7 +2836,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 292,
                 name: 'Elesh Norn // The Argent Etchings',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'W',
@@ -2844,7 +2844,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 293,
                 name: 'Heliod, the Radiant Dawn // Heliod, the Warped Eclipse',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment,Creature',
                 colors: 'W',
@@ -2852,7 +2852,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 293,
                 name: 'Heliod, the Radiant Dawn // Heliod, the Warped Eclipse',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Enchantment,Creature',
                 colors: 'U,W',
@@ -2860,7 +2860,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 294,
                 name: 'Jin-Gitaxias // The Great Synthesis',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -2868,7 +2868,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 294,
                 name: 'Jin-Gitaxias // The Great Synthesis',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'U',
@@ -2876,7 +2876,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 295,
                 name: 'Rona, Herald of Invasion // Rona, Tolarian Obliterator',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -2884,7 +2884,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 295,
                 name: 'Rona, Herald of Invasion // Rona, Tolarian Obliterator',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,U',
@@ -2892,7 +2892,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 296,
                 name: 'Ayara, Widow of the Realm // Ayara, Furnace Queen',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -2900,7 +2900,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 296,
                 name: 'Ayara, Widow of the Realm // Ayara, Furnace Queen',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B,R',
@@ -2908,7 +2908,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 297,
                 name: 'Sheoldred // The True Scriptures',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -2916,7 +2916,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 297,
                 name: 'Sheoldred // The True Scriptures',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'B',
@@ -2924,7 +2924,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 298,
                 name: 'Etali, Primal Conqueror // Etali, Primal Sickness',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -2932,7 +2932,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 298,
                 name: 'Etali, Primal Conqueror // Etali, Primal Sickness',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,R',
@@ -2940,7 +2940,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 299,
                 name: 'Urabrask // The Great Work',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -2948,7 +2948,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 299,
                 name: 'Urabrask // The Great Work',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'R',
@@ -2956,7 +2956,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 300,
                 name: 'Polukranos Reborn // Polukranos, Engine of Ruin',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -2964,7 +2964,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 300,
                 name: 'Polukranos Reborn // Polukranos, Engine of Ruin',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G,W',
@@ -2972,7 +2972,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 301,
                 name: 'Vorinclex // The Grand Evolution',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -2980,7 +2980,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 301,
                 name: 'Vorinclex // The Grand Evolution',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'G',
@@ -2988,7 +2988,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 302,
                 name: 'Baral and Kari Zev',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,U',
@@ -2996,7 +2996,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 303,
                 name: 'Borborygmos and Fblthp',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,R,U',
@@ -3004,7 +3004,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 304,
                 name: 'Djeru and Hazoret',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,W',
@@ -3012,7 +3012,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 305,
                 name: 'Drana and Linvala',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,W',
@@ -3020,7 +3020,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 306,
                 name: 'Errant and Giada',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U,W',
@@ -3028,7 +3028,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 307,
                 name: 'Ghalta and Mavren',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,W',
@@ -3036,7 +3036,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 308,
                 name: 'Glissa, Herald of Predation',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G',
@@ -3044,7 +3044,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 309,
                 name: 'Hidetsugu and Kairi',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,U',
@@ -3052,7 +3052,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 310,
                 name: 'Inga and Esika',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,U',
@@ -3060,7 +3060,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 311,
                 name: 'Kogla and Yidaro',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,R',
@@ -3068,7 +3068,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 312,
                 name: 'Kroxa and Kunoros',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,R,W',
@@ -3076,7 +3076,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 313,
                 name: 'Omnath, Locus of All',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G,R,U,W',
@@ -3084,7 +3084,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 314,
                 name: 'Quintorius, Loremaster',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,W',
@@ -3092,7 +3092,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 315,
                 name: 'Rankle and Torbran',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,R',
@@ -3100,7 +3100,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 316,
                 name: 'Thalia and The Gitrog Monster',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G,W',
@@ -3108,7 +3108,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 317,
                 name: 'Yargle and Multani',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G',
@@ -3116,7 +3116,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 318,
                 name: 'Zimone and Dina',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G,U',
@@ -3124,7 +3124,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 319,
                 name: 'Zurgo and Ojutai',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R,U,W',
@@ -3132,7 +3132,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 320,
                 name: 'Archangel Elspeth',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Planeswalker',
                 colors: 'W',
@@ -3140,7 +3140,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 321,
                 name: "Chandra, Hope\\'s Beacon",
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Planeswalker',
                 colors: 'R',
@@ -3148,7 +3148,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 322,
                 name: 'Wrenn and Realmbreaker',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Planeswalker',
                 colors: 'G',
@@ -3156,7 +3156,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 323,
                 name: 'Essence of Orthodoxy',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3164,7 +3164,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 324,
                 name: 'Phyrexian Pegasus',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3172,7 +3172,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 325,
                 name: 'Seedpod Caretaker',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3180,7 +3180,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 326,
                 name: 'Interdisciplinary Mascot',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -3188,7 +3188,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 327,
                 name: 'Referee Squad',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -3196,7 +3196,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 328,
                 name: 'Zephyr Winder',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -3204,7 +3204,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 329,
                 name: 'Injector Crocodile',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -3212,7 +3212,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 330,
                 name: 'Seer of Stolen Sight',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -3220,7 +3220,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 331,
                 name: 'Terror of Towashi',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -3228,7 +3228,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 332,
                 name: 'Axgard Artisan',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -3236,7 +3236,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 333,
                 name: 'Cragsmasher Yeti',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -3244,7 +3244,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 334,
                 name: 'Orthion, Hero of Lavabrink',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -3252,7 +3252,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 335,
                 name: 'Fairgrounds Trumpeter',
-                rarity: 'null',
+                rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -3260,7 +3260,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 336,
                 name: 'Ruins Recluse',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -3268,7 +3268,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 337,
                 name: 'Surrak and Goreclaw',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -3276,7 +3276,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 338,
                 name: 'Elesh Norn // The Argent Etchings',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'W',
@@ -3284,7 +3284,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 338,
                 name: 'Elesh Norn // The Argent Etchings',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'W',
@@ -3292,7 +3292,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 339,
                 name: 'Jin-Gitaxias // The Great Synthesis',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'U',
@@ -3300,7 +3300,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 339,
                 name: 'Jin-Gitaxias // The Great Synthesis',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'U',
@@ -3308,7 +3308,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 340,
                 name: 'Sheoldred // The True Scriptures',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'B',
@@ -3316,7 +3316,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 340,
                 name: 'Sheoldred // The True Scriptures',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'B',
@@ -3324,7 +3324,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 341,
                 name: 'Urabrask // The Great Work',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'R',
@@ -3332,7 +3332,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 341,
                 name: 'Urabrask // The Great Work',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'R',
@@ -3340,7 +3340,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 342,
                 name: 'Vorinclex // The Grand Evolution',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Creature',
                 colors: 'G',
@@ -3348,7 +3348,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 342,
                 name: 'Vorinclex // The Grand Evolution',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'transform',
                 types: 'Enchantment',
                 colors: 'G',
@@ -3356,7 +3356,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 343,
                 name: 'Boon-Bringer Valkyrie',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3364,7 +3364,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 344,
                 name: 'Dusk Legion Duelist',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3372,7 +3372,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 345,
                 name: 'Guardian of Ghirapur',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3380,7 +3380,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 346,
                 name: 'Knight-Errant of Eos',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3388,7 +3388,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 347,
                 name: 'Monastery Mentor',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3396,7 +3396,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 348,
                 name: 'Progenitor Exarch',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3404,7 +3404,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 349,
                 name: 'Sunfall',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'W',
@@ -3412,7 +3412,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 350,
                 name: 'Chrome Host Seedshark',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -3420,7 +3420,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 351,
                 name: 'Complete the Circuit',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -3428,7 +3428,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 352,
                 name: 'Faerie Mastermind',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -3436,7 +3436,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 353,
                 name: 'See Double',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -3444,7 +3444,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 354,
                 name: 'Transcendent Message',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'U',
@@ -3452,7 +3452,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 355,
                 name: 'Zephyr Singer',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -3460,7 +3460,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 356,
                 name: 'Archpriest of Shadows',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -3468,7 +3468,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 357,
                 name: 'Bloated Processor',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -3476,7 +3476,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 358,
                 name: 'Breach the Multiverse',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'B',
@@ -3484,7 +3484,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 359,
                 name: 'Grafted Butcher',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -3492,7 +3492,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 360,
                 name: 'Hoarding Broodlord',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -3500,7 +3500,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 361,
                 name: 'Pile On',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
                 colors: 'B',
@@ -3508,7 +3508,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 362,
                 name: 'Bloodfeather Phoenix',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -3516,7 +3516,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 363,
                 name: 'City on Fire',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'R',
@@ -3524,7 +3524,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 364,
                 name: 'Into the Fire',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -3532,7 +3532,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 365,
                 name: "Nahiri\\'s Warcrafting",
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'R',
@@ -3540,7 +3540,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 366,
                 name: 'Rampaging Raptor',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -3548,7 +3548,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 367,
                 name: 'Voldaren Thrillseeker',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -3556,7 +3556,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 368,
                 name: 'Ancient Imperiosaur',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -3564,7 +3564,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 369,
                 name: 'Deeproot Wayfinder',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -3572,7 +3572,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 370,
                 name: 'Doomskar Warrior',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -3580,7 +3580,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 371,
                 name: 'Glistening Dawn',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
                 colors: 'G',
@@ -3588,7 +3588,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 372,
                 name: 'Ozolith, the Shattered Spire',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: 'G',
@@ -3596,7 +3596,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 373,
                 name: 'Tribute to the World Tree',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
                 colors: 'G',
@@ -3604,7 +3604,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 374,
                 name: 'Realmbreaker, the Invasion Tree',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: '',
@@ -3612,7 +3612,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 375,
                 name: 'Sword of Once and Future',
-                rarity: 'null',
+                rarity: 'M',
                 layout: 'normal',
                 types: 'Artifact',
                 colors: '',
@@ -3620,7 +3620,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 376,
                 name: 'Essence of Orthodoxy',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3628,7 +3628,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 377,
                 name: 'Interdisciplinary Mascot',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'U',
@@ -3636,7 +3636,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 378,
                 name: 'Terror of Towashi',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B',
@@ -3644,7 +3644,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 379,
                 name: 'Orthion, Hero of Lavabrink',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -3652,7 +3652,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 380,
                 name: 'Surrak and Goreclaw',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -3660,7 +3660,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 381,
                 name: "Norn\\'s Inquisitor",
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'W',
@@ -3668,7 +3668,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 382,
                 name: 'Scrappy Bruiser',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'R',
@@ -3676,7 +3676,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 383,
                 name: 'Kami of Whispered Hopes',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G',
@@ -3684,7 +3684,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 384,
                 name: 'Botanical Brawler',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,W',
@@ -3692,7 +3692,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 385,
                 name: 'Halo Forager',
-                rarity: 'null',
+                rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,U',
@@ -3700,7 +3700,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 386,
                 name: 'Ghalta and Mavren',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'G,W',
@@ -3708,7 +3708,7 @@ export class addMom1681676379564 implements MigrationInterface {
             {
                 cardNumber: 387,
                 name: 'Omnath, Locus of All',
-                rarity: 'null',
+                rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
                 colors: 'B,G,R,U,W',
