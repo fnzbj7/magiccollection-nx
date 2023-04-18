@@ -49,7 +49,8 @@ import { updateColorTypeVol21664495521380 } from '../app/migration/1664495521380
 import { addBro1667774382000 } from '../app/migration/1667774382000-add-bro-cards.migration';
 import { addBrr1668217007000 } from '../app/migration/1668217007000-add-brr-cards.migration';
 import { addOne1668217007000 } from '../app/migration/1675208823000-add-one-cards.migration';
-import { addMom1681676379564 } from '../app/migration/1681676379564-add-mom-cards.migrations';
+import { addMom1681676379564 } from '../app/migration/1681676379564-add-mom-cards.migration';
+import { addMul1681802964787 } from '../app/migration/1681802964787-add-mul-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -104,6 +105,7 @@ const migrationsList = [
     addBrr1668217007000,
     addOne1668217007000,
     addMom1681676379564,
+    addMul1681802964787,
 ];
 
 export default migrationsList;

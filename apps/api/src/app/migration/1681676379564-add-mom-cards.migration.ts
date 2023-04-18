@@ -5,7 +5,7 @@ import { Card } from '../card/entity/card.entity';
 import { PossibleCardVariation } from '../card/entity/possible-card-variation.entity';
 import { MigrationHelper } from './helper/migration-helper';
 
-export class addMom1681801535124 implements MigrationInterface {
+export class addMom1681676379564 implements MigrationInterface {
     shortName = 'MOM';
     public async up(queryRunner: QueryRunner): Promise<void> {
         const cardValues = [
