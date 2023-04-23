@@ -28,6 +28,7 @@ import { CardLayoutWrapperComponent } from './magic-card-list/magic-card-modal/c
 import { CardRarityFilterComponent } from './magic-card-list/filters/card-rarity-filter/card-rarity-filter.component';
 import { CardQuantityFilterComponent } from './magic-card-list/filters/card-quantity-filter/card-quantity-filter.component';
 import { CardColorFilterComponent } from './magic-card-list/filters/card-color-filter/card-color-filter.component';
+import { MagicCardBattleformComponent } from './magic-card-list/magic-card-modal/card-layouts/battleform/magic-card-battleform.component';
 
 @NgModule({
     declarations: [
@@ -48,6 +49,7 @@ import { CardColorFilterComponent } from './magic-card-list/filters/card-color-f
         MagicCardTransformComponent,
         MagicCardSplitComponent,
         MagicCardAftermathComponent,
+        MagicCardBattleformComponent,
         MagicCardNormalComponent,
         CardCariationComponent,
         CardTypeFilterComponent,
