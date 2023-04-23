@@ -1,19 +1,40 @@
-<div style="min-height: 490px;">
+<div style="min-height: 490px">
     <div #swipable>
-        <div class="relative" [style]="'height: 478px; gap: 70px;transform: translate3d('+ defaultPos +'px,0,0);'"  #cardContainer>
-            <div class="fixed" [style]="'left: ' + positionArr[0].pos + 'px'" app-card-layout-wrapper [magicCard]="positionArr[0].comp"></div>
-            <div class="fixed" [style]="'left: '+ positionArr[1].pos +'px'" app-card-layout-wrapper [magicCard]="positionArr[1].comp"></div>
-            <div class="fixed" [style]="'left: ' + positionArr[2].pos + 'px'"app-card-layout-wrapper [magicCard]="positionArr[2].comp"></div>
+        <div
+            class="relative"
+            [style]="'height: 478px;transform: translate3d(' + defaultPos + 'px,0,0);'"
+            #cardContainer
+        >
+            <div
+                class="fixed"
+                [style]="'left: ' + positionArr[0].pos + 'px'"
+                app-card-layout-wrapper
+                [magicCard]="positionArr[0].comp"
+            ></div>
+            <div
+                class="fixed"
+                [style]="'left: ' + positionArr[1].pos + 'px'"
+                app-card-layout-wrapper
+                [magicCard]="positionArr[1].comp"
+            ></div>
+            <div
+                class="fixed"
+                [style]="'left: ' + positionArr[2].pos + 'px'"
+                app-card-layout-wrapper
+                [magicCard]="positionArr[2].comp"
+            ></div>
         </div>
     </div>
-    
+
     <div class="flex justify-center" *ngIf="isLoggedIn && !otherVersionCards">
         <div class="inline mx-3 tooltip-w3 text-center">
-            <img class="w-10" src="/assets/img/filter/card-single.svg"> {{positionArr[1].comp?.cardAmount}}
+            <img class="w-10" src="/assets/img/filter/card-single.svg" />
+            {{ positionArr[1].comp?.cardAmount }}
             <span class="top right tooltiptext-w3">Normál kártya</span>
         </div>
         <div class="inline mx-3 tooltip-w3 text-center">
-            <img class="w-10" src="/assets/img/filter/card-single-foil.svg"> {{positionArr[1].comp?.cardAmountFoil}}
+            <img class="w-10" src="/assets/img/filter/card-single-foil.svg" />
+            {{ positionArr[1].comp?.cardAmountFoil }}
             <span class="top left tooltiptext-w3">Foil kártya</span>
         </div>
     </div>
@@ -22,20 +43,32 @@
     </div>
     <ng-container *ngIf="otherVersionCards">
         <!-- <div *ngIf="otherVersionCards.length === 0">Nincs másik nyomtatás ebből a kártyából</div> -->
-        <div class="flex justify-center card-version" *ngFor="let otherVersion of allVerions" [ngClass]="{'selected-version': otherVersion.cardExpansion === this.positionArr[1].comp?.cardExpansion && otherVersion.cardNumber === this.positionArr[1].comp?.cardNumber}">
+        <div
+            class="flex justify-center card-version"
+            *ngFor="let otherVersion of allVerions"
+            [ngClass]="{
+                'selected-version':
+                    otherVersion.cardExpansion === this.positionArr[1].comp?.cardExpansion &&
+                    otherVersion.cardNumber === this.positionArr[1].comp?.cardNumber
+            }"
+        >
             <div class="mr-5 w-16 flex flex-col" (click)="onChangeVersion(otherVersion)">
-                <img class="setIcon h-54px max-w-none" src="assets/img/set-icons/{{otherVersion.cardExpansion.toLowerCase()}}.svg" alt="">
-                <span>{{otherVersion.cardNumber}}</span>
+                <img
+                    class="setIcon h-54px max-w-none"
+                    src="assets/img/set-icons/{{ otherVersion.cardExpansion.toLowerCase() }}.svg"
+                    alt=""
+                />
+                <span>{{ otherVersion.cardNumber }}</span>
             </div>
             <div class="flex justify-center" *ngIf="isLoggedIn">
                 <div class="inline mx-3 tooltip-w3 text-center">
-                    <img class="w-10" src="/assets/img/filter/card-single.svg">
-                    <span>{{otherVersion.cardAmount}}</span>
+                    <img class="w-10" src="/assets/img/filter/card-single.svg" />
+                    <span>{{ otherVersion.cardAmount }}</span>
                     <span class="top right tooltiptext-w3">Normál kártya</span>
                 </div>
                 <div class="inline mx-3 tooltip-w3 text-center">
-                    <img class="w-10" src="/assets/img/filter/card-single-foil.svg">
-                    <span>{{otherVersion.cardAmountFoil}}</span>
+                    <img class="w-10" src="/assets/img/filter/card-single-foil.svg" />
+                    <span>{{ otherVersion.cardAmountFoil }}</span>
                     <span class="top left tooltiptext-w3">Foil kártya</span>
                 </div>
             </div>
@@ -43,4 +76,3 @@
         </div>
     </ng-container>
 </div>
-

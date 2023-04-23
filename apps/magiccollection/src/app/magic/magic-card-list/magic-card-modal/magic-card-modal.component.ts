@@ -29,7 +29,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     allVerions?: Card[];
 
     defaultPos = -280;
-    baseStep = 340;
+    baseStep = 375;
     actualPos = 0;
 
     constructor(
@@ -39,10 +39,16 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
 
     ngOnInit(): void {
         this.isLoggedIn = this.authenticationService.isLoggedIn();
-        const basePosition = -5;
-        this.positionArr.push({comp: this.magicCardModalService.getPreviousCard(false), pos: basePosition});
-        this.positionArr.push({comp: this.magicCard, pos: basePosition + this.baseStep});
-        this.positionArr.push({comp: this.magicCardModalService.getNextCard(false), pos: basePosition + (2 * this.baseStep)});
+        const basePosition = 335 - this.baseStep;
+        this.positionArr.push({
+            comp: this.magicCardModalService.getPreviousCard(false),
+            pos: basePosition,
+        });
+        this.positionArr.push({ comp: this.magicCard, pos: basePosition + this.baseStep });
+        this.positionArr.push({
+            comp: this.magicCardModalService.getNextCard(false),
+            pos: basePosition + 2 * this.baseStep,
+        });
     }
 
     ngAfterViewInit() {
@@ -63,7 +69,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
                 callbackLeft: this.onNextCard.bind(this),
                 callbackRight: this.getPreviousCard.bind(this),
                 dragStart: ((cardContainer: HTMLElement) => {
-                    if(this.changedCard && this.order != 0) {
+                    if (this.changedCard && this.order != 0) {
                         this.positionArr[1 - this.order].comp = this.changedCard;
                         this.order = 0;
                         this.changedCard = undefined;
@@ -79,8 +85,8 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     onNextCard() {
         const nextMagicCard = this.magicCardModalService.getNextCard();
         if (nextMagicCard) {
-            this.actualPos -= this.baseStep; 
-            if(this.otherVersionCards) {
+            this.actualPos -= this.baseStep;
+            if (this.otherVersionCards) {
                 this.order = 1;
             }
             this.allVerions = undefined;
@@ -92,8 +98,8 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     getPreviousCard() {
         const nextMagicCard = this.magicCardModalService.getPreviousCard();
         if (nextMagicCard) {
-            this.actualPos += this.baseStep; 
-            if(this.otherVersionCards) {
+            this.actualPos += this.baseStep;
+            if (this.otherVersionCards) {
                 this.order = -1;
             }
             this.allVerions = undefined;
@@ -111,13 +117,17 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
         const actual = clientX - x0;
         if (actual > minLimit || actual < -minLimit) {
             const num = Math.min(Math.max(actual, -maxLimit), maxLimit); // Math.min(Math.max(actual / 1, -maxLimit), maxLimit);
-            this.cardContainer.nativeElement.style.transform = `translate3d(${this.defaultPos + this.actualPos + num}px,0,0)`;
+            this.cardContainer.nativeElement.style.transform = `translate3d(${
+                this.defaultPos + this.actualPos + num
+            }px,0,0)`;
         }
     }
 
     dragStop() {
-        this.cardContainer.nativeElement.style.transition = '0.2s'
-        this.cardContainer.nativeElement.style.transform = `translate3d(${this.defaultPos + this.actualPos}px,0,0)`;
+        this.cardContainer.nativeElement.style.transition = '0.2s';
+        this.cardContainer.nativeElement.style.transform = `translate3d(${
+            this.defaultPos + this.actualPos
+        }px,0,0)`;
     }
 
     onShowAllVersion() {
@@ -142,32 +152,31 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     }
 
     onChangeVersion(changeVersion: Card) {
-        if(this.changedCard && this.order != 0) {
+        if (this.changedCard && this.order != 0) {
             this.positionArr[1 - this.order].comp = this.changedCard;
         }
-        
-        if(this.positionArr[1].comp) {
+
+        if (this.positionArr[1].comp) {
             this.changedCard = this.positionArr[1].comp;
             this.order = 0;
         }
         this.positionArr[1].comp = changeVersion;
-
     }
 
-    private cycleNext(nextCard: Card |null) {
+    private cycleNext(nextCard: Card | null) {
         const a = this.positionArr.shift();
-        if(a !== undefined) {
-            a.pos = this.positionArr[this.positionArr.length - 1].pos + 340;
+        if (a !== undefined) {
+            a.pos = this.positionArr[this.positionArr.length - 1].pos + this.baseStep;
             a.comp = nextCard;
             this.positionArr.push(a);
         }
     }
 
-    private cyclePrev(prevCard: Card |null) {
+    private cyclePrev(prevCard: Card | null) {
         const a = this.positionArr.pop();
-        
-        if(a !== undefined) {
-            a.pos = this.positionArr[0].pos - 340;
+
+        if (a !== undefined) {
+            a.pos = this.positionArr[0].pos - this.baseStep;
             a.comp = prevCard;
             this.positionArr.unshift(a);
         }
