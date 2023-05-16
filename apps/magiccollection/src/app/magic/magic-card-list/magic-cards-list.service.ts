@@ -12,6 +12,7 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('MAT', 'March of the Machine: The Aftermath', 230, 2023),
     new MagicSet('MOM', 'March of the Machine', 479, 2023),
     new MagicSet('MUL', 'Multiverse Legends', 195, 2023),
     new MagicSet('ONE', 'Phyrexia: All Will Be One', 479, 2023),
