@@ -36,10 +36,6 @@ export const initialState: CardFilterState = {
 
 export const cardFilterReducer = createReducer(
     initialState,
-    on(CardFilterActions.changeFilter, (state, { bookId }) => ({ ...state })),
-    on(CardFilterActions.changeFilter, (state, { bookId }) => {
-        return { ...state };
-    }),
     on(CardFilterActions.changeQuantityFilter, (state, { newQuantity: newFilter }) => {
         return {
             ...state,
@@ -88,6 +84,21 @@ export const cardFilterReducer = createReducer(
             }
         }
         return state;
+    }),
+    on(CardFilterActions.changeColorFilters, (state, { filterChangeTo }) => {
+        return {
+            ...state,
+            colorFilterArr: filterChangeTo
+                ? [
+                      CardColor.WHITE,
+                      CardColor.BLUE,
+                      CardColor.BLACK,
+                      CardColor.RED,
+                      CardColor.GREEN,
+                      CardColor.COLORLESS,
+                  ]
+                : [],
+        };
     }),
     on(CardFilterActions.changeTypeFilter, (state, { filterChangeName, filterChangeTo }) => {
         const isInFilterArray = state.typeFilterArr.includes(filterChangeName);

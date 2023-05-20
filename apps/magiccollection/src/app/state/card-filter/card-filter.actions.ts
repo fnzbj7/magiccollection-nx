@@ -1,4 +1,4 @@
-import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import { createActionGroup, props } from '@ngrx/store';
 import { QuantityFilterEnum } from '../../model/quantity-filter.enum';
 
 export const CardFilterActions = createActionGroup({
@@ -10,6 +10,7 @@ export const CardFilterActions = createActionGroup({
         'Change Rarity Filter': props<{ filterChangeName: string; filterChangeTo: boolean }>(),
         'Change Rarity Filters': props<{ filterChangeTo: boolean }>(),
         'Change Color Filter': props<{ filterChangeName: string; filterChangeTo: boolean }>(),
+        'Change Color Filters': props<{ filterChangeTo: boolean }>(),
         'Change Type Filter': props<{ filterChangeName: string; filterChangeTo: boolean }>(),
         'Change Type Filters': props<{ filterChangeTo: boolean }>(),
     },
