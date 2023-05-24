@@ -1,4 +1,23 @@
 <div class="container">
+  <div class="flex flex-wrap justify-center">
+    <div class="card card-1">
+      <div class="tagline">Cards list</div>
+      <div class="card-headline">Are you interested in collecting cards?</div>
+      <a [routerLink]="['/','cards','list']"><button class="card-btn">See cards</button></a>
+    </div>
+    <div class="card card-2">
+      <div class="tagline">Animation</div>
+      <div class="card-headline">Wanna see my junky animation?</div>
+      <a [routerLink]="['/','animation']"><button class="card-btn">Animation</button></a>
+    </div>
+    <div class="card card-2">
+      <div class="tagline">Event Calendar</div>
+      <div class="card-headline">Do you wanna see when will the next event happen?</div>
+      <a [routerLink]="['/','calendar']"><button class="card-btn">Calendar</button></a>
+    </div>
+
+  </div>
+  
   <h1>Üdvözöllek az oldalon!</h1>
 
   <p class="text-red-600">Ez oldal azért jött létre, hogy segítse a Magic&reg; játékosokat</p>
