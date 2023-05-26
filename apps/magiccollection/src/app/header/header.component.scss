@@ -1,8 +1,14 @@
-@import "./../variable.scss";
+@import './../variable.scss';
 
 .nav-link {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
+}
+
+.nav-item.active {
+    .nav-link {
+        color: var(--bs-navbar-active-color);
+    }
 }
 
 @media #{$mobile-media-landscape} {

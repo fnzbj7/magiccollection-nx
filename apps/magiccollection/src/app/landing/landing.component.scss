@@ -10,16 +10,25 @@
     background-position: center;
     background-size: cover;
 }
-.card-1 {
-    background-image: url('/assets/cards/card1.jpg');
-}
 
-.card-2 {
-    background-image: url('/assets/cards/card2.jpg');
+.card {
+    &.card-1 {
+        background-image: url('/assets/cards/card1.jpg');
+    }
+
+    &.card-2 {
+        background-image: url('/assets/cards/card2.jpg');
+    }
+
+    &.card-3 {
+        background-image: url('/assets/cards/card3.jpg');
+        background-position: 30% 80%;
+        background-size: 600px;
+    }
 }
 
 .card {
-    @apply relative md:h-80 md:w-52 w-full h-52 p-8 bg-cover my-7 mx-2 rounded-lg bg-center;
+    @apply relative md:h-80 md:w-52 w-full h-52 p-7 bg-cover my-7 mx-2 rounded-lg bg-center;
 
     .tagline {
         color: #fff;
@@ -27,6 +36,13 @@
         text-transform: uppercase;
         font-size: 12px;
         letter-spacing: 2px;
+    }
+
+    &.dark {
+        .card-headline,
+        .tagline {
+            color: #333;
+        }
     }
 
     .card-headline {
@@ -38,22 +54,25 @@
         color: #fff;
     }
 
-    .card-btn {
+    .card-btn-link {
         position: absolute;
         bottom: 20px;
         left: 30px;
-        background-color: #fff;
-        padding: 9px 25px;
-        border-radius: 4px;
-        color: #5b697a;
 
-        &:hover {
-            box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-        }
+        .card-btn {
+            background-color: #fff;
+            padding: 9px 25px;
+            border-radius: 4px;
+            color: #5b697a;
 
-        &:hover,
-        a:hover {
-            color: #213d63;
+            &:hover {
+                box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+            }
+
+            &:hover,
+            a:hover {
+                color: #213d63;
+            }
         }
     }
 }
