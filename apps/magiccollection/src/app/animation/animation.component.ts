@@ -15,18 +15,21 @@ export class AnimationComponent implements AfterViewInit {
 
     stone!: PIXI.Sprite;
 
+    width!: number;
+    height!: number;
+
     dragging = false;
 
     ngAfterViewInit(): void {
         this.canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
 
-        let w = window.innerWidth;
-        let h = window.innerHeight - 115;
+        this.width = window.innerWidth;
+        this.height = window.innerHeight - 115;
 
         this.renderer = new PIXI.Renderer({
             view: this.canvas,
-            width: w,
-            height: h,
+            width: this.width,
+            height: this.height,
             resolution: window.devicePixelRatio || 1,
             autoDensity: true,
         });
@@ -36,10 +39,10 @@ export class AnimationComponent implements AfterViewInit {
         this.loader = PIXI.Loader.shared;
 
         window.addEventListener('resize', () => {
-            w = window.innerWidth;
-            h = window.innerHeight - 115;
+            this.width = window.innerWidth;
+            this.height = window.innerHeight - 115;
 
-            this.renderer.resize(w, h);
+            this.renderer.resize(this.width, this.height);
         });
 
         this.loader.reset();
@@ -48,7 +51,6 @@ export class AnimationComponent implements AfterViewInit {
     }
 
     startGame() {
-        console.log('Ez is lefut sokszor');
         const stoneTexture = this.loader.resources['stone'].texture;
         this.stone = new PIXI.Sprite(stoneTexture);
         this.stone.position.set(200, 200);
@@ -92,17 +94,10 @@ export class AnimationComponent implements AfterViewInit {
 
                 // Find the first position within the time window
                 let index = dragPositions.length - 2;
-                console.log(
-                    performance.now(),
-                    startTime,
-                    performance.now() - startTime,
-                    performance.now() - startTime < dragPositionsMaxLength,
-                );
                 while (index >= 0 && performance.now() - startTime < dragPositionsMaxLength) {
                     const position = dragPositions[index];
                     const elapsed = lastPosition.time - position.time;
                     if (elapsed > 0) {
-                        console.log('IFFELEZ');
                         avgVelocityX = ((lastPosition.x - position.x) / elapsed) * 6;
                         avgVelocityY = ((lastPosition.y - position.y) / elapsed) * 6;
                         break;
@@ -112,7 +107,6 @@ export class AnimationComponent implements AfterViewInit {
             }
 
             // Apply the average velocity to the stone
-            console.log({ avgVelocityX, avgVelocityY, dragPositions });
             velocity.set(avgVelocityX, avgVelocityY);
         };
 
@@ -133,7 +127,7 @@ export class AnimationComponent implements AfterViewInit {
 
         const update = () => {
             const currentFriction =
-                this.stone.position.y + this.stone.height / 2 >= this.renderer.view.height
+                this.stone.position.y + this.stone.height / 2 >= this.height
                     ? groundFriction
                     : airFriction;
 
@@ -150,13 +144,13 @@ export class AnimationComponent implements AfterViewInit {
             if (this.stone.position.x < this.stone.width / 2) {
                 this.stone.position.x = this.stone.width / 2;
                 velocity.x *= -0.8; // Bounce back with reduced velocity
-            } else if (this.stone.position.x > this.renderer.view.width - this.stone.width / 2) {
-                this.stone.position.x = this.renderer.view.width - this.stone.width / 2;
+            } else if (this.stone.position.x > this.width - this.stone.width / 2) {
+                this.stone.position.x = this.width - this.stone.width / 2;
                 velocity.x *= -0.8;
             }
 
-            if (this.stone.position.y > this.renderer.view.height - this.stone.height / 2) {
-                this.stone.position.y = this.renderer.view.height - this.stone.height / 2;
+            if (this.stone.position.y > this.height - this.stone.height / 2) {
+                this.stone.position.y = this.height - this.stone.height / 2;
                 velocity.y *= -0.2;
             }
 
