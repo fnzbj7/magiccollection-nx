@@ -61,10 +61,39 @@ export class AnimationComponent implements AfterViewInit {
         this.stone.scale.set(this.calcStoneScale());
 
         this.stage.addChild(this.stone);
-        this.renderer.render(this.stage);
+
         // stone.scale.set(10,10);
         this.stone.interactive = true;
         this.stone.buttonMode = true;
+
+        // Create a Graphics object for the dashed line
+        const dashedLine = new PIXI.Graphics();
+
+        // Define the line properties
+        const lineColor = 0xffbbbb; // Color of the dashed line
+        const lineWidth = 2; // Width of the dashed line
+        const dashSize = 10; // Length of each dash
+        const gapSize = 5; // Length of each gap between dashes
+
+        // Draw the dashed line
+        dashedLine.lineStyle(lineWidth, lineColor);
+        // dashedLine.moveTo(0, this.height / 2);
+        // dashedLine.lineTo(this.width, this.height / 2);
+
+        const lineLength = this.width; // Length of the dashed line
+        const totalSegments = Math.ceil(lineLength / (dashSize + gapSize)); // Calculate the total number of line segments
+
+        for (let i = 0; i < totalSegments; i++) {
+            const startX = (dashSize + gapSize) * i;
+            const endX = startX + dashSize;
+            dashedLine.moveTo(startX, this.height / 2);
+            dashedLine.lineTo(Math.min(endX, lineLength), this.height / 2);
+        }
+
+        // Add the dashed line to the stage
+        this.stage.addChild(dashedLine);
+
+        this.renderer.render(this.stage);
 
         let isDragging = false;
         const startDragPos = new PIXI.Point();
@@ -165,7 +194,7 @@ export class AnimationComponent implements AfterViewInit {
                 velocity.set(0);
             }
 
-            this.renderer.render(this.stone);
+            this.renderer.render(this.stage);
         };
 
         this.stone.on('pointerdown', onDragStart);
