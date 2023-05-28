@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import * as PIXI from 'pixi.js';
 
 @Component({
@@ -20,8 +20,10 @@ export class AnimationComponent implements AfterViewInit {
 
     dragging = false;
 
-    minScale = 0.3; // Minimum scale when stone is at the top
-    maxScale = 0.55; // Maximum scale when stone is at the bottom
+    minScale = 0.25; // Minimum scale when stone is at the top
+    maxScale = 0.4; // Maximum scale when stone is at the bottom
+
+    fallingCircle?: PIXI.Graphics;
 
     ngAfterViewInit(): void {
         this.canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
@@ -93,13 +95,11 @@ export class AnimationComponent implements AfterViewInit {
         // Add the dashed line to the stage
         this.stage.addChild(dashedLine);
 
-        this.renderer.render(this.stage);
-
         let isDragging = false;
         const startDragPos = new PIXI.Point();
         const startSpritePos = new PIXI.Point();
         const velocity = new PIXI.Point();
-        const airFriction = 0.98; // Friction when stone is in the air
+        const airFriction = 0.985; // Friction when stone is in the air
         const groundFriction = 0.8; // Friction when stone is on the ground
         const gravity = 0.5;
         const dragPositions: { x: number; y: number; time: number }[] = [];
@@ -202,7 +202,12 @@ export class AnimationComponent implements AfterViewInit {
         this.stone.on('pointerupoutside', onDragEnd);
         this.stone.on('pointermove', onDragMove);
 
-        this.ticker.add(update);
+        this.renderer.render(this.stage);
+
+        this.ticker.add(() => {
+            update();
+            this.updateFallingCircle();
+        });
 
         this.ticker.start();
     }
@@ -212,7 +217,69 @@ export class AnimationComponent implements AfterViewInit {
         let yNormalized =
             (this.stone.position.y - this.stone.height / 2) / (this.height - this.stone.height); // Normalize the y-axis position
         yNormalized = Math.max(0, Math.min(1, yNormalized));
-        return (this.maxScale - this.minScale) * (1 - yNormalized) + this.minScale; // Linear interpolation
+        return (this.minScale - this.maxScale) * (1 - yNormalized) + this.maxScale; // Linear interpolation
+    }
+
+    createFallingCircle() {
+        // Create a new PIXI.Graphics object for the falling circle
+        const circle = new PIXI.Graphics();
+        const radius = 20;
+        const color = 0xff0000;
+
+        // Draw the circle
+        circle.beginFill(color);
+        circle.drawCircle(0, 0, radius);
+        circle.endFill();
+
+        const minX = radius;
+        const maxX = this.width - radius;
+        const randomX = Math.random() * (maxX - minX) + minX;
+
+        // Set the initial position at the top of the screen
+        circle.position.set(randomX, -radius);
+
+        // Add the circle to the stage
+        this.stage.addChild(circle);
+
+        // Return the circle object
+        return circle;
+    }
+
+    updateFallingCircle() {
+        if (!this.fallingCircle) {
+            // Create a new falling circle
+            this.fallingCircle = this.createFallingCircle();
+        }
+
+        // Update the position of the falling circle
+        this.fallingCircle.position.y += 5; // Adjust the speed as needed
+
+        // Check if the falling circle has reached the dashed line
+        if (this.fallingCircle.position.y + this.fallingCircle.height / 2 >= this.height / 2) {
+            // Remove the falling circle
+            this.stage.removeChild(this.fallingCircle);
+            this.fallingCircle = undefined;
+        }
+
+        if (this.fallingCircle && this.stone && this.isColliding(this.fallingCircle, this.stone)) {
+            // Remove the falling circle
+            this.stage.removeChild(this.fallingCircle);
+            this.fallingCircle = undefined;
+
+            // Create a new falling circle
+            this.fallingCircle = this.createFallingCircle();
+        }
+    }
+
+    isColliding(circle: PIXI.Graphics, stone: PIXI.Sprite) {
+        const circleBounds = circle.getBounds();
+        const stoneBounds = stone.getBounds();
+        return (
+            circleBounds.x + circleBounds.width > stoneBounds.x &&
+            circleBounds.x < stoneBounds.x + stoneBounds.width &&
+            circleBounds.y + circleBounds.height > stoneBounds.y &&
+            circleBounds.y < stoneBounds.y + stoneBounds.height
+        );
     }
 
     pointerDown(event: PIXI.InteractionEvent) {
@@ -228,7 +295,7 @@ export class AnimationComponent implements AfterViewInit {
         }
     }
 
-    pointerUp(event: PIXI.InteractionEvent) {
+    pointerUp(_event: PIXI.InteractionEvent) {
         this.dragging = false;
     }
 }
