@@ -20,6 +20,9 @@ export class AnimationComponent implements AfterViewInit {
 
     dragging = false;
 
+    minScale = 0.3; // Minimum scale when stone is at the top
+    maxScale = 0.55; // Maximum scale when stone is at the bottom
+
     ngAfterViewInit(): void {
         this.canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
 
@@ -55,8 +58,7 @@ export class AnimationComponent implements AfterViewInit {
         this.stone = new PIXI.Sprite(stoneTexture);
         this.stone.position.set(200, 200);
         this.stone.anchor.set(0.5);
-        this.stone.height = 60;
-        this.stone.width = 60;
+        this.stone.scale.set(this.calcStoneScale());
 
         this.stage.addChild(this.stone);
         this.renderer.render(this.stage);
@@ -72,7 +74,7 @@ export class AnimationComponent implements AfterViewInit {
         const groundFriction = 0.8; // Friction when stone is on the ground
         const gravity = 0.5;
         const dragPositions: { x: number; y: number; time: number }[] = [];
-        const dragPositionsMaxLength = 200;
+        const dragPositionsMaxLength = 20;
 
         const onDragStart = (event: PIXI.InteractionEvent) => {
             isDragging = true;
@@ -90,24 +92,26 @@ export class AnimationComponent implements AfterViewInit {
 
             if (dragPositions.length > 1) {
                 const lastPosition = dragPositions[dragPositions.length - 1];
-                const startTime = performance.now() - 10; // Adjust the time window as needed
+                const timeWindow = 100; // Adjust the time window as needed (e.g., 100 or 200 milliseconds)
 
                 // Find the first position within the time window
                 let index = dragPositions.length - 2;
-                while (index >= 0 && performance.now() - startTime < dragPositionsMaxLength) {
+                while (index >= 0) {
                     const position = dragPositions[index];
                     const elapsed = lastPosition.time - position.time;
-                    if (elapsed > 0) {
-                        avgVelocityX = ((lastPosition.x - position.x) / elapsed) * 6;
-                        avgVelocityY = ((lastPosition.y - position.y) / elapsed) * 6;
+
+                    if (elapsed > timeWindow) {
                         break;
                     }
+                    avgVelocityX = (lastPosition.x - position.x) / elapsed;
+                    avgVelocityY = (lastPosition.y - position.y) / elapsed;
                     index--;
                 }
             }
 
-            // Apply the average velocity to the stone
-            velocity.set(avgVelocityX, avgVelocityY);
+            // Apply the scaling factor to make the average velocity stronger
+            const scalingFactor = 7; // Adjust the scaling factor as needed
+            velocity.set(avgVelocityX * scalingFactor, avgVelocityY * scalingFactor);
         };
 
         const onDragMove = (event: PIXI.InteractionEvent) => {
@@ -135,6 +139,8 @@ export class AnimationComponent implements AfterViewInit {
                 velocity.x *= currentFriction;
                 velocity.y += gravity;
             }
+
+            this.stone.scale.set(this.calcStoneScale());
 
             // Update stone position
             this.stone.position.x += velocity.x;
@@ -170,6 +176,14 @@ export class AnimationComponent implements AfterViewInit {
         this.ticker.add(update);
 
         this.ticker.start();
+    }
+
+    private calcStoneScale(): number {
+        // Calculate the scale factor based on the stone's y-axis position
+        let yNormalized =
+            (this.stone.position.y - this.stone.height / 2) / (this.height - this.stone.height); // Normalize the y-axis position
+        yNormalized = Math.max(0, Math.min(1, yNormalized));
+        return (this.maxScale - this.minScale) * (1 - yNormalized) + this.minScale; // Linear interpolation
     }
 
     pointerDown(event: PIXI.InteractionEvent) {
