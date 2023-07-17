@@ -23,7 +23,7 @@ export class AnimationComponent implements AfterViewInit {
     minScale = 0.25; // Minimum scale when stone is at the top
     maxScale = 0.4; // Maximum scale when stone is at the bottom
 
-    fallingCircle?: PIXI.Graphics;
+    fallingCircle?: PIXI.Sprite;
 
     ngAfterViewInit(): void {
         this.canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
@@ -51,16 +51,21 @@ export class AnimationComponent implements AfterViewInit {
         });
 
         this.loader.reset();
-        this.loader = this.loader.add('stone', 'assets/stone_throw.png');
+        // this.loader = this.loader.add('stone', 'assets/stone_throw.png');
+        this.loader = this.loader.add('stone', 'assets/Bence-face.png');
+        this.loader = this.loader.add('splatoon', 'assets/splatoon-box.png');
         this.loader.load(this.startGame.bind(this));
     }
 
     startGame() {
         const stoneTexture = this.loader.resources['stone'].texture;
+        
         this.stone = new PIXI.Sprite(stoneTexture);
         this.stone.position.set(200, 200);
         this.stone.anchor.set(0.5);
-        this.stone.scale.set(this.calcStoneScale());
+        this.stone.width = 200 * this.calcStoneScale();
+        this.stone.height = 200 * this.calcStoneScale();
+        // this.stone.scale.set(this.calcStoneScalecalcStoneScale());
 
         this.stage.addChild(this.stone);
 
@@ -88,8 +93,8 @@ export class AnimationComponent implements AfterViewInit {
         for (let i = 0; i < totalSegments; i++) {
             const startX = (dashSize + gapSize) * i;
             const endX = startX + dashSize;
-            dashedLine.moveTo(startX, this.height / 2);
-            dashedLine.lineTo(Math.min(endX, lineLength), this.height / 2);
+            dashedLine.moveTo(startX, this.height * 0.6);
+            dashedLine.lineTo(Math.min(endX, lineLength), this.height * 0.6);
         }
 
         // Add the dashed line to the stage
@@ -168,8 +173,9 @@ export class AnimationComponent implements AfterViewInit {
                 velocity.x *= currentFriction;
                 velocity.y += gravity;
             }
-
-            this.stone.scale.set(this.calcStoneScale());
+            this.stone.width = 200 * this.calcStoneScale();
+            this.stone.height = 200 * this.calcStoneScale();
+            // this.stone.scale.set(this.calcStoneScale());
 
             // Update stone position
             this.stone.position.x += velocity.x;
@@ -217,19 +223,26 @@ export class AnimationComponent implements AfterViewInit {
         let yNormalized =
             (this.stone.position.y - this.stone.height / 2) / (this.height - this.stone.height); // Normalize the y-axis position
         yNormalized = Math.max(0, Math.min(1, yNormalized));
-        return (this.minScale - this.maxScale) * (1 - yNormalized) + this.maxScale; // Linear interpolation
+        const a = (this.minScale - this.maxScale) * (1 - yNormalized) + this.maxScale; // Linear interpolation
+        console.log({a});
+        return a;
     }
 
     createFallingCircle() {
         // Create a new PIXI.Graphics object for the falling circle
-        const circle = new PIXI.Graphics();
+        const splatoonTexture = this.loader.resources['splatoon'].texture;
+        const circle = new PIXI.Sprite(splatoonTexture);
         const radius = 20;
-        const color = 0xff0000;
+
+        circle.position.set(200, 200);
+        circle.anchor.set(0.5);
+        circle.width = 65;
+        circle.height = 100;
 
         // Draw the circle
-        circle.beginFill(color);
-        circle.drawCircle(0, 0, radius);
-        circle.endFill();
+        // circle.beginFill(color);
+        // circle.drawCircle(0, 0, radius);
+        // circle.endFill();
 
         const minX = radius;
         const maxX = this.width - radius;
@@ -255,7 +268,7 @@ export class AnimationComponent implements AfterViewInit {
         this.fallingCircle.position.y += 5; // Adjust the speed as needed
 
         // Check if the falling circle has reached the dashed line
-        if (this.fallingCircle.position.y + this.fallingCircle.height / 2 >= this.height / 2) {
+        if (this.fallingCircle.position.y + this.fallingCircle.height * 0.6 >= this.height * 0.6) {
             // Remove the falling circle
             this.stage.removeChild(this.fallingCircle);
             this.fallingCircle = undefined;
@@ -271,7 +284,7 @@ export class AnimationComponent implements AfterViewInit {
         }
     }
 
-    isColliding(circle: PIXI.Graphics, stone: PIXI.Sprite) {
+    isColliding(circle: PIXI.Sprite, stone: PIXI.Sprite) {
         const circleBounds = circle.getBounds();
         const stoneBounds = stone.getBounds();
         return (
