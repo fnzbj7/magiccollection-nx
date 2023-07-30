@@ -16,6 +16,7 @@ export class MagicCardListContainerComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        console.log('Voltam itt');
         this.userId = this.route.snapshot.params['userId'];
         if (!this.userId) {
             const tmpUserId = this.authenticationService.currentUserValue?.id;

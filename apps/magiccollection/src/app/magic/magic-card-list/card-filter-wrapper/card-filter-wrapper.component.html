@@ -1,10 +1,14 @@
-<div app-card-quantity class="quantity-block mr-4 d-flex w-fit float-right" *ngIf="isAuth"></div>
-<details class="style2" appDetails>
+<div
+    app-card-quantity
+    class="quantity-block mr-4 d-flex w-fit absolute right-0"
+    *ngIf="isAuth"
+></div>
+<details class="w-full" appDetails>
     <summary class="w-fit pt-2">Filters</summary>
-    <div class="content flex gap-5 flex-wrap">
-        <div app-card-rarity class="flex flex-col gap-1"></div>
-        <div app-card-color-filter class="flex flex-col gap-1"></div>
-        <div app-card-type-filter class="flex flex-col gap-1"></div>
+    <div class="content flex gap-x-5 flex-wrap w-full px-2 pt-3 justify-between sm:justify-start">
+        <div app-card-rarity class="flex flex-col" style="gap: 6px"></div>
+        <div app-card-color-filter class="flex flex-col" style="gap: 6px"></div>
+        <div app-card-type-filter class="flex flex-col" style="gap: 6px"></div>
     </div>
 </details>
 

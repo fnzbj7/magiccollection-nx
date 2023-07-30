@@ -131,6 +131,7 @@ export class DetailsDirective implements AfterViewInit {
         this.isClosing = false;
         this.isExpanding = false;
         // Remove the overflow hidden and the fixed height
-        this.el.nativeElement.style.height = this.el.nativeElement.style.overflow = '';
+        this.el.nativeElement.style.height = '';
+        this.el.nativeElement.style.overflow = '';
     }
 }
