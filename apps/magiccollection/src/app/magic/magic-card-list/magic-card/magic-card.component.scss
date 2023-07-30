@@ -1,6 +1,7 @@
-@import "./../../../variable.scss";
+@import './../../../variable.scss';
 
-.magiccard_li {
+.magiccard_li.auto,
+.magiccard_li.small {
     width: 108px;
     height: 153px;
 }
@@ -23,7 +24,7 @@
     width: 100%;
 }
 .magiccard.dothefoil::before {
-    content: "";
+    content: '';
     z-index: 10;
     position: absolute;
     height: 200%;
@@ -57,7 +58,7 @@
 }
 
 .magiccard.dothefoil::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -105,7 +106,8 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 827px) {
-    .magiccard_li {
+    .magiccard_li.auto,
+    .magiccard_li.large {
         width: 217px;
         height: 303px;
     }

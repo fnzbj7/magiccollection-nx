@@ -1,18 +1,17 @@
-<li class="magic-card-li relative magiccard_li">
+<li class="magic-card-li relative magiccard_li {{ imgSize }}">
     <!-- Normal cards -->
-    <picture class="magiccard" [appMagicCardAmount]="magicCardAmount" [onlyShow]="onlyShow" (click)="openCardModal()">
+    <picture
+        class="magiccard"
+        [appMagicCardAmount]="magicCardAmount"
+        [onlyShow]="onlyShow"
+        (click)="openCardModal()"
+    >
         <source
             [attr.lazyLoad]="imageSrcWebp"
             [attr.defaultImage]="defaultWebp"
-            [offset]="100"
             type="image/webp"
         />
-        <source
-            [attr.lazyLoad]="imageSrcPng"
-            [attr.defaultImage]="defaultPng"
-            [offset]="100"
-            type="image/png"
-        />
+        <source [attr.lazyLoad]="imageSrcPng" [attr.defaultImage]="defaultPng" type="image/png" />
         <img
             class="magiccard"
             [lazyLoad]="imageSrcPng"
