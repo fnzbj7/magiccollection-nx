@@ -3,7 +3,8 @@ import { DomService } from './dom.service';
 
 @Injectable({ providedIn: 'root' })
 export class ModalService {
-    private modalElementId = 'modal-container';
+    private modalContainer = 'modal-container';
+    private modalContent = 'modal-content';
     private overlayElementId = 'overlay';
 
     constructor(private domService: DomService) {}
@@ -13,9 +14,9 @@ export class ModalService {
             inputs,
             outputs,
         };
-        this.domService.appendComponentTo<T, S, Z>(this.modalElementId, component, componentConfig);
+        this.domService.appendComponentTo<T, S, Z>(this.modalContent, component, componentConfig);
         document.getElementsByTagName('BODY')[0].classList.add('modal-open');
-        const modalElement = document.getElementById(this.modalElementId);
+        const modalElement = document.getElementById(this.modalContainer);
         if (modalElement !== null) {
             modalElement.className = 'show';
         }
@@ -27,7 +28,7 @@ export class ModalService {
 
     destroy() {
         this.domService.removeComponent();
-        const modalElement = document.getElementById(this.modalElementId);
+        const modalElement = document.getElementById(this.modalContainer);
         if (modalElement !== null) {
             modalElement.classList.add('hidden');
             modalElement.classList.remove('show');

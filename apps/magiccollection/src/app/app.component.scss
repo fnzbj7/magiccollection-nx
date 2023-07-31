@@ -57,6 +57,7 @@
     bottom: 53%;
     left: 50%;
     width: 375px;
+    max-height: 95vh;
     background: white;
     text-align: center;
     box-shadow: 0 0 2px 1px black;
@@ -68,7 +69,12 @@
     opacity: 0;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 95vh;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #modal-container {
+        width: 700px;
+    }
 }
 
 #modal-container.show-after {

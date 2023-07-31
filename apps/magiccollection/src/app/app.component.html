@@ -1,26 +1,43 @@
+<mat-sidenav-container class="example-container" style="min-height: 100vh; background-color: unset">
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+        <app-side-menu></app-side-menu>
+    </mat-sidenav>
 
-<mat-sidenav-container class="example-container" style="min-height: 100vh; background-color: unset;">
-  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
-      <app-side-menu></app-side-menu>
-  </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header></app-header>
+        <div id="container" class="px-0 mt-4 w-100 d-flex">
+            <router-outlet></router-outlet>
+        </div>
 
-  <mat-sidenav-content>
-      <app-header></app-header>
-      <div id="container" class="px-0 mt-4 w-100 d-flex">
-          <router-outlet></router-outlet>
-      </div>
+        <!-- Custom modal setup -->
+        <div id="modal-container" class="hidden">
+            <div class="sticky top-0 float-right z-40 opacity-70 h-0">
+                <button
+                    type="button"
+                    (click)="removeModal()"
+                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                >
+                    <!-- Heroicon name: outline/x -->
+                    <svg
+                        class="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+            </div>
 
-      <!-- Custom modal setup -->
-      <div id="modal-container" class="hidden">
-        <button type="button" (click)="removeModal()" class="sticky top-0 float-right z-40 opacity-70 bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-            <span class="sr-only">Close menu</span>
-            <!-- Heroicon name: outline/x -->
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-      </div>
-      <div id="overlay" (click)="removeModal()" class="hidden"></div>
-  </mat-sidenav-content>
+            <div id="modal-content" class="relative"></div>
+        </div>
+        <div id="overlay" (click)="removeModal()" class="hidden"></div>
+    </mat-sidenav-content>
 </mat-sidenav-container>
-

@@ -13,7 +13,7 @@ interface CardPos {
 @Component({
     selector: 'app-magic-card-modal',
     templateUrl: './magic-card-modal.component.html',
-    styleUrls: ['./magic-card-modal.component.css'],
+    styleUrls: ['./magic-card-modal.component.scss'],
 })
 export class MagicCardModalComponent implements OnInit, AfterViewInit {
     @Input() magicCard!: Card;

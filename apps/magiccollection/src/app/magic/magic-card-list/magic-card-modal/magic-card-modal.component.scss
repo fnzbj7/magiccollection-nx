@@ -57,3 +57,17 @@
 .h-54px {
     height: 54px;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .landscape-grid {
+        grid-template-columns: 373px 1fr;
+    }
+
+    .card-modal-img {
+        margin-top: -20px;
+    }
+
+    .more-prints {
+        margin-top: 60px;
+    }
+}
