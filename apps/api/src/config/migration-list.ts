@@ -52,6 +52,7 @@ import { addOne1668217007000 } from '../app/migration/1675208823000-add-one-card
 import { addMom1681676379564 } from '../app/migration/1681676379564-add-mom-cards.migration';
 import { addMul1681802964787 } from '../app/migration/1681802964787-add-mul-cards.migration';
 import { addMat1684249130782 } from '../app/migration/1684249130782-add-mat-cards.migration';
+import { addWot1693652437654 } from '../app/migration/1693652437654-add-wot-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -108,6 +109,7 @@ const migrationsList = [
     addMom1681676379564,
     addMul1681802964787,
     addMat1684249130782,
+    addWot1693652437654,
 ];
 
 export default migrationsList;

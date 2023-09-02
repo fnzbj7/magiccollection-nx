@@ -12,12 +12,13 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('WOT', 'Wilds of Eldraine: Enchanting Tales', 103, 2023),
     new MagicSet('MAT', 'March of the Machine: The Aftermath', 230, 2023),
     new MagicSet('MOM', 'March of the Machine', 479, 2023),
     new MagicSet('MUL', 'Multiverse Legends', 195, 2023),
     new MagicSet('ONE', 'Phyrexia: All Will Be One', 479, 2023),
-    new MagicSet('BRO', "The Brothers' War Retro Artifacts", 384, 2022),
-    new MagicSet('BRR', "The Brothers' War", 126, 2022),
+    new MagicSet('BRO', "The Brothers' War", 384, 2022),
+    new MagicSet('BRR', "The Brothers' War Retro Artifacts", 126, 2022),
     new MagicSet('DMU', 'Dominaria United', 434, 2022),
     new MagicSet('SNC', 'Streets of New Capenna', 467, 2022),
     new MagicSet('NEO', 'Kamigawa: Neon Dynasty', 512, 2022),
