@@ -1,20 +1,22 @@
 <div class="container bg-light p-3 pb-5">
-    <h1 class="text-2xl mb-2" [ngClass]="{'text-red-400': modifyQty < 0}" >{{modifyQty > 0 ? 'Kártya hozzáadó rendszer': 'Kártya törlő rendszer' }}</h1>
+    <h1 class="text-2xl mb-2" [ngClass]="{ 'text-red-400': modifyQty < 0 }">
+        {{ modifyQty > 0 ? 'Kártya hozzáadó rendszer' : 'Kártya törlő rendszer' }}
+    </h1>
     <ng-container *ngIf="actualPageStep === pageStep.FORM">
         <app-modify-form [mode]="mode" (afterFinish)="onFormFinish($event)"></app-modify-form>
     </ng-container>
 
     <ng-container *ngIf="actualPageStep === pageStep.PREVIEW">
-        <div class="btn btn-primary" (click)="actualPageStep = pageStep.FORM">Vissza</div>
-        <div class="btn btn-primary ml-3" (click)="startUploading()">Tovább a feltöltésre</div>
+        <div class="btn btn-primary mr-3" (click)="startUploading()">Tovább a feltöltésre</div>
+        <div class="btn btn-warning" (click)="actualPageStep = pageStep.FORM">Vissza</div>
         <app-modify-preview
             *ngIf="reducedArr"
             [modifyCard]="reducedArr"
             [rawModifyCard]="rawCardNumbers"
         ></app-modify-preview>
         <div class="mt-4">
-            <div class="btn btn-primary" (click)="actualPageStep = pageStep.FORM">Vissza</div>
-            <div class="btn btn-primary ml-3" (click)="startUploading()">Tovább a feltöltésre</div>
+            <div class="btn btn-primary mr-3" (click)="startUploading()">Tovább a feltöltésre</div>
+            <div class="btn btn-warning" (click)="actualPageStep = pageStep.FORM">Vissza</div>
         </div>
     </ng-container>
 
@@ -46,14 +48,13 @@
             <ul
                 *ngIf="newCards"
                 class="pl-0"
-                style="
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    list-style: none;
-                "
+                style="display: flex; flex-wrap: wrap; justify-content: center; list-style: none"
             >
-                <app-magic-card [magicCard]="card" [onlyShow]="true" *ngFor="let card of newCards"></app-magic-card>
+                <app-magic-card
+                    [magicCard]="card"
+                    [onlyShow]="true"
+                    *ngFor="let card of newCards"
+                ></app-magic-card>
                 <li class="fake-card"></li>
                 <li class="fake-card"></li>
                 <li class="fake-card"></li>
