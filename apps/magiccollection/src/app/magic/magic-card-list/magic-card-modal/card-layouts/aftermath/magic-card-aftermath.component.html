@@ -1,16 +1,9 @@
-<div class="mt-5 mb-3 mx-auto flex justify-center" style="height: 414px;">
-    <div>
+<div class="mt-5 mb-3 mx-auto flex justify-center" style="height: 414px">
+    <div class="magiccard">
         <picture class="cursor-pointer">
-            <source
-                [srcset]="cardUrls.mainCardWebpUrl"
-                type="image/webp"
-            />
-            <source
-                [srcset]="cardUrls.mainCardPngUrl"
-                type="image/png"
-            />
+            <source [srcset]="cardUrls.mainCardWebpUrl" type="image/webp" />
+            <source [srcset]="cardUrls.mainCardPngUrl" type="image/png" />
             <img
-                class="magiccard magiccard-full"
                 [ngClass]="flipClass ? 'flipper' : ''"
                 [src]="cardUrls.mainCardPngUrl"
                 alt=""
@@ -22,5 +15,3 @@
         <fa-icon [icon]="faSyncAlt" (click)="flipClass = !flipClass" class="pointer"></fa-icon>
     </div>
 </div>
-    
-
