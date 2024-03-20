@@ -1,9 +1,12 @@
 .magiccard {
     max-width: 100%;
     max-height: 100%;
-    transition: 0.6s;
     width: 265px;
     height: 370px;
+}
+
+.fast-transition {
+    transition: 0.4s;
 }
 
 .flipper {
