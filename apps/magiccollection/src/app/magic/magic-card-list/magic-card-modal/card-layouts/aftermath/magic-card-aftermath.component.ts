@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 import { CardUrls } from 'apps/magiccollection/src/app/model/card-urls.model';
 import { Card } from '../../../../../model/card.model';
@@ -18,7 +18,7 @@ export class MagicCardAftermathComponent implements OnChanges {
 
     constructor(private magicCardsListService: MagicCardsListService) {}
 
-    ngOnChanges(changes: SimpleChanges): void {
+    ngOnChanges(_changes: SimpleChanges): void {
         this.cardUrls = this.magicCardsListService.creatingCardUrls(this.magicCard);
     }
 }
