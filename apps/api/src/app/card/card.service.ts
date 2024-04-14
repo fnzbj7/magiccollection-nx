@@ -9,6 +9,7 @@ import { AddPosibleCardVariationDto } from './card.controller';
 import { PossibleCardVariation } from './entity/possible-card-variation.entity';
 import { AllVersionCardForUserDto } from './dto/all-version-card-for-user.dto';
 import { DataSource } from 'typeorm';
+import { CardVariationDto, createCardVariationDto } from './dto/card-varitation.dto';
 
 @Injectable()
 export class CardService {
@@ -119,8 +120,7 @@ export class CardService {
                 colors,
             } = card;
             const { cardAmount, cardAmountFoil } = this.getCardAmount(card);
-
-            cardAmountDtoList.push({
+            const cardAmountDto: CardAmountDto = {
                 cardExpansion,
                 cardAmount,
                 cardAmountFoil,
@@ -131,7 +131,36 @@ export class CardService {
                 cardNumber: ('' + cardNumber).padStart(3, '0'),
                 types,
                 colors,
-            });
+            };
+            if (card.cardAmount && card.cardAmount[0] && card.cardAmount[0].cardVariation) {
+                const cardVariationDto: CardVariationDto = createCardVariationDto();
+                card.cardAmount[0].cardVariation.forEach(cv => {
+                    cardVariationDto.nEn += cv.nEn;
+                    cardVariationDto.fEn += cv.fEn;
+                    cardVariationDto.nJp += cv.nJp;
+                    cardVariationDto.fJp += cv.fJp;
+                    cardVariationDto.nSp += cv.nSp;
+                    cardVariationDto.fSp += cv.fSp;
+                    cardVariationDto.nFr += cv.nFr;
+                    cardVariationDto.fFr += cv.fFr;
+                    cardVariationDto.nDe += cv.nDe;
+                    cardVariationDto.fDe += cv.fDe;
+                    cardVariationDto.nIt += cv.nIt;
+                    cardVariationDto.fIt += cv.fIt;
+                    cardVariationDto.nPt += cv.nPt;
+                    cardVariationDto.fPt += cv.fPt;
+                    cardVariationDto.nKr += cv.nKr;
+                    cardVariationDto.fKr += cv.fKr;
+                    cardVariationDto.nRu += cv.nRu;
+                    cardVariationDto.fRu += cv.fRu;
+                    cardVariationDto.nCs += cv.nCs;
+                    cardVariationDto.fCs += cv.fCs;
+                    cardVariationDto.nCt += cv.nCt;
+                    cardVariationDto.fCt += cv.fCt;
+                });
+                cardAmountDto.cardVariation = cardVariationDto;
+            }
+            cardAmountDtoList.push(cardAmountDto);
         }
 
         return cardAmountDtoList;

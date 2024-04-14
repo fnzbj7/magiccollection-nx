@@ -1,3 +1,5 @@
+import { CardVariationDto } from './card-varitation.dto';
+
 export class CardAmountDto {
     cardExpansion: string;
     cardNumber: string;
@@ -9,4 +11,5 @@ export class CardAmountDto {
     colors: string;
     name: string;
     uniqueCardId: number;
+    cardVariation?: CardVariationDto;
 }

@@ -26,19 +26,20 @@ export class CardRepository {
     }
 
     async getCardSetUser(cardSet: string, userId: number): Promise<Card[]> {
-        return this.dataSource
-            .getRepository(Card)
-            .createQueryBuilder('t_card')
-            .innerJoinAndSelect('t_card.cardSet', 't_cardSet', 't_cardSet.short_name = :name', {
-                name: cardSet,
-            })
-            .leftJoinAndSelect(
-                't_card.cardAmount',
-                't_cardAmount',
-                't_cardAmount.user_1 = :userId',
-                { userId },
-            )
-            .getMany();
+        return (
+            this.dataSource
+                .getRepository(Card)
+                .createQueryBuilder('card')
+                .innerJoinAndSelect('card.cardSet', 'cardSet', 'cardSet.short_name = :name', {
+                    name: cardSet,
+                })
+                .leftJoinAndSelect('card.cardAmount', 'cardAmount', 'cardAmount.user_1 = :userId', {
+                    userId,
+                })
+                // You must join `cardAmount` to `CardVariation` to access variations
+                .leftJoinAndSelect('cardAmount.cardVariation', 'cardVariation')
+                .getMany()
+        );
     }
 
     async modifySetCard(modifyCard: ModifyCardDto, user: User) {
