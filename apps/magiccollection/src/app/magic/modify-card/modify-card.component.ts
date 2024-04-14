@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { ModifyCardService } from '../modify-card.service';
 import { MagicCardsListService } from '../magic-card-list/magic-cards-list.service';
 import { ModifyQtyEnum } from '../../model/modify-qty.enum';
-import { Card, CardLayout } from '../../model/card.model';
+import { Card, CardLayout, CardVariationDto } from '../../model/card.model';
 import { CardWithFoil } from './dto/foil.dto';
 import { AfterFinishForm } from './modify-form/model/after-finish-form.model';
 import { CardQuantity } from './dto/card-quantity.model';
@@ -19,7 +19,7 @@ enum PageStep {
 
 export enum ModifyMode {
     ADD,
-    REMOVE
+    REMOVE,
 }
 
 @Component({
@@ -104,10 +104,36 @@ export class ModifyCardComponent implements OnInit, OnDestroy {
                         return !false;
                     }
 
-                    const priorityList = [
-                        { upload: x.cardQuantityFoil, have: foundCard.cardAmountFoil },
-                        { upload: x.cardQuantity, have: foundCard.cardAmount },
-                    ];
+                    let language = 'En'; // TODO maybe tunnel language from a different place
+                    if (
+                        this.reducedArr &&
+                        this.reducedArr.cardQuantitys &&
+                        this.reducedArr.cardQuantitys[0]
+                    ) {
+                        language = this.reducedArr.cardQuantitys[0].language;
+                    }
+                    const priorityList = [];
+                    if (foundCard.cardVariation) {
+                        // Language needed
+                        priorityList.push({
+                            upload: x.cardQuantityFoil,
+                            have: foundCard.cardVariation[
+                                ('f' + language) as keyof CardVariationDto
+                            ],
+                        });
+                        priorityList.push({
+                            upload: x.cardQuantity,
+                            have: foundCard.cardVariation[
+                                ('n' + language) as keyof CardVariationDto
+                            ],
+                        });
+                    } else {
+                        priorityList.push({
+                            upload: x.cardQuantityFoil,
+                            have: foundCard.cardAmountFoil,
+                        });
+                        priorityList.push({ upload: x.cardQuantity, have: foundCard.cardAmount });
+                    }
 
                     for (const priority of priorityList) {
                         // if upload and have both 0, then skip

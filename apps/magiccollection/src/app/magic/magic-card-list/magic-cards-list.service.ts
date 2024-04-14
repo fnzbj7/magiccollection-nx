@@ -98,11 +98,7 @@ export class MagicCardsListService {
 
     cardVariantTypes = ['normal', 'etched', 'prerelease', 'stamped', 'list'];
 
-    cardLanguages: string[] = [
-        'En',
-        'Jp',
-        // TODO kiegészíteni a listát
-    ];
+    cardLanguages: string[] = ['En', 'Jp', 'Sp', 'Fr', 'De', 'It', 'Pt', 'Kr', 'Ru', 'Cs', 'Ct'];
 
     yearBlocks: MagicSetYearBlock[] = this.getMagicSetYearBlocks(magicSetArray);
 

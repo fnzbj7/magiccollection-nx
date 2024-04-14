@@ -9,6 +9,7 @@ export class Card {
     name!: string;
     rarity!: string;
     uniqueCardId?: number;
+    cardVariation?: CardVariationDto;
 }
 
 export enum CardLayout {
@@ -41,4 +42,29 @@ export enum CardColor {
     RED = 'R',
     GREEN = 'G',
     COLORLESS = 'C',
+}
+
+export class CardVariationDto {
+    nEn!: number;
+    fEn!: number;
+    nJp!: number;
+    fJp!: number;
+    nSp!: number;
+    fSp!: number;
+    nFr!: number;
+    fFr!: number;
+    nDe!: number;
+    fDe!: number;
+    nIt!: number;
+    fIt!: number;
+    nPt!: number;
+    fPt!: number;
+    nKr!: number;
+    fKr!: number;
+    nRu!: number;
+    fRu!: number;
+    nCs!: number;
+    fCs!: number;
+    nCt!: number;
+    fCt!: number;
 }
