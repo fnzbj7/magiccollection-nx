@@ -12,6 +12,7 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('BIG', 'The Big Score', 95, 2024),
     new MagicSet('OTJ', 'Outlaws of Thunder Junction', 374, 2024),
     new MagicSet('OTP', 'Breaking News', 82, 2024),
     new MagicSet('MKM', 'Murders at Karlov Manor', 441, 2024),

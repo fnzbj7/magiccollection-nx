@@ -58,6 +58,7 @@ import { addLci1699810202037 } from '../app/migration/1699729014758-add-lci-card
 import { addMkm1706824692302 } from '../app/migration/1706824692302-add-mkm-cards.migration';
 import { addOtj1712527328175 } from '../app/migration/1712527328175-add-otj-cards.migration';
 import { addOtp1713086408627 } from '../app/migration/1713086408627-add-otp-cards.migration';
+import { addBig1713087019063 } from '../app/migration/1713087019063-add-big-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -120,6 +121,7 @@ const migrationsList = [
     addMkm1706824692302,
     addOtj1712527328175,
     addOtp1713086408627,
+    addBig1713087019063,
 ];
 
 export default migrationsList;
