@@ -427,7 +427,7 @@ export class addWot1693652437654 implements MigrationInterface {
             },
             {
                 cardNumber: 53,
-                name: "Garruk\\'s Uprising",
+                name: "Garruk's Uprising",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -459,7 +459,7 @@ export class addWot1693652437654 implements MigrationInterface {
             },
             {
                 cardNumber: 57,
-                name: "Nature\\'s Will",
+                name: "Nature's Will",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -659,7 +659,7 @@ export class addWot1693652437654 implements MigrationInterface {
             },
             {
                 cardNumber: 82,
-                name: "Nature\\'s Will",
+                name: "Nature's Will",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -819,7 +819,7 @@ export class addWot1693652437654 implements MigrationInterface {
             },
             {
                 cardNumber: 102,
-                name: "Nature\\'s Will",
+                name: "Nature's Will",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',

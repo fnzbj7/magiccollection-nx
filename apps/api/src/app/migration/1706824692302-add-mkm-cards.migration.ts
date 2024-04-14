@@ -35,7 +35,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 4,
-                name: "Aurelia\\'s Vindicator",
+                name: "Aurelia's Vindicator",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -539,7 +539,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 67,
-                name: "Proft\\'s Eidetic Memory",
+                name: "Proft's Eidetic Memory",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -635,7 +635,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 79,
-                name: "Case of the Gorgon\\'s Kiss",
+                name: "Case of the Gorgon's Kiss",
                 rarity: 'U',
                 layout: 'case',
                 types: 'Enchantment',
@@ -715,7 +715,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 89,
-                name: "It Doesn\\'t Add Up",
+                name: "It Doesn't Add Up",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
@@ -891,7 +891,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 111,
-                name: "Anzrag\\'s Rampage",
+                name: "Anzrag's Rampage",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -1091,7 +1091,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 136,
-                name: "Krenko\\'s Buzzcrusher",
+                name: "Krenko's Buzzcrusher",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact,Creature',
@@ -1211,7 +1211,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 151,
-                name: "Archdruid\\'s Charm",
+                name: "Archdruid's Charm",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
@@ -1499,7 +1499,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 187,
-                name: "Assassin\\'s Trophy",
+                name: "Assassin's Trophy",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
@@ -1571,7 +1571,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 196,
-                name: "Detective\\'s Satchel",
+                name: "Detective's Satchel",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Artifact',
@@ -1691,7 +1691,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 211,
-                name: "Kaya, Spirits\\' Justice",
+                name: "Kaya, Spirits' Justice",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Planeswalker',
@@ -1723,7 +1723,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 215,
-                name: "Kylox\\'s Voltstrider",
+                name: "Kylox's Voltstrider",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Artifact',
@@ -1891,7 +1891,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 236,
-                name: "Tolsimir, Midnight\\'s Light",
+                name: "Tolsimir, Midnight's Light",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -1939,7 +1939,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 242,
-                name: "Warleader\\'s Call",
+                name: "Warleader's Call",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -1955,7 +1955,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 244,
-                name: "Worldsoul\\'s Rage",
+                name: "Worldsoul's Rage",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -2395,7 +2395,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 299,
-                name: "It Doesn\\'t Add Up",
+                name: "It Doesn't Add Up",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
@@ -2427,7 +2427,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 303,
-                name: "Anzrag\\'s Rampage",
+                name: "Anzrag's Rampage",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -2523,7 +2523,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 315,
-                name: "Warleader\\'s Call",
+                name: "Warleader's Call",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -2531,7 +2531,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 316,
-                name: "Worldsoul\\'s Rage",
+                name: "Worldsoul's Rage",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -2683,7 +2683,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 335,
-                name: "Kaya, Spirits\\' Justice",
+                name: "Kaya, Spirits' Justice",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Planeswalker',
@@ -2691,7 +2691,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 336,
-                name: "Aurelia\\'s Vindicator",
+                name: "Aurelia's Vindicator",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -2971,7 +2971,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 371,
-                name: "Tolsimir, Midnight\\'s Light",
+                name: "Tolsimir, Midnight's Light",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -3019,7 +3019,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 377,
-                name: "Aurelia\\'s Vindicator",
+                name: "Aurelia's Vindicator",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -3171,7 +3171,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 396,
-                name: "Proft\\'s Eidetic Memory",
+                name: "Proft's Eidetic Memory",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -3243,7 +3243,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 405,
-                name: "Krenko\\'s Buzzcrusher",
+                name: "Krenko's Buzzcrusher",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact,Creature',
@@ -3267,7 +3267,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 408,
-                name: "Archdruid\\'s Charm",
+                name: "Archdruid's Charm",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
@@ -3299,7 +3299,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 412,
-                name: "Assassin\\'s Trophy",
+                name: "Assassin's Trophy",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
@@ -3339,7 +3339,7 @@ export class addMkm1706824692302 implements MigrationInterface {
             },
             {
                 cardNumber: 417,
-                name: "Kylox\\'s Voltstrider",
+                name: "Kylox's Voltstrider",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Artifact',

@@ -11,7 +11,7 @@ export class addLci1699810202037 implements MigrationInterface {
         const cardValues = [
             {
                 cardNumber: 1,
-                name: "Abuelo\\'s Awakening",
+                name: "Abuelo's Awakening",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -155,7 +155,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 19,
-                name: "Kinjalli\\'s Dawnrunner",
+                name: "Kinjalli's Dawnrunner",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -163,7 +163,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 20,
-                name: "Kutzil\\'s Flanker",
+                name: "Kutzil's Flanker",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -195,7 +195,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 24,
-                name: "Miner\\'s Guidewing",
+                name: "Miner's Guidewing",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
@@ -323,7 +323,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 40,
-                name: "Tinker\\'s Tote",
+                name: "Tinker's Tote",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
@@ -571,7 +571,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 71,
-                name: "Relic\\'s Roar",
+                name: "Relic's Roar",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
@@ -651,7 +651,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 81,
-                name: "Tishana\\'s Tidebinder",
+                name: "Tishana's Tidebinder",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -867,7 +867,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 108,
-                name: "Grasping Shadows // Shadows\\' Lair",
+                name: "Grasping Shadows // Shadows' Lair",
                 rarity: 'U',
                 layout: 'transform',
                 types: 'Enchantment',
@@ -923,7 +923,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 115,
-                name: "Queen\\'s Bay Paladin",
+                name: "Queen's Bay Paladin",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -1011,7 +1011,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 126,
-                name: "Tarrian\\'s Journal // The Tomb of Aclazotz",
+                name: "Tarrian's Journal // The Tomb of Aclazotz",
                 rarity: 'R',
                 layout: 'transform',
                 types: 'Artifact',
@@ -1043,7 +1043,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 130,
-                name: "Vito\\'s Inquisitor",
+                name: "Vito's Inquisitor",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
@@ -1059,7 +1059,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 132,
-                name: "Ancestors\\' Aid",
+                name: "Ancestors' Aid",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
@@ -1083,7 +1083,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 135,
-                name: "Brass\\'s Tunnel-Grinder // Tecutlan, the Searing Rift",
+                name: "Brass's Tunnel-Grinder // Tecutlan, the Searing Rift",
                 rarity: 'R',
                 layout: 'transform',
                 types: 'Artifact',
@@ -1131,7 +1131,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 141,
-                name: "Curator of Sun\\'s Creation",
+                name: "Curator of Sun's Creation",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -1179,7 +1179,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 147,
-                name: "Dreadmaw\\'s Ire",
+                name: "Dreadmaw's Ire",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
@@ -1195,7 +1195,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 149,
-                name: "Etali\\'s Favor",
+                name: "Etali's Favor",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -1243,7 +1243,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 155,
-                name: "Idol of the Deep King // Sovereign\\'s Macuahuitl",
+                name: "Idol of the Deep King // Sovereign's Macuahuitl",
                 rarity: 'C',
                 layout: 'transform',
                 types: 'Artifact',
@@ -1315,7 +1315,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 164,
-                name: "Saheeli\\'s Lattice // Mastercraft Raptor",
+                name: "Saheeli's Lattice // Mastercraft Raptor",
                 rarity: 'U',
                 layout: 'transform',
                 types: 'Artifact',
@@ -1387,7 +1387,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 173,
-                name: "Zoyowa\\'s Justice",
+                name: "Zoyowa's Justice",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
@@ -1475,7 +1475,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 184,
-                name: "Explorer\\'s Cache",
+                name: "Explorer's Cache",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Artifact',
@@ -1523,7 +1523,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 190,
-                name: "Huatli\\'s Final Strike",
+                name: "Huatli's Final Strike",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
@@ -1555,7 +1555,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 194,
-                name: "Ixalli\\'s Lorekeeper",
+                name: "Ixalli's Lorekeeper",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -1579,7 +1579,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 197,
-                name: "Kaslem\\'s Stonetree // Kaslem\\'s Strider",
+                name: "Kaslem's Stonetree // Kaslem's Strider",
                 rarity: 'C',
                 layout: 'transform',
                 types: 'Artifact',
@@ -1835,7 +1835,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 229,
-                name: "Gishath, Sun\\'s Avatar",
+                name: "Gishath, Sun's Avatar",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -1867,7 +1867,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 233,
-                name: "Master\\'s Guide-Mural // Master\\'s Manufactory",
+                name: "Master's Guide-Mural // Master's Manufactory",
                 rarity: 'U',
                 layout: 'transform',
                 types: 'Artifact',
@@ -1899,7 +1899,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 237,
-                name: "Palani\\'s Hatcher",
+                name: "Palani's Hatcher",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -1915,7 +1915,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 239,
-                name: "Saheeli, the Sun\\'s Brilliance",
+                name: "Saheeli, the Sun's Brilliance",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -1987,7 +1987,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 248,
-                name: "Cartographer\\'s Companion",
+                name: "Cartographer's Companion",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact,Creature',
@@ -2043,7 +2043,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 255,
-                name: "Hunter\\'s Blowgun",
+                name: "Hunter's Blowgun",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Artifact',
@@ -2107,7 +2107,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 263,
-                name: "Swashbuckler\\'s Whip",
+                name: "Swashbuckler's Whip",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Artifact',
@@ -2115,7 +2115,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 264,
-                name: "Tarrian\\'s Soulcleaver",
+                name: "Tarrian's Soulcleaver",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact',
@@ -2467,7 +2467,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 308,
-                name: "Saheeli, the Sun\\'s Brilliance",
+                name: "Saheeli, the Sun's Brilliance",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -2643,7 +2643,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 330,
-                name: "Gishath, Sun\\'s Avatar",
+                name: "Gishath, Sun's Avatar",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -2659,7 +2659,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 332,
-                name: "Palani\\'s Hatcher",
+                name: "Palani's Hatcher",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -2683,7 +2683,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 335,
-                name: "Tishana\\'s Tidebinder",
+                name: "Tishana's Tidebinder",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -2827,7 +2827,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 353,
-                name: "Abuelo\\'s Awakening",
+                name: "Abuelo's Awakening",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -2843,7 +2843,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 355,
-                name: "Kutzil\\'s Flanker",
+                name: "Kutzil's Flanker",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -2947,7 +2947,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 368,
-                name: "Queen\\'s Bay Paladin",
+                name: "Queen's Bay Paladin",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -2971,7 +2971,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 371,
-                name: "Tarrian\\'s Journal // The Tomb of Aclazotz",
+                name: "Tarrian's Journal // The Tomb of Aclazotz",
                 rarity: 'R',
                 layout: 'transform',
                 types: 'Artifact',
@@ -2987,7 +2987,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 373,
-                name: "Brass\\'s Tunnel-Grinder // Tecutlan, the Searing Rift",
+                name: "Brass's Tunnel-Grinder // Tecutlan, the Searing Rift",
                 rarity: 'R',
                 layout: 'transform',
                 types: 'Artifact',
@@ -3115,7 +3115,7 @@ export class addLci1699810202037 implements MigrationInterface {
             },
             {
                 cardNumber: 389,
-                name: "Tarrian\\'s Soulcleaver",
+                name: "Tarrian's Soulcleaver",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact',

@@ -115,7 +115,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 14,
-                name: "Horobi, Death\\'s Wail",
+                name: "Horobi, Death's Wail",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -267,7 +267,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 33,
-                name: "Atraxa, Praetors\\' Voice",
+                name: "Atraxa, Praetors' Voice",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -395,7 +395,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 49,
-                name: "Kroxa, Titan of Death\\'s Hunger",
+                name: "Kroxa, Titan of Death's Hunger",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -467,7 +467,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 58,
-                name: "Rona, Sheoldred\\'s Faithful",
+                name: "Rona, Sheoldred's Faithful",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -475,7 +475,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 59,
-                name: "Shanna, Sisay\\'s Legacy",
+                name: "Shanna, Sisay's Legacy",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -635,7 +635,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 79,
-                name: "Horobi, Death\\'s Wail",
+                name: "Horobi, Death's Wail",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -787,7 +787,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 98,
-                name: "Atraxa, Praetors\\' Voice",
+                name: "Atraxa, Praetors' Voice",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -915,7 +915,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 114,
-                name: "Kroxa, Titan of Death\\'s Hunger",
+                name: "Kroxa, Titan of Death's Hunger",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -987,7 +987,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 123,
-                name: "Rona, Sheoldred\\'s Faithful",
+                name: "Rona, Sheoldred's Faithful",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -995,7 +995,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 124,
-                name: "Shanna, Sisay\\'s Legacy",
+                name: "Shanna, Sisay's Legacy",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -1155,7 +1155,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 144,
-                name: "Horobi, Death\\'s Wail",
+                name: "Horobi, Death's Wail",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -1307,7 +1307,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 163,
-                name: "Atraxa, Praetors\\' Voice",
+                name: "Atraxa, Praetors' Voice",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -1435,7 +1435,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 179,
-                name: "Kroxa, Titan of Death\\'s Hunger",
+                name: "Kroxa, Titan of Death's Hunger",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Creature',
@@ -1507,7 +1507,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 188,
-                name: "Rona, Sheoldred\\'s Faithful",
+                name: "Rona, Sheoldred's Faithful",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -1515,7 +1515,7 @@ export class addMul1681802964787 implements MigrationInterface {
             },
             {
                 cardNumber: 189,
-                name: "Shanna, Sisay\\'s Legacy",
+                name: "Shanna, Sisay's Legacy",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',

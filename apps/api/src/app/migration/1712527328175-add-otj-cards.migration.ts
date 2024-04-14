@@ -83,7 +83,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 10,
-                name: "Eriette\\'s Lullaby",
+                name: "Eriette's Lullaby",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -315,7 +315,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 39,
-                name: "Archmage\\'s Newt",
+                name: "Archmage's Newt",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -347,7 +347,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 43,
-                name: "Djinn of Fool\\'s Fall",
+                name: "Djinn of Fool's Fall",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Creature',
@@ -595,7 +595,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 74,
-                name: "This Town Ain\\'t Big Enough",
+                name: "This Town Ain't Big Enough",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Instant',
@@ -683,7 +683,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 85,
-                name: "Desert\\'s Due",
+                name: "Desert's Due",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
@@ -755,7 +755,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 94,
-                name: "Mourner\\'s Surprise",
+                name: "Mourner's Surprise",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -1091,7 +1091,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 136,
-                name: "Outlaws\\' Fury",
+                name: "Outlaws' Fury",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
@@ -1443,7 +1443,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 180,
-                name: "Smuggler\\'s Surprise",
+                name: "Smuggler's Surprise",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',
@@ -1923,7 +1923,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 240,
-                name: "Bandit\\'s Haul",
+                name: "Bandit's Haul",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Artifact',
@@ -2531,7 +2531,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 316,
-                name: "Archmage\\'s Newt",
+                name: "Archmage's Newt",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -2763,7 +2763,7 @@ export class addOtj1712527328175 implements MigrationInterface {
             },
             {
                 cardNumber: 345,
-                name: "Smuggler\\'s Surprise",
+                name: "Smuggler's Surprise",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Instant',

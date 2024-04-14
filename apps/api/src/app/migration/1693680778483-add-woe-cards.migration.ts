@@ -19,7 +19,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 2,
-                name: "Archon\\'s Glory",
+                name: "Archon's Glory",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
@@ -147,7 +147,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 18,
-                name: "Kellan\\'s Lightblades",
+                name: "Kellan's Lightblades",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
@@ -347,7 +347,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 43,
-                name: "Beluna\\'s Gatekeeper // Entry Denied",
+                name: "Beluna's Gatekeeper // Entry Denied",
                 rarity: 'C',
                 layout: 'adventure',
                 types: 'Creature',
@@ -411,7 +411,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 51,
-                name: "Gadwick\\'s First Duel",
+                name: "Gadwick's First Duel",
                 rarity: 'U',
                 layout: 'saga',
                 types: 'Enchantment',
@@ -467,7 +467,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 58,
-                name: "Johann\\'s Stopgap",
+                name: "Johann's Stopgap",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -507,7 +507,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 63,
-                name: "Obyra\\'s Attendants // Desperate Parry",
+                name: "Obyra's Attendants // Desperate Parry",
                 rarity: 'C',
                 layout: 'adventure',
                 types: 'Creature',
@@ -587,7 +587,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 73,
-                name: "Talion\\'s Messenger",
+                name: "Talion's Messenger",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -635,7 +635,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 79,
-                name: "Ashiok\\'s Reaper",
+                name: "Ashiok's Reaper",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -707,7 +707,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 88,
-                name: "Eriette\\'s Whisper",
+                name: "Eriette's Whisper",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -771,7 +771,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 96,
-                name: "Lich-Knights\\' Conquest",
+                name: "Lich-Knights' Conquest",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -787,7 +787,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 98,
-                name: "Lord Skitter\\'s Blessing",
+                name: "Lord Skitter's Blessing",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -795,7 +795,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 99,
-                name: "Lord Skitter\\'s Butcher",
+                name: "Lord Skitter's Butcher",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -819,7 +819,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 102,
-                name: "Rankle\\'s Prank",
+                name: "Rankle's Prank",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -835,7 +835,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 104,
-                name: "Rowan\\'s Grim Search",
+                name: "Rowan's Grim Search",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Instant',
@@ -955,7 +955,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 119,
-                name: "The Witch\\'s Vanity",
+                name: "The Witch's Vanity",
                 rarity: 'U',
                 layout: 'saga',
                 types: 'Enchantment',
@@ -1067,7 +1067,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 133,
-                name: "Grabby Giant // That\\'s Mine",
+                name: "Grabby Giant // That's Mine",
                 rarity: 'C',
                 layout: 'adventure',
                 types: 'Creature',
@@ -1267,7 +1267,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 158,
-                name: "Witch\\'s Mark",
+                name: "Witch's Mark",
                 rarity: 'C',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -1283,7 +1283,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 160,
-                name: "Agatha\\'s Champion",
+                name: "Agatha's Champion",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Creature',
@@ -1411,7 +1411,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 176,
-                name: "The Huntsman\\'s Redemption",
+                name: "The Huntsman's Redemption",
                 rarity: 'R',
                 layout: 'saga',
                 types: 'Enchantment',
@@ -1427,7 +1427,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 178,
-                name: "Night of the Sweets\\' Revenge",
+                name: "Night of the Sweets' Revenge",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -1603,7 +1603,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 200,
-                name: "The Apprentice\\'s Folly",
+                name: "The Apprentice's Folly",
                 rarity: 'R',
                 layout: 'saga',
                 types: 'Enchantment',
@@ -1779,7 +1779,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 222,
-                name: "Cruel Somnophage // Can\\'t Wake Up",
+                name: "Cruel Somnophage // Can't Wake Up",
                 rarity: 'R',
                 layout: 'adventure',
                 types: 'Creature',
@@ -1803,7 +1803,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 225,
-                name: "Elusive Otter // Grove\\'s Bounty",
+                name: "Elusive Otter // Grove's Bounty",
                 rarity: 'R',
                 layout: 'adventure',
                 types: 'Creature',
@@ -1835,7 +1835,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 229,
-                name: "Imodane\\'s Recruiter // Train Troops",
+                name: "Imodane's Recruiter // Train Troops",
                 rarity: 'U',
                 layout: 'adventure',
                 types: 'Creature',
@@ -1939,7 +1939,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 242,
-                name: "Agatha\\'s Soul Cauldron",
+                name: "Agatha's Soul Cauldron",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Artifact',
@@ -1955,7 +1955,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 244,
-                name: "Collector\\'s Vault",
+                name: "Collector's Vault",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Artifact',
@@ -1963,7 +1963,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 245,
-                name: "Eriette\\'s Tempting Apple",
+                name: "Eriette's Tempting Apple",
                 rarity: 'U',
                 layout: 'normal',
                 types: 'Artifact',
@@ -1979,7 +1979,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 247,
-                name: "Hylda\\'s Crown of Winter",
+                name: "Hylda's Crown of Winter",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact',
@@ -2291,7 +2291,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 286,
-                name: "Cruel Somnophage // Can\\'t Wake Up",
+                name: "Cruel Somnophage // Can't Wake Up",
                 rarity: 'R',
                 layout: 'adventure',
                 types: 'Creature',
@@ -2315,7 +2315,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 289,
-                name: "Elusive Otter // Grove\\'s Bounty",
+                name: "Elusive Otter // Grove's Bounty",
                 rarity: 'R',
                 layout: 'adventure',
                 types: 'Creature',
@@ -2683,7 +2683,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 335,
-                name: "Talion\\'s Messenger",
+                name: "Talion's Messenger",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Creature',
@@ -2707,7 +2707,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 338,
-                name: "Lich-Knights\\' Conquest",
+                name: "Lich-Knights' Conquest",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -2723,7 +2723,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 340,
-                name: "Lord Skitter\\'s Blessing",
+                name: "Lord Skitter's Blessing",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Enchantment',
@@ -2731,7 +2731,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 341,
-                name: "Rankle\\'s Prank",
+                name: "Rankle's Prank",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
@@ -2931,7 +2931,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 366,
-                name: "Agatha\\'s Soul Cauldron",
+                name: "Agatha's Soul Cauldron",
                 rarity: 'M',
                 layout: 'normal',
                 types: 'Artifact',
@@ -2939,7 +2939,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 367,
-                name: "Hylda\\'s Crown of Winter",
+                name: "Hylda's Crown of Winter",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Artifact',
@@ -3043,7 +3043,7 @@ export class addWoe1693680778483 implements MigrationInterface {
             },
             {
                 cardNumber: 380,
-                name: "Lich-Knights\\' Conquest",
+                name: "Lich-Knights' Conquest",
                 rarity: 'R',
                 layout: 'normal',
                 types: 'Sorcery',
