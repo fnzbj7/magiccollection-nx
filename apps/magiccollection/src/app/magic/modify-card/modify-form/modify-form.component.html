@@ -85,7 +85,12 @@
             >Card Language:</label
         >
         <div class="relative w-full">
-            <select name="cardLanguage" class="app-select w-full" [(ngModel)]="cardLanguage">
+            <select
+                name="cardLanguage"
+                class="app-select w-full"
+                [ngModel]="cardLanguage"
+                (ngModelChange)="onLanguageChange($event)"
+            >
                 <option
                     [value]="cardLanguagesValue"
                     *ngFor="let cardLanguagesValue of cardLanguages"
