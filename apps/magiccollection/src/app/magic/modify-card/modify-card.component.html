@@ -61,6 +61,49 @@
                 <li class="fake-card"></li>
                 <li class="fake-card"></li>
             </ul>
+            <hr />
+            <div *ngIf="filteredNewCards" class="flex flex-wrap">
+                <div
+                    class="flex flex-col align-items-center list-unstyled"
+                    *ngFor="let card of filteredNewCards"
+                >
+                    <div>
+                        <app-magic-card
+                            [imgSize]="'small'"
+                            [magicCard]="{
+                                cardExpansion: cardSet,
+                                cardNumber: '' + card.cardNumber,
+                                cardAmount: card.have,
+                                cardAmountFoil: card.haveF,
+                                layout: CardLayout.NORMAL,
+                                types: 'string',
+                                colors: 'string',
+                                name: 'string',
+                                rarity: 'string'
+                            }"
+                            [onlyShow]="true"
+                        ></app-magic-card>
+                    </div>
+                    <div class="flex">
+                        <div class="normal" [ngClass]="{ 'opacity-25': card.was === card.have }">
+                            <div class="inline mx-3 tooltip-w3 text-center">
+                                <img class="w-10" src="/assets/img/filter/card-single.svg" />
+                                {{ card.was }} <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
+                                {{ card.have }}
+                                <span class="top right tooltiptext-w3">Normál kártya</span>
+                            </div>
+                        </div>
+                        <div class="foil" [ngClass]="{ 'opacity-25': card.wasF === card.haveF }">
+                            <div class="inline mx-3 tooltip-w3 text-center">
+                                <img class="w-10" src="/assets/img/filter/card-single-foil.svg" />
+                                {{ card.wasF }}<fa-icon [icon]="faAngleDoubleRight"></fa-icon>
+                                {{ card.haveF }}
+                                <span class="top left tooltiptext-w3">Foil kártya</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </ng-container>
     </ng-container>
 </div>
