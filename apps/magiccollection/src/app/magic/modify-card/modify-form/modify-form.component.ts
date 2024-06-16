@@ -66,6 +66,7 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
             this.cardNumbersStr = this.modifyCardService.getSavedModifyCard(this.modifyQty);
         });
         this.store.select(selectCollectionState).subscribe(x => {
+            this.cardLanguage = x.language;
             this.cardSet = x.setName;
         });
     }
@@ -110,6 +111,10 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
             this.lastCardPreview = { ...this.lastCardPreview, cardExpansion: value };
         }
         this.store.dispatch(ModifyCardActions.changeSet({ setName: value }));
+    }
+
+    onLanguageChange(value: string) {
+        this.store.dispatch(ModifyCardActions.changeLanguage({ language: value }));
     }
 
     ngOnDestroy() {
