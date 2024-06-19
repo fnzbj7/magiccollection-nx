@@ -6,5 +6,6 @@ export class AfterFinishForm {
         public reducedArr: ModifyCardDto,
         public rawCardNumbers: CardWithFoil[],
         public cardSet: string,
+        public cardLanguage: string,
     ) {}
 }

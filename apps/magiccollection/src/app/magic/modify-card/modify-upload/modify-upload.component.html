@@ -1,0 +1,98 @@
+<p *ngIf="inProgress">Feltöltés folyamatban</p>
+
+<p *ngIf="isError">Valami hiba történt</p>
+<div class="btn btn-primary" *ngIf="isError" (click)="stepBack.emit()">Vissza javítani</div>
+
+<p *ngIf="isFinished && !isError">Feltöltés befejezősött</p>
+<div class="btn btn-primary my-3" *ngIf="isFinished && !isError" (click)="resetPage.emit()">
+    Újabb feltöltés
+</div>
+<ng-container *ngIf="isFinished && this.modifyQty > 0">
+    <br />
+    <button
+        *ngIf="!isNewCardsFinished"
+        [disabled]="isNewCardsLoading"
+        class="btn btn-primary mt-4"
+        (click)="onShowNewCards()"
+    >
+        Megmutatni az új kártyákat
+    </button>
+    <h1 class="text-2xl my-3" *ngIf="isNewCardsFinished">Az új kártyák listája</h1>
+
+    <h2 *ngIf="newCards && newCards.length === 0">Nincs új kártya</h2>
+    <ul
+        *ngIf="newCards"
+        class="pl-0"
+        style="display: flex; flex-wrap: wrap; justify-content: center; list-style: none"
+    >
+        <app-magic-card
+            [magicCard]="card"
+            [onlyShow]="true"
+            *ngFor="let card of newCards"
+        ></app-magic-card>
+        <li class="fake-card"></li>
+        <li class="fake-card"></li>
+        <li class="fake-card"></li>
+        <li class="fake-card"></li>
+        <li class="fake-card"></li>
+    </ul>
+    <hr />
+    <div *ngIf="filteredNewCards" class="flex flex-wrap">
+        <div
+            class="flex flex-col align-items-center list-unstyled"
+            *ngFor="let card of filteredNewCards"
+        >
+            <div>
+                <app-magic-card
+                    [imgSize]="'small'"
+                    [magicCard]="{
+                        cardExpansion: cardSet,
+                        cardNumber: '' + card.cardNumber,
+                        cardAmount: 0,
+                        cardAmountFoil: card.wasF !== card.haveF ? 1 : 0,
+                        layout: CardLayout.NORMAL,
+                        types: 'string',
+                        colors: 'string',
+                        name: 'string',
+                        rarity: 'string'
+                    }"
+                    [onlyShow]="true"
+                ></app-magic-card>
+            </div>
+            <div class="flex">
+                <div class="normal flex flex-col align-items-center">
+                    <div class="inline mx-3 tooltip-w3 text-center">
+                        <img
+                            class="w-10"
+                            src="/assets/img/filter/card-single.svg"
+                            [ngClass]="{ 'opacity-25': card.was === card.have }"
+                        />
+                        <span class="top right tooltiptext-w3">Normál kártya</span>
+                    </div>
+                    <div>
+                        <ng-container *ngIf="card.was !== card.have">
+                            {{ card.was }} <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
+                        </ng-container>
+                        {{ card.have }}
+                    </div>
+                </div>
+                <div class="foil flex flex-col align-items-center">
+                    <div class="inline mx-3 tooltip-w3 text-center">
+                        <img
+                            class="w-10"
+                            src="/assets/img/filter/card-single-foil.svg"
+                            [ngClass]="{ 'opacity-25': card.wasF === card.haveF }"
+                        />
+                        <span class="top left tooltiptext-w3">Foil kártya</span>
+                    </div>
+                    <div>
+                        <ng-container *ngIf="card.wasF !== card.haveF">
+                            {{ card.wasF }} <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
+                        </ng-container>
+                        {{ card.haveF }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
