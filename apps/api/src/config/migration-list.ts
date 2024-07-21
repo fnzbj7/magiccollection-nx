@@ -59,6 +59,7 @@ import { addMkm1706824692302 } from '../app/migration/1706824692302-add-mkm-card
 import { addOtj1712527328175 } from '../app/migration/1712527328175-add-otj-cards.migration';
 import { addOtp1713086408627 } from '../app/migration/1713086408627-add-otp-cards.migration';
 import { addBig1713087019063 } from '../app/migration/1713087019063-add-big-cards.migration';
+import { addBlb1721572106554 } from '../app/migration/1721572106554-add-blb-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -122,6 +123,7 @@ const migrationsList = [
     addOtj1712527328175,
     addOtp1713086408627,
     addBig1713087019063,
+    addBlb1721572106554,
 ];
 
 export default migrationsList;
