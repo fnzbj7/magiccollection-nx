@@ -79,7 +79,12 @@ export class ModifyFormComponent implements OnInit, OnDestroy {
             this.modifyCardService.cacheModifyCard(this.modifyQty, this.cardNumbersStr);
             this.reducedArr = this.convertToModifyCardDto(this.rawCardNumbers);
             this.afterFinish.emit(
-                new AfterFinishForm(this.reducedArr, this.rawCardNumbers, this.cardSet),
+                new AfterFinishForm(
+                    this.reducedArr,
+                    this.rawCardNumbers,
+                    this.cardSet,
+                    this.cardLanguage,
+                ),
             );
         }
     }
