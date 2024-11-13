@@ -61,6 +61,7 @@ import { addOtp1713086408627 } from '../app/migration/1713086408627-add-otp-card
 import { addBig1713087019063 } from '../app/migration/1713087019063-add-big-cards.migration';
 import { addBlb1721572106554 } from '../app/migration/1721572106554-add-blb-cards.migration';
 import { addDsk1726456333986 } from '../app/migration/1726456333986-add-dsk-cards.migration';
+import { addFdn1731480052636 } from '../app/migration/1731480052636-add-fdn-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -126,6 +127,7 @@ const migrationsList = [
     addBig1713087019063,
     addBlb1721572106554,
     addDsk1726456333986,
+    addFdn1731480052636,
 ];
 
 export default migrationsList;
