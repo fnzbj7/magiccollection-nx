@@ -29,7 +29,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
     allVerions?: Card[];
 
     defaultPos = -280;
-    baseStep = 375;
+    baseStep = 450; //375;
     actualPos = 0;
 
     constructor(
@@ -63,9 +63,9 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
             }
         }, 10);
 
-        const c: HTMLDivElement | null = this.swipable.nativeElement;
-        if (c) {
-            new SwipeModel(c, {
+        const swipeable: HTMLDivElement | null = this.swipable.nativeElement;
+        if (swipeable) {
+            new SwipeModel(swipeable, {
                 callbackLeft: this.onNextCard.bind(this),
                 callbackRight: this.getPreviousCard.bind(this),
                 dragStart: ((cardContainer: HTMLElement) => {
@@ -120,6 +120,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
             this.cardContainer.nativeElement.style.transform = `translate3d(${
                 this.defaultPos + this.actualPos + num
             }px,0,0)`;
+            console.log(this.defaultPos + this.actualPos + num);
         }
     }
 

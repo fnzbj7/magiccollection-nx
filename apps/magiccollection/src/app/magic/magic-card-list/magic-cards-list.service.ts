@@ -12,6 +12,7 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('DFT', 'Aetherdrift', 553, 2025),
     new MagicSet('FDN', 'Foundations', 730, 2024),
     new MagicSet('DSK', 'Duskmourn: House of Horror', 417, 2024),
     new MagicSet('BLB', 'Bloomburrow', 397, 2024),
