@@ -63,6 +63,7 @@ import { addBlb1721572106554 } from '../app/migration/1721572106554-add-blb-card
 import { addDsk1726456333986 } from '../app/migration/1726456333986-add-dsk-cards.migration';
 import { addFdn1731480052636 } from '../app/migration/1731480052636-add-fdn-cards.migration';
 import { addDft1738571244183 } from '../app/migration/1738571244183-add-dft-cards.migration';
+import { addTdm1743285397428 } from '../app/migration/1743285397428-add-tdm-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -130,6 +131,7 @@ const migrationsList = [
     addDsk1726456333986,
     addFdn1731480052636,
     addDft1738571244183,
+    addTdm1743285397428,
 ];
 
 export default migrationsList;
