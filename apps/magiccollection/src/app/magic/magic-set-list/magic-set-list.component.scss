@@ -1,11 +1,33 @@
 @import './../../variable.scss';
 
+// Define reusable mixins for common styles
+@mixin scrollbar($thumb-color, $track-color) {
+    scrollbar-width: thin;
+    scrollbar-color: $thumb-color $track-color;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $track-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $thumb-color;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: darken($thumb-color, 10%);
+    }
+}
+
 $bgcolor: #aaaaaa;
 $bg-light: #f8f9fa;
 
 :host {
-    margin-right: 10px;
-    margin-left: 8px;
+    margin: 0 10px 0 8px;
     float: left;
 }
 
@@ -14,18 +36,16 @@ $bg-light: #f8f9fa;
     width: 80px;
     float: left;
     margin: 0;
-    // display: inline-table;
     z-index: 50;
-}
-
-.mobile-menu,
-#expansionContainer {
     background-color: $bg-light;
+
+    @include scrollbar($bgcolor, $bg-light);
 }
 
 .mobile-menu {
     display: none;
-    scrollbar-width: thin;
+    background-color: $bg-light;
+    @include scrollbar($bgcolor, $bg-light);
 }
 
 .floating-arrow {
@@ -40,38 +60,36 @@ $bg-light: #f8f9fa;
 .full-line {
     text-align: right;
     color: $bgcolor;
-}
 
-.full-line span {
-    background: $bg-light;
-    padding: 0 5px;
-    user-select: none;
-    font-size: 0.8rem;
-}
+    span {
+        background: $bg-light;
+        padding: 0 5px;
+        user-select: none;
+        font-size: 0.8rem;
+    }
 
-.full-line:not(.vertical) {
-    width: 100%;
-    border-bottom: 1px solid $bgcolor;
-    line-height: 0.1em;
-    margin: 15px 0 20px;
-}
-
-@media (orientation: landscape) {
-    .full-line.vertical {
+    &:not(.vertical) {
         width: 100%;
         border-bottom: 1px solid $bgcolor;
         line-height: 0.1em;
         margin: 15px 0 20px;
     }
-}
 
-@media (orientation: portrait) {
-    .full-line.vertical {
-        writing-mode: vertical-lr;
-        height: 65px;
-        border-left: 1px solid $bgcolor;
-        line-height: 0;
-        margin: 0 10px 0;
+    &.vertical {
+        @media (orientation: portrait) {
+            writing-mode: vertical-lr;
+            height: 65px;
+            border-left: 1px solid $bgcolor;
+            line-height: 0;
+            margin: 0 10px 0;
+        }
+
+        @media (orientation: landscape) {
+            width: 100%;
+            border-bottom: 1px solid $bgcolor;
+            line-height: 0.1em;
+            margin: 15px 0 20px;
+        }
     }
 }
 
@@ -85,7 +103,6 @@ $bg-light: #f8f9fa;
     :host {
         margin-right: 10px;
         margin-left: 0;
-        // margin-top: -1.4rem;
         height: 100px !important;
     }
 
@@ -95,7 +112,6 @@ $bg-light: #f8f9fa;
         z-index: 50;
         height: 100vh;
         overflow-y: scroll;
-        // margin-top: 15px;
     }
 
     .mobile-menu-inner {
@@ -189,20 +205,17 @@ $bg-light: #f8f9fa;
         overflow-x: scroll;
         overflow-y: hidden;
         height: 75px;
-    }
 
-    .mobile-menu-inner {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        float: left;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
+        .mobile-menu-inner {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0 30px;
+        }
 
-    .set-icon {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
+        .set-icon {
+            padding: 0 0.5rem;
+        }
     }
 
     .floating-arrow-left {
@@ -297,26 +310,7 @@ $bg-light: #f8f9fa;
         background-color: $bg-light;
         z-index: 50;
 
-        /* Style the scrollbar */
-        scrollbar-width: thin; /* Firefox */
-        scrollbar-color: $bgcolor $bg-light; /* Firefox */
-    }
-
-    #expansionContainer::-webkit-scrollbar {
-        width: 8px; /* Width of the scrollbar */
-    }
-
-    #expansionContainer::-webkit-scrollbar-track {
-        background: $bg-light; /* Track color */
-    }
-
-    #expansionContainer::-webkit-scrollbar-thumb {
-        background-color: $bgcolor; /* Thumb color */
-        border-radius: 4px; /* Rounded corners */
-    }
-
-    #expansionContainer::-webkit-scrollbar-thumb:hover {
-        background-color: darken($bgcolor, 10%); /* Darker on hover */
+        @include scrollbar($bgcolor, $bg-light);
     }
 
     .mobile-menu,
@@ -333,23 +327,5 @@ $bg-light: #f8f9fa;
 
 /* General scrollbar styling for other scrollable elements */
 .scrollable {
-    scrollbar-width: thin;
-    scrollbar-color: $bgcolor $bg-light;
-}
-
-.scrollable::-webkit-scrollbar {
-    width: 8px;
-}
-
-.scrollable::-webkit-scrollbar-track {
-    background: $bg-light;
-}
-
-.scrollable::-webkit-scrollbar-thumb {
-    background-color: $bgcolor;
-    border-radius: 4px;
-}
-
-.scrollable::-webkit-scrollbar-thumb:hover {
-    background-color: darken($bgcolor, 10%);
+    @include scrollbar($bgcolor, $bg-light);
 }
