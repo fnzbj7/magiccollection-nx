@@ -1,7 +1,7 @@
-$mobile-media-landscape: "(max-width: 827px) and (orientation: landscape)"; // TODO átírni min-width-re
+$mobile-media-landscape: '(max-width: 1024px) and (orientation: landscape)'; // TODO átírni min-width-re
 
-$min-breakpoint-2: 827px;
-$min-breakpoint-2-media: "(min-width: " + $min-breakpoint-2 + ")";
+$min-breakpoint-2: 1024px;
+$min-breakpoint-2-media: '(min-width: ' + $min-breakpoint-2 + ')';
 
 $min-breakpoint-1: 576px;
-$min-breakpoint-1-media: "(min-width: " + $min-breakpoint-1 + ")";
+$min-breakpoint-1-media: '(min-width: ' + $min-breakpoint-1 + ')';

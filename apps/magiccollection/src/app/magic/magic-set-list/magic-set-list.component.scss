@@ -190,7 +190,8 @@ $bg-light: #f8f9fa;
     }
 }
 
-@media (max-width: 575px) and (orientation: portrait) {
+// @media (max-width: 575px) and (orientation: portrait) {
+@media (width <= 40rem) and (orientation: portrait) {
     #expansionContainer {
         display: none;
     }
@@ -298,7 +299,7 @@ $bg-light: #f8f9fa;
 }
 
 /* Desktop-specific styles */
-@media (min-width: 1024px) {
+@media (width >= 64rem) {
     #expansionContainer {
         position: fixed;
         top: 60px; /* Adjust to match the height of your header */
