@@ -1,59 +1,67 @@
-<div
-    id="expansionContainer"
-    class="border border-sm-0 border-left-0 border-dark"
->
+<div id="expansionContainer" class="border border-sm-0 border-left-0 border-dark">
     <ng-container *ngFor="let yearBlock of yearBlocks; let i = index">
         <app-magic-set-icon
-        class="set-icon"
-        [expansionName]="cardSet"
-        [userId]="userId"
-        *ngFor="let cardSet of yearBlock.magicSetArr"
+            class="set-icon"
+            [expansionName]="cardSet"
+            [userId]="userId"
+            *ngFor="let cardSet of yearBlock.magicSetArr"
         ></app-magic-set-icon>
-        <p *ngIf="i !== (yearBlocks.length - 1)" class="full-line"><span>{{yearBlock.year}}</span></p>
+        <p *ngIf="i !== yearBlocks.length - 1" class="full-line">
+            <span>{{ yearBlock.year }}</span>
+        </p>
     </ng-container>
 </div>
 
 <div (scroll)="onScroll($event)" class="mobile-menu" #setmenu>
-    <div class="position-absolute test-floating pointer" (click)="onScrollUp(setmenu)" [ngClass]="{'dont-show-top': isScrollUpHide}">
-        <fa-icon
-            [icon]="faAngleUp"
-            class="floating-arrow-item-up"
-            ></fa-icon>
+    <!-- Helper buttons only visible on mobile -->
+    <div
+        *ngIf="isMobile"
+        class="position-absolute test-floating pointer"
+        (click)="onScrollUp(setmenu)"
+        [ngClass]="{ 'dont-show-top': isScrollUpHide }"
+    >
+        <fa-icon [icon]="faAngleUp" class="floating-arrow-item-up"></fa-icon>
     </div>
 
-  <div class="mobile-menu-inner">
-    <ng-container *ngFor="let yearBlock of yearBlocks; let i = index">
-        <app-magic-set-icon
-        class="set-icon"
-        [expansionName]="cardSet"
-        [userId]="userId"
-        *ngFor="let cardSet of yearBlock.magicSetArr"
-        ></app-magic-set-icon>
-        <p *ngIf="i !== (yearBlocks.length - 1)" class="full-line vertical"><span>{{yearBlock.year}}</span></p>
-    </ng-container>
-
-  </div>
+    <div class="mobile-menu-inner">
+        <ng-container *ngFor="let yearBlock of yearBlocks; let i = index">
+            <app-magic-set-icon
+                class="set-icon"
+                [expansionName]="cardSet"
+                [userId]="userId"
+                *ngFor="let cardSet of yearBlock.magicSetArr"
+            ></app-magic-set-icon>
+            <p *ngIf="i !== yearBlocks.length - 1" class="full-line vertical">
+                <span>{{ yearBlock.year }}</span>
+            </p>
+        </ng-container>
+    </div>
 </div>
 
-<div class="position-fixed floating-arrow-left pointer" (click)="onScrollLeft(setmenu)" [ngClass]="{'dont-show-left': isScrollLeftHide}">
-    <fa-icon
-        [icon]="faAngleLeft"
-        class="floating-arrow-item-left"
-        ></fa-icon>
+<!-- Remove floating arrows for desktop -->
+<div
+    *ngIf="isMobile"
+    class="position-fixed floating-arrow-left pointer"
+    (click)="onScrollLeft(setmenu)"
+    [ngClass]="{ 'dont-show-left': isScrollLeftHide }"
+>
+    <fa-icon [icon]="faAngleLeft" class="floating-arrow-item-left"></fa-icon>
 </div>
 
-<div [ngClass]="{'dont-show-down': isScrollDownHide, 'dont-show-right': isScrollRightHide}" class="position-fixed floating-arrow">
-    <div class="pointer" (click)="onScrollRight(setmenu)" style="padding-left: 8px;">
-        <fa-icon
-        [icon]="faAngleRight"
-        class="floating-arrow-item-right"
-        ></fa-icon>
+<div
+    *ngIf="isMobile"
+    [ngClass]="{ 'dont-show-down': isScrollDownHide, 'dont-show-right': isScrollRightHide }"
+    class="position-fixed floating-arrow"
+>
+    <div class="pointer" (click)="onScrollRight(setmenu)" style="padding-left: 8px">
+        <fa-icon [icon]="faAngleRight" class="floating-arrow-item-right"></fa-icon>
     </div>
 
-    <div class="pointer floating-arrow-item-down-container" (click)="onScrollDown(setmenu)" style="padding-left: 10px; padding-right: 10px;">
-        <fa-icon
-            [icon]="faAngleDown"
-            class="floating-arrow-item-down"
-        ></fa-icon>
+    <div
+        class="pointer floating-arrow-item-down-container"
+        (click)="onScrollDown(setmenu)"
+        style="padding-left: 10px; padding-right: 10px"
+    >
+        <fa-icon [icon]="faAngleDown" class="floating-arrow-item-down"></fa-icon>
     </div>
 </div>

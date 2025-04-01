@@ -1,4 +1,4 @@
-@import "./../../variable.scss";
+@import './../../variable.scss';
 
 :host {
     margin-right: 10px;
@@ -32,7 +32,8 @@ ul {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    margin-left: 8px;
+    margin-left: 115px;
+    margin-bottom: 60px;
 }
 
 .nowrap {

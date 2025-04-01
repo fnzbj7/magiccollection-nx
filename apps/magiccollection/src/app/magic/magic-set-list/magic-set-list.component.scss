@@ -1,4 +1,4 @@
-@import "./../../variable.scss";
+@import './../../variable.scss';
 
 $bgcolor: #aaaaaa;
 $bg-light: #f8f9fa;
@@ -14,7 +14,7 @@ $bg-light: #f8f9fa;
     width: 80px;
     float: left;
     margin: 0;
-    display: inline-table;
+    // display: inline-table;
     z-index: 50;
 }
 
@@ -57,7 +57,6 @@ $bg-light: #f8f9fa;
 }
 
 @media (orientation: landscape) {
-
     .full-line.vertical {
         width: 100%;
         border-bottom: 1px solid $bgcolor;
@@ -75,7 +74,6 @@ $bg-light: #f8f9fa;
         margin: 0 10px 0;
     }
 }
-
 
 /* -------------- YEAR BLOCK   END ------------ */
 
@@ -105,8 +103,6 @@ $bg-light: #f8f9fa;
     }
 
     .set-icon {
-        margin-left: 18px;
-        margin-right: 18px;
         display: block;
     }
 
@@ -157,7 +153,6 @@ $bg-light: #f8f9fa;
     .dont-show-top {
         display: none;
     }
-
 
     .floating-arrow-item-right {
         display: none;
@@ -253,8 +248,8 @@ $bg-light: #f8f9fa;
     }
 
     .floating-arrow-item-down,
-    .floating-arrow-item-down-container, 
-    .test-floating{
+    .floating-arrow-item-down-container,
+    .test-floating {
         display: none;
     }
 
@@ -287,4 +282,74 @@ $bg-light: #f8f9fa;
             left: 3px;
         }
     }
+}
+
+/* Desktop-specific styles */
+@media (min-width: 1024px) {
+    #expansionContainer {
+        position: fixed;
+        top: 60px; /* Adjust to match the height of your header */
+        left: 0;
+        height: calc(100vh - 60px); /* Subtract header height */
+        width: 80px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: $bg-light;
+        z-index: 50;
+
+        /* Style the scrollbar */
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: $bgcolor $bg-light; /* Firefox */
+    }
+
+    #expansionContainer::-webkit-scrollbar {
+        width: 8px; /* Width of the scrollbar */
+    }
+
+    #expansionContainer::-webkit-scrollbar-track {
+        background: $bg-light; /* Track color */
+    }
+
+    #expansionContainer::-webkit-scrollbar-thumb {
+        background-color: $bgcolor; /* Thumb color */
+        border-radius: 4px; /* Rounded corners */
+    }
+
+    #expansionContainer::-webkit-scrollbar-thumb:hover {
+        background-color: darken($bgcolor, 10%); /* Darker on hover */
+    }
+
+    .mobile-menu,
+    .floating-arrow,
+    .floating-arrow-left {
+        display: none;
+    }
+
+    /* Add padding to the main content to avoid overlapping */
+    :host-context(body) {
+        padding-left: 80px; /* Match the sidebar width */
+    }
+}
+
+/* General scrollbar styling for other scrollable elements */
+.scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: $bgcolor $bg-light;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: $bg-light;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: $bgcolor;
+    border-radius: 4px;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: darken($bgcolor, 10%);
 }

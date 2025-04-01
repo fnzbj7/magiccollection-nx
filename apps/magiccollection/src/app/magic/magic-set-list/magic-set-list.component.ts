@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'; // Import BreakpointObserver
 import { MagicCardsListService } from '../magic-card-list/magic-cards-list.service';
 import {
     faAngleRight,
@@ -30,11 +31,21 @@ export class MagicSetListComponent implements OnInit {
     isScrollDownHide = false;
     isScrollUpHide = true;
 
-    constructor(private magicCardsListService: MagicCardsListService) {}
+    isMobile = false; // Add isMobile property
+
+    constructor(
+        private magicCardsListService: MagicCardsListService,
+        private breakpointObserver: BreakpointObserver, // Inject BreakpointObserver
+    ) {}
 
     ngOnInit() {
         this.cardSetsArray = this.magicCardsListService.cardSetsArray;
         this.yearBlocks = this.magicCardsListService.yearBlocks;
+
+        // Observe screen size changes
+        this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+            this.isMobile = result.matches;
+        });
     }
 
     onScroll(event: Event) {

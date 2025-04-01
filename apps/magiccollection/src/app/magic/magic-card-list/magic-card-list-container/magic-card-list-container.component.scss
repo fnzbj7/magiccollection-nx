@@ -1,4 +1,4 @@
-@import "./../../../variable.scss";
+@import './../../../variable.scss';
 
 :host {
     margin-right: 10px;
@@ -25,16 +25,6 @@ ul {
     }
 }
 
-#fullThings {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    margin-left: 8px;
-}
-
 .nowrap {
     position: relative;
     z-index: 20;
@@ -44,13 +34,6 @@ ul {
 
 /* TODO min-width */
 @media (max-width: 575px) {
-    #fullThings {
-        padding-left: 0;
-        padding-right: 0;
-        margin-bottom: 85px;
-        margin-left: 3px;
-    }
-
     :host {
         margin-right: 3px;
     }
