@@ -1,37 +1,32 @@
-
-  <div class="ml-4 mt-4">
+<div class="ml-4 mt-4">
     <ng-container *ngIf="loggedUser">
-    <img src="/assets/img/user-icon/default-icon.png" [routerLink]="['user','config']" style="width: 40px">
-    <div class="mt-3">{{loggedUser.username}}</div>
-    <div class="mt-1">{{loggedUser.email}}</div>
+        <img
+            src="/assets/img/user-icon/default-icon.png"
+            [routerLink]="['user', 'config']"
+            style="width: 40px"
+        />
+        <div class="mt-3">{{ loggedUser.username }}</div>
+        <div class="mt-1">{{ loggedUser.email }}</div>
     </ng-container>
-  </div>
-  <hr>
+</div>
+<hr />
 
 <ul class="navbar-nav ml-4 mr-3">
-
     <ng-container *ngFor="let menu of menus">
-        <li class="nav-item my-2"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: menu.exact }"
-        *ngIf="needToShow(menu.showMenu)"><fa-icon
-        [icon]="menu.icon"
-        class="mr-4 d-inline-block"
-        style="width: 20px;"
-        ></fa-icon>
-        <a class="nav-link d-inline" [routerLink]="menu.link.split('/')">{{menu.name}}</a>
+        <li
+            class="nav-item my-2"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: menu.exact }"
+            *ngIf="needToShow(menu.showMenu)"
+        >
+            <fa-icon [icon]="menu.icon" class="mr-4 inline-block w-5"></fa-icon>
+            <a class="nav-link d-inline" [routerLink]="menu.link.split('/')">{{ menu.name }}</a>
         </li>
     </ng-container>
     <ng-container *ngIf="loggedUser">
-        <li
-        class="nav-item my-1"
-        >
-        <fa-icon
-        [icon]="faSignOutAlt"
-        class="mr-4 d-inline-block"
-        style="width: 20px;"
-        ></fa-icon><p class="nav-link pointer mb-0 d-inline" (click)="onLogout()">Log Out</p>
+        <li class="nav-item my-1">
+            <fa-icon [icon]="faSignOutAlt" class="mr-4 inline-block w-5"></fa-icon>
+            <p class="nav-link pointer mb-0 inline" (click)="onLogout()">Log Out</p>
         </li>
     </ng-container>
-
 </ul>
