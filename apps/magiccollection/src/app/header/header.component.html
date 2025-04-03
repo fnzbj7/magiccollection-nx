@@ -1,15 +1,12 @@
-<nav class="navbar px-4 lg:sticky top-0 z-10">
+<nav class="navbar px-6 lg:sticky top-0 z-10">
     <a class="navbar-brand lg:block hidden" routerLink="/">Navbar</a>
     <fa-icon
-        class="d-lg-none pointer"
+        class="lg:hidden pointer"
         [icon]="faBars"
         (click)="sideMenuService.toggleSideMenu()"
     ></fa-icon>
 
-    <ul
-        class="mr-auto navbar-nav d-none d-lg-flex"
-        style="align-items: center; flex-direction: row"
-    >
+    <ul class="mr-auto navbar-nav lg:flex hidden" style="align-items: center; flex-direction: row">
         <ng-container *ngFor="let menu of menus">
             <li
                 class="nav-item"
