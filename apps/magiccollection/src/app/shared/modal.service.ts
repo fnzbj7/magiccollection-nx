@@ -30,12 +30,12 @@ export class ModalService {
         this.domService.removeComponent();
         const modalElement = document.getElementById(this.modalContainer);
         if (modalElement !== null) {
-            modalElement.classList.add('hidden');
+            modalElement.classList.add('modal-hidden');
             modalElement.classList.remove('show');
         }
         const overlayElement = document.getElementById(this.overlayElementId);
         if (overlayElement !== null) {
-            overlayElement.classList.add('hidden');
+            overlayElement.classList.add('modal-hidden');
             overlayElement.classList.remove('show');
         }
         document.getElementsByTagName('BODY')[0].classList.remove('modal-open');

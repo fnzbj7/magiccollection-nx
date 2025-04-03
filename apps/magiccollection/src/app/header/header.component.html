@@ -1,5 +1,5 @@
-<nav class="navbar navbar-light bg-light px-4 lg:sticky top-0 z-10">
-    <a class="navbar-brand d-none d-lg-block" routerLink="/">Navbar</a>
+<nav class="navbar px-4 lg:sticky top-0 z-10">
+    <a class="navbar-brand lg:block hidden" routerLink="/">Navbar</a>
     <fa-icon
         class="d-lg-none pointer"
         [icon]="faBars"
@@ -17,11 +17,11 @@
                 [routerLinkActiveOptions]="{ exact: menu.exact }"
                 *ngIf="needToShow(menu.showMenu)"
             >
-                <a class="nav-link" [routerLink]="menu.link.split('/')">{{ menu.name }}</a>
+                <a class="nav-linkk" [routerLink]="menu.link.split('/')">{{ menu.name }}</a>
             </li>
         </ng-container>
         <li class="nav-item">
-            <p *ngIf="loggedUser" class="mb-0 nav-link pointer" (click)="onLogout()">Log Out</p>
+            <p *ngIf="loggedUser" class="mb-0 nav-linkk pointer" (click)="onLogout()">Log Out</p>
         </li>
         <li class="nav-item" *ngIf="loggedUser">
             <img

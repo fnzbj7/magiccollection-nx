@@ -1,13 +1,40 @@
 @import './../variable.scss';
 
-.nav-link {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    background-color: rgba(248, 249, 250, 1);
+}
+
+.navbar-brand {
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-linkk {
+    display: block;
+    padding: 0.5rem 0.5rem;
+    color: rgba(0, 0, 0, 0.55);
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out;
+}
+
+.nav-linkk:hover {
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .nav-item.active {
-    .nav-link {
-        color: var(--bs-navbar-active-color);
+    .nav-linkk {
+        color: rgba(0, 0, 0, 0.9);
     }
 }
 
