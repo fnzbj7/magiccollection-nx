@@ -37,7 +37,7 @@
         *ngIf="cardSet"
     >
         <img
-            class="setIcon max-w-none h-100"
+            class="setIcon max-w-none h-full"
             style="max-height: 46px; object-fit: contain"
             src="assets/img/set-icons/{{ cardSet.toLowerCase() }}.svg"
             alt="Selected set icon {{ cardSet }}"
@@ -146,15 +146,20 @@
     </div>
     <div class="pt-3" style="grid-area: 5 / 1 / 6 / last">
         <button
-            class="btn btn-primary"
+            class="text-white rounded px-4 py-2"
             [ngClass]="{
-                'btn-primary': ModifyMode.ADD === mode,
-                'btn-danger': ModifyMode.REMOVE === mode
+                'bg-blue-500 hover:bg-blue-600': ModifyMode.ADD === mode,
+                'bg-red-500 hover:bg-red-600': ModifyMode.REMOVE === mode
             }"
         >
             {{ ModifyMode.ADD === mode ? 'Elküld' : 'Töröl' }}
         </button>
-        <button type="button" class="ml-3 btn btn-secondary bg-gray-500">Törlés</button>
+        <button
+            type="button"
+            class="ml-3 bg-gray-500 hover:bg-gray-600 text-white rounded px-4 py-2"
+        >
+            Törlés
+        </button>
     </div>
     <div class="self-end mt-3" style="grid-area: 1 / img-start / 4 / last">
         <label

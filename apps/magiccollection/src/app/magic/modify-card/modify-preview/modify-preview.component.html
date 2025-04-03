@@ -1,13 +1,20 @@
 <h2 class="my-3 text-xl">Ezeket a kártyákat fogod feltölteni</h2>
-<button class="btn float-left mr-3" [ngClass]="isRaw ? 'btn-danger' : 'btn-primary'" (click)="onGrouping()">Összevonás</button>
-<p class="float-left"> Rendezés:
+<button
+    class="text-white rounded px-4 py-2 float-left mr-3"
+    [ngClass]="isRaw ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'"
+    (click)="onGrouping()"
+>
+    Összevonás
+</button>
+<p class="float-left">
+    Rendezés:
     <fa-icon
         [icon]="isNormalOrder ? faSortAlphaDown : faSortAlphaDownAlt"
         (click)="onChangeOrder()"
-        style="font-size: 20px;"
+        style="font-size: 20px"
     ></fa-icon>
 </p>
-<div style="clear: both;"></div>
+<div style="clear: both"></div>
 <ul class="pl-0 flex flex-wrap justify-center list-none">
     <ng-container *ngIf="!isRaw">
         <app-magic-card
@@ -17,10 +24,7 @@
         ></app-magic-card>
     </ng-container>
     <ng-container *ngIf="isRaw">
-        <app-magic-card
-            [magicCard]="card"
-            *ngFor="let card of rawCards"
-        ></app-magic-card>
+        <app-magic-card [magicCard]="card" *ngFor="let card of rawCards"></app-magic-card>
     </ng-container>
 
     <li class="fake-card"></li>
@@ -29,4 +33,3 @@
     <li class="fake-card"></li>
     <li class="fake-card"></li>
 </ul>
-

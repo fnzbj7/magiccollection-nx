@@ -1,10 +1,20 @@
 <p *ngIf="inProgress">Feltöltés folyamatban</p>
 
 <p *ngIf="isError">Valami hiba történt</p>
-<div class="btn btn-primary" *ngIf="isError" (click)="stepBack.emit()">Vissza javítani</div>
+<div
+    class="bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2"
+    *ngIf="isError"
+    (click)="stepBack.emit()"
+>
+    Vissza javítani
+</div>
 
 <p *ngIf="isFinished && !isError">Feltöltés befejezősött</p>
-<div class="btn btn-primary my-3" *ngIf="isFinished && !isError" (click)="resetPage.emit()">
+<div
+    class="bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 my-3 w-fit"
+    *ngIf="isFinished && !isError"
+    (click)="resetPage.emit()"
+>
     Újabb feltöltés
 </div>
 <ng-container *ngIf="isFinished && this.modifyQty > 0">
@@ -12,7 +22,7 @@
     <button
         *ngIf="!isNewCardsFinished"
         [disabled]="isNewCardsLoading"
-        class="btn btn-primary mt-4"
+        class="bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2 mt-4"
         (click)="onShowNewCards()"
     >
         Megmutatni az új kártyákat
@@ -38,10 +48,7 @@
     </ul>
     <hr />
     <div *ngIf="filteredNewCards" class="flex flex-wrap">
-        <div
-            class="flex flex-col align-items-center list-unstyled"
-            *ngFor="let card of filteredNewCards"
-        >
+        <div class="flex flex-col items-center list-none" *ngFor="let card of filteredNewCards">
             <div>
                 <app-magic-card
                     [imgSize]="'small'"
