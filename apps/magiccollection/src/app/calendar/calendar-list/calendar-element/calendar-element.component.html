@@ -1,6 +1,8 @@
 <div
-  class="badge pointer elipsis calendar-event"
-  (click)="onSelectCalendarEvent()"
-  [ngClass]="{ 'badge-info' : !isSelected, 'badge-danger' : isSelected } ">
-  <span>{{hourPad}}:{{minutePad}}</span> <span class="d-none d-sm-inline"> {{calendarEvent.title}}</span>
+    class="badge cursor-pointer truncate w-full"
+    (click)="onSelectCalendarEvent()"
+    [ngClass]="{ 'bg-blue-500': !isSelected, 'bg-red-500': isSelected }"
+>
+    <span>{{ hourPad }}:{{ minutePad }}</span>
+    <span class="hidden sm:inline"> {{ calendarEvent.title }}</span>
 </div>

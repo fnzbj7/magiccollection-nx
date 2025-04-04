@@ -133,6 +133,33 @@ export class CalendarAddComponent implements OnInit, OnDestroy {
         );
     }
 
+    changeHour(step: number) {
+        this.time.hour = (this.time.hour + step + 24) % 24; // Ensure hours wrap around 0-23
+    }
+
+    changeMinute(step: number) {
+        this.time.minute = (this.time.minute + step + 60) % 60; // Ensure minutes wrap around 0-59
+    }
+
+    validateHour() {
+        if (this.time.hour < 0) this.time.hour = 0;
+        if (this.time.hour > 23) this.time.hour = 23;
+    }
+
+    validateMinute() {
+        if (this.time.minute < 0) this.time.minute = 0;
+        if (this.time.minute > 59) this.time.minute = 59;
+    }
+
+    validateDate() {
+        const inputDate = (document.getElementById('event-date') as HTMLInputElement).value;
+        if (inputDate) {
+            const [year, month, day] = inputDate.split('-').map(Number);
+            this.model = { year, month, day }; // Ensure this.model matches the expected type
+            console.log(this.model); // { year: 2025, month: 4, day: 3 }
+        }
+    }
+
     ngOnDestroy(): void {
         this.mediaQuery.removeEventListener('change', this.onChange);
     }

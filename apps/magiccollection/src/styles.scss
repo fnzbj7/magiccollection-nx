@@ -4,10 +4,21 @@
 
 @layer components {
     .app-select {
-      @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
+        @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500;
     }
-  }
 
+    .btn-primary {
+        @apply bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2;
+    }
+
+    .form-label {
+        @apply block text-gray-700 text-sm font-bold mb-2;
+    }
+
+    .form-input {
+        @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none;
+    }
+}
 
 body {
     background-repeat: no-repeat;
@@ -23,7 +34,6 @@ pagination-controls ul {
     cursor: pointer;
 }
 
-
 @media (min-width: 576px) {
     .border-sm-0 {
         border: 0 !important;
@@ -34,7 +44,7 @@ html,
 body {
     height: 100%;
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .no-select {
@@ -60,7 +70,7 @@ body {
     }
 
     .tooltiptext-w3::after {
-        content: "";
+        content: '';
         position: absolute;
         margin-left: -5px;
         border-width: 5px;
@@ -70,13 +80,13 @@ body {
 
     .tooltiptext-w3,
     .left.tooltiptext-w3 {
-    margin-left: -60px;
+        margin-left: -60px;
     }
 
     .tooltiptext-w3::after,
     .left.tooltiptext-w3::after {
-    right: 17px;
-    left: unset;
+        right: 17px;
+        left: unset;
     }
 
     .right.tooltiptext-w3 {
@@ -88,9 +98,8 @@ body {
         right: unset;
     }
 
-
     .tooltiptext-w3,
-        .bottom.tooltiptext-w3 {
+    .bottom.tooltiptext-w3 {
         top: calc(100% + 10px);
         bottom: initial;
         left: -30px;
@@ -172,7 +181,7 @@ body {
 
 @media (min-width: 827px) {
     .fake-card {
-      width: 217px;
+        width: 217px;
     }
 }
 
@@ -192,14 +201,14 @@ body {
 
 .badge {
     display: inline-block;
-    padding: .25em .4em;
+    padding: 0.25em 0.4em;
     font-size: 75%;
     font-weight: 700;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
 }
 
 .badge-info {

@@ -18,6 +18,18 @@
     will-change: transform;
 }
 
+.day-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day-item {
+    flex: 1 0 calc(100% / 7 - 4px); /* Divide width equally by 7 with margin adjustment */
+    box-sizing: border-box;
+    max-width: calc(100% / 7 - 4px); /* Ensure max width matches flex-basis */
+    margin: 2px;
+}
+
 @media (max-width: 767px) {
     .card-body {
         font-size: 0.9rem;
