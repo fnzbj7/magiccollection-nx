@@ -1,8 +1,4 @@
-<div
-    class="flip-container landscape:mt-1 mt-5 mb-3"
-    style="height: 414px"
-    [ngClass]="flipClass ? 'hover' : ''"
->
+<div class="flip-container landscape:mt-1 mt-5 mb-3 relative" [ngClass]="flipClass ? 'hover' : ''">
     <div class="flipper cursor-pointer">
         <div class="front">
             <picture class="magiccard">
@@ -29,5 +25,9 @@
             </picture>
         </div>
     </div>
-    <fa-icon [icon]="faSyncAlt" (click)="flipClass = !flipClass" class="pointer"></fa-icon>
+    <fa-icon
+        [icon]="faSyncAlt"
+        (click)="flipClass = !flipClass"
+        class="pointer flip-icon"
+    ></fa-icon>
 </div>

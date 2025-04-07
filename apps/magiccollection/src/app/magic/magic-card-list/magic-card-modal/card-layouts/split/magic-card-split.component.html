@@ -1,4 +1,4 @@
-<div class="mt-5 mb-3 mx-auto flex justify-center" style="height: 414px">
+<div class="mt-5 mb-3 mx-auto flex justify-center relative">
     <div class="magiccard">
         <picture class="cursor-pointer">
             <source [srcset]="cardUrls.mainCardWebpUrl" type="image/webp" />
@@ -13,6 +13,10 @@
             />
         </picture>
         <div class="clearfix"></div>
-        <fa-icon [icon]="faSyncAlt" (click)="flipClass = !flipClass" class="pointer"></fa-icon>
+        <fa-icon
+            [icon]="faSyncAlt"
+            (click)="flipClass = !flipClass"
+            class="pointer flip-icon"
+        ></fa-icon>
     </div>
 </div>

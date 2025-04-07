@@ -22,6 +22,10 @@
     .form-input {
         @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none;
     }
+
+    .flip-icon {
+        @apply bg-white p-2 rounded-full border border-solid border-gray-300 absolute -bottom-6 right-[calc(50%-18px)] w-[calc(24px+0.5rem*2)] h-[calc(24px+0.5rem*2)];
+    }
 }
 
 body {
