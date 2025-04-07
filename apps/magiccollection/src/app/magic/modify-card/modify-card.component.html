@@ -9,12 +9,7 @@
     <ng-container *ngIf="actualPageStep === pageStep.PREVIEW">
         <div class="mt-4 flex self-start">
             <div class="btn-primary mr-3" (click)="startUploading()">Tovább a feltöltésre</div>
-            <div
-                class="bg-yellow-500 hover:bg-yellow-600 text-white rounded px-4 py-2"
-                (click)="actualPageStep = pageStep.FORM"
-            >
-                Vissza
-            </div>
+            <div class="btn-warning" (click)="actualPageStep = pageStep.FORM">Vissza</div>
         </div>
         <app-modify-preview
             *ngIf="reducedArr"
@@ -23,12 +18,7 @@
         ></app-modify-preview>
         <div class="mt-4 flex self-start">
             <div class="btn-primary mr-3" (click)="startUploading()">Tovább a feltöltésre</div>
-            <div
-                class="bg-yellow-500 hover:bg-yellow-600 text-white rounded px-4 py-2"
-                (click)="actualPageStep = pageStep.FORM"
-            >
-                Vissza
-            </div>
+            <div class="btn-warning" (click)="actualPageStep = pageStep.FORM">Vissza</div>
         </div>
     </ng-container>
 
