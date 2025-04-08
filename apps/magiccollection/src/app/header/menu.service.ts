@@ -23,6 +23,7 @@ export class MenuService {
             new MenuElement('calendar', 'Calendar', ShowMenu.ALWAYS, false, faCalendarAlt),
             new MenuElement('cards/addcards', 'Add Cards', ShowMenu.LOGIN, false, faPlus),
             new MenuElement('cards/removecards', 'Remove Cards', ShowMenu.LOGIN, false, faMinus),
+            new MenuElement('draft-viewer', 'Draft viewer', ShowMenu.LOGIN, false, faMinus),
             new MenuElement('animation', 'Animation', ShowMenu.ALWAYS, false, faGem),
             new MenuElement('auth/login', 'Log in', ShowMenu.LOGOUT, false, faSignInAlt),
         ];

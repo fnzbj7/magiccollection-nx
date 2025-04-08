@@ -1,0 +1,8 @@
+<div class="container bg-slate-200 w-full flex flex-col items-center justify-center">
+    <h1 class="text-3xl font-bold mb-4">Draft List</h1>
+    <div *ngFor="let draft of drafts">
+        {{ draft.name }}
+        <a [routerLink]="['/draft-viewer', 'core', draft.id]">Go to Core</a>
+        <button [routerLink]="['/draft-viewer', 'edit', 'alma']">Edit Draft</button>
+    </div>
+</div>

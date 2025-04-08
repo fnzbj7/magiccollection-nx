@@ -24,6 +24,11 @@ const appRoute: Routes = [
         path: 'user',
         loadChildren: () => import('./user/user.module').then(m => m.UserModule),
     },
+    {
+        path: 'draft-viewer',
+        loadChildren: () =>
+            import('./draft-viewer/draft-viewer.module').then(m => m.DraftViewerModule),
+    },
     { path: '**', component: LandingComponent },
 ];
 
