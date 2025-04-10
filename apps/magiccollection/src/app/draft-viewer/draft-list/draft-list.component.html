@@ -2,7 +2,11 @@
     <h1 class="text-3xl font-bold mb-4">Draft List</h1>
     <div *ngFor="let draft of drafts">
         {{ draft.name }}
-        <a [routerLink]="['/draft-viewer', 'core', draft.id]">Go to Core</a>
-        <button [routerLink]="['/draft-viewer', 'edit', 'alma']">Edit Draft</button>
+        <a class="btn-primary" [routerLink]="['/draft-viewer', 'core', draft.id]">Go to Core</a>
+        <button class="btn-primary" [routerLink]="['/draft-viewer', 'edit', 'alma']">
+            Edit Draft
+        </button>
     </div>
+
+    <button class="btn-primary">Create new</button>
 </div>

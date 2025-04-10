@@ -14,6 +14,10 @@ const routes: Routes = [
         component: DraftModifyComponent,
     },
     {
+        path: 'new',
+        component: DraftModifyComponent,
+    },
+    {
         path: 'core/:draftId',
         component: DraftViewerCoreComponent,
     },

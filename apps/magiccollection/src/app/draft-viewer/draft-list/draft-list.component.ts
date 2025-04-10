@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class DraftListComponent {
     drafts = [
         { id: 1, name: 'Draft 1', date: '2023-10-01' },
-        { id: 2, name: 'Draft 1', date: '2023-10-01' },
+        { id: 2, name: 'Draft 2', date: '2023-10-01' },
     ];
 }
