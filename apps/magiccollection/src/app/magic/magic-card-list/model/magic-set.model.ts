@@ -4,5 +4,6 @@ export class MagicSet {
         public fullName: string,
         public maxNum: number,
         public releaseYear: number,
+        public secondary: boolean = false,
     ) {}
 }
