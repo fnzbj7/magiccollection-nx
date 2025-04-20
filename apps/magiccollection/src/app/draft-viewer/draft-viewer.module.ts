@@ -6,9 +6,11 @@ import { DraftViewerCoreComponent } from './draft-viewer-core/draft-viewer-core.
 import { DraftModifyComponent } from './draft-modify/draft-modify.component';
 import { DraftListComponent } from './draft-list/draft-list.component';
 import { DraftViewerRoutingModule } from './draft-viewer-routing.module';
+import { DraftViewerService } from './draft-viewer.service';
 
 @NgModule({
     declarations: [DraftViewerCoreComponent, DraftModifyComponent, DraftListComponent],
+    providers: [DraftViewerService],
     imports: [DraftViewerRoutingModule, CommonModule, SharedModule, FormsModule],
 })
 export class DraftViewerModule {}

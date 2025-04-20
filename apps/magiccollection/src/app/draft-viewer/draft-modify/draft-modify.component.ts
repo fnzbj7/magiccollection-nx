@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { magicSetArray } from '../../magic/magic-card-list/magic-cards-list.service';
 import { MagicSet } from '../../magic/magic-card-list/model/magic-set.model';
+import { DraftDef, DraftViewerService, PlayerPicks } from '../draft-viewer.service';
+
+type modifyDraft = DraftDef | Omit<DraftDef, 'id'>;
 
 @Component({
     selector: 'app-draft-modify',
@@ -9,22 +12,62 @@ import { MagicSet } from '../../magic/magic-card-list/model/magic-set.model';
     styleUrls: ['./draft-modify.component.scss'],
 })
 export class DraftModifyComponent implements OnInit {
-    draftId: string | null = null;
+    // draftId: string | null = null;
     magicSetArray!: MagicSet[];
-    cardNumbersStr!: string;
+    draft: DraftDef | null = null;
+    isEditMode = false;
+    draftDef!: modifyDraft;
 
-    constructor(private activatedRoute: ActivatedRoute) {
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private draftViewerService: DraftViewerService,
+    ) {
         // Constructor logic can go here if needed
     }
 
     ngOnInit() {
-        this.draftId = this.activatedRoute.snapshot.params['draftId'];
+        this.loadDraft();
         this.magicSetArray = magicSetArray.filter(x => !x.secondary);
-        // Initialization logic can go here if needed
+    }
+
+    loadDraft() {
+        const draftId = this.activatedRoute.snapshot.params['draftId'];
+        if (draftId) {
+            this.isEditMode = true;
+            this.draftDef = this.draftViewerService.getDraftById(draftId);
+            if (!this.draftDef) {
+                console.error(`Draft with id ${draftId} not found`);
+            }
+        } else {
+            this.isEditMode = false;
+            this.draftDef = {
+                name: 'Sample Draft ' + Math.floor(Math.random() * 1000),
+                date: new Date(),
+                setCode: '',
+                playerPicks: this.creating8Player(),
+            };
+            console.log('New draft creation ongoing', this.draftDef);
+        }
+    }
+
+    creating8Player(): PlayerPicks[] {
+        const players = [];
+        for (let i = 1; i <= 8; i++) {
+            players.push({
+                playerName: 'Player ' + i,
+                rounds: [{ cards: '' }, { cards: '' }, { cards: '' }],
+            });
+        }
+        return players;
     }
 
     saveDraft() {
-        // TODO save draft
-        console.log('Draft saved', this.cardNumbersStr);
+        if (this.isEditMode) {
+            // TODO update draft
+            this.draftViewerService.updateDraft(this.draftDef as DraftDef);
+        } else {
+            this.draftViewerService.createNewDraft(this.draftDef);
+        }
+        console.log('Draft saved');
     }
 }

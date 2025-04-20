@@ -1,7 +1,5 @@
 <div class="container bg-slate-200 w-full flex flex-col items-center justify-center">
     <h1 class="text-3xl font-bold mb-4">Draft List</h1>
-    <<<<<<< HEAD
-
     <div class="relative overflow-x-auto">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead
@@ -34,19 +32,17 @@
                                 [routerLink]="['/draft-viewer', 'core', draft.id]"
                                 >Go to Core</a
                             >
-                            <button
+                            <a
                                 class="btn-primary"
-                                [routerLink]="['/draft-viewer', 'edit', 'alma']"
+                                [routerLink]="['/draft-viewer', 'edit', draft.id]"
                             >
                                 Edit Draft
-                            </button>
+                            </a>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <button class="btn-primary" [routerLink]="['/draft-viewer', 'edit', 'alma']">
-        Create Draft
-    </button>
+    <button class="btn-primary" [routerLink]="['/draft-viewer', 'new']">Create Draft</button>
 </div>

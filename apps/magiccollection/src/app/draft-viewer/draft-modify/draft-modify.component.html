@@ -1,4 +1,4 @@
-<div class="container bg-slate-100 w-full flex flex-col items-center justify-center">
+<div class="container bg-slate-100 w-full flex flex-col items-center justify-center px-4">
     <h1 class="text-3xl font-bold mb-4">Draft modify</h1>
 
     <form (ngSubmit)="saveDraft()" class="modify-grid grid">
@@ -28,19 +28,20 @@
             </div>
         </div>
 
-        <details open>
-            <summary>Drafter 1</summary>
+        <details open *ngFor="let player of draftDef.playerPicks; let i = index">
+            <summary>{{ player.playerName }}</summary>
             <textarea
+                *ngFor="let round of player.rounds; let j = index"
                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="exampleFormControlTextarea1"
                 rows="3"
                 placeholder="Your message"
-                name="card-numbers"
-                [(ngModel)]="cardNumbersStr"
+                name="card-numbers-Player{{ i }}-round{{ j }}"
+                [(ngModel)]="round.cards"
             ></textarea>
         </details>
 
         <button class="btn-primary">Submit</button>
     </form>
-    <a class="btn-primary" [routerLink]="['/draft-viewer', 'list']">Go Back</a>
+    <a class="btn-warning" [routerLink]="['/draft-viewer', 'list']">Go Back</a>
 </div>
