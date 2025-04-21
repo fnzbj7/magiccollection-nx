@@ -13,9 +13,17 @@ export interface PlayerDraftPicks {
     styleUrls: ['./draft-viewer-core.component.scss'],
 })
 export class DraftViewerCoreComponent implements OnInit {
+    Arr = Array;
     draftDef!: DraftDef;
     reconstructedPicks: string[][] = [];
     reconstructedPicksCards: Card[][] = [];
+
+    playerSelect = '0';
+    packSelect = '0';
+    pickSelect = '0';
+
+    selectedCard = '';
+    showPackindex = 0;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -26,14 +34,17 @@ export class DraftViewerCoreComponent implements OnInit {
         const draftId = this.activatedRoute.snapshot.params['draftId'];
         this.draftDef = this.draftViewerService.getDraftById(draftId);
 
-        this.getPacksForPlayer(0);
-        this.convertToCard();
+        this.getPacksForPlayer(+this.packSelect);
+
+        this.onFilterChange();
     }
 
-    getPacksForPlayer(playerindex: number): PlayerDraftPicks[] {
+    getPacksForPlayer(round: number) {
         // TODO
-        const round = 0;
+        // const round = 0;
         const packs: string[][] = [];
+        this.reconstructedPicksCards = [];
+        this.reconstructedPicks = [];
         // const reconstructedPicks: string[][] = [];
 
         this.draftDef.playerPicks.forEach(pick => {
@@ -42,21 +53,22 @@ export class DraftViewerCoreComponent implements OnInit {
             packs.push(picked);
         });
 
-        for (let i = 0; i < packs[0].length; i++) {
+        for (let i = 0; i < packs[round].length; i++) {
             for (let j = 0; j < packs.length; j++) {
                 // We need to shit j by i because the packs are given in circle
-                const nextPackInd = (j + i) % packs.length;
+                const nextPackInd = (j + i + (round % 2)) % packs.length; // (this.isEven(round) ? (j + i) % packs.length : (packs.length - 1 - ((j + i) % packs.length))) ;
                 if (!this.reconstructedPicks[nextPackInd]) {
                     this.reconstructedPicks[nextPackInd] = [];
                 }
-                const cardId = packs[j][i];
+                const cardId = packs[this.isEven(round) ? j : packs.length - j - 1][i];
                 this.reconstructedPicks[nextPackInd].push(cardId);
             }
         }
+        this.convertToCard();
+    }
 
-        console.table(this.reconstructedPicks);
-
-        return [];
+    isEven(i: number) {
+        return i % 2 == 0;
     }
 
     convertToCard() {
@@ -75,5 +87,23 @@ export class DraftViewerCoreComponent implements OnInit {
                 };
             });
         });
+    }
+
+    onFilterChange() {
+        this.getPacksForPlayer(+this.packSelect);
+        this.selectedCard =
+            this.draftDef.playerPicks[+this.playerSelect].rounds[+this.packSelect].cards.split(' ')[
+                +this.pickSelect
+            ];
+        this.selectedCard = this.selectedCard.padStart(3, '0');
+
+        this.showPackindex = (+this.playerSelect + +this.pickSelect) % 8;
+        console.log(
+            this.showPackindex,
+            this.playerSelect,
+            this.packSelect,
+            this.pickSelect,
+            this.selectedCard,
+        );
     }
 }

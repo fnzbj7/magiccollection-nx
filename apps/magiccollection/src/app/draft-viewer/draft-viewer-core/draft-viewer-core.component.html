@@ -1,28 +1,128 @@
 <div class="container bg-slate-100 w-full flex flex-col items-center justify-center px-4">
-    Here we gonna see the core functionality of the draft viewer
-    <select>
-        <option value="1">Draft</option>
-        <option value="2">Sealed</option>
-    </select>
-
-    <select>
-        options from 1 to 15
-
-        <option value="1">Draft</option>
-        <option value="2">Sealed</option>
-    </select>
-
-    <div class="mt-7" *ngFor="let pack of reconstructedPicksCards; let i = index">
-        <h1 class="text-3xl font-bold">Pack {{ i + 1 }}</h1>
-        <div class="flex flex-wrap">
-            <app-magic-card
-                [magicCard]="card"
-                [onlyShow]="true"
-                *ngFor="let card of pack"
-            ></app-magic-card>
+    <h1 class="text-3xl font-bold mt-4 mb-11">
+        Here we gonna see the core functionality of the draft viewer
+    </h1>
+    <div class="flex flex-row self-start items-end w-full justify-between">
+        <div class="flex flex-row gap-4">
+            <div class="w-28">
+                <label
+                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    for="player-select"
+                    >Player:</label
+                >
+                <div class="relative w-full inline-block">
+                    <select
+                        name="player-select"
+                        [(ngModel)]="playerSelect"
+                        (change)="onFilterChange()"
+                        class="app-select w-full"
+                    >
+                        <option [value]="i" *ngFor="let noUse of Arr(8).fill(1); let i = index">
+                            Player {{ i + 1 }}
+                        </option>
+                    </select>
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                    >
+                        <svg
+                            class="fill-current h-4 w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="w-28">
+                <label
+                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    for="pack-select"
+                    >Pack</label
+                >
+                <div class="relative w-full inline-block">
+                    <select
+                        name="pack-select"
+                        [(ngModel)]="packSelect"
+                        (change)="onFilterChange()"
+                        class="app-select w-full"
+                    >
+                        <option [value]="i" *ngFor="let noUse of Arr(3).fill(1); let i = index">
+                            Pack {{ i + 1 }}
+                        </option>
+                    </select>
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                    >
+                        <svg
+                            class="fill-current h-4 w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="w-28">
+                <label
+                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    for="pick-select"
+                    >Card set:</label
+                >
+                <div class="relative w-full inline-block">
+                    <select
+                        name="pick-select"
+                        [(ngModel)]="pickSelect"
+                        (change)="onFilterChange()"
+                        class="app-select w-full"
+                    >
+                        <option [value]="i" *ngFor="let noUse of Arr(15).fill(1); let i = index">
+                            Pick {{ i + 1 }}
+                        </option>
+                    </select>
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                    >
+                        <svg
+                            class="fill-current h-4 w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
+        <a class="btn-primary" [routerLink]="['/draft-viewer', 'list']">Go Back</a>
     </div>
-    >
+
+    <ng-container *ngFor="let pack of reconstructedPicksCards; let i = index">
+        <div class="mt-7" *ngIf="i === showPackindex">
+            <ng-container>
+                <h1 class="text-3xl font-bold">Booster {{ i + 1 }}</h1>
+                <div class="flex flex-wrap">
+                    <ng-container *ngFor="let card of pack">
+                        <app-magic-card
+                            [ngClass]="{
+                                'border-4 border-red-700 border-double':
+                                    selectedCard === card.cardNumber
+                            }"
+                            [magicCard]="card"
+                            [onlyShow]="true"
+                        ></app-magic-card>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
 
     <a class="btn-primary" [routerLink]="['/draft-viewer', 'list']">Go Back</a>
 </div>

@@ -8,7 +8,7 @@
             >Card set:</label
         >
         <div class="relative w-full inline-block">
-            <select name="cardSet" class="app-select w-full">
+            <select name="cardSet" class="app-select w-full" [(ngModel)]="draftDef.setCode">
                 <option [value]="cardSet.name" *ngFor="let cardSet of magicSetArray">
                     {{ cardSet.name + ' | ' + cardSet.fullName }}
                 </option>
