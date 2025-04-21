@@ -1,4 +1,4 @@
-<li class="magic-card-li relative magiccard_li {{ imgSize }}">
+<li class="magic-card-li relative magiccard_li list-none {{ imgSize }}">
     <!-- Normal cards -->
     <picture
         class="magiccard"
@@ -11,11 +11,11 @@
             [attr.defaultImage]="defaultWebp"
             type="image/webp"
         />
-        <source [attr.lazyLoad]="imageSrcPng" [attr.defaultImage]="defaultPng" type="image/png" />
+        <!-- <source [attr.lazyLoad]="imageSrcPng" [attr.defaultImage]="defaultPng" type="image/png" /> -->
         <img
             class="magiccard"
-            [lazyLoad]="imageSrcPng"
-            [defaultImage]="defaultPng"
+            [lazyLoad]="imageSrcWebp"
+            [defaultImage]="defaultWebp"
             [offset]="100"
             alt=""
             [title]="card.cardNumber"

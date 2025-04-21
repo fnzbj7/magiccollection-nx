@@ -6,9 +6,6 @@ import { ModifyPreviewComponent } from './modify-card/modify-preview/modify-prev
 import { MagicSetListComponent } from './magic-set-list/magic-set-list.component';
 import { MagicSetIconComponent } from './magic-set-list/magic-set-icon/magic-set-icon.component';
 import { FormsModule } from '@angular/forms';
-import { MagicCardComponent } from './magic-card-list/magic-card/magic-card.component';
-import { MagicCardAmountDirective } from './magic-card-list/magic-card/magic-card-amount.directive';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { MagicCardListComponent } from './magic-card-list/magic-card-list.component';
 import { MagicCardRarityFilterComponent } from './magic-card-list/card-filter-wrapper/card-filter-wrapper.component';
 import { MagicCardModalComponent } from './magic-card-list/magic-card-modal/magic-card-modal.component';
@@ -40,9 +37,7 @@ import { ModifyUploadComponent } from './modify-card/modify-upload/modify-upload
         ModifyUploadComponent,
         MagicSetListComponent,
         MagicSetIconComponent,
-        MagicCardComponent,
         EmptyMagicCardComponent,
-        MagicCardAmountDirective,
         MagicCardListComponent,
         MagicCardRarityFilterComponent,
         CardRarityFilterComponent,
@@ -60,13 +55,6 @@ import { ModifyUploadComponent } from './modify-card/modify-upload/modify-upload
         CardLayoutWrapperComponent,
     ],
     entryComponents: [MagicCardModalComponent],
-    imports: [
-        CommonModule,
-        MagicRoutingModule,
-        SharedModule,
-        FormsModule,
-        LazyLoadImageModule,
-        PaginationModule,
-    ],
+    imports: [CommonModule, MagicRoutingModule, SharedModule, FormsModule, PaginationModule],
 })
 export class MagicModule {}

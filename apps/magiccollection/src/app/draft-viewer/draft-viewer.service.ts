@@ -23,6 +23,8 @@ export class DraftViewerService {
 
     constructor() {
         console.log('Csak létrejött a service');
+        const dummy = this.creatingDummyDraft();
+        this.temporaryDrafts.set(dummy.id, dummy);
     }
 
     getAllDrafts(): DraftDef[] {
@@ -53,5 +55,35 @@ export class DraftViewerService {
         } else {
             console.error(`Draft with id ${id} not found`);
         }
+    }
+
+    creatingDummyDraft(): DraftDef {
+        const players = [];
+        for (let i = 0; i < 8; i++) {
+            players.push({
+                playerName: 'Player ' + (i + 1),
+                rounds: [
+                    { cards: this.getCardNumbers(i * 3) },
+                    { cards: this.getCardNumbers(i * 3 + 1) },
+                    { cards: this.getCardNumbers(i * 3 + 2) },
+                ],
+            });
+        }
+        return {
+            id: 'Dummy-string',
+            name: 'Sample Draft ' + Math.floor(Math.random() * 1000),
+            date: new Date(),
+            setCode: 'TDM',
+            playerPicks: players,
+        };
+    }
+
+    // create a function which gives back a string which will contain numbers starting from i*15 + 1 and goeas to i*15+15
+    getCardNumbers(i: number): string {
+        let numbers = '';
+        for (let j = 1; j <= 15; j++) {
+            numbers += i * 15 + j + ' ';
+        }
+        return numbers.slice(0, -1); // remove the last comma
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { magicSetArray } from '../../magic/magic-card-list/magic-cards-list.service';
 import { MagicSet } from '../../magic/magic-card-list/model/magic-set.model';
 import { DraftDef, DraftViewerService, PlayerPicks } from '../draft-viewer.service';
@@ -20,6 +20,7 @@ export class DraftModifyComponent implements OnInit {
 
     constructor(
         private activatedRoute: ActivatedRoute,
+        private router: Router,
         private draftViewerService: DraftViewerService,
     ) {
         // Constructor logic can go here if needed
@@ -68,6 +69,8 @@ export class DraftModifyComponent implements OnInit {
         } else {
             this.draftViewerService.createNewDraft(this.draftDef);
         }
+        // navigate back to  the list
+        this.router.navigate(['/draft-viewer/list']);
         console.log('Draft saved');
     }
 }

@@ -1,3 +1,28 @@
-Here we gonna see the core functionality of the draft viewer
+<div class="container bg-slate-100 w-full flex flex-col items-center justify-center px-4">
+    Here we gonna see the core functionality of the draft viewer
+    <select>
+        <option value="1">Draft</option>
+        <option value="2">Sealed</option>
+    </select>
 
-<a class="btn-primary" [routerLink]="['/draft-viewer', 'list']">Go Back</a>
+    <select>
+        options from 1 to 15
+
+        <option value="1">Draft</option>
+        <option value="2">Sealed</option>
+    </select>
+
+    <div class="mt-7" *ngFor="let pack of reconstructedPicksCards; let i = index">
+        <h1 class="text-3xl font-bold">Pack {{ i + 1 }}</h1>
+        <div class="flex flex-wrap">
+            <app-magic-card
+                [magicCard]="card"
+                [onlyShow]="true"
+                *ngFor="let card of pack"
+            ></app-magic-card>
+        </div>
+    </div>
+    >
+
+    <a class="btn-primary" [routerLink]="['/draft-viewer', 'list']">Go Back</a>
+</div>
