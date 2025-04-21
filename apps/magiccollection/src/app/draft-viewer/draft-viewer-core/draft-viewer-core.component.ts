@@ -53,14 +53,18 @@ export class DraftViewerCoreComponent implements OnInit {
             packs.push(picked);
         });
 
-        for (let i = 0; i < packs[round].length; i++) {
-            for (let j = 0; j < packs.length; j++) {
+        for (let pick = 0; pick < packs[round].length; pick++) {
+            for (let person = 0; person < packs.length; person++) {
+                if (pick < +this.pickSelect) {
+                    continue;
+                }
                 // We need to shit j by i because the packs are given in circle
-                const nextPackInd = (j + i + (round % 2)) % packs.length; // (this.isEven(round) ? (j + i) % packs.length : (packs.length - 1 - ((j + i) % packs.length))) ;
+                // const nextPackInd = (j + i + (round % 2)) % packs.length; // (this.isEven(round) ? (j + i) % packs.length : (packs.length - 1 - ((j + i) % packs.length))) ;
+                const nextPackInd = this.getPackIndex(person, round, pick);
                 if (!this.reconstructedPicks[nextPackInd]) {
                     this.reconstructedPicks[nextPackInd] = [];
                 }
-                const cardId = packs[this.isEven(round) ? j : packs.length - j - 1][i];
+                const cardId = packs[person][pick];
                 this.reconstructedPicks[nextPackInd].push(cardId);
             }
         }
@@ -97,7 +101,11 @@ export class DraftViewerCoreComponent implements OnInit {
             ];
         this.selectedCard = this.selectedCard.padStart(3, '0');
 
-        this.showPackindex = (+this.playerSelect + +this.pickSelect) % 8;
+        this.showPackindex = this.getPackIndex(
+            +this.playerSelect,
+            +this.packSelect,
+            +this.pickSelect,
+        );
         console.log(
             this.showPackindex,
             this.playerSelect,
@@ -105,5 +113,13 @@ export class DraftViewerCoreComponent implements OnInit {
             this.pickSelect,
             this.selectedCard,
         );
+    }
+
+    getPackIndex(playerSelect: number, packSelect: number, pickSelect: number) {
+        if (this.isEven(packSelect)) {
+            return (playerSelect + (8 - (pickSelect % 8))) % 8;
+        } else {
+            return (playerSelect + pickSelect) % 8;
+        }
     }
 }

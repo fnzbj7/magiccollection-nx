@@ -112,8 +112,9 @@
                     <ng-container *ngFor="let card of pack">
                         <app-magic-card
                             [ngClass]="{
-                                'border-4 border-red-700 border-double':
-                                    selectedCard === card.cardNumber
+                                'border-8 border-red-700 border-double':
+                                    selectedCard === card.cardNumber,
+                                'p-2': selectedCard !== card.cardNumber
                             }"
                             [magicCard]="card"
                             [onlyShow]="true"
