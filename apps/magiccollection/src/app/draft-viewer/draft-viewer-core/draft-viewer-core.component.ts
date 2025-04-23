@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DraftDef, DraftViewerService } from '../draft-viewer.service';
 import { ActivatedRoute } from '@angular/router';
 import { Card, CardLayout } from '../../model/card.model';
+import { SwipeModel } from '../../shared/swipe/swipe.model';
 
 export interface PlayerDraftPicks {
     cards: Card[];
@@ -12,7 +13,7 @@ export interface PlayerDraftPicks {
     templateUrl: './draft-viewer-core.component.html',
     styleUrls: ['./draft-viewer-core.component.scss'],
 })
-export class DraftViewerCoreComponent implements OnInit {
+export class DraftViewerCoreComponent implements OnInit, AfterViewInit {
     Arr = Array;
     draftDef!: DraftDef;
     reconstructedPicks: string[][] = [];
@@ -37,6 +38,41 @@ export class DraftViewerCoreComponent implements OnInit {
         this.getPacksForPlayer(+this.packSelect);
 
         this.onFilterChange();
+    }
+
+    ngAfterViewInit(): void {
+        const c: HTMLDivElement | null = document.querySelector('#viewer-container');
+        if (c) {
+            new SwipeModel(c, {
+                callbackLeft: this.onSwipeLeft.bind(this),
+                callbackRight: this.onSwipeRight.bind(this),
+            });
+        } else {
+            console.warn('nem volt található a #viewer-container');
+        }
+    }
+
+    goForward() {
+        if (this.pickSelect !== '14') {
+            this.pickSelect = (+this.pickSelect + 1).toString();
+            this.onFilterChange();
+        }
+    }
+
+    goBackward() {
+        console.log('Hy im here B');
+        if (this.pickSelect !== '0') {
+            this.pickSelect = (+this.pickSelect - 1).toString();
+            this.onFilterChange();
+        }
+    }
+
+    onSwipeLeft() {
+        this.goForward();
+    }
+
+    onSwipeRight() {
+        this.goBackward();
     }
 
     getPacksForPlayer(round: number) {
