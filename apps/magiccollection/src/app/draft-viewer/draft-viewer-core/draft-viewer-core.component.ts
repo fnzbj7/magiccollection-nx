@@ -198,4 +198,8 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
             return (playerSelect + pickSelect) % 8;
         }
     }
+
+    trackCard(_index: number, card: Card) {
+        return card.cardExpansion + card.cardNumber;
+    }
 }
