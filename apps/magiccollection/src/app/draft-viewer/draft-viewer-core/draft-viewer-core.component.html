@@ -1,5 +1,6 @@
 <div
     class="container bg-slate-100 w-full flex flex-col items-center justify-center px-2 sm:px-4 pb-12 sm:pb-0"
+    *ngIf="!isLoading"
 >
     <h1 class="text-3xl font-bold mt-4 mb-11">
         Here we gonna see the core functionality of the draft viewer
@@ -107,26 +108,38 @@
     </div>
 
     <div id="viewer-container">
-        <ng-container *ngFor="let pack of reconstructedPicksCards; let i = index">
-            <div class="mt-7" *ngIf="i === showPackindex">
-                <ng-container>
-                    <h1 class="text-3xl font-bold">Booster {{ i + 1 }}</h1>
-                    <div class="flex flex-wrap justify-center">
-                        <ng-container *ngFor="let card of pack">
-                            <app-magic-card
-                                [ngClass]="{
-                                    'border-4 sm:border-8 border-red-700 border-double':
-                                        selectedCard === card.cardNumber,
-                                    'p-1 sm:p-2': selectedCard !== card.cardNumber
-                                }"
-                                [magicCard]="card"
-                                [onlyShow]="true"
-                            ></app-magic-card>
-                        </ng-container>
-                    </div>
-                </ng-container>
-            </div>
-        </ng-container>
+        <div class="mt-7">
+            <ng-container>
+                <h1 class="text-3xl font-bold">Booster {{ showPackindex + 1 }}</h1>
+                <div class="flex flex-wrap justify-center">
+                    <ng-container *ngFor="let card of selectedCards">
+                        <app-magic-card
+                            [ngClass]="{
+                                'border-4 sm:border-8 border-red-700 border-double':
+                                    selectedCard === card.cardNumber,
+                                'p-1 sm:p-2': selectedCard !== card.cardNumber
+                            }"
+                            [magicCard]="card"
+                            [onlyShow]="true"
+                        ></app-magic-card>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div *ngIf="pickedCards.length > 0">
+        <h1 class="text-3xl font-bold">Selected Card</h1>
+        <div class="flex flex-wrap justify-center">
+            <ng-container *ngFor="let card of pickedCards">
+                <app-magic-card
+                    [ngClass]="{
+                        'p-1 sm:p-2': selectedCard !== card.cardNumber
+                    }"
+                    [magicCard]="card"
+                    [onlyShow]="true"
+                ></app-magic-card>
+            </ng-container>
+        </div>
     </div>
 
     <a class="btn-primary" [routerLink]="['/draft-viewer', 'list']">Go Back</a>

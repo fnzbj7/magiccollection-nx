@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { DraftDef, DraftViewerService } from '../draft-viewer.service';
 import { ActivatedRoute } from '@angular/router';
 import { Card, CardLayout } from '../../model/card.model';
 import { SwipeModel } from '../../shared/swipe/swipe.model';
+import { MagicCardsListService } from '../../magic/magic-card-list/magic-cards-list.service';
 
 export interface PlayerDraftPicks {
     cards: Card[];
@@ -13,11 +14,12 @@ export interface PlayerDraftPicks {
     templateUrl: './draft-viewer-core.component.html',
     styleUrls: ['./draft-viewer-core.component.scss'],
 })
-export class DraftViewerCoreComponent implements OnInit, AfterViewInit {
+export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
     Arr = Array;
     draftDef!: DraftDef;
     reconstructedPicks: string[][] = [];
     reconstructedPicksCards: Card[][] = [];
+    selectedCards: Card[] = [];
 
     playerSelect = '0';
     packSelect = '0';
@@ -25,31 +27,45 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewInit {
 
     selectedCard = '';
     showPackindex = 0;
+    pickedCards: Card[] = [];
+    isLoading = true;
+    isSwipeLoaded = false;
+    setCards: Card[] = [];
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private draftViewerService: DraftViewerService,
+        private magicCardsListService: MagicCardsListService,
     ) {}
+
+    ngAfterViewChecked(): void {
+        if (!this.isSwipeLoaded && !this.isLoading) {
+            this.isSwipeLoaded = true;
+            const c: HTMLDivElement | null = document.querySelector('#viewer-container');
+            if (c) {
+                new SwipeModel(c, {
+                    callbackLeft: this.onSwipeLeft.bind(this),
+                    callbackRight: this.onSwipeRight.bind(this),
+                });
+            } else {
+                console.warn('nem volt található a #viewer-container');
+            }
+        }
+    }
 
     ngOnInit(): void {
         const draftId = this.activatedRoute.snapshot.params['draftId'];
         this.draftDef = this.draftViewerService.getDraftById(draftId);
 
-        this.getPacksForPlayer(+this.packSelect);
+        this.magicCardsListService
+            .getCardsForExpansion(undefined, this.draftDef.setCode)
+            .subscribe(cards => {
+                this.isLoading = false;
+                this.setCards = cards;
 
-        this.onFilterChange();
-    }
-
-    ngAfterViewInit(): void {
-        const c: HTMLDivElement | null = document.querySelector('#viewer-container');
-        if (c) {
-            new SwipeModel(c, {
-                callbackLeft: this.onSwipeLeft.bind(this),
-                callbackRight: this.onSwipeRight.bind(this),
+                this.getPacksForPlayer(+this.packSelect);
+                this.onFilterChange();
             });
-        } else {
-            console.warn('nem volt található a #viewer-container');
-        }
     }
 
     goForward() {
@@ -94,8 +110,7 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewInit {
                 if (pick < +this.pickSelect) {
                     continue;
                 }
-                // We need to shit j by i because the packs are given in circle
-                // const nextPackInd = (j + i + (round % 2)) % packs.length; // (this.isEven(round) ? (j + i) % packs.length : (packs.length - 1 - ((j + i) % packs.length))) ;
+
                 const nextPackInd = this.getPackIndex(person, round, pick);
                 if (!this.reconstructedPicks[nextPackInd]) {
                     this.reconstructedPicks[nextPackInd] = [];
@@ -114,16 +129,11 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewInit {
     convertToCard() {
         this.reconstructedPicksCards = this.reconstructedPicks.map(top => {
             return top.map(c => {
+                const card = this.setCards.find(
+                    card => card.cardNumber === c.padStart(3, '0'),
+                ) as Card;
                 return {
-                    cardExpansion: this.draftDef.setCode,
-                    cardNumber: c.padStart(3, '0'),
-                    cardAmount: 1,
-                    cardAmountFoil: 0,
-                    layout: CardLayout.NORMAL,
-                    types: 'creatur',
-                    colors: 'W',
-                    name: 'I dont care',
-                    rarity: 'R',
+                    ...card,
                 };
             });
         });
@@ -142,6 +152,36 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewInit {
             +this.packSelect,
             +this.pickSelect,
         );
+        this.selectedCards = this.reconstructedPicksCards[this.showPackindex];
+
+        this.pickedCards = [];
+        this.draftDef.playerPicks[+this.playerSelect].rounds
+            .filter((r, index) => index <= +this.packSelect)
+            .forEach((r, index) => {
+                if (index !== +this.packSelect) {
+                    r.cards.split(' ').forEach(c => {
+                        const card = this.setCards.find(
+                            card => card.cardNumber === c.padStart(3, '0'),
+                        ) as Card;
+                        this.pickedCards.push({
+                            ...card,
+                        });
+                    });
+                } else {
+                    r.cards
+                        .split(' ')
+                        .filter((_, index) => index < +this.pickSelect)
+                        .forEach(c => {
+                            const card = this.setCards.find(
+                                card => card.cardNumber === c.padStart(3, '0'),
+                            ) as Card;
+                            this.pickedCards.push({
+                                ...card,
+                            });
+                        });
+                }
+            });
+
         console.log(
             this.showPackindex,
             this.playerSelect,
