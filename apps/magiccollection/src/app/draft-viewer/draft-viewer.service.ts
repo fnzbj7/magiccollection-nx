@@ -38,6 +38,9 @@ export class DraftViewerService {
     }
 
     updateDraft(draft: DraftDef): void {
+        this.http.put('/api/draft-view/update', draft).subscribe(drafts => {
+            console.log({ drafts });
+        });
         if (this.temporaryDrafts.has(draft.id)) {
             this.temporaryDrafts.set(draft.id, draft);
         } else {

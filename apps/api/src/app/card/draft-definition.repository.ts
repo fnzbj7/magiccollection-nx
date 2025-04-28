@@ -29,4 +29,28 @@ export class DraftDefinitionRepository {
             .getRepository(DraftDefinition)
             .save<DraftDefinition>(inserDraftDefinition);
     }
+
+    async deleteDraftDef(id: number): Promise<void> {
+        await this.dataSource.getRepository(DraftDefinition).delete(id);
+    }
+
+    async updateDraftDef(draftDef: DraftDef): Promise<DraftDefinition> {
+        const draftDefinition = await this.dataSource
+            .getRepository(DraftDefinition)
+            .findOneBy({ id: +draftDef.id });
+
+        if (!draftDefinition) {
+            throw new Error('Draft definition not found');
+        }
+
+        draftDefinition.name = draftDef.name;
+        draftDefinition.draftDate = draftDef.draftDate;
+        draftDefinition.setCode = draftDef.setCode;
+        draftDefinition.cardsPerPack = draftDef.cardsPerPack;
+        draftDefinition.playerPicks = draftDef.playerPicks;
+
+        return this.dataSource
+            .getRepository(DraftDefinition)
+            .save<DraftDefinition>(draftDefinition);
+    }
 }

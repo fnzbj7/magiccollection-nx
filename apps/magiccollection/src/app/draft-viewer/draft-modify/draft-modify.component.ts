@@ -39,6 +39,8 @@ export class DraftModifyComponent implements OnInit {
             this.draftDef = this.draftViewerService.getDraftById(draftId);
             if (!this.draftDef) {
                 console.error(`Draft with id ${draftId} not found`);
+                this.router.navigate(['/draft-viewer/list']);
+                return;
             }
         } else {
             this.isEditMode = false;
@@ -53,7 +55,7 @@ export class DraftModifyComponent implements OnInit {
         }
     }
 
-    creating8Player(): PlayerPicks[] {
+    private creating8Player(): PlayerPicks[] {
         const players = [];
         for (let i = 1; i <= 8; i++) {
             players.push({
@@ -66,7 +68,6 @@ export class DraftModifyComponent implements OnInit {
 
     saveDraft() {
         if (this.isEditMode) {
-            // TODO update draft
             this.draftViewerService.updateDraft(this.draftDef as DraftDef);
         } else {
             this.draftViewerService.createNewDraft(this.draftDef);

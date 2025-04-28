@@ -16,6 +16,15 @@ export class DraftViewService {
         return this.convertToDraftDef(draftDefinition);
     }
 
+    async deleteDraftDefinition(id: number): Promise<void> {
+        await this.draftDefinitionRepository.deleteDraftDef(id);
+    }
+
+    async updateDraftDefinition(draftDef: DraftDef): Promise<DraftDef> {
+        const draftDefinition = await this.draftDefinitionRepository.updateDraftDef(draftDef);
+        return this.convertToDraftDef(draftDefinition);
+    }
+
     private convertToDraftDef(draftDefinition: DraftDefinition): DraftDef {
         const { id, name, draftDate, setCode, cardsPerPack, playerPicks } = draftDefinition;
         return { id: '' + id, name, draftDate, setCode, cardsPerPack, playerPicks };

@@ -1,24 +1,6 @@
-import { Body, Controller, Get, Logger, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Logger, Param, Post, Put } from '@nestjs/common';
 import { DraftDef } from '@pointless/api-interfaces';
 import { DraftViewService } from './draft-view.service';
-
-// export interface DraftPicks {
-//     cards: string;
-// }
-
-// export interface PlayerPicks {
-//     playerName: string;
-//     rounds: DraftPicks[];
-// }
-
-// export interface DraftDef {
-//     id: string;
-//     name: string;
-//     date: Date;
-//     setCode: string;
-//     cardsPerPack: number;
-//     playerPicks: PlayerPicks[];
-// }
 
 @Controller('draft-view')
 export class DraftViewerController {
@@ -39,6 +21,11 @@ export class DraftViewerController {
 
     @Put('/update')
     updateDraft(@Body() draft: DraftDef) {
-        // TODO
+        return this.draftViewService.updateDraftDefinition(draft);
+    }
+
+    @Delete('/delete/:id')
+    deleteDraft(@Param('id') id: number) {
+        return this.draftViewService.deleteDraftDefinition(id);
     }
 }

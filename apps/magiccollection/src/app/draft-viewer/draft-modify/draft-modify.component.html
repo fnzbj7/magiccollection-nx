@@ -1,4 +1,7 @@
-<div class="container bg-slate-100 w-full flex flex-col items-center justify-center px-4">
+<div
+    class="container bg-slate-100 w-full flex flex-col items-center justify-center px-4"
+    *ngIf="draftDef"
+>
     <h1 class="text-3xl font-bold mb-4">Draft modify</h1>
 
     <form (ngSubmit)="saveDraft()" class="modify-grid grid">
@@ -22,7 +25,11 @@
             >Card set:</label
         >
         <div class="relative w-full inline-block">
-            <select name="cardSet" class="app-select w-full" [(ngModel)]="draftDef.cardsPerPack">
+            <select
+                name="cardsPerPack"
+                class="app-select w-full"
+                [(ngModel)]="draftDef.cardsPerPack"
+            >
                 <option [value]="14">14</option>
                 <option [value]="15">15</option>
             </select>
