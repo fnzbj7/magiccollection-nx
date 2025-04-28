@@ -84,7 +84,10 @@
                         (change)="onFilterChange()"
                         class="app-select w-full"
                     >
-                        <option [value]="i" *ngFor="let noUse of Arr(15).fill(1); let i = index">
+                        <option
+                            [value]="i"
+                            *ngFor="let noUse of Arr(draftDef.cardsPerPack).fill(1); let i = index"
+                        >
                             Pick {{ i + 1 }}
                         </option>
                     </select>
@@ -112,6 +115,7 @@
             <ng-container>
                 <h1 class="text-3xl font-bold">Booster {{ showPackindex + 1 }}</h1>
                 <div class="flex flex-wrap justify-center">
+                    <!-- HERE -->
                     <ng-container *ngFor="let card of selectedCards; trackBy: trackCard">
                         <app-magic-card
                             [ngClass]="{
@@ -126,19 +130,18 @@
                 </div>
             </ng-container>
         </div>
-    </div>
-    <div *ngIf="pickedCards.length > 0">
-        <h1 class="text-3xl font-bold">Selected Card</h1>
-        <div class="flex flex-wrap justify-center">
-            <ng-container *ngFor="let card of pickedCards; trackBy: trackCard">
-                <app-magic-card
-                    [ngClass]="{
-                        'p-1 sm:p-2': selectedCard !== card.cardNumber
-                    }"
-                    [magicCard]="card"
-                    [onlyShow]="true"
-                ></app-magic-card>
-            </ng-container>
+
+        <div *ngIf="pickedCards.length > 0">
+            <h1 class="text-3xl font-bold">Selected Card</h1>
+            <div class="flex flex-wrap justify-center">
+                <ng-container *ngFor="let card of pickedCards; trackBy: trackCard">
+                    <app-magic-card
+                        class="p-1 sm:p-2"
+                        [magicCard]="card"
+                        [onlyShow]="true"
+                    ></app-magic-card>
+                </ng-container>
+            </div>
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { DraftViewerService } from '../draft-viewer.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Card } from '../../model/card.model';
 import { SwipeModel } from '../../shared/swipe/swipe.model';
 import { MagicCardsListService } from '../../magic/magic-card-list/magic-cards-list.service';
@@ -33,11 +33,41 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
     isSwipeLoaded = false;
     setCards: Card[] = [];
 
+    separeator = ' ';
+
     constructor(
         private activatedRoute: ActivatedRoute,
+        private router: Router,
         private draftViewerService: DraftViewerService,
         private magicCardsListService: MagicCardsListService,
     ) {}
+
+    ngOnInit(): void {
+        const draftId = this.activatedRoute.snapshot.params['draftId'];
+        this.draftDef = this.draftViewerService.getDraftById(draftId);
+
+        if (this.draftDef === undefined) {
+            console.error(`Draft with id ${draftId} not found`);
+            this.router.navigate(['/draft-viewer/list']);
+            return;
+        }
+
+        if (this.draftDef.playerPicks[0].rounds[0].cards.includes(' ')) {
+            this.separeator = ' ';
+        } else if (this.draftDef.playerPicks[0].rounds[0].cards.includes('\n')) {
+            this.separeator = '\n';
+        }
+
+        this.magicCardsListService
+            .getCardsForExpansion(undefined, this.draftDef.setCode)
+            .subscribe(cards => {
+                this.isLoading = false;
+                this.setCards = cards;
+
+                this.getPacksForPlayer(+this.packSelect);
+                this.onFilterChange();
+            });
+    }
 
     ngAfterViewChecked(): void {
         if (!this.isSwipeLoaded && !this.isLoading) {
@@ -54,25 +84,16 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
         }
     }
 
-    ngOnInit(): void {
-        const draftId = this.activatedRoute.snapshot.params['draftId'];
-        this.draftDef = this.draftViewerService.getDraftById(draftId);
-
-        this.magicCardsListService
-            .getCardsForExpansion(undefined, this.draftDef.setCode)
-            .subscribe(cards => {
-                this.isLoading = false;
-                this.setCards = cards;
-
-                this.getPacksForPlayer(+this.packSelect);
-                this.onFilterChange();
-            });
-    }
-
     goForward() {
-        if (+this.pickSelect == this.draftDef.cardsPerPack - 1) {
+        if (+this.pickSelect < this.draftDef.cardsPerPack - 1) {
             this.pickSelect = (+this.pickSelect + 1).toString();
             this.onFilterChange();
+        } else {
+            if (+this.packSelect < this.draftDef.playerPicks[0].rounds.length - 1) {
+                this.packSelect = (+this.packSelect + 1).toString();
+                this.pickSelect = '0';
+                this.onFilterChange();
+            }
         }
     }
 
@@ -80,6 +101,12 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
         if (this.pickSelect !== '0') {
             this.pickSelect = (+this.pickSelect - 1).toString();
             this.onFilterChange();
+        } else {
+            if (this.packSelect !== '0') {
+                this.packSelect = (+this.packSelect - 1).toString();
+                this.pickSelect = (this.draftDef.cardsPerPack - 1).toString();
+                this.onFilterChange();
+            }
         }
     }
 
@@ -100,8 +127,7 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
         // const reconstructedPicks: string[][] = [];
 
         this.draftDef.playerPicks.forEach(pick => {
-            // TODO
-            const picked = pick.rounds[round].cards.split(' ');
+            const picked = pick.rounds[round].cards.split(this.separeator);
             packs.push(picked);
         });
 
@@ -141,10 +167,12 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
 
     onFilterChange() {
         this.getPacksForPlayer(+this.packSelect);
-        this.selectedCard =
-            this.draftDef.playerPicks[+this.playerSelect].rounds[+this.packSelect].cards.split(' ')[
-                +this.pickSelect
-            ];
+
+        const split = this.draftDef.playerPicks[+this.playerSelect].rounds[
+            +this.packSelect
+        ].cards.split(this.separeator);
+
+        this.selectedCard = split[+this.pickSelect];
         this.selectedCard = this.selectedCard.padStart(3, '0');
 
         this.showPackindex = this.getPackIndex(
@@ -159,7 +187,7 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
             .filter((r, index) => index <= +this.packSelect)
             .forEach((r, index) => {
                 if (index !== +this.packSelect) {
-                    r.cards.split(' ').forEach(c => {
+                    r.cards.split(this.separeator).forEach(c => {
                         const card = this.setCards.find(
                             card => card.cardNumber === c.padStart(3, '0'),
                         ) as Card;
@@ -169,7 +197,7 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
                     });
                 } else {
                     r.cards
-                        .split(' ')
+                        .split(this.separeator)
                         .filter((_, index) => index <= +this.pickSelect)
                         .forEach(c => {
                             const card = this.setCards.find(
