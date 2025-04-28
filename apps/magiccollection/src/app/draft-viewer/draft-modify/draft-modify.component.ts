@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { magicSetArray } from '../../magic/magic-card-list/magic-cards-list.service';
 import { MagicSet } from '../../magic/magic-card-list/model/magic-set.model';
-import { DraftDef, DraftViewerService, PlayerPicks } from '../draft-viewer.service';
+import { DraftViewerService } from '../draft-viewer.service';
+import { DraftDef, PlayerPicks } from '@pointless/api-interfaces';
 
 type modifyDraft = DraftDef | Omit<DraftDef, 'id'>;
 
@@ -43,8 +44,9 @@ export class DraftModifyComponent implements OnInit {
             this.isEditMode = false;
             this.draftDef = {
                 name: 'Sample Draft ' + Math.floor(Math.random() * 1000),
-                date: new Date(),
+                draftDate: new Date(),
                 setCode: '',
+                cardsPerPack: 15,
                 playerPicks: this.creating8Player(),
             };
             console.log('New draft creation ongoing', this.draftDef);

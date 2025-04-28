@@ -1,9 +1,10 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { DraftDef, DraftViewerService } from '../draft-viewer.service';
+import { DraftViewerService } from '../draft-viewer.service';
 import { ActivatedRoute } from '@angular/router';
-import { Card, CardLayout } from '../../model/card.model';
+import { Card } from '../../model/card.model';
 import { SwipeModel } from '../../shared/swipe/swipe.model';
 import { MagicCardsListService } from '../../magic/magic-card-list/magic-cards-list.service';
+import { DraftDef } from '@pointless/api-interfaces';
 
 export interface PlayerDraftPicks {
     cards: Card[];
@@ -69,14 +70,13 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
     }
 
     goForward() {
-        if (this.pickSelect !== '14') {
+        if (+this.pickSelect == this.draftDef.cardsPerPack - 1) {
             this.pickSelect = (+this.pickSelect + 1).toString();
             this.onFilterChange();
         }
     }
 
     goBackward() {
-        console.log('Hy im here B');
         if (this.pickSelect !== '0') {
             this.pickSelect = (+this.pickSelect - 1).toString();
             this.onFilterChange();
@@ -170,7 +170,7 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
                 } else {
                     r.cards
                         .split(' ')
-                        .filter((_, index) => index < +this.pickSelect)
+                        .filter((_, index) => index <= +this.pickSelect)
                         .forEach(c => {
                             const card = this.setCards.find(
                                 card => card.cardNumber === c.padStart(3, '0'),

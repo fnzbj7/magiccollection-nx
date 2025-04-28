@@ -11,6 +11,7 @@ import { PossibleCardVariation } from '../app/card/entity/possible-card-variatio
 import { UniqueCard } from '../app/card/entity/unique-card.entity';
 import { environment } from '../environments/environment';
 import migrationsList from './migration-list';
+import { DraftDefinition } from '../app/card/entity/draft-viewer/draft-definition.enitity';
 
 const dbConfig: any = environment.db;
 
@@ -31,6 +32,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
         CalendarEvent,
         CardVariation,
         PossibleCardVariation,
+        DraftDefinition,
     ],
     synchronize: dbConfig.synchronize,
     migrations: migrationsList,

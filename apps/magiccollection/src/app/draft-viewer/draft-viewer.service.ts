@@ -1,37 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-export interface DraftPicks {
-    cards: string;
-}
-
-export interface PlayerPicks {
-    playerName: string;
-    rounds: DraftPicks[];
-}
-
-export interface DraftDef {
-    id: string;
-    name: string;
-    date: Date;
-    setCode: string;
-    playerPicks: PlayerPicks[];
-}
+import { DraftDef } from '@pointless/api-interfaces';
+import { tap } from 'rxjs';
 
 @Injectable()
 export class DraftViewerService {
     temporaryDrafts = new Map<string, DraftDef>();
 
-    constructor() {
+    constructor(private http: HttpClient) {
         console.log('Csak létrejött a service');
         const dummy = this.creatingDummyDraft();
         this.temporaryDrafts.set(dummy.id, dummy);
     }
 
-    getAllDrafts(): DraftDef[] {
-        return Array.from(this.temporaryDrafts.values());
+    getAllDrafts() {
+        return this.http.get<DraftDef[]>('/api/draft-view/drafts').pipe(
+            tap(drafts => {
+                drafts.forEach(draft => {
+                    this.temporaryDrafts.set(draft.id, draft);
+                });
+            }),
+        );
+        // return Array.from(this.temporaryDrafts.values());
     }
 
     createNewDraft(draftData: Omit<DraftDef, 'id'>): DraftDef {
+        this.http.post('/api/draft-view/create', draftData).subscribe(drafts => {
+            console.log({ drafts });
+        });
         const newDraft: DraftDef = { ...draftData, id: crypto.randomUUID() };
         this.temporaryDrafts.set(newDraft.id, newDraft);
         return newDraft;
@@ -72,8 +68,9 @@ export class DraftViewerService {
         return {
             id: 'Dummy-string',
             name: 'Sample Draft ' + Math.floor(Math.random() * 1000),
-            date: new Date(),
+            draftDate: new Date(),
             setCode: 'TDM',
+            cardsPerPack: 15,
             playerPicks: players,
         };
     }

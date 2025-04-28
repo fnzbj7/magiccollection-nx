@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DraftDef, DraftViewerService } from '../draft-viewer.service';
+import { DraftViewerService } from '../draft-viewer.service';
+import { DraftDef } from '@pointless/api-interfaces';
 
 @Component({
     selector: 'app-draft-list',
@@ -8,12 +9,17 @@ import { DraftDef, DraftViewerService } from '../draft-viewer.service';
 })
 export class DraftListComponent implements OnInit {
     drafts!: DraftDef[];
+    isLoading = true;
 
     constructor(private draftViewerService: DraftViewerService) {
         // Constructor logic can go here if needed
     }
 
     ngOnInit() {
-        this.drafts = this.draftViewerService.getAllDrafts();
+        this.draftViewerService.getAllDrafts().subscribe(drafts => {
+            this.drafts = drafts;
+            this.isLoading = false;
+            console.log({ drafts });
+        });
     }
 }
