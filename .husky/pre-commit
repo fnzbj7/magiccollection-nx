@@ -1,7 +1,19 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-git stash --keep-index
-nx format:write
-git add .
-git stash pop
+# Run format check on staged files only
+echo "🔍 Checking code formatting..."
+nx format:check
+
+# Store the exit code
+FORMAT_EXIT_CODE=$?
+
+# If format check failed, prevent commit
+if [ $FORMAT_EXIT_CODE -ne 0 ]; then
+    echo "❌ Code formatting issues found. Please run 'nx format:write' to fix them."
+    exit 1
+fi
+
+# If we made it here, formatting is good
+echo "✅ Code formatting is correct"
+exit 0

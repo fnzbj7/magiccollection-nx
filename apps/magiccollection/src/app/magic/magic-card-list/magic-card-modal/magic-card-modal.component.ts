@@ -78,6 +78,7 @@ export class MagicCardModalComponent implements OnInit, AfterViewInit {
                 }).bind(this, this.cardContainer.nativeElement),
                 dragEvent: this.dragEvent.bind(this),
                 dragStop: this.dragStop.bind(this),
+                enableGrabCursor: true,
             });
         }
     }

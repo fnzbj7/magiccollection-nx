@@ -5,4 +5,5 @@ export class SwipeOption {
     dragStart?: () => void;
     dragEvent?: (startPx: number | null, actualPx: number) => void;
     dragStop?: () => void;
+    enableGrabCursor?: boolean;
 }
