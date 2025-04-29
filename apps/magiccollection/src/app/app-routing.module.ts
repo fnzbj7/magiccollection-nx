@@ -35,7 +35,6 @@ const appRoute: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(appRoute, {
-            relativeLinkResolution: 'legacy',
             scrollPositionRestoration: 'enabled',
         }),
     ],

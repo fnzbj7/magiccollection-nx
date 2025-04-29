@@ -43,9 +43,11 @@ export class MagicSetListComponent implements OnInit {
         this.yearBlocks = this.magicCardsListService.yearBlocks;
 
         // Observe screen size changes
-        this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
-            this.isMobile = result.matches;
-        });
+        this.breakpointObserver
+            .observe([Breakpoints.Handset])
+            .subscribe((result: { matches: boolean }) => {
+                this.isMobile = result.matches;
+            });
     }
 
     onScroll(event: Event) {

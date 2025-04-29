@@ -1,8 +1,7 @@
-import { DataSource, FindOneOptions, FindOptionsWhere, ObjectID, Repository } from 'typeorm';
+import { DataSource, FindOneOptions, FindOptionsWhere, ObjectId, Repository } from 'typeorm';
 import { CalendarEvent } from '../entity/calendar-event.entity';
 import { User } from '../../auth/entity/user.entity';
 import { ConflictException, Injectable, InternalServerErrorException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class CalendarEventRepository {
@@ -66,8 +65,8 @@ export class CalendarEventRepository {
             | number[]
             | Date
             | Date[]
-            | ObjectID
-            | ObjectID[]
+            | ObjectId
+            | ObjectId[]
             | FindOptionsWhere<CalendarEvent>,
     ) {
         this.calendarEventRepository.delete(criteria);

@@ -53,7 +53,7 @@ const FILTER_REGEX = /[^0-9]/g;
                         inputmode="numeric"
                         placeholder="HH"
                         i18n-placeholder="@@ngb.timepicker.HH"
-                        [value]="formatHour(model?.hour)"
+                        [value]="formatHour(model.hour)"
                         (change)="updateHour($any($event).target.value)"
                         [readOnly]="readonlyInputs"
                         [disabled]="disabled"
@@ -108,7 +108,7 @@ const FILTER_REGEX = /[^0-9]/g;
                         inputmode="numeric"
                         placeholder="MM"
                         i18n-placeholder="@@ngb.timepicker.MM"
-                        [value]="formatMinSec(model?.minute)"
+                        [value]="formatMinSec(model.minute)"
                         (change)="updateMinute($any($event).target.value)"
                         [readOnly]="readonlyInputs"
                         [disabled]="disabled"
@@ -163,7 +163,7 @@ const FILTER_REGEX = /[^0-9]/g;
                         inputmode="numeric"
                         placeholder="SS"
                         i18n-placeholder="@@ngb.timepicker.SS"
-                        [value]="formatMinSec(model?.second)"
+                        [value]="formatMinSec(model.second)"
                         (change)="updateSecond($any($event).target.value)"
                         [readOnly]="readonlyInputs"
                         [disabled]="disabled"
@@ -311,6 +311,7 @@ export class NgbTimepickerComponent implements ControlValueAccessor, OnChanges {
         this.size = _config.size;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     onChange = (_: unknown) => {
         // Nothing
     };
