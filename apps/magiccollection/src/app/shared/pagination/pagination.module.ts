@@ -4,7 +4,6 @@ import { PaginationComponent } from './pagination.component';
 
 @NgModule({
     declarations: [PaginationComponent],
-    entryComponents: [PaginationComponent],
     imports: [CommonModule],
     exports: [PaginationComponent],
 })

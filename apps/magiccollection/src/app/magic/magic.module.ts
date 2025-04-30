@@ -54,7 +54,6 @@ import { ModifyUploadComponent } from './modify-card/modify-upload/modify-upload
         CardQuantityFilterComponent,
         CardLayoutWrapperComponent,
     ],
-    entryComponents: [MagicCardModalComponent],
     imports: [CommonModule, MagicRoutingModule, SharedModule, FormsModule, PaginationModule],
 })
 export class MagicModule {}
