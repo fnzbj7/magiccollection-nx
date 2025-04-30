@@ -45,7 +45,7 @@ export class DraftModifyComponent implements OnInit {
         } else {
             this.isEditMode = false;
             this.draftDef = {
-                name: 'Sample Draft ' + Math.floor(Math.random() * 1000),
+                name: 'New Draft',
                 draftDate: new Date(),
                 setCode: '',
                 cardsPerPack: 15,

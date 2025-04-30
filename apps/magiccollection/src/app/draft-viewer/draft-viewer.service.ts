@@ -39,6 +39,9 @@ export class DraftViewerService {
 
     updateDraft(draft: DraftDef): void {
         if (this.temporaryDrafts.has(draft.id)) {
+            this.http.put('/api/draft-view/update', draft).subscribe(draft => {
+                console.log({ draft });
+            });
             this.temporaryDrafts.set(draft.id, draft);
         } else {
             console.error(`Draft with id ${draft.id} not found`);
