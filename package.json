@@ -4,7 +4,6 @@
     "license": "MIT",
     "scripts": {
         "ng": "nx",
-        "ngv16": "nx migrate @nx/angular@16",
         "postinstall": "node version.js && node ./decorate-angular-cli.js",
         "start:api": "nx serve api",
         "start:frontend": "nx serve magiccollection --skip-nx-cache",
