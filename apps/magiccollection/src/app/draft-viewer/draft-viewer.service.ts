@@ -24,28 +24,16 @@ export class DraftViewerService {
         // return Array.from(this.temporaryDrafts.values());
     }
 
-    createNewDraft(draftData: Omit<DraftDef, 'id'>): DraftDef {
-        this.http.post('/api/draft-view/create', draftData).subscribe(drafts => {
-            console.log({ drafts });
-        });
-        const newDraft: DraftDef = { ...draftData, id: crypto.randomUUID() };
-        this.temporaryDrafts.set(newDraft.id, newDraft);
-        return newDraft;
+    createNewDraft(draftData: Omit<DraftDef, 'id'>) {
+        return this.http.post('/api/draft-view/create', draftData);
     }
 
     getDraftById(id: string): DraftDef {
         return this.temporaryDrafts.get(id) as DraftDef; // I don't care error handling now
     }
 
-    updateDraft(draft: DraftDef): void {
-        if (this.temporaryDrafts.has(draft.id)) {
-            this.http.put('/api/draft-view/update', draft).subscribe(draft => {
-                console.log({ draft });
-            });
-            this.temporaryDrafts.set(draft.id, draft);
-        } else {
-            console.error(`Draft with id ${draft.id} not found`);
-        }
+    updateDraft(draft: DraftDef) {
+        return this.http.put('/api/draft-view/update', draft);
     }
 
     deleteDraft(id: string): void {

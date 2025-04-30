@@ -20,6 +20,7 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
     draftDef!: DraftDef;
     reconstructedPicks: string[][] = [];
     reconstructedPicksCards: Card[][] = [];
+    playerNames: string[] = [];
     selectedCards: Card[] = [];
 
     playerSelect = '0';
@@ -51,6 +52,10 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
             this.router.navigate(['/draft-viewer/list']);
             return;
         }
+
+        this.draftDef.playerPicks.forEach((pick, index) => {
+            this.playerNames.push(pick.playerName);
+        });
 
         if (this.draftDef.playerPicks[0].rounds[0].cards.includes(' ')) {
             this.separeator = ' ';

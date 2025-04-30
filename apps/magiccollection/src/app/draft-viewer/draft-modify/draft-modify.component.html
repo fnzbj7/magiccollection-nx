@@ -56,8 +56,20 @@
             />
         </div>
 
-        <details open *ngFor="let player of draftDef.playerPicks; let i = index">
-            <summary>{{ player.playerName }}</summary>
+        <details class="mt-5" open *ngFor="let player of draftDef.playerPicks; let i = index">
+            <summary class="cursor-pointer">{{ player.playerName }}</summary>
+            <div class="flex flex-col items-start">
+                <label for="playerName" class="mb-2 text-sm font-medium text-gray-700"
+                    >{{ i + 1 }}. Name:</label
+                >
+                <input
+                    [id]="'playerName' + i"
+                    [name]="'playerName' + i"
+                    [(ngModel)]="player.playerName"
+                    type="text"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+            </div>
             <textarea
                 *ngFor="let round of player.rounds; let j = index"
                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -69,7 +81,7 @@
             ></textarea>
         </details>
 
-        <button class="btn-primary">Submit</button>
+        <button class="btn-primary" [disabled]="isSaveOngoing">Submit</button>
     </form>
     <a class="btn-warning" [routerLink]="['/draft-viewer', 'list']">Go Back</a>
 </div>

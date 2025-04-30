@@ -17,6 +17,7 @@ export class DraftModifyComponent implements OnInit {
     magicSetArray!: MagicSet[];
     draft: DraftDef | null = null;
     isEditMode = false;
+    isSaveOngoing = false;
     draftDef!: modifyDraft;
 
     constructor(
@@ -67,13 +68,20 @@ export class DraftModifyComponent implements OnInit {
     }
 
     saveDraft() {
+        this.isSaveOngoing = true;
         if (this.isEditMode) {
-            this.draftViewerService.updateDraft(this.draftDef as DraftDef);
+            this.draftViewerService
+                .updateDraft(this.draftDef as DraftDef)
+                .subscribe(updatedDraft => {
+                    // navigate back to  the list
+                    this.router.navigate(['/draft-viewer/list']);
+                    console.log('Draft saved');
+                });
         } else {
-            this.draftViewerService.createNewDraft(this.draftDef);
+            this.draftViewerService.createNewDraft(this.draftDef).subscribe(drafts => {
+                console.log({ drafts });
+                this.router.navigate(['/draft-viewer/list']);
+            });
         }
-        // navigate back to  the list
-        this.router.navigate(['/draft-viewer/list']);
-        console.log('Draft saved');
     }
 }

@@ -20,8 +20,8 @@
                         (change)="onFilterChange()"
                         class="app-select w-full"
                     >
-                        <option [value]="i" *ngFor="let noUse of Arr(8).fill(1); let i = index">
-                            Player {{ i + 1 }}
+                        <option [value]="i" *ngFor="let name of playerNames; let i = index">
+                            {{ name }}
                         </option>
                     </select>
                     <div
