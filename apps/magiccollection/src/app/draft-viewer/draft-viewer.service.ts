@@ -1,7 +1,8 @@
+import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DraftDef } from '@pointless/api-interfaces';
-import { tap } from 'rxjs';
+import { map, tap } from 'rxjs';
 
 @Injectable()
 export class DraftViewerService {
@@ -20,8 +21,13 @@ export class DraftViewerService {
                     this.temporaryDrafts.set(draft.id, draft);
                 });
             }),
+            map(drafts => {
+                drafts.forEach(draft => {
+                    draft.draftDate = formatDate(new Date(), 'yyyy-MM-dd', 'en') as unknown as Date; //new Date(draft.draftDate);
+                });
+                return drafts;
+            }),
         );
-        // return Array.from(this.temporaryDrafts.values());
     }
 
     createNewDraft(draftData: Omit<DraftDef, 'id'>) {

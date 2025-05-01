@@ -1,8 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { DraftViewerService } from '../draft-viewer.service';
-import { DraftDef } from '@pointless/api-interfaces';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { magicSetArray } from '../../magic/magic-card-list/magic-cards-list.service';
+
+interface DraftTableView {
+    id: string;
+    draftName: string;
+    draftDate: string;
+    setFullName: string;
+    setCode: string;
+}
 
 @Component({
     selector: 'app-draft-list',
@@ -10,7 +17,7 @@ import { magicSetArray } from '../../magic/magic-card-list/magic-cards-list.serv
     styleUrls: ['./draft-list.component.scss'],
 })
 export class DraftListComponent implements OnInit {
-    drafts!: DraftDef[];
+    draftsTableView!: DraftTableView[];
 
     isLoading = true;
     faPenToSquare = faEdit;
@@ -21,28 +28,22 @@ export class DraftListComponent implements OnInit {
 
     ngOnInit() {
         this.draftViewerService.getAllDrafts().subscribe(drafts => {
-            this.drafts = drafts;
             this.isLoading = false;
             console.log({ drafts });
-            drafts.map(draft => {
-                draft.setCode =
-                    magicSetArray.find(set => set.name === draft.setCode)?.fullName ||
-                    'Unknown Set';
-                // draft.draftDate = new Date(draft.draftDate);
-                return draft;
+            this.draftsTableView = drafts.map(draft => {
+                return {
+                    id: draft.id,
+                    draftName: draft.name,
+                    draftDate: new Date(draft.draftDate)
+                        .toISOString()
+                        .split('T')[0]
+                        .replace(/-/g, '.'),
+                    setFullName:
+                        magicSetArray.find(set => set.name === draft.setCode)?.fullName ||
+                        'Unknown Set',
+                    setCode: draft.setCode,
+                } as DraftTableView;
             });
         });
-    }
-
-    toggleDropdown(draftId: string) {
-        const dropdown = document.getElementById(`dropdown-${draftId}`);
-        if (dropdown) {
-            dropdown.classList.toggle('show');
-        }
-    }
-
-    isDropdownOpen(draftId: string): boolean {
-        const dropdown = document.getElementById(`dropdown-${draftId}`);
-        return dropdown ? dropdown.classList.contains('show') : false;
     }
 }

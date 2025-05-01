@@ -16,16 +16,18 @@
             </thead>
             <tbody>
                 <tr
-                    *ngFor="let draft of drafts"
+                    *ngFor="let draft of draftsTableView"
                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
                     <th
                         scope="row"
                         class="px-6 py-4 font-medium text-blue-600 whitespace-nowrap dark:text-blue-400"
                     >
-                        <a [routerLink]="['/draft-viewer', 'core', draft.id]">{{ draft.name }}</a>
+                        <a [routerLink]="['/draft-viewer', 'core', draft.id]">{{
+                            draft.draftName
+                        }}</a>
                     </th>
-                    <td class="px-6 py-4">{{ draft.setCode }}</td>
+                    <td class="px-6 py-4">{{ draft.setFullName }}</td>
                     <td class="px-6 py-4">{{ draft.draftDate }}</td>
                     <td class="px-6 py-4">
                         <button
@@ -47,13 +49,13 @@
     <!-- Responsive Card Layout -->
     <div *ngIf="!isLoading" class="grid grid-cols-1 gap-4 w-full md:hidden">
         <div
-            *ngFor="let draft of drafts"
+            *ngFor="let draft of draftsTableView"
             class="bg-white p-4 rounded-lg shadow-md dark:bg-gray-800"
         >
             <h2 class="text-lg font-bold text-blue-600 dark:text-blue-400">
-                <a [routerLink]="['/draft-viewer', 'core', draft.id]">{{ draft.name }}</a>
+                <a [routerLink]="['/draft-viewer', 'core', draft.id]">{{ draft.draftName }}</a>
             </h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Set: {{ draft.setCode }}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Set: {{ draft.setFullName }}</p>
             <p class="text-sm text-gray-500 dark:text-gray-400">Date: {{ draft.draftDate }}</p>
             <button
                 class="mt-2 text-gray-500 hover:text-gray-700"
