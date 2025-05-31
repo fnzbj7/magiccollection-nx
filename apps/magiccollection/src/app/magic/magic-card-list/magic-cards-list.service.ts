@@ -12,6 +12,7 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('FIN', 'Final Fantasy', 585, 2025),
     new MagicSet('TDM', 'Tarkir: Dragonstorm', 455, 2025),
     new MagicSet('DFT', 'Aetherdrift', 553, 2025),
     new MagicSet('FDN', 'Foundations', 730, 2024),
@@ -240,7 +241,7 @@ export class MagicCardsListService {
         this.quantityFilterSub.next(qualityFilter);
     }
 
-    creatingCardUrls(card: Card, isFlip: boolean = false): CardUrls {
+    creatingCardUrls(card: Card, isFlip = false): CardUrls {
         const { cardExpansion, cardNumber } = card;
         const cardUrls = new CardUrls(
             `${this.cardImgUrlBase}${cardExpansion}/webp/${cardExpansion}_${cardNumber}.webp`,
