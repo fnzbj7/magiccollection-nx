@@ -16,7 +16,7 @@ export class MagicCardComponent implements OnChanges {
     @Input() magicCard!: Card;
     @Input() onlyShow = false;
     @Input() onlyCardBack = false;
-    @Input() imgSize: 'auto' | 'small' | 'large' = 'auto';
+    @Input() imgSize: 'auto' | 'small' | 'tiny' | 'large' = 'auto';
     card!: Card;
 
     imageSrcPng!: string;

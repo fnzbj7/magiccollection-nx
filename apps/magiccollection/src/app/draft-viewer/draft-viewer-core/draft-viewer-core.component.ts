@@ -16,6 +16,22 @@ export interface PlayerDraftPicks {
     styleUrls: ['./draft-viewer-core.component.scss'],
 })
 export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
+    /**
+     * Returns the current picked card for the given player index (idx) for the current pack and pick.
+     * Returns null if not available.
+     */
+    getCurrentPickCard(idx: number): Card | null {
+        if (!this.draftDef || !this.draftDef.playerPicks[idx]) return null;
+        const rounds = this.draftDef.playerPicks[idx].rounds;
+        const packIdx = +this.packSelect;
+        const pickIdx = +this.pickSelect;
+        if (!rounds[packIdx]) return null;
+        const split = rounds[packIdx].cards.split(this.separeator);
+        const cardId = split[pickIdx];
+        if (!cardId) return null;
+        const paddedCardId = cardId.padStart(3, '0');
+        return this.setCards.find(card => card.cardNumber === paddedCardId) || null;
+    }
     Arr = Array;
     draftDef!: DraftDef;
     reconstructedPicks: string[][] = [];

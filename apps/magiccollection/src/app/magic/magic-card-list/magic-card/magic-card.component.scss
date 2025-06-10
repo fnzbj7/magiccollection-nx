@@ -6,6 +6,18 @@
     height: 153px;
 }
 
+.magiccard_li.tiny {
+    width: 32px;
+    height: 48px;
+}
+
+@media (min-width: 827px) {
+    .magiccard_li.tiny {
+        width: 32px;
+        height: 48px;
+    }
+}
+
 /* ------------ */
 .magiccard {
     height: 100%;

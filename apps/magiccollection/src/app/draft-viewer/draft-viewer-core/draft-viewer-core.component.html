@@ -5,6 +5,102 @@
     <h1 class="text-3xl font-bold mt-4 mb-11">
         Here we gonna see the core functionality of the draft viewer
     </h1>
+    <!-- Draft Table SVG Visualization -->
+    <div class="w-full flex flex-col items-center mb-6">
+        <svg width="420" height="230" viewBox="0 0 420 230">
+            <!-- Table rectangle -->
+            <rect
+                x="60"
+                y="70"
+                width="300"
+                height="90"
+                rx="20"
+                fill="#e5e7eb"
+                stroke="#9ca3af"
+                stroke-width="3"
+            />
+            <!-- Top row (players 0-3) -->
+            <g *ngFor="let idx of [0, 1, 2, 3]; let i = index">
+                <g>
+                    <foreignObject
+                        [attr.x]="72 + i * 80"
+                        y="50"
+                        width="35"
+                        height="54"
+                        *ngIf="getCurrentPickCard(idx) as card"
+                    >
+                        <app-magic-card
+                            [magicCard]="card"
+                            [onlyShow]="true"
+                            [imgSize]="'tiny'"
+                        ></app-magic-card>
+                    </foreignObject>
+                    <g
+                        (click)="playerSelect = idx.toString(); onFilterChange()"
+                        style="cursor: pointer"
+                    >
+                        <circle
+                            [attr.cx]="91 + i * 80"
+                            cy="35"
+                            r="22"
+                            [attr.fill]="playerSelect === idx.toString() ? '#2563eb' : '#fff'"
+                            stroke="#2563eb"
+                            stroke-width="2"
+                        />
+                        <text
+                            [attr.x]="91 + i * 80"
+                            y="39"
+                            text-anchor="middle"
+                            font-size="12"
+                            [attr.fill]="playerSelect === idx.toString() ? '#fff' : '#1e293b'"
+                        >
+                            {{ playerNames[idx] }}
+                        </text>
+                    </g>
+                </g>
+            </g>
+            <!-- Bottom row (players 4-7) -->
+            <g *ngFor="let idx of [4, 5, 6, 7]; let i = index">
+                <g>
+                    <foreignObject
+                        [attr.x]="72 + i * 80"
+                        y="130"
+                        width="35"
+                        height="54"
+                        *ngIf="getCurrentPickCard(idx) as card"
+                    >
+                        <app-magic-card
+                            [magicCard]="card"
+                            [onlyShow]="true"
+                            [imgSize]="'tiny'"
+                        ></app-magic-card>
+                    </foreignObject>
+                    <g
+                        (click)="playerSelect = idx.toString(); onFilterChange()"
+                        style="cursor: pointer"
+                    >
+                        <circle
+                            [attr.cx]="91 + i * 80"
+                            cy="195"
+                            r="22"
+                            [attr.fill]="playerSelect === idx.toString() ? '#2563eb' : '#fff'"
+                            stroke="#2563eb"
+                            stroke-width="2"
+                        />
+                        <text
+                            [attr.x]="91 + i * 80"
+                            y="199"
+                            text-anchor="middle"
+                            font-size="12"
+                            [attr.fill]="playerSelect === idx.toString() ? '#fff' : '#1e293b'"
+                        >
+                            {{ playerNames[idx] }}
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </div>
     <div class="flex flex-row self-start items-end w-full justify-between">
         <div class="flex flex-row gap-4 flex-wrap">
             <div class="w-28">
