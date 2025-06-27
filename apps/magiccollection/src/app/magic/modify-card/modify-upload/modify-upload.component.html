@@ -55,6 +55,66 @@
                     }"
                     [onlyShow]="true"
                 ></app-magic-card>
+                <div class="text-sm font-bold flex justify-center relative z-10 -mt-6 mb-1">
+                    <!-- BADGES -->
+                    <!-- Foil badge logic -->
+                    <span
+                        *ngIf="card.wasF !== card.haveF && card.haveF === 1"
+                        class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-blue-500 text-white mr-1"
+                        title="Fő gyűjtemény (Main Collection)"
+                    >
+                        <fa-icon [icon]="faStar" class="mr-1"></fa-icon>Main
+                    </span>
+                    <span
+                        *ngIf="card.wasF !== card.haveF && card.haveF > 1"
+                        class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-purple-500 text-white mr-1"
+                        title="Foil Graveyard (Extra foil cards)"
+                    >
+                        <fa-icon [icon]="faHandSparkles" class="mr-1"></fa-icon>Foil Graveyard
+                    </span>
+                    <!-- Normal badge logic -->
+                    <ng-container *ngIf="card.was !== card.have && card.wasF === card.haveF">
+                        <ng-container *ngIf="card.wasF > 0; else noFoilBadgeBlock">
+                            <span
+                                *ngIf="card.have <= 4"
+                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-green-500 text-white mr-1"
+                                title="Bulk gyűjtemény (Bulk Collection)"
+                            >
+                                <fa-icon [icon]="faBoxes" class="mr-1"></fa-icon>Bulk
+                            </span>
+                            <span
+                                *ngIf="card.have > 4"
+                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-red-500 text-white mr-1"
+                                title="Kidobandó (Throw Away)"
+                            >
+                                <fa-icon [icon]="faTrash" class="mr-1"></fa-icon>Throw Away
+                            </span>
+                        </ng-container>
+                        <ng-template #noFoilBadgeBlock>
+                            <span
+                                *ngIf="card.have === 1"
+                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-blue-500 text-white mr-1"
+                                title="Fő gyűjtemény (Main Collection)"
+                            >
+                                <fa-icon [icon]="faStar" class="mr-1"></fa-icon>Main
+                            </span>
+                            <span
+                                *ngIf="card.have > 1 && card.have <= 5"
+                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-green-500 text-white mr-1"
+                                title="Bulk gyűjtemény (Bulk Collection)"
+                            >
+                                <fa-icon [icon]="faBoxes" class="mr-1"></fa-icon>Bulk
+                            </span>
+                            <span
+                                *ngIf="card.have > 5"
+                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-red-500 text-white mr-1"
+                                title="Kidobandó (Throw Away)"
+                            >
+                                <fa-icon [icon]="faTrash" class="mr-1"></fa-icon>Throw Away
+                            </span>
+                        </ng-template>
+                    </ng-container>
+                </div>
             </div>
             <div class="flex">
                 <div class="normal flex flex-col align-items-center">
