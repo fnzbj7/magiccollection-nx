@@ -60,11 +60,30 @@
                     <!-- Foil badge logic -->
                     <span
                         *ngIf="card.wasF !== card.haveF && card.haveF === 1"
-                        class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-blue-500 text-white mr-1"
+                        class="inline-flex items-center pl-2 pr-3 py-1 text-xs font-medium rounded-l bg-blue-500 text-white mr-0"
                         title="Fő gyűjtemény (Main Collection)"
                     >
                         <fa-icon [icon]="faStar" class="mr-1"></fa-icon>Main
                     </span>
+                    <!-- Mashed small badge for displaced normal -->
+                    <ng-container
+                        *ngIf="card.wasF !== card.haveF && card.haveF === 1 && card.was > 0"
+                    >
+                        <span
+                            *ngIf="card.was <= 4"
+                            class="inline-flex items-center justify-center px-1 py-1 text-xs font-medium rounded-r bg-green-500 text-white -ml-1 border-l border-white shadow"
+                            title="A normál példány a Bulk-ba kerül"
+                        >
+                            <fa-icon [icon]="faBoxes" class="text-white"></fa-icon>
+                        </span>
+                        <span
+                            *ngIf="card.was > 4"
+                            class="inline-flex items-center justify-center px-1 py-1 text-xs font-medium rounded-r bg-red-500 text-white -ml-1 border-l border-white shadow"
+                            title="A normál példány kidobandó"
+                        >
+                            <fa-icon [icon]="faTrash" class="text-white"></fa-icon>
+                        </span>
+                    </ng-container>
                     <span
                         *ngIf="card.wasF !== card.haveF && card.haveF > 1"
                         class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-purple-500 text-white mr-1"
