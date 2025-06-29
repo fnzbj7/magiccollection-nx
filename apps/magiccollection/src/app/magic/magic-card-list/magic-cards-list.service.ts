@@ -307,6 +307,23 @@ export enum CardVariantType {
     LIST = 'list',
 }
 
+export interface CardVariantTypeDto {
+    isNormal: boolean;
+    isFoil: boolean;
+}
+
+export interface CardVariantTypeDtoMap {
+    [key: string]: CardVariantTypeDto;
+}
+
+export const defaultCardVariantType: CardVariantTypeDtoMap = {
+    [CardVariantType.NORMAL]: { isNormal: true, isFoil: true },
+    [CardVariantType.ETCHED]: { isNormal: false, isFoil: true },
+    [CardVariantType.PRERELEASE]: { isNormal: false, isFoil: true },
+    [CardVariantType.STAMPED]: { isNormal: true, isFoil: true },
+    [CardVariantType.LIST]: { isNormal: true, isFoil: false },
+};
+
 export interface AddPosibleCardVariationDto {
     cardVariantType: CardVariantType;
     cardId: number;

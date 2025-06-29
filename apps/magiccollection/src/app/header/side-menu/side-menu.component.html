@@ -14,7 +14,7 @@
 <ul class="navbar-nav ml-4 mr-3">
     <ng-container *ngFor="let menu of menus">
         <li
-            class="nav-item my-2"
+            class="nav-item my-3"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: menu.exact }"
             *ngIf="needToShow(menu.showMenu)"

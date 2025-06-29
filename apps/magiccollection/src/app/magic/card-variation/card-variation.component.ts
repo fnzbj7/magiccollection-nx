@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from '../../model/card.model';
 import {
     CardVariantType,
+    defaultCardVariantType,
     MagicCardsListService,
     magicSetArray,
     PossibleCardVariationDto,
@@ -35,11 +36,7 @@ export class CardCariationComponent implements OnInit {
         this.magicSets = magicSetArray;
         this.cardSet = '';
 
-        for (const item in CardVariantType) {
-            if (isNaN(Number(item))) {
-                this.cardVariantTypes.push(item);
-            }
-        }
+        this.cardVariantTypes = Object.values(CardVariantType);
     }
 
     onCardSetChange(newValue: string) {
@@ -93,6 +90,11 @@ export class CardCariationComponent implements OnInit {
                     },
                 );
         }
+    }
+
+    onCardVariationTypeChange() {
+        this.hasNormal = defaultCardVariantType[this.cardVariantType as CardVariantType].isNormal;
+        this.hasFoil = defaultCardVariantType[this.cardVariantType as CardVariantType].isFoil;
     }
 
     private createCardPrev(cardSet: string, cardNum: string): Card {
