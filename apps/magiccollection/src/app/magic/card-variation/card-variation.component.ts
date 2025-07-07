@@ -71,10 +71,10 @@ export class CardCariationComponent implements OnInit {
     onAddPosibleCardVariation() {
         if (this.cardVariantType && this.cardId) {
             this.creationLoading = true;
+            console.log(CardVariantType, this.cardVariantType);
             this.magicCardsListService
                 .addPosibleCardVariationDto({
-                    cardVariantType:
-                        CardVariantType[this.cardVariantType as keyof typeof CardVariantType],
+                    cardVariantType: this.cardVariantType as CardVariantType,
                     cardId: this.cardId,
                     hasNormal: this.hasNormal,
                     hasFoil: this.hasFoil,
