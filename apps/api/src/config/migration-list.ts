@@ -67,6 +67,7 @@ import { addTdm1743285397428 } from '../app/migration/1743285397428-add-tdm-card
 import { CreateDraftDefinition1743285400000 } from '../app/migration/1743285400000-create-draft-definition.migration';
 import { addFin1748734040180 } from '../app/migration/1748734040180-add-fin-cards.migration';
 import { addEoe1753164600861 } from '../app/migration/1753164600861-add-eoe-cards.migration';
+import { addEos1753167298767 } from '../app/migration/1753167298767-add-eos-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -138,6 +139,7 @@ const migrationsList = [
     CreateDraftDefinition1743285400000,
     addFin1748734040180,
     addEoe1753164600861,
+    addEos1753167298767,
 ];
 
 export default migrationsList;
