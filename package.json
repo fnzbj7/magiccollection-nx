@@ -10,6 +10,7 @@
         "build:api:prod": "nx run api:build:production",
         "build:frontend": "nx build magiccollection",
         "start:build:api": "cd dist/apps/api && node ./main",
+        "start:set-sail": "ts-node apps/set-sail/src/main.ts",
         "start": "cd dist/apps/api && node ./main",
         "build": "nx run api:build:production && nx build magiccollection",
         "test": "nx test",
@@ -47,6 +48,7 @@
         "@types/passport-jwt": "^3.0.6",
         "bcrypt": "^5.0.1",
         "bootstrap": "^5.2.2",
+        "chalk": "^4.1.2",
         "class-transformer": "^0.5.1",
         "class-validator": "^0.13.2",
         "compression": "^1.7.4",
@@ -62,7 +64,7 @@
         "pixi.js": "^5.3.9",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^7.5.0",
-        "tslib": "^2.0.0",
+        "tslib": "^2.3.0",
         "typeorm": "^0.3.7",
         "zone.js": "0.13.3"
     },
@@ -110,7 +112,7 @@
         "prettier": "^2.6.2",
         "tailwindcss": "^3.2.1",
         "ts-jest": "29.0.5",
-        "ts-node": "10.9.1",
+        "ts-node": "^10.9.2",
         "typescript": "4.9.5"
     }
 }
