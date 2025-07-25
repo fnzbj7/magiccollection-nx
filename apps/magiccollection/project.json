@@ -87,7 +87,7 @@
             }
         },
         "lint": {
-            "executor": "@nrwl/linter:eslint",
+            "executor": "@nx/linter:eslint",
             "options": {
                 "lintFilePatterns": [
                     "apps/magiccollection/**/*.ts",
@@ -96,8 +96,8 @@
             }
         },
         "test": {
-            "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/apps/magiccollection"],
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/apps/magiccollection"],
             "options": {
                 "jestConfig": "apps/magiccollection/jest.config.ts",
                 "passWithNoTests": true

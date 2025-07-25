@@ -29,11 +29,11 @@ Below are our core plugins:
 -   Web (no framework frontends)
     -   `ng add @nrwl/web`
 -   [Nest](https://nestjs.com)
-    -   `ng add @nrwl/nest`
+    -   `ng add @nx/nest`
 -   [Express](https://expressjs.com)
     -   `ng add @nrwl/express`
 -   [Node](https://nodejs.org)
-    -   `ng add @nrwl/node`
+    -   `ng add @nx/node`
 
 There are also many [community plugins](https://nx.dev/community) you could add.
 

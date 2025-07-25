@@ -22,8 +22,8 @@ export class CalendarListComponent implements OnInit, AfterViewInit, OnDestroy {
     faCalendarPlus = faCalendarPlus;
 
     // CalendarView
-    daysArray = this.calendarService.daysArray;
-    monthNameArray = this.calendarService.monthNameArray;
+    daysArray: { long: string; short: string }[] = [];
+    monthNameArray: string[] = [];
 
     dummyDays: number[] = Array(28);
     currentDate!: Date;
@@ -51,6 +51,9 @@ export class CalendarListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.daysArray = this.calendarService.daysArray;
+        this.monthNameArray = this.calendarService.monthNameArray;
+
         this.userCalendarPrivilegeSub();
 
         this.initCalendar();
