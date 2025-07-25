@@ -15,6 +15,7 @@ export const magicSetArray: MagicSet[] = [
     new MagicSet('EOE', 'Edge of Eternities', 399, 2025),
     new MagicSet('EOS', 'Edge of Eternities: Stellar Sights', 180, 2025),
     new MagicSet('FIN', 'Final Fantasy', 585, 2025),
+    new MagicSet('FCA', 'Final Fantasy: Through the Ages', 64, 2025),
     new MagicSet('TDM', 'Tarkir: Dragonstorm', 455, 2025),
     new MagicSet('DFT', 'Aetherdrift', 553, 2025),
     new MagicSet('FDN', 'Foundations', 730, 2024),

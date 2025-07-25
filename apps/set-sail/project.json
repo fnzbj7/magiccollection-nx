@@ -5,35 +5,18 @@
     "projectType": "application",
     "targets": {
         "build": {
-            "executor": "@nrwl/esbuild:esbuild",
+            "executor": "@nrwl/node:webpack",
             "outputs": ["{options.outputPath}"],
             "defaultConfiguration": "production",
             "options": {
-                "platform": "node",
                 "outputPath": "dist/apps/set-sail",
-                "format": ["cjs"],
-                "bundle": false,
                 "main": "apps/set-sail/src/main.ts",
                 "tsConfig": "apps/set-sail/tsconfig.app.json",
-                "assets": ["apps/set-sail/src/assets"],
-                "generatePackageJson": true,
-                "esbuildOptions": {
-                    "sourcemap": true,
-                    "outExtension": {
-                        ".js": ".js"
-                    }
-                }
+                "assets": ["apps/set-sail/src/assets"]
             },
             "configurations": {
                 "development": {},
-                "production": {
-                    "esbuildOptions": {
-                        "sourcemap": false,
-                        "outExtension": {
-                            ".js": ".js"
-                        }
-                    }
-                }
+                "production": {}
             }
         },
         "serve": {

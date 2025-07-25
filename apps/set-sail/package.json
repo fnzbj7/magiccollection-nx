@@ -1,1 +1,6 @@
-{}
+{
+    "name": "set-sail",
+    "dependencies": {
+        "chalk": "^4.1.2"
+    }
+}
