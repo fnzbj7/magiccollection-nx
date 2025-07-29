@@ -1,12 +1,57 @@
 <div class="mt-5 mb-3 mx-auto flex justify-center">
+    <span
+        *ngIf="cardVariantType === CardVariantType.STAMPED"
+        style="
+            position: absolute;
+            top: 180px;
+            right: 10px;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 10;
+            width: 50px;
+            height: 45px;
+        "
+    >
+        <svg
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 530.000000 530.000000"
+            preserveAspectRatio="xMidYMid meet"
+        >
+            <g
+                transform="translate(0.000000,530.000000) scale(0.100000,-0.100000)"
+                fill="#9f9f9f"
+                stroke="black"
+                stroke-width="30"
+            >
+                <path
+                    d="M2640 5285 c0 -5 -5 -48 -10 -95 -5 -47 -21 -274 -35 -505 -40 -664
+-72 -1010 -120 -1290 -30 -175 -71 -336 -87 -347 -7 -4 -36 -8 -64 -8 -28 0
+-65 -3 -82 -6 l-30 -6 -20 88 c-53 225 -86 499 -162 1314 -16 179 -30 332 -31
+340 0 9 -4 6 -9 -7 -5 -12 -27 -203 -50 -425 -45 -445 -89 -807 -121 -998 -20
+-126 -75 -364 -88 -388 -4 -7 -44 -26 -89 -42 l-82 -29 -14 32 c-48 116 -102
+398 -151 792 -36 294 -50 396 -62 450 -5 29 -6 29 -14 7 -25 -68 -159 -1577
+-142 -1593 5 -4 42 -21 83 -39 344 -148 669 -431 899 -785 258 -397 398 -866
+456 -1530 9 -99 18 -188 21 -199 14 -44 26 14 44 205 67 706 208 1159 492
+1576 227 334 556 609 898 749 52 21 55 24 52 56 -30 420 -105 1274 -127 1448
+-8 63 -15 118 -15 123 0 4 -4 6 -9 3 -10 -7 -23 -87 -61 -396 -56 -449 -92
+-648 -147 -823 -20 -65 -27 -77 -41 -72 -9 4 -44 16 -77 27 -33 11 -66 26 -73
+32 -18 17 -65 213 -96 396 -33 200 -76 555 -121 1000 -20 195 -39 375 -44 400
+l-8 45 -6 -35 c-4 -19 -16 -138 -27 -265 -67 -756 -129 -1256 -174 -1405 l-13
+-45 -79 4 c-44 2 -86 7 -95 12 -10 5 -26 48 -42 116 -77 315 -120 708 -167
+1518 -23 398 -38 573 -51 595 -4 8 -9 11 -9 5z"
+                />
+            </g>
+        </svg>
+    </span>
     <picture class="magiccard">
         <source [srcset]="cardUrls.mainCardWebpUrl" type="image/webp" />
         <source [srcset]="cardUrls.mainCardPngUrl" type="image/png" />
         <img
-            class="magiccard max-w-full max-h-full"
             [src]="cardUrls.mainCardPngUrl"
-            alt=""
-            [title]="magicCard.cardNumber"
+            class="rounded-lg shadow-lg magiccard-img"
+            alt="Magic Card"
         />
     </picture>
 </div>

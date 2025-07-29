@@ -1,7 +1,10 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { CardUrls } from 'apps/magiccollection/src/app/model/card-urls.model';
-import { Card } from 'apps/magiccollection/src/app/model/card.model';
-import { MagicCardsListService } from '../../../magic-cards-list.service';
+import { CardUrls } from '@magiccollection/model/card-urls.model';
+import { Card } from '@magiccollection/model/card.model';
+import {
+    CardVariantType,
+    MagicCardsListService,
+} from '@magiccollection/magic/magic-card-list/magic-cards-list.service';
 
 @Component({
     selector: 'app-magic-card-normal',
@@ -10,7 +13,10 @@ import { MagicCardsListService } from '../../../magic-cards-list.service';
 })
 export class MagicCardNormalComponent implements OnChanges {
     @Input() magicCard!: Card;
+    @Input() cardVariantType: CardVariantType = CardVariantType.NORMAL;
     cardUrls!: CardUrls;
+
+    CardVariantType = CardVariantType;
 
     constructor(private magicCardsListService: MagicCardsListService) {}
 
