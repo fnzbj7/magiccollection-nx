@@ -38,7 +38,7 @@ export class MailService {
             html: `Itt egy link <a href="www.almateszekfoglaltvolt.hu?${emailHash}">Klikkelj ide a hitelesítéshez</a>`,
         };
         try {
-            await this.mg.messages.create(MailService.DOMAIN, data);
+            // await this.mg.messages.create(MailService.DOMAIN, data);
         } catch (error) {
             this.logger.error(error);
             throw new ServiceUnavailableException(

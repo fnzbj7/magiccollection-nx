@@ -1,40 +1,89 @@
-<div class="container">
-    <div class="flex flex-wrap justify-center">
-        <div class="card card-1">
-            <div class="tagline">Cards list</div>
-            <div class="card-headline">Are you interested in collecting cards?</div>
-            <a class="card-btn-link" [routerLink]="['/', 'cards', 'list']"
-                ><button class="card-btn">See cards</button></a
-            >
+<div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Hero Section - Only shown when not logged in -->
+    <section class="text-center mb-16 mt-8" *ngIf="!isLoggedIn">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            Üdvözöllek az oldalon!
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Ez az oldal azért jött létre, hogy segítse a Magic&reg; játékosokat a kártyagyűjtésben és a versenyek követésében.
+        </p>
+        <div class="flex gap-4 justify-center">
+            <a [routerLink]="['/', 'auth', 'login']" 
+               class="btn-primary">
+                Bejelentkezés
+            </a>
+            <a [routerLink]="['/', 'auth', 'reg']" 
+               class="btn-secondary">
+                Regisztráció
+            </a>
         </div>
-        <div class="card card-2">
-            <div class="tagline">Animation</div>
-            <div class="card-headline">Wanna see my junky animation?</div>
-            <a class="card-btn-link" [routerLink]="['/', 'animation']"
-                ><button class="card-btn">Animation</button></a
-            >
+    </section>
+
+    <!-- Feature Cards Section -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Főbb funkciók</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            <div class="card card-1">
+                <div class="tagline">Kártya lista</div>
+                <div class="card-headline">Érdekelnek a kártyák?</div>
+                <a class="card-btn-link" [routerLink]="['/', 'cards', 'list']">
+                    <button class="card-btn">Kártyák megtekintése</button>
+                </a>
+            </div>
+            <div class="card card-2">
+                <div class="tagline">Animáció</div>
+                <div class="card-headline">Szeretnél egy animációt nézni?</div>
+                <a class="card-btn-link" [routerLink]="['/', 'animation']">
+                    <button class="card-btn">Animáció</button>
+                </a>
+            </div>
+            <div class="card dark card-3">
+                <div class="tagline">Eseménynaptár</div>
+                <div class="card-headline">Szeretnéd tudni, mikor lesz a következő esemény?</div>
+                <a class="card-btn-link" [routerLink]="['/', 'calendar']">
+                    <button class="card-btn">Naptár</button>
+                </a>
+            </div>
         </div>
-        <div class="card dark card-3">
-            <div class="tagline">Event Calendar</div>
-            <div class="card-headline">Do you wanna see when will the next event happen?</div>
-            <a class="card-btn-link" [routerLink]="['/', 'calendar']"
-                ><button class="card-btn">Calendar</button></a
-            >
+    </section>
+
+    <!-- Features Info Section -->
+    <section class="bg-gray-50 rounded-lg p-8 mb-16">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Az oldal funkciói</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Kártya lista</h3>
+                <p class="text-gray-600">
+                    Böngészd át a Magic kártyák katalógusát, keress konkrét kártyákat és tekintsd meg részletes információikat.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Eseménynaptár</h3>
+                <p class="text-gray-600">
+                    Kövesd a Magic versenyek dátumait és információit, hogy soha ne maradj le egy fontos eseményről sem.
+                </p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <h1>Üdvözöllek az oldalon!</h1>
+    <!-- CTA Section - Only shown when not logged in -->
+    <section class="text-center bg-blue-600 text-white rounded-lg p-8 mb-16" *ngIf="!isLoggedIn">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Kezdd el még ma!</h2>
+        <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+            Az oldal legtöbb funkciójához regisztráció szükséges. Regisztrálj most és használd ki az összes szolgáltatást!
+        </p>
+        <div class="flex gap-4 justify-center">
+            <a [routerLink]="['/', 'auth', 'login']" 
+               class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                Bejelentkezés
+            </a>
+            <a [routerLink]="['/', 'auth', 'reg']" 
+               class="inline-block bg-gray-100 text-blue-600 hover:bg-gray-200 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                Regisztráció
+            </a>
+        </div>
+    </section>
 
-    <p class="text-red-600">Ez oldal azért jött létre, hogy segítse a Magic&reg; játékosokat</p>
-
-    <p>Az oldal legtöbb funkciójához regisztráció szükséges</p>
-    <button class="btnt btnt-blue"><a [routerLink]="['/', 'auth', 'reg']">Regisztráció</a></button>
-
-    <p class="text-green-600">Az oldalon jelenleg található egy kártya lista oldal</p>
-
-    <p>És egy versenynaptár funkció</p>
-
-    <button class="btnt btnt-blue"><a [routerLink]="['/', 'auth', 'reg']">Regisztráció</a></button>
-
+    <!-- Spacer -->
     <div class="layer1 spacer"></div>
 </div>
