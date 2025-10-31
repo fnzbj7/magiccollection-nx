@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CardType } from '../../../../model/card.model';
 import { FilterChange } from '../../../../model/filter-change.model';
-import { Subscription, take } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { MagicCardsListService } from '../../magic-cards-list.service';
 import { Store } from '@ngrx/store';
 import { CardFilterActions } from 'apps/magiccollection/src/app/state/card-filter/card-filter.actions';
@@ -12,7 +12,7 @@ import { selectCardFilter } from 'apps/magiccollection/src/app/state/app.selecto
     templateUrl: './card-type-filter.component.html',
     styleUrls: [],
 })
-export class CardTypeFilterComponent implements OnInit {
+export class CardTypeFilterComponent implements OnInit, OnDestroy {
     isAllTypeOn = true;
     isCreature = true;
     isSorcery = true;
@@ -21,16 +21,20 @@ export class CardTypeFilterComponent implements OnInit {
     isArtifact = true;
     isPlaneswalker = true;
     isLand = true;
+    private subscription?: Subscription;
 
     constructor(public magicCardsListService: MagicCardsListService, private store: Store) {}
 
     ngOnInit(): void {
-        this.store
+        this.subscription = this.store
             .select(selectCardFilter)
-            .pipe(take(1))
             .subscribe(x => {
                 this.initTypeFilterValues(x.typeFilterArr);
             });
+    }
+
+    ngOnDestroy(): void {
+        this.subscription?.unsubscribe();
     }
 
     onChangeAllType() {
@@ -45,6 +49,20 @@ export class CardTypeFilterComponent implements OnInit {
             this.isPlaneswalker =
             this.isLand =
                 this.isAllTypeOn;
+    }
+
+    onTypeButtonClick(event: MouseEvent, typeName: string, newValue: boolean) {
+        const target = event.target as HTMLElement;
+        // Check if the click was on the arrow span
+        const isArrowClick = target.getAttribute('title')?.includes('Only') || 
+                             target.textContent?.trim() === '→' ||
+                             (target.tagName === 'SPAN' && target.textContent?.trim() === '→');
+        if (isArrowClick) {
+            event.stopPropagation();
+            this.onSetOnlyType(typeName);
+        } else {
+            this.onChangeTypeFilter(typeName, newValue);
+        }
     }
 
     onChangeTypeFilter(filterChangeName: string, filterChangeTo: boolean) {
@@ -91,6 +109,28 @@ export class CardTypeFilterComponent implements OnInit {
         differenceArray = differenceArray.filter(rarity => filterArray.indexOf(rarity) < 0);
         differenceArray.forEach(rarity => {
             this.setTypeFilter(new FilterChange(rarity, false));
+        });
+    }
+
+    onSetOnlyType(typeName: string) {
+        // Turn off all types first
+        const allTypes = [
+            CardType.ARTIFACT,
+            CardType.CREATURE,
+            CardType.ENCHANTMENT,
+            CardType.INSTANT,
+            CardType.LAND,
+            CardType.PLANESWALKER,
+            CardType.SORCERY,
+            CardType.BATTLE,
+        ];
+        allTypes.forEach(type => {
+            this.store.dispatch(
+                CardFilterActions.changeTypeFilter({ 
+                    filterChangeName: type, 
+                    filterChangeTo: type === typeName 
+                })
+            );
         });
     }
 

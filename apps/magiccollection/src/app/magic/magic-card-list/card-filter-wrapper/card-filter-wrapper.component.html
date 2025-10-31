@@ -4,11 +4,39 @@
     *ngIf="isAuth"
 ></div>
 <details class="w-full" appDetails>
-    <summary class="w-fit pt-2">Filters</summary>
-    <div class="content flex gap-x-5 flex-wrap w-full px-2 pt-3 justify-between sm:justify-start">
-        <div app-card-rarity class="flex flex-col" style="gap: 6px"></div>
-        <div app-card-color-filter class="flex flex-col" style="gap: 6px"></div>
-        <div app-card-type-filter class="flex flex-col" style="gap: 6px"></div>
+    <summary class="inline-flex items-center gap-2 px-4 py-2 ml-2 bg-gray-100 hover:bg-gray-200 rounded-lg cursor-pointer transition-colors font-medium text-gray-700 border border-gray-300 w-fit mb-2">
+        <span>Filters</span>
+        <svg class="w-4 h-4 transition-transform duration-200 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </summary>
+    <div class="content w-full px-2 pt-3">
+        <!-- Filter Groups -->
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <h3 class="text-sm font-semibold text-gray-700">Rarity</h3>
+                <div app-card-rarity></div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h3 class="text-sm font-semibold text-gray-700">Color</h3>
+                <div app-card-color-filter></div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h3 class="text-sm font-semibold text-gray-700">Type</h3>
+                <div app-card-type-filter></div>
+            </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="mt-4">
+            <button
+                type="button"
+                (click)="resetAllFilters()"
+                class="px-3 py-1 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded border border-gray-300 transition-colors"
+            >
+                Reset
+            </button>
+        </div>
     </div>
 </details>
 

@@ -39,3 +39,17 @@
 .rarity-filter {
     padding-left: 20px;
 }
+
+// Rotate arrow when details is open
+details[open] summary .arrow-icon {
+    transform: rotate(180deg);
+}
+
+// Remove default summary marker
+summary {
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
