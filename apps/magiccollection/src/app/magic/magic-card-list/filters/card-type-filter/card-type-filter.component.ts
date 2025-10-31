@@ -26,67 +26,34 @@ export class CardTypeFilterComponent implements OnInit, OnDestroy {
     constructor(public magicCardsListService: MagicCardsListService, private store: Store) {}
 
     ngOnInit(): void {
-        this.subscription = this.store
-            .select(selectCardFilter)
-            .subscribe(x => {
-                this.initTypeFilterValues(x.typeFilterArr);
-            });
+        this.subscription = this.store.select(selectCardFilter).subscribe(x => {
+            this.initTypeFilterValues(x.typeFilterArr);
+        });
     }
 
     ngOnDestroy(): void {
         this.subscription?.unsubscribe();
     }
 
-    onChangeAllType() {
-        this.store.dispatch(
-            CardFilterActions.changeTypeFilters({ filterChangeTo: this.isAllTypeOn }),
-        );
-        this.isCreature =
-            this.isSorcery =
-            this.isInstant =
-            this.isEnchantment =
-            this.isArtifact =
-            this.isPlaneswalker =
-            this.isLand =
-                this.isAllTypeOn;
-    }
-
-    onTypeButtonClick(event: MouseEvent, typeName: string, newValue: boolean) {
-        const target = event.target as HTMLElement;
-        // Check if the click was on the arrow span
-        const isArrowClick = target.getAttribute('title')?.includes('Only') || 
-                             target.textContent?.trim() === '→' ||
-                             (target.tagName === 'SPAN' && target.textContent?.trim() === '→');
-        if (isArrowClick) {
-            event.stopPropagation();
-            this.onSetOnlyType(typeName);
-        } else {
-            this.onChangeTypeFilter(typeName, newValue);
-        }
-    }
-
     onChangeTypeFilter(filterChangeName: string, filterChangeTo: boolean) {
         this.store.dispatch(
             CardFilterActions.changeTypeFilter({ filterChangeName, filterChangeTo }),
         );
+        this.calculateAllTypeOn();
+    }
+
+    calculateAllTypeOn() {
         if (
-            this.isCreature === this.isSorcery &&
-            this.isSorcery === this.isInstant &&
-            this.isInstant === this.isEnchantment &&
-            this.isEnchantment === this.isArtifact &&
-            this.isArtifact === this.isPlaneswalker &&
-            this.isPlaneswalker === this.isLand
+            !this.isCreature ||
+            !this.isSorcery ||
+            !this.isInstant ||
+            !this.isEnchantment ||
+            !this.isArtifact ||
+            !this.isPlaneswalker ||
+            !this.isLand
         ) {
-            this.isAllTypeOn = this.isCreature;
-        } else if (
-            this.isCreature ||
-            this.isSorcery ||
-            this.isInstant ||
-            this.isEnchantment ||
-            this.isArtifact ||
-            this.isPlaneswalker ||
-            this.isLand
-        ) {
+            this.isAllTypeOn = false;
+        } else {
             this.isAllTypeOn = true;
         }
     }
@@ -110,6 +77,7 @@ export class CardTypeFilterComponent implements OnInit, OnDestroy {
         differenceArray.forEach(rarity => {
             this.setTypeFilter(new FilterChange(rarity, false));
         });
+        this.calculateAllTypeOn();
     }
 
     onSetOnlyType(typeName: string) {
@@ -126,12 +94,26 @@ export class CardTypeFilterComponent implements OnInit, OnDestroy {
         ];
         allTypes.forEach(type => {
             this.store.dispatch(
-                CardFilterActions.changeTypeFilter({ 
-                    filterChangeName: type, 
-                    filterChangeTo: type === typeName 
-                })
+                CardFilterActions.changeTypeFilter({
+                    filterChangeName: type,
+                    filterChangeTo: type === typeName,
+                }),
             );
         });
+    }
+
+    resetTypeFilter() {
+        // Turn on all types
+        this.store.dispatch(CardFilterActions.changeTypeFilters({ filterChangeTo: true }));
+        this.isCreature =
+            this.isSorcery =
+            this.isInstant =
+            this.isEnchantment =
+            this.isArtifact =
+            this.isPlaneswalker =
+            this.isLand =
+                true;
+        this.isAllTypeOn = true;
     }
 
     private setTypeFilter(filterChange: FilterChange) {

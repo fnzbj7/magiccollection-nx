@@ -1,0 +1,21 @@
+<button
+    type="button"
+    (click)="onPrimaryClick()"
+    [class.bg-blue-600]="isActive"
+    [class.text-white]="isActive"
+    [class.bg-gray-200]="!isActive"
+    [class.text-gray-700]="!isActive"
+    [class.border-blue-600]="isActive"
+    [class.border-gray-300]="!isActive"
+    class="inline-flex items-center rounded-full text-sm font-medium border transition-colors"
+    [title]="tooltip"
+>
+    <span class="px-3 py-1">{{ label }}</span>
+    <span
+        *ngIf="showSecondaryAction"
+        class="border-l border-current px-2 py-1 text-xs opacity-70 hover:opacity-100 transition-opacity"
+        [title]="secondaryActionTooltip"
+        (click)="onSecondaryClick($event)"
+        >⦿</span
+    >
+</button>

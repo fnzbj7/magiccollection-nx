@@ -22,11 +22,9 @@ export class CardRarityFilterComponent implements OnInit, OnDestroy {
     constructor(private magicCardsListService: MagicCardsListService, private store: Store) {}
 
     ngOnInit(): void {
-        this.subscription = this.store
-            .select(selectCardFilter)
-            .subscribe(x => {
-                this.initRarityFilterValues(x.rarityFilterArr);
-            });
+        this.subscription = this.store.select(selectCardFilter).subscribe(x => {
+            this.initRarityFilterValues(x.rarityFilterArr);
+        });
     }
 
     ngOnDestroy(): void {
@@ -37,42 +35,40 @@ export class CardRarityFilterComponent implements OnInit, OnDestroy {
         this.store.dispatch(
             CardFilterActions.changeRarityFilter({ filterChangeName, filterChangeTo }),
         );
-        if (
-            this.isCommon === this.isUncommon &&
-            this.isUncommon === this.isRare &&
-            this.isRare === this.isMythic
-        ) {
-            this.isAllRarityOn = this.isCommon;
-        } else if (this.isCommon || this.isUncommon || this.isRare || this.isMythic) {
-            this.isAllRarityOn = true;
-        }
+        this.calculateAllRarityOn();
     }
 
-    onRarityButtonClick(event: MouseEvent, rarityCode: string, newValue: boolean) {
-        const target = event.target as HTMLElement;
-        // Check if the click was on the arrow span (check if target is the arrow span or contains it)
-        const isArrowClick = target.getAttribute('title')?.includes('Only') || 
-                             target.textContent?.trim() === '→' ||
-                             (target.tagName === 'SPAN' && target.textContent?.trim() === '→');
-        if (isArrowClick) {
-            event.stopPropagation();
-            this.onSetOnlyRarity(rarityCode);
+    calculateAllRarityOn() {
+        if (!this.isCommon || !this.isUncommon || !this.isRare || !this.isMythic) {
+            this.isAllRarityOn = false;
         } else {
-            this.onChangeRarityFilter(rarityCode, newValue);
+            this.isAllRarityOn = true;
         }
     }
 
     onSetOnlyRarity(rarityCode: string) {
         // Turn off all rarities first
-        const allRarities = [CardRarity.Common, CardRarity.Uncommon, CardRarity.Rare, CardRarity.Mythic];
+        const allRarities = [
+            CardRarity.Common,
+            CardRarity.Uncommon,
+            CardRarity.Rare,
+            CardRarity.Mythic,
+        ];
         allRarities.forEach(rarity => {
             this.store.dispatch(
-                CardFilterActions.changeRarityFilter({ 
-                    filterChangeName: rarity, 
-                    filterChangeTo: rarity === rarityCode 
-                })
+                CardFilterActions.changeRarityFilter({
+                    filterChangeName: rarity,
+                    filterChangeTo: rarity === rarityCode,
+                }),
             );
         });
+    }
+
+    resetRarityFilter() {
+        // Turn on all rarities
+        this.store.dispatch(CardFilterActions.changeRarityFilters({ filterChangeTo: true }));
+        this.isCommon = this.isUncommon = this.isRare = this.isMythic = true;
+        this.isAllRarityOn = true;
     }
 
     changeAllRarityOn() {
@@ -99,6 +95,7 @@ export class CardRarityFilterComponent implements OnInit, OnDestroy {
         differenceArray.forEach(r => {
             this.setRarityFilter(new FilterChange(r, false));
         });
+        this.calculateAllRarityOn();
     }
 
     setRarityFilter(filterChange: FilterChange) {

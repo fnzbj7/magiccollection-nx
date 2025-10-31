@@ -1,107 +1,67 @@
 <div class="flex flex-wrap gap-2 items-center">
+    <app-filter-pill
+        label="Creature"
+        [isActive]="isCreature"
+        tooltip="Creature"
+        secondaryActionTooltip="Only Creatures"
+        (primaryAction)="onChangeTypeFilter('Creature', !isCreature)"
+        (secondaryAction)="onSetOnlyType('Creature')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Sorcery"
+        [isActive]="isSorcery"
+        tooltip="Sorcery"
+        secondaryActionTooltip="Only Sorcery"
+        (primaryAction)="onChangeTypeFilter('Sorcery', !isSorcery)"
+        (secondaryAction)="onSetOnlyType('Sorcery')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Instant"
+        [isActive]="isInstant"
+        tooltip="Instant"
+        secondaryActionTooltip="Only Instant"
+        (primaryAction)="onChangeTypeFilter('Instant', !isInstant)"
+        (secondaryAction)="onSetOnlyType('Instant')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Enchantment"
+        [isActive]="isEnchantment"
+        tooltip="Enchantment"
+        secondaryActionTooltip="Only Enchantment"
+        (primaryAction)="onChangeTypeFilter('Enchantment', !isEnchantment)"
+        (secondaryAction)="onSetOnlyType('Enchantment')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Artifact"
+        [isActive]="isArtifact"
+        tooltip="Artifact"
+        secondaryActionTooltip="Only Artifact"
+        (primaryAction)="onChangeTypeFilter('Artifact', !isArtifact)"
+        (secondaryAction)="onSetOnlyType('Artifact')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Planeswalker"
+        [isActive]="isPlaneswalker"
+        tooltip="Planeswalker"
+        secondaryActionTooltip="Only Planeswalker"
+        (primaryAction)="onChangeTypeFilter('Planeswalker', !isPlaneswalker)"
+        (secondaryAction)="onSetOnlyType('Planeswalker')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Land"
+        [isActive]="isLand"
+        tooltip="Land"
+        secondaryActionTooltip="Only Land"
+        (primaryAction)="onChangeTypeFilter('Land', !isLand)"
+        (secondaryAction)="onSetOnlyType('Land')"
+    ></app-filter-pill>
     <button
+        *ngIf="!isAllTypeOn"
         type="button"
-        (click)="onTypeButtonClick($event, 'Creature', !isCreature)"
-        [class.bg-blue-600]="isCreature"
-        [class.text-white]="isCreature"
-        [class.bg-gray-200]="!isCreature"
-        [class.text-gray-700]="!isCreature"
-        [class.border-blue-600]="isCreature"
-        [class.border-gray-300]="!isCreature"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Creature"
+        (click)="resetTypeFilter()"
+        class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-300 hover:bg-gray-400 text-gray-600 hover:text-gray-800 transition-colors text-sm"
+        title="Reset type filter"
     >
-        <span>Creature</span>
-        <span class="text-xs opacity-70" title="Only Creatures">→</span>
+        ×
     </button>
-    <button
-        type="button"
-        (click)="onTypeButtonClick($event, 'Sorcery', !isSorcery)"
-        [class.bg-blue-600]="isSorcery"
-        [class.text-white]="isSorcery"
-        [class.bg-gray-200]="!isSorcery"
-        [class.text-gray-700]="!isSorcery"
-        [class.border-blue-600]="isSorcery"
-        [class.border-gray-300]="!isSorcery"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Sorcery"
-        >
-            <span>Sorcery</span>
-            <span class="text-xs opacity-70" title="Only Sorcery">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onTypeButtonClick($event, 'Instant', !isInstant)"
-        [class.bg-blue-600]="isInstant"
-        [class.text-white]="isInstant"
-        [class.bg-gray-200]="!isInstant"
-        [class.text-gray-700]="!isInstant"
-        [class.border-blue-600]="isInstant"
-        [class.border-gray-300]="!isInstant"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Instant"
-    >
-        <span>Instant</span>
-        <span class="text-xs opacity-70" title="Only Instant">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onTypeButtonClick($event, 'Enchantment', !isEnchantment)"
-        [class.bg-blue-600]="isEnchantment"
-        [class.text-white]="isEnchantment"
-        [class.bg-gray-200]="!isEnchantment"
-        [class.text-gray-700]="!isEnchantment"
-        [class.border-blue-600]="isEnchantment"
-        [class.border-gray-300]="!isEnchantment"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Enchantment"
-    >
-        <span>Enchantment</span>
-        <span class="text-xs opacity-70" title="Only Enchantment">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onTypeButtonClick($event, 'Artifact', !isArtifact)"
-        [class.bg-blue-600]="isArtifact"
-        [class.text-white]="isArtifact"
-        [class.bg-gray-200]="!isArtifact"
-        [class.text-gray-700]="!isArtifact"
-        [class.border-blue-600]="isArtifact"
-        [class.border-gray-300]="!isArtifact"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Artifact"
-    >
-        <span>Artifact</span>
-        <span class="text-xs opacity-70" title="Only Artifact">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onTypeButtonClick($event, 'Planeswalker', !isPlaneswalker)"
-        [class.bg-blue-600]="isPlaneswalker"
-        [class.text-white]="isPlaneswalker"
-        [class.bg-gray-200]="!isPlaneswalker"
-        [class.text-gray-700]="!isPlaneswalker"
-        [class.border-blue-600]="isPlaneswalker"
-        [class.border-gray-300]="!isPlaneswalker"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Planeswalker"
-    >
-        <span>Planeswalker</span>
-        <span class="text-xs opacity-70" title="Only Planeswalker">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onTypeButtonClick($event, 'Land', !isLand)"
-        [class.bg-blue-600]="isLand"
-        [class.text-white]="isLand"
-        [class.bg-gray-200]="!isLand"
-        [class.text-gray-700]="!isLand"
-        [class.border-blue-600]="isLand"
-        [class.border-gray-300]="!isLand"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Land"
-    >
-        <span>Land</span>
-        <span class="text-xs opacity-70" title="Only Land">→</span>
-        </button>
 </div>

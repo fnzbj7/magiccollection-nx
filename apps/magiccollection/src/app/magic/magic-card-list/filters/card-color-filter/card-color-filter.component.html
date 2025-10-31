@@ -1,92 +1,59 @@
 <div class="flex flex-wrap gap-2 items-center">
+    <app-filter-pill
+        label="White"
+        [isActive]="isWhite"
+        tooltip="White"
+        secondaryActionTooltip="Only White"
+        (primaryAction)="onChangeColorFilter('W', !isWhite)"
+        (secondaryAction)="onSetOnlyColor('W')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Blue"
+        [isActive]="isBlue"
+        tooltip="Blue"
+        secondaryActionTooltip="Only Blue"
+        (primaryAction)="onChangeColorFilter('U', !isBlue)"
+        (secondaryAction)="onSetOnlyColor('U')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Black"
+        [isActive]="isBlack"
+        tooltip="Black"
+        secondaryActionTooltip="Only Black"
+        (primaryAction)="onChangeColorFilter('B', !isBlack)"
+        (secondaryAction)="onSetOnlyColor('B')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Red"
+        [isActive]="isRed"
+        tooltip="Red"
+        secondaryActionTooltip="Only Red"
+        (primaryAction)="onChangeColorFilter('R', !isRed)"
+        (secondaryAction)="onSetOnlyColor('R')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Green"
+        [isActive]="isGreen"
+        tooltip="Green"
+        secondaryActionTooltip="Only Green"
+        (primaryAction)="onChangeColorFilter('G', !isGreen)"
+        (secondaryAction)="onSetOnlyColor('G')"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Colorless"
+        [isActive]="isColorless"
+        tooltip="Colorless"
+        secondaryActionTooltip="Only Colorless"
+        (primaryAction)="onChangeColorFilter('C', !isColorless)"
+        (secondaryAction)="onSetOnlyColor('C')"
+    ></app-filter-pill>
     <button
+        *ngIf="!isAllColorOn"
         type="button"
-        (click)="onColorButtonClick($event, 'W', !isWhite)"
-        [class.bg-blue-600]="isWhite"
-        [class.text-white]="isWhite"
-        [class.bg-gray-200]="!isWhite"
-        [class.text-gray-700]="!isWhite"
-        [class.border-blue-600]="isWhite"
-        [class.border-gray-300]="!isWhite"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="White"
-        >
-            <span>White</span>
-            <span class="text-xs opacity-70" title="Only White">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onColorButtonClick($event, 'U', !isBlue)"
-        [class.bg-blue-600]="isBlue"
-        [class.text-white]="isBlue"
-        [class.bg-gray-200]="!isBlue"
-        [class.text-gray-700]="!isBlue"
-        [class.border-blue-600]="isBlue"
-        [class.border-gray-300]="!isBlue"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Blue"
+        (click)="resetColorFilter()"
+        class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-300 hover:bg-gray-400 text-gray-600 hover:text-gray-800 transition-colors text-sm"
+        title="Reset color filter"
     >
-            <span>Blue</span>
-            <span class="text-xs opacity-70" title="Only Blue">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onColorButtonClick($event, 'B', !isBlack)"
-        [class.bg-blue-600]="isBlack"
-        [class.text-white]="isBlack"
-        [class.bg-gray-200]="!isBlack"
-        [class.text-gray-700]="!isBlack"
-        [class.border-blue-600]="isBlack"
-        [class.border-gray-300]="!isBlack"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Black"
-    >
-        <span>Black</span>
-        <span class="text-xs opacity-70" title="Only Black">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onColorButtonClick($event, 'R', !isRed)"
-        [class.bg-blue-600]="isRed"
-        [class.text-white]="isRed"
-        [class.bg-gray-200]="!isRed"
-        [class.text-gray-700]="!isRed"
-        [class.border-blue-600]="isRed"
-        [class.border-gray-300]="!isRed"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Red"
-    >
-        <span>Red</span>
-        <span class="text-xs opacity-70" title="Only Red">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onColorButtonClick($event, 'G', !isGreen)"
-        [class.bg-blue-600]="isGreen"
-        [class.text-white]="isGreen"
-        [class.bg-gray-200]="!isGreen"
-        [class.text-gray-700]="!isGreen"
-        [class.border-blue-600]="isGreen"
-        [class.border-gray-300]="!isGreen"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Green"
-    >
-        <span>Green</span>
-        <span class="text-xs opacity-70" title="Only Green">→</span>
-        </button>
-    <button
-        type="button"
-        (click)="onColorButtonClick($event, 'C', !isColorless)"
-        [class.bg-blue-600]="isColorless"
-        [class.text-white]="isColorless"
-        [class.bg-gray-200]="!isColorless"
-        [class.text-gray-700]="!isColorless"
-        [class.border-blue-600]="isColorless"
-        [class.border-gray-300]="!isColorless"
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium border transition-colors hover:bg-blue-500 hover:text-white"
-        title="Colorless"
-    >
-        <span>Colorless</span>
-        <span class="text-xs opacity-70" title="Only Colorless">→</span>
-        </button>
+        ×
+    </button>
 </div>
