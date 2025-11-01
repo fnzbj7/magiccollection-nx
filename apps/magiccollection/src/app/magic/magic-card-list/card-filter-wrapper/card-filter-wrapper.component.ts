@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AuthenticationService } from '../../../auth/authentication.service';
 import { CardFilterActions } from '../../../state/card-filter/card-filter.actions';
@@ -16,6 +16,7 @@ export class MagicCardRarityFilterComponent implements OnInit {
     constructor(
         private authenticationService: AuthenticationService,
         private store: Store,
+        private elementRef: ElementRef,
     ) {}
 
     ngOnInit() {
@@ -26,13 +27,20 @@ export class MagicCardRarityFilterComponent implements OnInit {
 
     setPresetColor(colorCode: string) {
         // Turn off all colors first
-        const allColors = [CardColor.WHITE, CardColor.BLUE, CardColor.BLACK, CardColor.RED, CardColor.GREEN, CardColor.COLORLESS];
+        const allColors = [
+            CardColor.WHITE,
+            CardColor.BLUE,
+            CardColor.BLACK,
+            CardColor.RED,
+            CardColor.GREEN,
+            CardColor.COLORLESS,
+        ];
         allColors.forEach(color => {
             this.store.dispatch(
-                CardFilterActions.changeColorFilter({ 
-                    filterChangeName: color, 
-                    filterChangeTo: color === colorCode 
-                })
+                CardFilterActions.changeColorFilter({
+                    filterChangeName: color,
+                    filterChangeTo: color === colorCode,
+                }),
             );
         });
     }
@@ -51,23 +59,28 @@ export class MagicCardRarityFilterComponent implements OnInit {
         ];
         allTypes.forEach(type => {
             this.store.dispatch(
-                CardFilterActions.changeTypeFilter({ 
-                    filterChangeName: type, 
-                    filterChangeTo: type === typeName 
-                })
+                CardFilterActions.changeTypeFilter({
+                    filterChangeName: type,
+                    filterChangeTo: type === typeName,
+                }),
             );
         });
     }
 
     setPresetRarity(rarityCode: string) {
         // Turn off all rarities first
-        const allRarities = [CardRarity.Common, CardRarity.Uncommon, CardRarity.Rare, CardRarity.Mythic];
+        const allRarities = [
+            CardRarity.Common,
+            CardRarity.Uncommon,
+            CardRarity.Rare,
+            CardRarity.Mythic,
+        ];
         allRarities.forEach(rarity => {
             this.store.dispatch(
-                CardFilterActions.changeRarityFilter({ 
-                    filterChangeName: rarity, 
-                    filterChangeTo: rarity === rarityCode 
-                })
+                CardFilterActions.changeRarityFilter({
+                    filterChangeName: rarity,
+                    filterChangeTo: rarity === rarityCode,
+                }),
             );
         });
     }
@@ -77,5 +90,17 @@ export class MagicCardRarityFilterComponent implements OnInit {
         this.store.dispatch(CardFilterActions.changeColorFilters({ filterChangeTo: true }));
         this.store.dispatch(CardFilterActions.changeTypeFilters({ filterChangeTo: true }));
         this.store.dispatch(CardFilterActions.changeRarityFilters({ filterChangeTo: true }));
+    }
+
+    closeFilters() {
+        // Use the DetailsDirective's smooth transition to close
+        const detailsElement = this.elementRef.nativeElement.querySelector('details');
+        if (detailsElement && detailsElement.open) {
+            // Trigger a click on the summary to use the existing transition
+            const summaryElement = detailsElement.querySelector('summary');
+            if (summaryElement) {
+                summaryElement.click();
+            }
+        }
     }
 }
