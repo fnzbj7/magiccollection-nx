@@ -47,6 +47,28 @@
         (primaryAction)="onChangeColorFilter('C', !isColorless)"
         (secondaryAction)="onSetOnlyColor('C')"
     ></app-filter-pill>
+
+    <!-- Separator -->
+    <div class="w-px h-6 bg-gray-300 mx-1"></div>
+
+    <!-- Mono/Multi Colored Filters -->
+    <app-filter-pill
+        label="Mono"
+        [isActive]="isMonoColored"
+        tooltip="Mono-colored cards"
+        secondaryActionTooltip="Only Mono-colored"
+        (primaryAction)="onChangeMonoColoredFilter(!isMonoColored)"
+        (secondaryAction)="onSetOnlyMonoColored()"
+    ></app-filter-pill>
+    <app-filter-pill
+        label="Multi"
+        [isActive]="isMultiColored"
+        tooltip="Multi-colored cards"
+        secondaryActionTooltip="Only Multi-colored"
+        (primaryAction)="onChangeMultiColoredFilter(!isMultiColored)"
+        (secondaryAction)="onSetOnlyMultiColored()"
+    ></app-filter-pill>
+
     <button
         *ngIf="!isAllColorOn"
         type="button"

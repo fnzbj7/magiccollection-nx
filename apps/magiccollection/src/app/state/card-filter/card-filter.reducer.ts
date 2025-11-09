@@ -9,6 +9,8 @@ export interface CardFilterState {
     rarityFilterArr: string[];
     colorFilterArr: string[];
     typeFilterArr: string[];
+    isMonoColored: boolean;
+    isMultiColored: boolean;
 }
 
 export const initialState: CardFilterState = {
@@ -32,6 +34,8 @@ export const initialState: CardFilterState = {
         CardType.SORCERY,
         CardType.BATTLE,
     ],
+    isMonoColored: true,
+    isMultiColored: true,
 };
 
 export const cardFilterReducer = createReducer(
@@ -133,6 +137,18 @@ export const cardFilterReducer = createReducer(
                       CardType.BATTLE,
                   ]
                 : [],
+        };
+    }),
+    on(CardFilterActions.changeMonoColoredFilter, (state, { filterChangeTo }) => {
+        return {
+            ...state,
+            isMonoColored: filterChangeTo,
+        };
+    }),
+    on(CardFilterActions.changeMultiColoredFilter, (state, { filterChangeTo }) => {
+        return {
+            ...state,
+            isMultiColored: filterChangeTo,
         };
     }),
 );

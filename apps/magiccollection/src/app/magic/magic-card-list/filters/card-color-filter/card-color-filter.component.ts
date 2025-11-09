@@ -20,6 +20,8 @@ export class CardColorFilterComponent implements OnInit, OnDestroy {
     isRed = true;
     isGreen = true;
     isColorless = true;
+    isMonoColored = true;
+    isMultiColored = true;
     private subscription?: Subscription;
 
     constructor(private magicCardsListService: MagicCardsListService, private store: Store) {}
@@ -27,6 +29,8 @@ export class CardColorFilterComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.subscription = this.store.select(selectCardFilter).subscribe(x => {
             this.initColorFilterValues(x.colorFilterArr);
+            this.isMonoColored = x.isMonoColored;
+            this.isMultiColored = x.isMultiColored;
         });
     }
 
@@ -139,6 +143,8 @@ export class CardColorFilterComponent implements OnInit, OnDestroy {
     resetColorFilter() {
         // Turn on all colors
         this.store.dispatch(CardFilterActions.changeColorFilters({ filterChangeTo: true }));
+        this.store.dispatch(CardFilterActions.changeMonoColoredFilter({ filterChangeTo: true }));
+        this.store.dispatch(CardFilterActions.changeMultiColoredFilter({ filterChangeTo: true }));
         this.isWhite =
             this.isBlue =
             this.isBlack =
@@ -146,6 +152,34 @@ export class CardColorFilterComponent implements OnInit, OnDestroy {
             this.isGreen =
             this.isColorless =
                 true;
+        this.isMonoColored = true;
+        this.isMultiColored = true;
         this.isAllColorOn = true;
+    }
+
+    onChangeMonoColoredFilter(filterChangeTo: boolean) {
+        this.store.dispatch(CardFilterActions.changeMonoColoredFilter({ filterChangeTo }));
+        this.isMonoColored = filterChangeTo;
+    }
+
+    onChangeMultiColoredFilter(filterChangeTo: boolean) {
+        this.store.dispatch(CardFilterActions.changeMultiColoredFilter({ filterChangeTo }));
+        this.isMultiColored = filterChangeTo;
+    }
+
+    onSetOnlyMonoColored() {
+        // Turn on mono, turn off multi
+        this.store.dispatch(CardFilterActions.changeMonoColoredFilter({ filterChangeTo: true }));
+        this.store.dispatch(CardFilterActions.changeMultiColoredFilter({ filterChangeTo: false }));
+        this.isMonoColored = true;
+        this.isMultiColored = false;
+    }
+
+    onSetOnlyMultiColored() {
+        // Turn on multi, turn off mono
+        this.store.dispatch(CardFilterActions.changeMonoColoredFilter({ filterChangeTo: false }));
+        this.store.dispatch(CardFilterActions.changeMultiColoredFilter({ filterChangeTo: true }));
+        this.isMonoColored = false;
+        this.isMultiColored = true;
     }
 }

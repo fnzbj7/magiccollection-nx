@@ -13,5 +13,7 @@ export const CardFilterActions = createActionGroup({
         'Change Color Filters': props<{ filterChangeTo: boolean }>(),
         'Change Type Filter': props<{ filterChangeName: string; filterChangeTo: boolean }>(),
         'Change Type Filters': props<{ filterChangeTo: boolean }>(),
+        'Change Mono Colored Filter': props<{ filterChangeTo: boolean }>(),
+        'Change Multi Colored Filter': props<{ filterChangeTo: boolean }>(),
     },
 });

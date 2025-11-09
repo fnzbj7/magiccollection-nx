@@ -213,6 +213,31 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
             return false;
         });
 
+        // MONO/MULTI COLORED
+        this.filteredCardsArray = this.filteredCardsArray.filter(card => {
+            let colorArr = [];
+            if (card.colors === '') {
+                colorArr.push(CardColor.COLORLESS);
+            } else {
+                colorArr = card.colors.split(',');
+            }
+
+            const isMonoColored = colorArr.length === 1;
+            const isMultiColored = colorArr.length > 1;
+
+            // If mono filter is off, exclude mono-colored cards
+            if (!cardFilterState.isMonoColored && isMonoColored) {
+                return false;
+            }
+
+            // If multi filter is off, exclude multi-colored cards
+            if (!cardFilterState.isMultiColored && isMultiColored) {
+                return false;
+            }
+
+            return true;
+        });
+
         // TYPE
         this.filteredCardsArray = this.filteredCardsArray.filter(card => {
             const typeArr = card.types.split(',');
