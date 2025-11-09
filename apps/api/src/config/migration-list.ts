@@ -70,6 +70,7 @@ import { addEoe1753164600861 } from '../app/migration/1753164600861-add-eoe-card
 import { addEos1753167298767 } from '../app/migration/1753167298767-add-eos-cards.migration';
 import { addFca1753452626452 } from '../app/migration/1753452626452-add-fca-cards.migration';
 import { addSpm1757904458879 } from '../app/migration/1757904458879-add-spm-cards.migration';
+import { addTla1762674043496 } from '../app/migration/1762674043496-add-tla-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -144,6 +145,7 @@ const migrationsList = [
     addEos1753167298767,
     addFca1753452626452,
     addSpm1757904458879,
+    addTla1762674043496,
 ];
 
 export default migrationsList;
