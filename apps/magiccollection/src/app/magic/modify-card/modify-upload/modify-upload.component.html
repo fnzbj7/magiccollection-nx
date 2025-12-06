@@ -96,10 +96,16 @@
                         <ng-container *ngIf="card.wasF > 0; else noFoilBadgeBlock">
                             <span
                                 *ngIf="card.have <= 4"
-                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-green-500 text-white mr-1"
+                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-green-500 text-white mr-1 relative overflow-hidden"
                                 title="Bulk gyűjtemény (Bulk Collection)"
                             >
                                 <fa-icon [icon]="faBoxes" class="mr-1"></fa-icon>Bulk
+                                <!-- Yellow corner mark for shield needed -->
+                                <span
+                                    *ngIf="card.have === 4"
+                                    class="absolute -top-2 -right-2 rotate-45 w-4 h-4 bg-yellow-400"
+                                    title="Pajzs szükséges (Shield needed for 4 cards)"
+                                ></span>
                             </span>
                             <span
                                 *ngIf="card.have > 4"
@@ -119,10 +125,16 @@
                             </span>
                             <span
                                 *ngIf="card.have > 1 && card.have <= 5"
-                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-green-500 text-white mr-1"
+                                class="inline-flex items-center px-2 py-1 text-xs font-medium rounded bg-green-500 text-white mr-1 relative overflow-hidden"
                                 title="Bulk gyűjtemény (Bulk Collection)"
                             >
                                 <fa-icon [icon]="faBoxes" class="mr-1"></fa-icon>Bulk
+                                <!-- Yellow corner mark for shield needed -->
+                                <span
+                                    *ngIf="card.have === 5"
+                                    class="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rotate-45"
+                                    title="Pajzs szükséges (Shield needed for 4 cards in bulk)"
+                                ></span>
                             </span>
                             <span
                                 *ngIf="card.have > 5"
