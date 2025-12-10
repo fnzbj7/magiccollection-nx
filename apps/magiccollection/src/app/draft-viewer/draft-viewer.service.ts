@@ -1,7 +1,7 @@
 import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DraftDef } from '@pointless/api-interfaces';
+import { DraftDef, CardPick } from '@pointless/api-interfaces';
 import { map, tap } from 'rxjs';
 
 @Injectable()
@@ -56,9 +56,9 @@ export class DraftViewerService {
             players.push({
                 playerName: 'Player ' + (i + 1),
                 rounds: [
-                    { cards: this.getCardNumbers(i * 3) },
-                    { cards: this.getCardNumbers(i * 3 + 1) },
-                    { cards: this.getCardNumbers(i * 3 + 2) },
+                    { picks: this.getCardPicks(i * 3, 'TDM') },
+                    { picks: this.getCardPicks(i * 3 + 1, 'TDM') },
+                    { picks: this.getCardPicks(i * 3 + 2, 'TDM') },
                 ],
             });
         }
@@ -72,12 +72,24 @@ export class DraftViewerService {
         };
     }
 
-    // create a function which gives back a string which will contain numbers starting from i*15 + 1 and goeas to i*15+15
+    // create a function which gives back an array of CardPick starting from i*15 + 1 and goes to i*15+15
+    getCardPicks(i: number, setCode: string): CardPick[] {
+        const picks: CardPick[] = [];
+        for (let j = 1; j <= 15; j++) {
+            picks.push({
+                cardNumber: (i * 15 + j).toString(),
+                setCode: setCode,
+            });
+        }
+        return picks;
+    }
+
+    // Legacy method - kept for backward compatibility if needed
     getCardNumbers(i: number): string {
         let numbers = '';
         for (let j = 1; j <= 15; j++) {
             numbers += i * 15 + j + ' ';
         }
-        return numbers.slice(0, -1); // remove the last comma
+        return numbers.slice(0, -1); // remove the last space
     }
 }

@@ -70,15 +70,42 @@
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
             </div>
-            <textarea
-                *ngFor="let round of player.rounds; let j = index"
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleFormControlTextarea1"
-                rows="3"
-                placeholder="Your message"
-                name="card-numbers-Player{{ i }}-round{{ j }}"
-                [(ngModel)]="round.cards"
-            ></textarea>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div *ngFor="let round of player.rounds; let j = index" class="flex flex-col">
+                    <h3 class="text-lg font-semibold mb-2">Round {{ j + 1 }}</h3>
+                    <div class="flex flex-col gap-2">
+                        <div
+                            *ngFor="let pick of getPicksForRound(i, j); let k = index"
+                            class="flex gap-2 items-center"
+                        >
+                            <label class="text-sm font-medium text-gray-700 w-12 shrink-0">Pick {{ k + 1 }}:</label>
+                            <input
+                                [id]="'cardNumber-' + i + '-' + j + '-' + k"
+                                type="text"
+                                [(ngModel)]="pick.cardNumber"
+                                [name]="'cardNumber-' + i + '-' + j + '-' + k"
+                                (blur)="ensureSetCode(pick)"
+                                (keydown)="handleKeydown($event, i, j, k)"
+                                placeholder="Card #"
+                                class="flex-1 min-w-0 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            />
+                            <div class="relative w-24 shrink-0 inline-block">
+                                <select
+                                    [id]="'setCode-' + i + '-' + j + '-' + k"
+                                    [(ngModel)]="pick.setCode"
+                                    [name]="'setCode-' + i + '-' + j + '-' + k"
+                                    class="app-select w-full"
+                                >
+                                    <option [value]="cardSet.name" *ngFor="let cardSet of magicSetArray">
+                                        {{ cardSet.name }}
+                                    </option>
+                                </select>
+                                <ng-container *ngTemplateOutlet="reusableContent"></ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </details>
 
         <button class="btn-primary" [disabled]="isSaveOngoing">Submit</button>

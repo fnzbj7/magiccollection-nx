@@ -4,7 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Card } from '../../model/card.model';
 import { SwipeModel } from '../../shared/swipe/swipe.model';
 import { MagicCardsListService } from '../../magic/magic-card-list/magic-cards-list.service';
-import { DraftDef } from '@pointless/api-interfaces';
+import { DraftDef, CardPick } from '@pointless/api-interfaces';
+import { forkJoin, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface PlayerDraftPicks {
     cards: Card[];
@@ -26,11 +28,30 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
         const packIdx = +this.packSelect;
         const pickIdx = +this.pickSelect;
         if (!rounds[packIdx]) return null;
-        const split = rounds[packIdx].cards.split(this.separeator);
-        const cardId = split[pickIdx];
-        if (!cardId) return null;
-        const paddedCardId = cardId.padStart(3, '0');
-        return this.setCards.find(card => card.cardNumber === paddedCardId) || null;
+
+        const round = rounds[packIdx];
+        let cardPick: CardPick | null = null;
+
+        // Handle new format
+        if (round.picks && Array.isArray(round.picks)) {
+            cardPick = round.picks[pickIdx];
+            if (!cardPick || !cardPick.cardNumber) return null;
+        } else if (round.cards) {
+            // Handle legacy format
+            const split = round.cards.split(this.separeator);
+            const cardId = split[pickIdx];
+            if (!cardId) return null;
+            cardPick = {
+                cardNumber: cardId.trim(),
+                setCode: this.draftDef.setCode,
+            };
+        } else {
+            return null;
+        }
+
+        const paddedCardId = cardPick.cardNumber.padStart(3, '0');
+        const cards = this.cardsBySet.get(cardPick.setCode) || this.setCards;
+        return cards.find(card => card.cardNumber === paddedCardId) || null;
     }
     Arr = Array;
     draftDef!: DraftDef;
@@ -49,6 +70,7 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
     isLoading = true;
     isSwipeLoaded = false;
     setCards: Card[] = [];
+    cardsBySet: Map<string, Card[]> = new Map();
 
     separeator = ' ';
 
@@ -73,21 +95,56 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
             this.playerNames.push(pick.playerName);
         });
 
-        if (this.draftDef.playerPicks[0].rounds[0].cards.includes(' ')) {
-            this.separeator = ' ';
-        } else if (this.draftDef.playerPicks[0].rounds[0].cards.includes('\n')) {
-            this.separeator = '\n';
+        // Determine separator for legacy format
+        const firstRound = this.draftDef.playerPicks[0]?.rounds[0];
+        if (firstRound?.cards) {
+            if (firstRound.cards.includes(' ')) {
+                this.separeator = ' ';
+            } else if (firstRound.cards.includes('\n')) {
+                this.separeator = '\n';
+            }
         }
 
-        this.magicCardsListService
-            .getCardsForExpansion(undefined, this.draftDef.setCode)
-            .subscribe(cards => {
-                this.isLoading = false;
-                this.setCards = cards;
+        // Collect all unique set codes from the draft
+        const setCodes = new Set<string>();
+        setCodes.add(this.draftDef.setCode); // Always include primary set
 
-                this.getPacksForPlayer(+this.packSelect);
-                this.onFilterChange();
+        this.draftDef.playerPicks.forEach(player => {
+            player.rounds.forEach(round => {
+                if (round.picks && Array.isArray(round.picks)) {
+                    round.picks.forEach(pick => {
+                        if (pick.setCode) {
+                            setCodes.add(pick.setCode);
+                        }
+                    });
+                }
             });
+        });
+
+        // Load cards for all sets
+        const cardLoaders = Array.from(setCodes).map(setCode =>
+            this.magicCardsListService
+                .getCardsForExpansion(undefined, setCode)
+                .pipe(map(cards => ({ setCode, cards }))),
+        );
+
+        if (cardLoaders.length === 0) {
+            this.isLoading = false;
+            return;
+        }
+
+        forkJoin(cardLoaders).subscribe(results => {
+            results.forEach(({ setCode, cards }) => {
+                this.cardsBySet.set(setCode, cards);
+            });
+
+            // Set primary set cards for backward compatibility
+            this.setCards = this.cardsBySet.get(this.draftDef.setCode) || [];
+
+            this.isLoading = false;
+            this.getPacksForPlayer(+this.packSelect);
+            this.onFilterChange();
+        });
     }
 
     ngAfterViewChecked(): void {
@@ -140,19 +197,36 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
     }
 
     getPacksForPlayer(round: number) {
-        // TODO
-        // const round = 0;
-        const packs: string[][] = [];
+        const packs: Array<{ cardNumber: string; setCode: string }>[] = [];
         this.reconstructedPicksCards = [];
         this.reconstructedPicks = [];
-        // const reconstructedPicks: string[][] = [];
 
+        // Extract picks from each player's round
         this.draftDef.playerPicks.forEach(pick => {
-            const picked = pick.rounds[round].cards.split(this.separeator);
-            packs.push(picked);
+            const roundData = pick.rounds[round];
+            let playerPicks: Array<{ cardNumber: string; setCode: string }> = [];
+
+            if (roundData.picks && Array.isArray(roundData.picks)) {
+                // New format
+                playerPicks = roundData.picks.map(p => ({
+                    cardNumber: p.cardNumber,
+                    setCode: p.setCode || this.draftDef.setCode,
+                }));
+            } else if (roundData.cards) {
+                // Legacy format
+                const split = roundData.cards.split(this.separeator);
+                playerPicks = split.map(cardNumber => ({
+                    cardNumber: cardNumber.trim(),
+                    setCode: this.draftDef.setCode,
+                }));
+            }
+
+            packs.push(playerPicks);
         });
 
-        for (let pick = 0; pick < packs[round].length; pick++) {
+        // Reconstruct packs based on draft mechanics
+        const maxPicks = Math.max(...packs.map(p => p.length), 0);
+        for (let pick = 0; pick < maxPicks; pick++) {
             for (let person = 0; person < packs.length; person++) {
                 if (pick < +this.pickSelect) {
                     continue;
@@ -162,8 +236,10 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
                 if (!this.reconstructedPicks[nextPackInd]) {
                     this.reconstructedPicks[nextPackInd] = [];
                 }
-                const cardId = packs[person][pick];
-                this.reconstructedPicks[nextPackInd].push(cardId);
+                const cardPick = packs[person][pick];
+                if (cardPick && cardPick.cardNumber) {
+                    this.reconstructedPicks[nextPackInd].push(cardPick.cardNumber);
+                }
             }
         }
         this.convertToCard();
@@ -175,58 +251,90 @@ export class DraftViewerCoreComponent implements OnInit, AfterViewChecked {
 
     convertToCard() {
         this.reconstructedPicksCards = this.reconstructedPicks.map(top => {
-            return top.map(c => {
-                const card = this.setCards.find(
-                    card => card.cardNumber === c.padStart(3, '0'),
-                ) as Card;
-                return {
-                    ...card,
-                };
-            });
+            return top
+                .map(c => {
+                    const cardPick =
+                        typeof c === 'string'
+                            ? { cardNumber: c, setCode: this.draftDef.setCode }
+                            : c;
+                    const paddedCardId = cardPick.cardNumber.padStart(3, '0');
+                    const cards = this.cardsBySet.get(cardPick.setCode) || this.setCards;
+                    const card = cards.find(card => card.cardNumber === paddedCardId);
+                    return card ? { ...card } : null;
+                })
+                .filter(card => card !== null) as Card[];
         });
     }
 
     onFilterChange() {
         this.getPacksForPlayer(+this.packSelect);
 
-        const split = this.draftDef.playerPicks[+this.playerSelect].rounds[
-            +this.packSelect
-        ].cards.split(this.separeator);
+        const round = this.draftDef.playerPicks[+this.playerSelect].rounds[+this.packSelect];
+        let cardPick: CardPick | null = null;
 
-        this.selectedCard = split[+this.pickSelect];
-        this.selectedCard = this.selectedCard.padStart(3, '0');
+        if (round.picks && Array.isArray(round.picks)) {
+            cardPick = round.picks[+this.pickSelect];
+        } else if (round.cards) {
+            const split = round.cards.split(this.separeator);
+            const cardId = split[+this.pickSelect];
+            if (cardId) {
+                cardPick = {
+                    cardNumber: cardId.trim(),
+                    setCode: this.draftDef.setCode,
+                };
+            }
+        }
+
+        if (cardPick && cardPick.cardNumber) {
+            this.selectedCard = cardPick.cardNumber.padStart(3, '0');
+        } else {
+            this.selectedCard = '';
+        }
 
         this.showPackindex = this.getPackIndex(
             +this.playerSelect,
             +this.packSelect,
             +this.pickSelect,
         );
-        this.selectedCards = this.reconstructedPicksCards[this.showPackindex];
+        this.selectedCards = this.reconstructedPicksCards[this.showPackindex] || [];
 
         this.pickedCards = [];
         this.draftDef.playerPicks[+this.playerSelect].rounds
             .filter((r, index) => index <= +this.packSelect)
             .forEach((r, index) => {
+                let picks: CardPick[] = [];
+                if (r.picks && Array.isArray(r.picks)) {
+                    picks = r.picks;
+                } else if (r.cards) {
+                    picks = r.cards.split(this.separeator).map(c => ({
+                        cardNumber: c.trim(),
+                        setCode: this.draftDef.setCode,
+                    }));
+                }
+
                 if (index !== +this.packSelect) {
-                    r.cards.split(this.separeator).forEach(c => {
-                        const card = this.setCards.find(
-                            card => card.cardNumber === c.padStart(3, '0'),
-                        ) as Card;
-                        this.pickedCards.push({
-                            ...card,
-                        });
+                    picks.forEach(pick => {
+                        if (pick.cardNumber) {
+                            const paddedCardId = pick.cardNumber.padStart(3, '0');
+                            const cards = this.cardsBySet.get(pick.setCode) || this.setCards;
+                            const card = cards.find(c => c.cardNumber === paddedCardId);
+                            if (card) {
+                                this.pickedCards.push({ ...card });
+                            }
+                        }
                     });
                 } else {
-                    r.cards
-                        .split(this.separeator)
-                        .filter((_, index) => index <= +this.pickSelect)
-                        .forEach(c => {
-                            const card = this.setCards.find(
-                                card => card.cardNumber === c.padStart(3, '0'),
-                            ) as Card;
-                            this.pickedCards.push({
-                                ...card,
-                            });
+                    picks
+                        .filter((_, idx) => idx <= +this.pickSelect)
+                        .forEach(pick => {
+                            if (pick.cardNumber) {
+                                const paddedCardId = pick.cardNumber.padStart(3, '0');
+                                const cards = this.cardsBySet.get(pick.setCode) || this.setCards;
+                                const card = cards.find(c => c.cardNumber === paddedCardId);
+                                if (card) {
+                                    this.pickedCards.push({ ...card });
+                                }
+                            }
                         });
                 }
             });
