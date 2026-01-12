@@ -1,4 +1,4 @@
-import { InitTableMigration } from '../app/migration/001-init-table.migration';
+﻿import { InitTableMigration } from '../app/migration/001-init-table.migration';
 import { PrivilegeMigration } from '../app/migration/002-privilege.migration';
 import { EventPrivilegeMigration } from '../app/migration/003-event-privilege.migration';
 import { UserCalendarEventMigration } from '../app/migration/004-user_calendar_event.migration';
@@ -72,6 +72,7 @@ import { addFca1753452626452 } from '../app/migration/1753452626452-add-fca-card
 import { addSpm1757904458879 } from '../app/migration/1757904458879-add-spm-cards.migration';
 import { addTla1762674043496 } from '../app/migration/1762674043496-add-tla-cards.migration';
 import { addTle1763191533078 } from '../app/migration/1763191533078-add-tle-cards.migration';
+import { MigrateDraftPicksToStructuredFormat1765385939000 } from '../app/migration/1765385939000-migrate-draft-picks-to-structured-format.migration';
 import { addEcl1768151422890 } from '../app/migration/1768151422890-add-ecl-cards.migration';
 
 const migrationsList = [
@@ -149,6 +150,7 @@ const migrationsList = [
     addSpm1757904458879,
     addTla1762674043496,
     addTle1763191533078,
+    MigrateDraftPicksToStructuredFormat1765385939000,
     addEcl1768151422890,
 ];
 

@@ -212,12 +212,14 @@
                 <h1 class="text-3xl font-bold">Booster {{ showPackindex + 1 }}</h1>
                 <div class="flex flex-wrap justify-center">
                     <!-- HERE -->
-                    <ng-container *ngFor="let card of selectedCards; trackBy: trackCard">
+                    <ng-container
+                        *ngFor="let card of selectedCards; let i = index; trackBy: trackCard"
+                    >
                         <app-magic-card
                             [ngClass]="{
                                 'border-4 sm:border-8 border-red-700 border-double':
-                                    selectedCard === card.cardNumber,
-                                'p-1 sm:p-2': selectedCard !== card.cardNumber
+                                    selectedCardIndex === i,
+                                'p-1 sm:p-2': selectedCardIndex !== i
                             }"
                             [magicCard]="card"
                             [onlyShow]="true"
