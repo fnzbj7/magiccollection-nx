@@ -12,6 +12,7 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('ECL', 'Lorwyn Eclipsed', 408, 2026),
     new MagicSet('TLA', 'Avatar: The Last Airbender', 394, 2025),
     new MagicSet('TLE', 'Avatar: The Last Airbender Eternal', 317, 2025),
     new MagicSet('SPM', 'Marvel', 286, 2025),

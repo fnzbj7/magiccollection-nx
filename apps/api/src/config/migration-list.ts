@@ -72,6 +72,7 @@ import { addFca1753452626452 } from '../app/migration/1753452626452-add-fca-card
 import { addSpm1757904458879 } from '../app/migration/1757904458879-add-spm-cards.migration';
 import { addTla1762674043496 } from '../app/migration/1762674043496-add-tla-cards.migration';
 import { addTle1763191533078 } from '../app/migration/1763191533078-add-tle-cards.migration';
+import { addEcl1768151422890 } from '../app/migration/1768151422890-add-ecl-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -148,6 +149,7 @@ const migrationsList = [
     addSpm1757904458879,
     addTla1762674043496,
     addTle1763191533078,
+    addEcl1768151422890,
 ];
 
 export default migrationsList;
