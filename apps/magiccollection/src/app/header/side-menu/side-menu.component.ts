@@ -16,6 +16,7 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     loggedUser!: User | null;
     currentUserSub!: Subscription;
     menus!: MenuElement[];
+    menuSub!: Subscription;
 
     // Font Awesome
     faSignOutAlt = faSignOutAlt;
@@ -29,7 +30,9 @@ export class SideMenuComponent implements OnInit, OnDestroy {
         this.currentUserSub = this.authenticationService.currentUserSubject.subscribe(user => {
             this.loggedUser = user;
         });
-        this.menus = this.menuService.getMenus();
+        this.menuSub = this.menuService.getMenusSub().subscribe(menus => {
+            this.menus = menus;
+        });
     }
 
     needToShow(showMenu: ShowMenu): boolean {
@@ -52,6 +55,9 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         if (this.currentUserSub) {
             this.currentUserSub.unsubscribe();
+        }
+        if (this.menuSub) {
+            this.menuSub.unsubscribe();
         }
     }
 }

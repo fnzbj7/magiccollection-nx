@@ -45,7 +45,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
             this.needUpdate = needUpdate;
         });
         this.version = this.versionService.VERSION;
-        this.menus = this.menuService.getMenus();
+        this.menuService.getMenusSub().subscribe(menus => {
+            this.menus = menus;
+        });
     }
 
     needToShow(showMenu: ShowMenu): boolean {
