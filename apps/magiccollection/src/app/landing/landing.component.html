@@ -1,21 +1,14 @@
 <div class="container mx-auto px-4 py-8 max-w-7xl">
     <!-- Hero Section - Only shown when not logged in -->
     <section class="text-center mb-16 mt-8" *ngIf="!isLoggedIn">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Üdvözöllek az oldalon!
-        </h1>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Üdvözöllek az oldalon!</h1>
         <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Ez az oldal azért jött létre, hogy segítse a Magic&reg; játékosokat a kártyagyűjtésben és a versenyek követésében.
+            Ez az oldal azért jött létre, hogy segítse a Magic&reg; játékosokat a kártyagyűjtésben
+            és a versenyek követésében.
         </p>
         <div class="flex gap-4 justify-center">
-            <a [routerLink]="['/', 'auth', 'login']" 
-               class="btn-primary">
-                Bejelentkezés
-            </a>
-            <a [routerLink]="['/', 'auth', 'reg']" 
-               class="btn-secondary">
-                Regisztráció
-            </a>
+            <a [routerLink]="['/', 'auth', 'login']" class="btn-primary"> Bejelentkezés </a>
+            <a [routerLink]="['/', 'auth', 'reg']" class="btn-secondary"> Regisztráció </a>
         </div>
     </section>
 
@@ -26,7 +19,7 @@
             <div class="card card-1">
                 <div class="tagline">Kártya lista</div>
                 <div class="card-headline">Érdekelnek a kártyák?</div>
-                <a class="card-btn-link" [routerLink]="['/', 'cards', 'list']">
+                <a class="card-btn-link" [routerLink]="checkCardsMenu">
                     <button class="card-btn">Kártyák megtekintése</button>
                 </a>
             </div>
@@ -54,13 +47,15 @@
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">Kártya lista</h3>
                 <p class="text-gray-600">
-                    Böngészd át a Magic kártyák katalógusát, keress konkrét kártyákat és tekintsd meg részletes információikat.
+                    Böngészd át a Magic kártyák katalógusát, keress konkrét kártyákat és tekintsd
+                    meg részletes információikat.
                 </p>
             </div>
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold text-gray-800 mb-3">Eseménynaptár</h3>
                 <p class="text-gray-600">
-                    Kövesd a Magic versenyek dátumait és információit, hogy soha ne maradj le egy fontos eseményről sem.
+                    Kövesd a Magic versenyek dátumait és információit, hogy soha ne maradj le egy
+                    fontos eseményről sem.
                 </p>
             </div>
         </div>
@@ -70,15 +65,20 @@
     <section class="text-center bg-blue-600 text-white rounded-lg p-8 mb-16" *ngIf="!isLoggedIn">
         <h2 class="text-2xl md:text-3xl font-bold mb-4">Kezdd el még ma!</h2>
         <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Az oldal legtöbb funkciójához regisztráció szükséges. Regisztrálj most és használd ki az összes szolgáltatást!
+            Az oldal legtöbb funkciójához regisztráció szükséges. Regisztrálj most és használd ki az
+            összes szolgáltatást!
         </p>
         <div class="flex gap-4 justify-center">
-            <a [routerLink]="['/', 'auth', 'login']" 
-               class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+            <a
+                [routerLink]="['/', 'auth', 'login']"
+                class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+            >
                 Bejelentkezés
             </a>
-            <a [routerLink]="['/', 'auth', 'reg']" 
-               class="inline-block bg-gray-100 text-blue-600 hover:bg-gray-200 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+            <a
+                [routerLink]="['/', 'auth', 'reg']"
+                class="inline-block bg-gray-100 text-blue-600 hover:bg-gray-200 font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+            >
                 Regisztráció
             </a>
         </div>
