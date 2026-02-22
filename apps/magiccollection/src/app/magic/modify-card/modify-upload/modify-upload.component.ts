@@ -5,13 +5,6 @@ import { MagicCardsListService } from '../../magic-card-list/magic-cards-list.se
 import { AuthenticationService } from '../../../auth/authentication.service';
 import { CardWithFoil } from '../dto/foil.dto';
 import { ModifyCardDto } from '../dto/modify-card.dto';
-import {
-    faAngleDoubleRight,
-    faBoxes,
-    faHandSparkles,
-    faStar,
-    faTrash,
-} from '@fortawesome/free-solid-svg-icons';
 import { ModifyQtyEnum } from '../../../model/modify-qty.enum';
 
 @Component({
@@ -36,11 +29,6 @@ export class ModifyUploadComponent {
     filteredNewCards: PriorityList[] | null = [];
     newCards: Card[] | null = null;
     CardLayout = CardLayout;
-    faAngleDoubleRight = faAngleDoubleRight;
-    faStar = faStar;
-    faHandSparkles = faHandSparkles;
-    faBoxes = faBoxes;
-    faTrash = faTrash;
 
     constructor(
         private magicCardsListService: MagicCardsListService,

@@ -27,6 +27,7 @@ import { CardQuantityFilterComponent } from './magic-card-list/filters/card-quan
 import { CardColorFilterComponent } from './magic-card-list/filters/card-color-filter/card-color-filter.component';
 import { MagicCardBattleformComponent } from './magic-card-list/magic-card-modal/card-layouts/battleform/magic-card-battleform.component';
 import { ModifyUploadComponent } from './modify-card/modify-upload/modify-upload.component';
+import { ModifyUploadCardStateComponent } from './modify-card/modify-upload/modify-upload-card-state.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { ModifyUploadComponent } from './modify-card/modify-upload/modify-upload
         ModifyPreviewComponent,
         ModifyFormComponent,
         ModifyUploadComponent,
+        ModifyUploadCardStateComponent,
         MagicSetListComponent,
         MagicSetIconComponent,
         EmptyMagicCardComponent,
