@@ -74,6 +74,7 @@ import { addTla1762674043496 } from '../app/migration/1762674043496-add-tla-card
 import { addTle1763191533078 } from '../app/migration/1763191533078-add-tle-cards.migration';
 import { MigrateDraftPicksToStructuredFormat1765385939000 } from '../app/migration/1765385939000-migrate-draft-picks-to-structured-format.migration';
 import { addEcl1768151422890 } from '../app/migration/1768151422890-add-ecl-cards.migration';
+import { addPza1771774238067 } from '../app/migration/1771774238067-add-pza-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -152,6 +153,7 @@ const migrationsList = [
     addTle1763191533078,
     MigrateDraftPicksToStructuredFormat1765385939000,
     addEcl1768151422890,
+    addPza1771774238067,
 ];
 
 export default migrationsList;
