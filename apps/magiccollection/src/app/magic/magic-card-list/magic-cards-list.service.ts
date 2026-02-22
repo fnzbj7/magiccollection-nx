@@ -12,6 +12,7 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('TMT', 'Teenage Mutant Ninja Turtles', 320, 2026),
     new MagicSet('PZA', 'Teenage Mutant Ninja Turtles Source Material', 20, 2026),
     new MagicSet('ECL', 'Lorwyn Eclipsed', 408, 2026),
     new MagicSet('TLA', 'Avatar: The Last Airbender', 394, 2025),
