@@ -48,6 +48,7 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
     Arr = Array;
     swipeModel!: SwipeModel;
     cardFilterState!: CardFilterState;
+    isDefaultViewMode = false;
 
     _currentPage = 1;
 
@@ -84,6 +85,7 @@ export class MagicCardListComponent implements OnInit, AfterViewInit, OnDestroy 
     ngOnInit() {
         this.store.select(selectCardFilter).subscribe(cardFilterState => {
             this.cardFilterState = cardFilterState;
+            this.isDefaultViewMode = cardFilterState.isDefaultViewMode;
             this.filterCards(cardFilterState);
         });
         this.userId = this.route.snapshot.params['userId'];

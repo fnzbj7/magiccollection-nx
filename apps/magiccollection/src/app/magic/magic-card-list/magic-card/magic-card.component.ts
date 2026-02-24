@@ -13,6 +13,7 @@ import { MagicCardModalService } from '../../../shared/magic-card-modal.service'
 export class MagicCardComponent implements OnChanges {
     @Input() userId: string | undefined = undefined;
     @Input() forceShowAmount = false;
+    @Input() isDefaultViewMode = false;
     @Input() magicCard!: Card;
     @Input() onlyShow = false;
     @Input() onlyCardBack = false;
@@ -36,8 +37,16 @@ export class MagicCardComponent implements OnChanges {
                 cardAmount: this.card.cardAmount,
                 cardAmountFoil: this.card.cardAmountFoil,
                 forceShowAmount: this.forceShowAmount,
+                isDefaultViewMode: this.isDefaultViewMode,
             };
             this.setImgUrls(this.card.cardExpansion, this.card.cardNumber);
+        }
+
+        if (changes['isDefaultViewMode'] && this.magicCardAmount) {
+            this.magicCardAmount = {
+                ...this.magicCardAmount,
+                isDefaultViewMode: this.isDefaultViewMode,
+            };
         }
     }
 

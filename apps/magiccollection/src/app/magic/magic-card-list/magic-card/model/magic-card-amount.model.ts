@@ -3,4 +3,5 @@ export class MagicCardAmount {
     cardAmountFoil!: number;
     isLoggedIn!: boolean;
     forceShowAmount!: boolean;
+    isDefaultViewMode!: boolean;
 }

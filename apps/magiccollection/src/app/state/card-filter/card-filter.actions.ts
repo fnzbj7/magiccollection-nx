@@ -7,6 +7,7 @@ export const CardFilterActions = createActionGroup({
         'Change Filter': props<{ bookId: string }>(),
         'Change Filters': props<{ bookId: string }>(),
         'Change Quantity Filter': props<{ newQuantity: QuantityFilterEnum }>(),
+        'Change View Mode': props<{ isDefaultViewMode: boolean }>(),
         'Change Rarity Filter': props<{ filterChangeName: string; filterChangeTo: boolean }>(),
         'Change Rarity Filters': props<{ filterChangeTo: boolean }>(),
         'Change Color Filter': props<{ filterChangeName: string; filterChangeTo: boolean }>(),

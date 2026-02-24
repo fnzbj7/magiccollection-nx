@@ -6,6 +6,7 @@ import { CardFilterActions } from './card-filter.actions';
 
 export interface CardFilterState {
     quantityFilter: QuantityFilterEnum;
+    isDefaultViewMode: boolean;
     rarityFilterArr: string[];
     colorFilterArr: string[];
     typeFilterArr: string[];
@@ -15,6 +16,7 @@ export interface CardFilterState {
 
 export const initialState: CardFilterState = {
     quantityFilter: QuantityFilterEnum.ALL,
+    isDefaultViewMode: false,
     rarityFilterArr: [CardRarity.Common, CardRarity.Uncommon, CardRarity.Rare, CardRarity.Mythic],
     colorFilterArr: [
         CardColor.WHITE,
@@ -44,6 +46,12 @@ export const cardFilterReducer = createReducer(
         return {
             ...state,
             quantityFilter: newFilter,
+        };
+    }),
+    on(CardFilterActions.changeViewMode, (state, { isDefaultViewMode }) => {
+        return {
+            ...state,
+            isDefaultViewMode,
         };
     }),
     on(CardFilterActions.changeRarityFilter, (state, { filterChangeName, filterChangeTo }) => {

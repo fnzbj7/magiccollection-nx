@@ -14,6 +14,8 @@ import { take } from 'rxjs';
 export class CardQuantityFilterComponent implements OnInit {
     quantityEnum = QuantityFilterEnum;
     quantityFilter!: QuantityFilterEnum;
+    isDefaultViewMode = false;
+    viewModeIcon = 'assets/img/filter/view-on.svg';
 
     constructor(private authenticationService: AuthenticationService, private store: Store) {}
 
@@ -23,6 +25,7 @@ export class CardQuantityFilterComponent implements OnInit {
             .pipe(take(1))
             .subscribe(x => {
                 this.quantityFilter = x.quantityFilter;
+                this.isDefaultViewMode = x.isDefaultViewMode;
             });
         this.authenticationService.currentUserSubject.subscribe(newStatus => {
             const isAuth = newStatus !== null;
@@ -38,5 +41,18 @@ export class CardQuantityFilterComponent implements OnInit {
     onQuantityChange(newQuantity: QuantityFilterEnum) {
         this.quantityFilter = newQuantity;
         this.store.dispatch(CardFilterActions.changeQuantityFilter({ newQuantity }));
+    }
+
+    onViewModeChange() {
+        this.isDefaultViewMode = !this.isDefaultViewMode;
+
+        if (this.isDefaultViewMode) {
+            this.viewModeIcon = 'assets/img/filter/view-off.svg';
+        } else {
+            this.viewModeIcon = 'assets/img/filter/view-on.svg';
+        }
+        this.store.dispatch(
+            CardFilterActions.changeViewMode({ isDefaultViewMode: this.isDefaultViewMode }),
+        );
     }
 }

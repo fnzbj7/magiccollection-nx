@@ -10,6 +10,7 @@ export class MagicCardAmountDirective implements OnChanges {
         cardAmountFoil: 0,
         isLoggedIn: false,
         forceShowAmount: false,
+        isDefaultViewMode: false,
     };
     @Input() onlyShow = false;
     amountImg!: HTMLImageElement;
@@ -18,24 +19,31 @@ export class MagicCardAmountDirective implements OnChanges {
     constructor(private elRef: ElementRef<HTMLPictureElement>, private renderer: Renderer2) {}
 
     ngOnChanges(changes: SimpleChanges): void {
-        const { cardAmount, cardAmountFoil, isLoggedIn } = this.appMagicCardAmount;
-        const { previousValue, firstChange } = changes['appMagicCardAmount'];
+        const { cardAmount, cardAmountFoil, isDefaultViewMode, isLoggedIn, forceShowAmount } =
+            this.appMagicCardAmount;
         const cardImg: HTMLPictureElement = this.elRef.nativeElement;
+        const fullAmount = cardAmount + cardAmountFoil;
+        const shouldShowAmount = isLoggedIn || forceShowAmount;
 
         this.changeIconsIfNeeded(this.appMagicCardAmount, changes);
 
-        if (cardAmountFoil > 0) {
+        if (!isDefaultViewMode && cardAmountFoil > 0) {
             this.renderer.addClass(cardImg, 'dothefoil');
-        } else if (cardAmountFoil === 0) {
+        } else {
             this.renderer.removeClass(cardImg, 'dothefoil');
+        }
+
+        if (isDefaultViewMode || !shouldShowAmount || fullAmount > 0) {
+            this.renderer.removeClass(cardImg, 'nothave');
+        } else {
+            this.renderer.addClass(cardImg, 'nothave');
         }
     }
 
     changeIconsIfNeeded(magicCardAmount: MagicCardAmount, changes: SimpleChanges) {
-        const { cardAmount, cardAmountFoil, isLoggedIn, forceShowAmount } = magicCardAmount;
-        const { previousValue, firstChange } = changes['appMagicCardAmount'];
-        const needToChange =
-            this.amountIconVisible !== isLoggedIn || (forceShowAmount && !this.amountIconVisible);
+        const { forceShowAmount, isLoggedIn } = magicCardAmount;
+        const shouldShowAmount = isLoggedIn || forceShowAmount;
+        const needToChange = this.amountIconVisible !== shouldShowAmount;
         const cardImg: HTMLPictureElement = this.elRef.nativeElement;
 
         if (!needToChange) {
@@ -43,16 +51,16 @@ export class MagicCardAmountDirective implements OnChanges {
         }
 
         if (this.amountIconVisible) {
-            this.removeLoggedInCards(
-                cardImg,
-                previousValue.cardAmount,
-                previousValue.cardAmountFoil,
-            );
+            this.removeLoggedInCards(cardImg, changes['appMagicCardAmount'].previousValue);
         } else {
-            this.createAmountForImage(cardImg, cardAmount, cardAmountFoil);
+            this.createAmountForImage(
+                cardImg,
+                magicCardAmount.cardAmount,
+                magicCardAmount.cardAmountFoil,
+            );
         }
 
-        this.amountIconVisible = !this.amountIconVisible;
+        this.amountIconVisible = shouldShowAmount;
     }
 
     /**
@@ -76,30 +84,23 @@ export class MagicCardAmountDirective implements OnChanges {
             const cardImgParent = cardImg.parentNode;
             this.renderer.insertBefore(cardImgParent, this.amountImg, cardImg);
         } else {
-            this.renderer.addClass(cardImg, 'nothave');
+            if (!this.appMagicCardAmount.isDefaultViewMode) {
+                this.renderer.addClass(cardImg, 'nothave');
+            }
         }
     }
 
-    removeLoggedInCards(
-        cardImg: HTMLPictureElement,
-        previousAmountValue: number,
-        previousCardAmountFoil: number,
-    ) {
-        const fullAmount = previousAmountValue + previousCardAmountFoil;
-        if (this.appMagicCardAmount.isLoggedIn) {
-            if (!this.onlyShow) {
-                this.createAmountForImage(
-                    cardImg,
-                    this.appMagicCardAmount.cardAmount,
-                    this.appMagicCardAmount.cardAmountFoil,
-                );
-            }
-        } else {
-            if (fullAmount === 0) {
-                this.renderer.removeClass(this.elRef.nativeElement, 'nothave');
-            } else {
-                this.renderer.removeChild(cardImg.parentNode, this.amountImg);
-            }
+    removeLoggedInCards(cardImg: HTMLPictureElement, previousMagicCardAmount: MagicCardAmount) {
+        const fullAmount =
+            previousMagicCardAmount.cardAmount + previousMagicCardAmount.cardAmountFoil;
+
+        if (fullAmount === 0) {
+            this.renderer.removeClass(this.elRef.nativeElement, 'nothave');
+            return;
+        }
+
+        if (this.amountImg && cardImg.parentNode) {
+            this.renderer.removeChild(cardImg.parentNode, this.amountImg);
         }
     }
 }

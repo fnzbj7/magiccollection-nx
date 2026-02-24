@@ -1,5 +1,14 @@
 <div class="d-inline-block tooltip-w3 pointer">
     <img
+        [src]="viewModeIcon"
+        (click)="onViewModeChange()"
+        [ngClass]="{ selected: isDefaultViewMode }"
+        class="quantity-img"
+    />
+    <span class="left left-md tooltiptext-w3">View Mode</span>
+</div>
+<div class="d-inline-block tooltip-w3 pointer">
+    <img
         src="/assets/img/filter/card-all.svg"
         (click)="onQuantityChange(quantityEnum.ALL)"
         [ngClass]="{ selected: quantityFilter === quantityEnum.ALL }"
