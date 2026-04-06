@@ -1,13 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CardLayout } from '../../../model/card.model';
 import { PriorityList } from '../dto/card-quantity.model';
-import {
-    faAngleDoubleRight,
-    faBoxes,
-    faHandSparkles,
-    faStar,
-    faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+import { faBoxes, faHandSparkles, faStar, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-modify-upload-card-state',
@@ -18,7 +12,6 @@ export class ModifyUploadCardStateComponent {
     @Input() cardSet!: string;
 
     CardLayout = CardLayout;
-    faAngleDoubleRight = faAngleDoubleRight;
     faStar = faStar;
     faHandSparkles = faHandSparkles;
     faBoxes = faBoxes;

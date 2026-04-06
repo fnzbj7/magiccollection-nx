@@ -1,0 +1,16 @@
+<div class="flex flex-col mx-1 align-items-center">
+    <div class="inline tooltip-w3 text-center">
+        <img class="w-10 m-auto" [src]="imageSrc" [ngClass]="{ 'opacity-25': was === have }" />
+        <span
+            class="top tooltiptext-w3"
+            [ngClass]="{ right: tooltipSide === 'right', left: tooltipSide === 'left' }"
+            >{{ tooltip }}</span
+        >
+    </div>
+    <div class="flex justify-center gap-1">
+        <ng-container *ngIf="was !== have">
+            {{ was }} <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
+        </ng-container>
+        {{ have }}
+    </div>
+</div>

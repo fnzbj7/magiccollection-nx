@@ -17,7 +17,7 @@
     >
         Megmutatni az új kártyákat
     </button>
-    <div *ngIf="filteredNewCards" class="flex flex-wrap">
+    <div *ngIf="filteredNewCards" class="flex flex-wrap justify-center">
         <app-modify-upload-card-state
             *ngFor="let card of filteredNewCards"
             [card]="card"
