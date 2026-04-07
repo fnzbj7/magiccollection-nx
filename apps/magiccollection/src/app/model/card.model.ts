@@ -20,7 +20,9 @@ export enum CardLayout {
     AFTERMATH = 'aftermath',
     SAGA = 'saga',
     SPLIT = 'split',
-
+    REVERSIBLE_CARD = 'reversible_card',
+    MODAL_DFC = 'modal_dfc',
+    BATTLEFORM = 'battleform',
     NONE = 'none',
 }
 
