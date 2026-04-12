@@ -76,6 +76,7 @@ import { MigrateDraftPicksToStructuredFormat1765385939000 } from '../app/migrati
 import { addEcl1768151422890 } from '../app/migration/1768151422890-add-ecl-cards.migration';
 import { addPza1771774238067 } from '../app/migration/1771774238067-add-pza-cards.migration';
 import { addTmt1771776839597 } from '../app/migration/1771776839597-add-tmt-cards.migration';
+import { addSoa1776021815797 } from '../app/migration/1776021815797-add-soa-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -156,6 +157,7 @@ const migrationsList = [
     addEcl1768151422890,
     addPza1771774238067,
     addTmt1771776839597,
+    addSoa1776021815797,
 ];
 
 export default migrationsList;
