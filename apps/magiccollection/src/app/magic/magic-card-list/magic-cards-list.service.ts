@@ -12,6 +12,7 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('SOS', 'Secrets of Strixhaven', 368, 2026),
     new MagicSet('SOA', 'Secrets of Strixhaven Mystical Archive', 195, 2026),
     new MagicSet('TMT', 'Teenage Mutant Ninja Turtles', 320, 2026),
     new MagicSet('PZA', 'Teenage Mutant Ninja Turtles Source Material', 20, 2026),
