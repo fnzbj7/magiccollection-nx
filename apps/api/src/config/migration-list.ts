@@ -81,6 +81,7 @@ import { addSos1776021697230 } from '../app/migration/1776021697230-add-sos-card
 import { addMsh1781671242916 } from '../app/migration/1781671242916-add-msh-cards.migration';
 import { addHob1786310703194 } from '../app/migration/1786310703194-add-hob-cards.migration';
 import { addFra1790195267076 } from '../app/migration/1790195267076-add-fra-cards.migration';
+import { addTrk1793960893450 } from '../app/migration/1793960893450-add-trk-cards.migration';
 
 const migrationsList = [
     InitTableMigration,
@@ -166,6 +167,7 @@ const migrationsList = [
     addMsh1781671242916,
     addHob1786310703194,
     addFra1790195267076,
+    addTrk1793960893450,
 ];
 
 export default migrationsList;

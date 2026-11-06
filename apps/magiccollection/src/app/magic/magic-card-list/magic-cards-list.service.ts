@@ -12,6 +12,7 @@ import { MagicSet } from './model/magic-set.model';
 import { MagicSetYearBlock } from './model/magic-set-year-block.model';
 
 export const magicSetArray: MagicSet[] = [
+    new MagicSet('TRK', 'Star Trek', 1706, 2026),
     new MagicSet('FRA', 'Reality Fracture', 461, 2026),
     new MagicSet('HOB', 'The Hobbit', 321, 2026),
     new MagicSet('MSH', 'Marvel Super Heroes', 454, 2026),
